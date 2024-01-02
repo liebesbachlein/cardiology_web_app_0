@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&display=swap');
+
+
+
+:root {
+    --header-color: #FFFFFF;
+    --header-color-active: #FFFFFF;
+    --body-color: #FFFFFF;
+    --component-accent-color1: #FE5353;
+    --component-accent-color2: #219CC4;
+    --text-accent-color1: #FE5353;
+    --text-accent-color2: #219CC4;
+    --plain-text-font: 'El Messiri', sans-serif;
+    --subheading-font: 'El Messiri', sans-serif;
+    --heading-font: 'El Messiri', sans-serif;
+    --detail-font: 'El Messiri', sans-serif;
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semi-bold: 600;
+    --weight-bold: 700;
+    --details-font-size: 16px;
+    --long-paragraph-font-size: 16px;
+    --short-paragraph-font-size: 17px;
+    --subheading-font-size: 20px;
+    --heading-font-size: 24px;
+  }
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+h1 {
+    font-size: var(--heading-font-size);
+    font-family: var(--heading-font);
+    font-weight: 700;
+    color: #000;
+}
+
+h3 {
+    font-size: var(--subheading-font-size);
+    font-family: var(--subheading-font);
+    font-weight: 600;
+    color: #000;
+}
+
+h4 {
+    font-size: var(--short-paragraph-font-size);
+    font-family: var(--subheading-font);
+    font-weight: 400;
+    color: #000;
+}
+
+p {
+    font-size: var(--long-paragraph-font-size);
+    font-family: var(--plain-text-font);
+    font-weight: 400;
+    color: #000;
+}
+
+router-link {
+    color: red;
+}
