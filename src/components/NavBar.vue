@@ -1,5 +1,3 @@
-
-
 <template>
   <div class="navbar">
   <div class="navbar-block">
@@ -48,6 +46,7 @@ export default {
   top: 0;
   width: 100%;
   height: 80px;
+  z-index: 10;
 }
 
 .navbar-block {

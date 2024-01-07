@@ -8,6 +8,7 @@
     --body-color: #FFFFFF;
     --component-accent-color1: #FE5353;
     --component-accent-color2: #219CC4;
+    --component-grey-color: #C4C4C4;
     --text-accent-color1: #FE5353;
     --text-accent-color2: #219CC4;
     --plain-text-font: 'El Messiri', sans-serif;
@@ -19,18 +20,17 @@
     --weight-semi-bold: 600;
     --weight-bold: 700;
     --details-font-size: 16px;
+
+    --heading-font-size: 24px;
     --long-paragraph-font-size: 16px;
     --short-paragraph-font-size: 17px;
     --subheading-font-size: 20px;
-    --heading-font-size: 24px;
-  }
+}
 
 * {
     box-sizing: border-box;
-}
-
-body {
     margin: 0;
+    padding: 0;
 }
 
 h1 {
@@ -63,4 +63,11 @@ p {
 
 router-link {
     color: red;
+}
+
+.header-top {
+    display: inline-block;
+    text-align: center;
+    border-top: 2px solid var(--component-accent-color1);
+    padding: 12px;
 }
