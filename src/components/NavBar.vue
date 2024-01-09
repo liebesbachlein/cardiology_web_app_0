@@ -8,19 +8,19 @@
   
     <div class="navbar-in-block">
       <div class="navbar-item">
-        <router-link to="/about">О нас</router-link>
+        <router-link to="/about/">О нас</router-link>
       </div>
     
       <div class="navbar-item">
-        <router-link to="/about">Новости</router-link>
+        <router-link to="/news/">Новости</router-link>
       </div>
     
       <div class="navbar-item">
-        <router-link to="/about">Специалистам</router-link>
+        <router-link to="/about/">Специалистам</router-link>
       </div>
 
       <div class="navbar-item">
-        <router-link to="/about">Пациентам</router-link>
+        <router-link to="/about/">Пациентам</router-link>
       </div>
     </div>
   </div>

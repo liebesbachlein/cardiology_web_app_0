@@ -1,12 +1,10 @@
 <template>
-  <div class="about">
-    <h1>About</h1>
-    <h1>About</h1>
-    <h1>About</h1>
-    <h1>About</h1>
-    <h1>About</h1>
-    <h1>About</h1>
-        
+  <div class="site-content">
+    <div class="site-content-in">
+      <div class="about">
+
+      </div>
+    </div>
   </div>
 </template>
 

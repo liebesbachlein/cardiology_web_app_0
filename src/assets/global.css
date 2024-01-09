@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:ital@1&family=Viaoda+Libre&family=El+Messiri:wght@400;500;600;700&display=swap');
 
 :root {
     --header-color: #FFFFFF;
@@ -15,6 +13,8 @@
     --subheading-font: 'El Messiri', sans-serif;
     --heading-font: 'El Messiri', sans-serif;
     --detail-font: 'El Messiri', sans-serif;
+    --cursive-font: 'Philosopher', sans-serif;
+    --news-title-font: 'Viaoda Libre', serif;
     --weight-regular: 400;
     --weight-medium: 500;
     --weight-semi-bold: 600;
@@ -55,7 +55,7 @@ h4 {
 }
 
 p {
-    font-size: var(--long-paragraph-font-size);
+    font-size: 1.0625rem;
     font-family: var(--plain-text-font);
     font-weight: 400;
     color: #000;
