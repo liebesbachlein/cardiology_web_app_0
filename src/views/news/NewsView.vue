@@ -35,9 +35,9 @@
                     
                 </div>
             </div>
-            <div class="load-more-box">
-                <div v-if="isLoadMore" class="load-more" @click="loadMore">
-                    <h3>Загрузить еще</h3>
+            <div class="blue-button-box">
+                <div v-if="isLoadMore" class="blue-button" @click="loadMore">
+                    <h4>Загрузить еще</h4>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
 <script>
 import ChevronRight from '@/components/ChevronRight.vue';
 import NewsShort from './NewsShort.vue';
-import SideBarHeadings from './SideBarHeadings.vue';
+import SideBarHeadings from '@/components/SideBarHeadings.vue';
 import Footer from '@/components/Footer.vue';
 import NewsAbout from './NewsAbout.vue';
 import { ref, computed } from 'vue';
@@ -208,18 +208,18 @@ export default {
     width: 100%;
     height: auto;
     border: 2px solid var(--component-accent-color2);
-    padding: 3rem 1rem 2.5rem 1.25rem;
+    padding: 3rem 1rem 0.5rem 1.25rem;
     border-radius: 1.5rem;
 }
 
-.load-more-box {
+.blue-button-box {
     display: block;
     margin-bottom: 6rem;
     height: 3.76rem;
     width: 100%;
 }
 
-.load-more {
+.blue-button {
     cursor: pointer;
     margin: 0 auto;
     display: flex;
@@ -231,9 +231,14 @@ export default {
     justify-content: center;
 }
 
-.load-more h3 {
+.blue-button h4 {
     color: #FFF;
-    font-weight: 500;
+    font-weight: 400;
+}
+
+.blue-button h3 {
+    color: #FFF;
+    font-weight: 400;
 }
 
 </style>

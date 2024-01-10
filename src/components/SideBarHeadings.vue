@@ -24,10 +24,10 @@ export default {
 
 .sidebarheading {
     display: inline-flex;
-    
+    margin-bottom: 1.5rem;
 }
 
-.side-word {
+.sidebarheading .side-word {
     display: inline-block;
     position: relative;
     bottom: 0.5rem;

@@ -8,7 +8,7 @@
   
     <div class="navbar-in-block">
       <div class="navbar-item">
-        <router-link to="/about/">О нас</router-link>
+        <router-link :to="{name: 'AboutView', params: {id: 1}}">О нас</router-link>
       </div>
     
       <div class="navbar-item">
@@ -16,7 +16,7 @@
       </div>
     
       <div class="navbar-item">
-        <router-link to="/about/">Специалистам</router-link>
+        <router-link to="/specialists/1">Специалистам</router-link>
       </div>
 
       <div class="navbar-item">

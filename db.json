@@ -1,4 +1,19 @@
 {
+    "sp-resources": [
+        {
+            "id": 1,
+            "text": "Консенсус: «Рекомендации Европейского общества по гипертонии для офисного и внеофисного измерения артериального давления» (RU)",
+            "label": "consensus_ru.pdf", 
+            "url": "/sp_resources/consensus_ru.pdf"
+        }, 
+
+        {
+            "id": 2,
+            "text": "Консенсус: «Рекомендации Европейского общества по гипертонии для офисного и внеофисного измерения артериального давления» (RU)",
+            "label": "consensus_ru.pdf", 
+            "url": "/sp_resources/consensus_ru.pdf"
+        }
+    ],
     "news-posts": [
         {
             "id": "regionalnya-cardio-shkola-v-goroge-shymkent",

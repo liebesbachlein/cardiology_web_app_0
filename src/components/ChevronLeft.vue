@@ -30,7 +30,8 @@ export default {
     border-right: 2px solid var(--component-accent-color1);
     transform: rotate(135deg);
     right: 3px;
-    top: 0px
+    top: 0px;
+    left: 5px;
 }
 
 .chevron-left-col2 {
@@ -51,7 +52,8 @@ export default {
     border-right: 2px solid var(--component-accent-color2);
     transform: rotate(135deg);
     right: 3px;
-    top: 0px
+    top: 0px;
+    left: 5px;
 }
 
 </style>

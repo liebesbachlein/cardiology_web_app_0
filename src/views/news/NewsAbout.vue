@@ -58,7 +58,7 @@
 
 <script>
 import ChevronRight from '@/components/ChevronRight.vue';
-import SideBarHeadings from './SideBarHeadings.vue';
+import SideBarHeadings from '@/components/SideBarHeadings.vue';
 import Footer from '@/components/Footer.vue';
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
@@ -101,24 +101,6 @@ export default {
     margin-top: 100px;
 }
 
-.breadcrumbs-box {
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    margin: 1rem 0;
-}
-
-.breadcrumb-past {
-    display: inline-block;
-    padding-right: 2rem;
-}
-
-.breadcrumb-now {
-    display: inline-block;
-    padding-left: 2rem;
-}
-
 .breadcrumb-past a {
     font-size: var(--subheading-font-size);
     font-family: var(--subheading-font);
@@ -150,33 +132,6 @@ export default {
     font-size: var(--subheading-font-size);
     font-family: var(--subheading-font);
     text-decoration: none;
-}
-
-
-.newsfeed-box {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.newsfeed-timeline {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-}
-
-.newsfeed-side {
-    width: 22%;
-    margin: 3rem 0;
-}
-
-.newsfeed-side-box {
-    display: inline-block;
-    width: 100%;
-    height: auto;
-    border: 2px solid var(--component-accent-color2);
-    padding: 3rem 1rem 2.5rem 1.25rem;
-    border-radius: 1.5rem;
 }
 
 .news-about-title {

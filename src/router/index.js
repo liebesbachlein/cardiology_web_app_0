@@ -3,6 +3,7 @@ import HomeView from '../views/home/HomeView.vue'
 import AboutView from '../views/about/AboutView.vue'
 import NewsView from '../views/news/NewsView.vue'
 import NewsAbout from '../views/news/NewsAbout.vue'
+import SpecialistsView from '../views/specialists/SpecialistsView.vue'
 
 const routes = [
   {
@@ -12,7 +13,7 @@ const routes = [
     
   },
   {
-    path: '/about',
+    path: '/about/:id',
     name: 'AboutView',
     component: AboutView
   },
@@ -25,7 +26,20 @@ const routes = [
     path: '/news/:id', 
     name: 'NewsAbout',
     component: NewsAbout,
-  }
+  }, 
+  {
+    path: '/about',
+    redirect: '/about/1'
+  }, 
+  {
+    path: '/specialists/:id',
+    name: 'SpecialistsView',
+    component: SpecialistsView
+  },
+  {
+    path: '/specialists',
+    redirect: '/specialists/1'
+  }, 
 ]
 
 const router = createRouter({
