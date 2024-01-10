@@ -1,5 +1,6 @@
 <template>
-    <form class="education" @submit.prevent="handleSubmit">
+  <div class="education">
+    <form @submit.prevent="handleSubmit">
       <label>Email:</label>
       <input type="email" v-model="email" required>
   
@@ -7,17 +8,6 @@
       <input type="password" v-model="password" required>
       <div v-if="passwordError" class="error">{{ passwordError }}</div>
   
-      <label>Role:</label>
-      <select v-model="role">
-        <option value="developer">Web Developer</option>
-        <option value="designer">Web Designer</option>
-      </select>
-  
-      <label>Skills (press alt + comma to add):</label>
-      <input type="text" v-model="tempSkill" @keyup.alt="addSkill">
-      <div v-for="skill in skills" :key="skill" class="pill">
-        <span @click="deleteSkill(skill)">{{ skill }}</span>
-      </div>
   
       <div class="terms">
         <input type="checkbox" v-model="terms" required>
@@ -28,6 +18,7 @@
         <button>Create an Account</button>
       </div>
     </form>
+  </div>
   </template>
   
   <script>
@@ -44,19 +35,6 @@
       }
     },
     methods: {
-      addSkill($event) {
-        if($event.key === ',' && this.tempSkill) {
-          if (!this.skills.includes(this.tempSkill)) {
-            this.skills.push(this.tempSkill)
-          }
-          this.tempSkill = ''
-        }
-      },
-      deleteSkill(skill) {
-        this.skills = this.skills.filter(item => {
-          return skill !== item
-        })
-      },
       handleSubmit() {
         // validate password
         this.passwordError = this.password.length > 5 ?
@@ -77,7 +55,7 @@
   
   <style>
     
-    form.education {
+.education form {
       max-width: 420px;
       margin: 30px 0 30px 0;
       background: white;
@@ -86,16 +64,18 @@
       border-radius: 10px;
     }
 
-    label {
-      color: #aaa;
+    .education label {
+      font-family: var(--plain-text-font);
+      color: var(--text-accent-color2);
       display: inline-block;
       margin: 25px 0 15px;
-      font-size: 0.6em;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      font-weight: bold;
+      font-weight: 400;
     }
-    input, select {
+    
+    .education input, select {
       display: block;
       padding: 10px 6px;
       width: 100%;
@@ -104,14 +84,14 @@
       border-bottom: 1px solid #ddd;
       color: #555;
     }
-    input[type="checkbox"] {
+    .education input[type="checkbox"] {
       display: inline-block;
       width: 16px;
       margin: 0 10px 0 0;
       position: relative;
       top: 2px;
     }
-    .pill {
+    .education .pill {
       display: inline-block;
       margin: 20px 10px 0 0;
       padding: 6px 12px;
@@ -123,7 +103,7 @@
       color: #777;
       cursor: pointer;
     }
-    button {
+    .education button {
       background: #0b6dff;
       border: 0;
       padding: 10px 20px;
@@ -131,10 +111,10 @@
       color: white;
       border-radius: 20px;
     }
-    .submit {
+    .education .submit {
       text-align: center;
     }
-    .error {
+    .education .error {
       color: #ff0062;
       margin-top: 10px;
       font-size: 0.8em;
