@@ -28,7 +28,7 @@
 
         <div class="blue-button-box" style="margin: 2rem 0 0 0;">
                 <div class="blue-button" @click="requestMembership">
-                    <h3>Подать заявку</h3>
+                    <h4>Подать заявку</h4>
                 </div>
         </div>
 

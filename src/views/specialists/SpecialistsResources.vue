@@ -98,10 +98,6 @@ export default {
     padding: 1.5rem 1.5rem 0 0;
 }
 
-.links li {
-
-}
-
 .links-box a {
     font-size: 1.0625rem;
     font-family: var(--plain-text-font);

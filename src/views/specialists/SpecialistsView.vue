@@ -17,7 +17,7 @@
         <div class="specialists-box">
           <div class="specialists-side">
             <div class="specialists-side-box">
-              <router-link :to="{name: 'SpecialistsView', params: {id: 2}}">
+              <router-link :to="{name: 'SpecialistsView', params: {id: 1}}">
                 <SideBarHeadingsNoUrl heading="Членство" :isActive="pageNum == 1" @about-nav-click="pageNum = 1"/>
               </router-link>
               <router-link :to="{name: 'SpecialistsView', params: {id: 2}}">
@@ -103,7 +103,7 @@
     display: inline-block;
     width: 100%;
     height: auto;
-    border: 2px solid var(--component-accent-color2);
+    border: 1px solid var(--component-accent-color2);
     padding: 1.5rem 1rem 1rem 1.25rem;
     border-radius: 1.5rem;
   }

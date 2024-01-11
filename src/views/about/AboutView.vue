@@ -105,7 +105,7 @@ export default {
   display: inline-block;
   width: 100%;
   height: auto;
-  border: 2px solid var(--component-accent-color2);
+  border: 1px solid var(--component-accent-color2);
   padding: 1.5rem 1rem 1rem 1.25rem;
   border-radius: 1.5rem;
 }
