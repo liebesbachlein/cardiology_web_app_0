@@ -28,8 +28,8 @@
                     </div>
                     <div class="newsfeed-side">
                         <div class="newsfeed-side-box">
-                            <SideBarHeadings heading="Подписаться на рассылку" url="/about"/>
-                            <SideBarHeadings heading="Стать членом Общества" url="/about"/>
+                            <SideBarHeadings heading="Записаться на обучение" url="/specialists/education"/>
+                            <SideBarHeadings heading="Стать членом Общества" url="/membership-request"/>
                         </div> 
                     </div>
                     

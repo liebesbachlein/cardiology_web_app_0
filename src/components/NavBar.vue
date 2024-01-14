@@ -20,7 +20,7 @@
       </div>
 
       <div class="navbar-item">
-        <router-link to="/about/">Пациентам</router-link>
+        <router-link to="/patients/1">Пациентам</router-link>
       </div>
     </div>
   </div>
@@ -29,14 +29,6 @@
 
 </template>
 
-<script>
-export default {
-
-  setup() {
-  }
-
-}
-</script>
 
 <style>
 

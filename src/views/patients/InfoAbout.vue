@@ -8,7 +8,7 @@
                     </div>
                     <ChevronRight color="blue"/>
                     <div class="breadcrumb-now">
-                        <router-link to="/news">Новости</router-link>
+                        <router-link to="/patients/1">Пациентам</router-link>
                     </div>
                     <ChevronRight color="blue"/>
                 </div>
@@ -34,7 +34,7 @@
                                     </div>
 
                                     <div class="news-about-image">
-                                        <img :src="'news_posters/' + newsItem.imgSrc">
+                                        <img :src="'info_posters/' + newsItem.imgSrc">
                                     </div> 
                                     
                                     <div class="news-about-content">
@@ -64,7 +64,7 @@ import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 
 export default {
-    name: "InfoAbout",
+    name: "NewsAbout",
     components: {ChevronRight,  SideBarHeadings, Footer},
     setup() { 
     const newsItem = ref(null)
@@ -74,7 +74,7 @@ export default {
     const load = async () => {
       try {
         const id = route.params.id
-        let data = await fetch('http://localhost:3000/news-posts/' + id)
+        let data = await fetch('http://localhost:3000/info-posts/' + id)
         if(!data.ok) {
           throw Error('no available data')
         } 

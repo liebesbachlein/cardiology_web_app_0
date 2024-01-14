@@ -2,68 +2,85 @@
   <div class="education">
     <form @submit.prevent="handleSubmit">
       <div class="upper-form">
-        <label class="error-label" v-if="errorName">Введите полное ФИО</label>
-        <label class="regular-label" v-else>Полное ФИО</label>
-        <input class="regular-input" type="text" v-model="name" :class="{'error-input': errorName}" required>
+        <label class="error-label" v-if="errorName">Введите ФИО</label>
+        <label class="success-label" v-else-if="submitSuccess">ФИО</label>
+        <label class="regular-label" v-else>ФИО</label>
+        <input :readonly="submitSuccess" class="regular-input" type="text" v-model="name" :class="errorName  ? 'error-input' : submitSuccess ? 'success-input' : ''" required>
 
         <label  class="error-label" v-if="errorEmail">Введите email</label>
+        <label class="success-label" v-else-if="submitSuccess">Email</label>
         <label class="regular-label" v-else>Email</label>
-        <input class="regular-input" :class="{'error-input': errorEmail}" type="email" v-model="email" required>
+        <input :readonly="submitSuccess" class="regular-input" :class="errorEmail  ? 'error-input' : submitSuccess ? 'success-input' : ''" type="email" v-model="email" required>
 
         <label class="error-label" v-if="errorPhoneNumber">Введите контактный телефон</label>
+        <label class="success-label" v-else-if="submitSuccess">Контактный телефон</label>
         <label class="regular-label" v-else>Контактный телефон</label>
-        <input class="regular-input" :class="{'error-input': errorPhoneNumber}" type="tel" v-model="phoneNumber" required>
+        <input :readonly="submitSuccess" class="regular-input" :class="errorPhoneNumber  ? 'error-input' : submitSuccess ? 'success-input' : ''" type="tel" v-model="phoneNumber" required>
         
         <label  class="error-label" v-if="errorSpeciality">Введите специальность</label>
+        <label class="success-label" v-else-if="submitSuccess">Специальность</label>
         <label  class="regular-label" v-else>Специальность</label>
-        <input class="regular-input" :class="{'error-input': errorSpeciality}" type="text" v-model="speciality" required>
+        <input :readonly="submitSuccess" class="regular-input" :class="errorSpeciality  ? 'error-input' : submitSuccess ? 'success-input' : ''" type="text" v-model="speciality" required>
 
         <label   class="error-label" v-if="errorCity">Введите город</label>
+        <label class="success-label" v-else-if="submitSuccess">Город</label>
         <label  class="regular-label" v-else>Город</label>
-        <input class="regular-input" :class="{'error-input': errorCity}" type="text" v-model="city" required>
+        <input :readonly="submitSuccess" class="regular-input" :class="errorCity  ? 'error-input' : submitSuccess ? 'success-input' : ''" type="text" v-model="city" required>
 
         <label  class="error-label" v-if="errorJobPlace">Введите место работы</label>
+        <label class="success-label" v-else-if="submitSuccess">Место работы</label>
         <label  class="regular-label" v-else>Место работы</label>
-        <input class="regular-input" :class="{'error-input': errorJobPlace}" type="text" v-model="jobPlace" required>
+        <input :readonly="submitSuccess" class="regular-input" :class="errorJobPlace  ? 'error-input' : submitSuccess ? 'success-input' : ''" type="text" v-model="jobPlace" required>
       </div>
   
 
       <div class="picks-box">
+        
         <p class="error-p" v-if="errorMonth">Выберете предпочтительный месяц для занятий!</p>
+        <p class="success-p" v-else-if="submitSuccess">Выберете предпочтительный месяц для занятий!</p>
         <p class="regular-p" v-else for="month" style="font-weight: 600;">Выберете предпочтительный месяц для занятий</p>
 
-        <input type="radio" id="april" name="month" value="Апрель" v-model="pickedMonth" required>
-        <label for="april">Апрель</label>
+        <input :disabled="submitSuccess" type="radio" id="april" name="month" value="Апрель" v-model="pickedMonth" required>
+          <label for="april" v-if="submitSuccess" style="color: #A7ACBC">Апрель</label>
+
+        <label v-else for="april">Апрель</label>
 
 
         <div class="checkbox-adjust">
-          <input type="radio" id="may" name="month" value="Май" v-model="pickedMonth" required>
-          <label for="may">Май</label><br><br>
+          <input :disabled="submitSuccess" type="radio" id="may" name="month" value="Май" v-model="pickedMonth" required>
+        <label for="april" v-if="submitSuccess" style="color: #A7ACBC">Май</label>
+  
+        <label v-else for="may">Май</label><br><br>
         </div>
 
         <p class="error-p" v-if="errorTime">Выберете предпочтительное время для занятий!</p>
+        <p style="color: #A7ACBC" v-else-if="submitSuccess">Выберете предпочтительный время для занятий!</p>
         <p class="regular-p" v-else style="font-weight: 600;">Выберете предпочтительное время для занятий</p>
         
         <div class="checkbox-adjust">
-          <input type="radio" id="firstHalf" name="time" value="В первой половине дня" v-model="pickedTime" required>
-          <label for="firstHalf">В первой половине дня</label>
+          <input :disabled="submitSuccess" type="radio" id="firstHalf" name="time" value="В первой половине дня" v-model="pickedTime" required>
+        <label v-if="submitSuccess" style="color: #A7ACBC">В первой половине дня</label>
+        <label  v-else>В первой половине дня</label>
         </div>
 
-        <input type="radio" id="secondHalf" name="time" value="Во второй половине дня" v-model="pickedTime" required>
-        <label for="secondHalf" style="margin-left: 0.75rem;">Во второй половине дня</label><br>
-        
+        <input :disabled="submitSuccess" type="radio" id="secondHalf" name="time" value="Во второй половине дня" v-model="pickedTime" required>
+        <label v-if="submitSuccess" style="margin-left: 0.75rem; color: #A7ACBC" >Во второй половине дня</label>
+        <label v-else style="margin-left: 0.75rem;">Во второй половине дня</label><br>
+
     </div>
 
     <div class="lower-form">
-        <input type="checkbox" v-model="terms" required>
+        <input :disabled="submitSuccess" type="checkbox" v-model="terms" required>
         <label class="error-label" v-if="errorTerms">Я согласен (-сна) на обработку и хранение моих персональных данных, ознакомлен (-а) с политикой конфиденциальности</label>
+        <label  class="regular-label" v-else-if="submitSuccess" style="color: #A7ACBC">Я согласен (-сна) на обработку и хранение моих персональных данных, ознакомлен (-а) с политикой конфиденциальности</label>
         <label class="regular-label" v-else>Я согласен (-сна) на обработку и хранение моих персональных данных, ознакомлен (-а) с политикой конфиденциальности</label>
     </div>
 
       <br>
   
       <div class="submit">
-        <div class="blue-button" style="background-color: var(--component-accent-color1); margin: 1rem 0 0 0;" @click="handleSubmit"><h4>Отправить заявку</h4></div>
+        <div class="blue-button" style="background-color: #FFF; margin: 1rem 0 0 0; border: 1px solid #5cb85c" v-if="submitSuccess"><h4 style="color: #5cb85c; font-weight: 500;">Заявка успешно отправлена!</h4></div>
+        <div v-else class="blue-button" style="background-color: var(--component-accent-color1); margin: 1rem 0 0 0;" @click="handleSubmit"><h4>Отправить заявку</h4></div>
       </div>
 
     </form>
@@ -84,6 +101,7 @@
         terms: null,
         pickedTime: null,
         pickedMonth: null,
+        submitSuccess: false
     }
   },
   computed: {
@@ -155,9 +173,10 @@
   },
     methods: {
       handleSubmit: function () {
-
-        if(this.name & this.email & this.phoneNumber & this.speciality & this.city & this.jobPlace & 
-        this.terms & this.pickedMonth & this.pickedTime) {
+       
+        if(this.name && this.email && this.phoneNumber && this.speciality && this.city && this.jobPlace && 
+        this.terms && this.pickedMonth && this.pickedTime) {
+          this.submitSuccess= true
         console.log('ФИО: ', this.name)
         console.log('Email: ', this.email)
         console.log('Контактный телефон: ', this.phoneNumber)
@@ -216,6 +235,18 @@
   
 <style>
 
+.education .upper-form .success-input {
+  font-family: var(--plain-text-font);
+  font-size: 1rem;
+  font-weight: 400;
+  display: block;
+  padding: 0.6rem 0 0.25rem 0.5rem;
+  width: 100%;
+  border: 1px solid #A7ACBC;
+  border-radius: 0.25rem;
+  color: #A7ACBC;
+}
+
 .education form {
     margin: 30px 0 30px 0;
     background: white;
@@ -224,11 +255,11 @@
     border-radius: 10px;
 }
 
-.upper-form {
+.education .upper-form {
   max-width: 50%;
 }
 
-.upper-form .regular-label {
+.education .upper-form .regular-label {
   font-family: var(--sans-serif-font);
   color: var(--text-accent-color2);
   display: inline-block;
@@ -238,10 +269,9 @@
   font-weight: 500;
 }
 
-.upper-form .error-label {
-  color: #000;
+.education .upper-form .error-label {
+  color: var(--text-accent-color2);
   font-weight: 500;
-  text-decoration: underline;
 
   font-family: var(--sans-serif-font);
   display: inline-block;
@@ -250,13 +280,23 @@
   letter-spacing: 2px;
 }    
 
+.education .upper-form .success-label {
+  font-family: var(--sans-serif-font);
+  color: #A7ACBC;
+  display: inline-block;
+  margin: 1.5rem 0 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
 
-.upper-form input:focus {
+
+.education .upper-form input:focus {
   border: 1px solid #000;
   outline: none;
 }
 
-.upper-form .regular-input {
+.education .upper-form .regular-input {
   font-family: var(--plain-text-font);
   font-size: 1rem;
   font-weight: 400;
@@ -268,7 +308,7 @@
   color: #000;
 }
 
-.upper-form .error-input {
+.education .upper-form .error-input {
   font-family: var(--plain-text-font);
   font-size: 1rem;
   font-weight: 400;
@@ -280,37 +320,62 @@
   color: #000;
 }
 
+.education .upper-form .success-input {
+  font-family: var(--plain-text-font);
+  font-size: 1rem;
+  font-weight: 400;
+  display: block;
+  padding: 0.6rem 0 0.25rem 0.5rem;
+  width: 100%;
+  border: 1px solid #A7ACBC;
+  border-radius: 0.25rem;
+  color: #A7ACBC;
+}
 
-.picks-box {
+.education .picks-box {
   margin-top: 3rem;
 }
 
-.picks-box label {
+.education .picks-box label {
   font-family: var(--plain-text-font);
   color: #000;
   display: inline-block;
-  margin: 1.5rem 0 0.5rem;
+  margin: 1.5rem 0 0.5rem 0;
   font-size: 1.0625rem;
   font-weight: 400;
 }
 
-.picks-box .error-p {
-  color: var(--text-accent-color1);
-  font-weight: 600;
-  text-decoration: underline;
+.education .picks-box .checkbox-adjust label {
+  font-family: var(--plain-text-font);
+  color: #000;
+  display: inline-block;
+  margin: 1.5rem 0 0.5rem 0.7rem;
+  font-size: 1.0625rem;
+  font-weight: 400;
 }
 
-.picks-box .checkbox-adjust {
+.education .picks-box .error-p {
+  color: var(--text-accent-color1);
+  font-weight: 500;
+}
+
+.education .picks-box .success-p {
+  color: #A7ACBC;
+  font-weight: 400;
+}
+
+.education .picks-box .checkbox-adjust {
   position: relative;
   right: 0.5rem;
 }
 
-.lower-form {
+
+.education .lower-form {
   display: flex;
   max-width: 50%;
 }
     
-.lower-form .regular-label {
+.education .lower-form .regular-label {
   font-family: var(--sans-serif-font);
   color: var(--text-accent-color2);
   display: inline-block;
@@ -320,19 +385,18 @@
   font-weight: 500;
 }
 
-.lower-form .error-label { 
-  text-decoration: underline;
+.education .lower-form .error-label { 
   font-family: var(--sans-serif-font);
   color: var(--text-accent-color1);
   display: inline-block;
   margin: 1.5rem 0 0.5rem;
   font-size: 0.75rem;
   letter-spacing: 2px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 
-.lower-form input[type="checkbox"] {
+.education .lower-form input[type="checkbox"] {
   display: inline-block;
   width: 1rem;
   margin: 0 1rem 0 0;

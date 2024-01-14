@@ -4,6 +4,9 @@ import AboutView from '../views/about/AboutView.vue'
 import NewsView from '../views/news/NewsView.vue'
 import NewsAbout from '../views/news/NewsAbout.vue'
 import SpecialistsView from '../views/specialists/SpecialistsView.vue'
+import MembershipRequest from '../views/membership_request/MembershipRequest.vue'
+import PatientsView from '../views/patients/PatientsView.vue'
+import InfoAbout from '../views/patients/InfoAbout.vue'
 
 const routes = [
   {
@@ -40,6 +43,27 @@ const routes = [
     path: '/specialists',
     redirect: '/specialists/1'
   }, 
+  {
+    path: '/membership-request',
+    name: 'MembershipRequest',
+    component: MembershipRequest
+  }, 
+  {
+    path: '/patients/:id',
+    name: 'PatientsView',
+    component: PatientsView
+  },
+  {
+    path: '/patients',
+    redirect: '/patients/1'
+  }, 
+
+  {
+    path: '/patients/1/:id',
+    name: 'InfoAbout',
+    component: InfoAbout
+  },
+
 ]
 
 const router = createRouter({
