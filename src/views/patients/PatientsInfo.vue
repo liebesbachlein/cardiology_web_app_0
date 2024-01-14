@@ -1,12 +1,12 @@
 <template>
-    <div class="infoFeed">
-        <div  class="infoFeed-timeline">
+    <div class="infofeed">
+        <div  class="infofeed-timeline">
             <div v-if="error">{{ error }}</div>
             <div v-if="infoFeed.length">
                 <div v-for="newsItem in displayInfoList" :key="newsItem.id">
                     <div v-if="newsItem.id">
                     <router-link :to="{name: 'InfoAbout', params: {id: newsItem.id}}">
-                        <NewsShort :newsItem="newsItem"/>
+                        <InfoShort :newsItem="newsItem"/>
                     </router-link>
                     </div>
                 </div>
@@ -23,12 +23,12 @@
 </template>
 
 <script>
-import NewsShort from '@/views/news/NewsShort.vue';
-import NewsAbout from '@/views/news/NewsAbout.vue';
+import InfoShort from './InfoShort.vue';
+import InfoAbout from './InfoAbout.vue';
 import { ref} from 'vue';
 
 export default {
-    components: {NewsAbout, NewsShort},
+    components: {InfoAbout, InfoShort},
     setup() { 
     const newsLimit = 8
     let loadIndex = 1
@@ -95,11 +95,6 @@ export default {
 
 <style>
 
-.infofeed {
-    position: relative;
-    bottom: 4rem;
-}
-
 .infofeed-timeline {
     width: 100%;
     display: flex;
@@ -117,7 +112,7 @@ export default {
 
 .blue-button-box {
     display: block;
-    margin-bottom: 6rem;
+    margin-bottom: 0rem;
     height: 3.76rem;
     width: 100%;
 }

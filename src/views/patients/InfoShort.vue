@@ -1,26 +1,26 @@
 <template>
     
-    <div class="newsshort">
-       <div v-if="newsItem.imgSrc" class="newsshort-image">
+    <div class="infoshort">
+       <div v-if="newsItem.imgSrc" class="infoshort-image">
            <img :src="'/info_posters/' + newsItem.imgSrc">
        </div>
 
-       <div class="newsshort-info">
-           <div class="newsshort-info-upper">
-               <div class="newsshort-info-phrase-date">
-                   <div class="newsshort-phrase">
+       <div class="infoshort-info">
+           <div class="infoshort-info-upper">
+               <div class="infoshort-info-phrase-date">
+                   <div class="infoshort-phrase">
                        <h4>{{ newsItem.phrase }}</h4>
                    </div>
-                   <div class="newsshort-date">
+                   <div class="infoshort-date">
                        <h4>{{ newsItem.date }}</h4>
                    </div>
                </div>
-               <div class="newsshort-title">
+               <div class="infoshort-title">
                    <h3>{{ newsItem.title }}</h3>
                </div>
            </div>
-           <div class="newsshort-info-lower">
-               <div class="newsshort-title">
+           <div class="infoshort-info-lower">
+               <div class="infoshort-title">
                    <p>{{ newsItem.summary }}</p>
                </div>
            </div>
@@ -38,23 +38,23 @@ export default {
 
 <style>
 
-.newsshort {
+.infoshort {
    width: 100%;
    display: flex;
-   margin: 3rem 0;
+   margin-bottom: 3rem;
    cursor: pointer;
 }
 
-.newsshort-title h3 {
+.infoshort-title h3 {
    font-size: 1.18rem;
 }
 
-.newsshort-image {
+.infoshort-image {
    width: 40%;
    display: inline-block;
 }
 
-.newsshort-image img {
+.infoshort-image img {
    display: block;
    margin-left: auto;
    margin-right: auto;
@@ -62,7 +62,7 @@ export default {
    height: auto;
 }
 
-.newsshort-info {
+.infoshort-info {
    width: 60%;
    display: inline-flex;
    flex-direction: column;
@@ -70,24 +70,24 @@ export default {
    margin-left: 4%;
 }
 
-.newsshort-info-upper {
+.infoshort-info-upper {
    width: 100%;
 }
 
-.newsshort-info-phrase-date {
+.infoshort-info-phrase-date {
    display: flex;
    justify-content: space-between;
 }
 
-.newsshort-info-phrase-date h4 {
+.infoshort-info-phrase-date h4 {
    color: #969696
 }
 
-.newsshort-phrase {
+.infoshort-phrase {
    text-transform: uppercase;
 }
 
-.newsshort-info-lower {
+.infoshort-info-lower {
    display: inline;
 }
 
