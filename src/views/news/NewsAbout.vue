@@ -34,7 +34,7 @@
                                     </div>
 
                                     <div class="news-about-image">
-                                        <img :src="'news_posters/' + newsItem.imgSrc">
+                                        <img :src="'/news_posters/' + newsItem.imgSrc">
                                     </div> 
                                     
                                     <div class="news-about-content">

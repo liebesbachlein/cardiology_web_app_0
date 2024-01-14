@@ -16,50 +16,50 @@ const routes = [
     
   },
   {
-    path: '/about/:id',
+    path: '/about/:id/',
     name: 'AboutView',
     component: AboutView
   },
   {
-    path: '/news',
+    path: '/news/',
     name: 'NewsView',
     component: NewsView
   }, 
   {
-    path: '/news/:id', 
+    path: '/news/:id/', 
     name: 'NewsAbout',
     component: NewsAbout,
   }, 
   {
-    path: '/about',
+    path: '/about/',
     redirect: '/about/1'
   }, 
   {
-    path: '/specialists/:id',
+    path: '/specialists/:id/',
     name: 'SpecialistsView',
     component: SpecialistsView
   },
   {
-    path: '/specialists',
-    redirect: '/specialists/1'
+    path: '/specialists/',
+    redirect: '/specialists/1/'
   }, 
   {
-    path: '/membership-request',
+    path: '/membership-request/',
     name: 'MembershipRequest',
     component: MembershipRequest
   }, 
   {
-    path: '/patients/:id',
+    path: '/patients/:id/',
     name: 'PatientsView',
     component: PatientsView
   },
   {
-    path: '/patients',
+    path: '/patients/',
     redirect: '/patients/1'
   }, 
 
   {
-    path: '/patients/1/:id',
+    path: '/patients/1/:id/',
     name: 'InfoAbout',
     component: InfoAbout
   },

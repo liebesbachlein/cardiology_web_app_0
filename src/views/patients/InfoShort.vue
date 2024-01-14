@@ -2,7 +2,7 @@
     
     <div class="newsshort">
        <div v-if="newsItem.imgSrc" class="newsshort-image">
-           <img :src="'info_posters/' + newsItem.imgSrc">
+           <img :src="'/info_posters/' + newsItem.imgSrc">
        </div>
 
        <div class="newsshort-info">

@@ -16,11 +16,11 @@
       </div>
     
       <div class="navbar-item">
-        <router-link to="/specialists/1">Специалистам</router-link>
+        <router-link :to="{name: 'SpecialistsView', params: {id: 1}}">Специалистам</router-link>
       </div>
 
       <div class="navbar-item">
-        <router-link to="/patients/1">Пациентам</router-link>
+        <router-link :to="{name: 'PatientsView', params: {id: 1}}">Пациентам</router-link>
       </div>
     </div>
   </div>

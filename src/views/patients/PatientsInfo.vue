@@ -44,10 +44,8 @@ export default {
         if(!data.ok) {
           throw Error('no available data')
         } 
-        infoFeed
-.value = await data.json()
-        console.log(infoFeed
-.value)
+        infoFeed.value = await data.json()
+        console.log(infoFeed.value)
       }
       catch(err) {
         error.value = err.message
@@ -56,39 +54,28 @@ export default {
     }
 
     const displayNews = () => {
-            if(infoFeed
-    .value) {
-                if(infoFeed
-        .value.length) {
-                    if(infoFeed
-            .value.length > loadIndex * newsLimit) {
-                        displayInfoList
-                .value = infoFeed
-                .value.slice(0, loadIndex * newsLimit)
+            if(infoFeed.value) {
+                if(infoFeed.value.length) {
+                    if(infoFeed.value.length > loadIndex * newsLimit) {
+                        displayInfoList.value = infoFeed.value.slice(0, loadIndex * newsLimit)
                         isLoadMore.value = true
                     } else {
-                        displayInfoList
-                .value = infoFeed
-                .value
+                        displayInfoList.value = infoFeed.value
                         isLoadMore.value = false
                     }
                 } else {
-                    displayInfoList
-            .value = []
+                    displayInfoList.value = []
                     isLoadMore.value = false
                 }
             } else {
-                displayInfoList
-        .value = []
+                displayInfoList.value = []
                 isLoadMore.value = false
             }
         }
 
     const loadMore = () => {
-            if(infoFeed
-    .value.length) {
-                if(loadIndex < (infoFeed
-        .value.length / newsLimit)) {
+            if(infoFeed.value.length) {
+                if(loadIndex < (infoFeed.value.length / newsLimit)) {
                     loadIndex = loadIndex + 1
                     displayNews()
                 } 
@@ -108,6 +95,10 @@ export default {
 
 <style>
 
+.infofeed {
+    position: relative;
+    bottom: 4rem;
+}
 
 .infofeed-timeline {
     width: 100%;
@@ -115,11 +106,11 @@ export default {
     flex-direction: column;
 }
 
-.newsfeed-timeline a {
+.infofeed-timeline a {
     text-decoration: none;
 }
 
-.newsfeed-timeline a.router-link-active {
+.infofeed-timeline a.router-link-active {
     text-decoration: none;
 }
 

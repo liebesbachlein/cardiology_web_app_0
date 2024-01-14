@@ -69,9 +69,9 @@
     components: {Footer, SideBarHeadingsNoUrl, ChevronRight, SpecialistsMembership, SpecialistsEducation, SpecialistsResources},
     setup() {
       const route = useRoute()
-      const pageNum = ref(route.params.id)
-  
-      return { pageNum }
+    const pageNum = computed(() => route.params.id)
+
+    return { pageNum }
     }
   }
   </script>
@@ -87,7 +87,7 @@
       display: flex;
       width: 100%;
       justify-content: space-between;
-      margin-top: 3rem;
+      margin-top: 4rem;
   }
   
   .specialists-side {

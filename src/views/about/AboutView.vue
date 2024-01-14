@@ -76,7 +76,7 @@ export default {
   components: {Footer, SideBarHeadingsNoUrl, ChevronRight, AboutSociety, AboutHead, AboutGallery, AboutContacts},
   setup() {
     const route = useRoute()
-    const pageNum = ref(route.params.id)
+    const pageNum = computed(() => route.params.id)
 
     return { pageNum }
   }
@@ -94,7 +94,7 @@ export default {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    margin-top: 3rem;
+    margin-top: 4rem;
 }
 
 .about-side {

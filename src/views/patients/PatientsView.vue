@@ -67,9 +67,9 @@
     components: {Footer, SideBarHeadingsNoUrl, ChevronRight, PatientsQA, PatientsAsk, PatientsInfo},
     setup() {
       const route = useRoute()
-      const pageNum = ref(route.params.id)
-  
-      return { pageNum }
+    const pageNum = computed(() => route.params.id)
+
+    return { pageNum }
     }
   }
   </script>
