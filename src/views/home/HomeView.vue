@@ -1,7 +1,7 @@
 <template>
   <div class="site-content">
+    <Cover/>
     <div class="site-content-in">
-      <Cover/>
       <NewsTimeline/>
       <Partners/>
       <Mission/>

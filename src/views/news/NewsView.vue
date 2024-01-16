@@ -15,7 +15,7 @@
                 <div class="newsfeed-box">
                     <div  class="newsfeed-timeline">
                         <div v-if="error">{{ error }}</div>
-                        <div v-if="newsFeed.length">
+                        <div v-else-if="newsFeed.length > 1">
                             <div v-for="newsItem in displayNewsList" :key="newsItem.id">
                                 <div v-if="newsItem.id">
                                 <router-link :to="{name: 'NewsAbout', params: {id: newsItem.id}}">
@@ -24,7 +24,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div v-else><h3>Loading ... </h3></div>
+                        <div v-else><h4>Loading ... </h4></div>
                     </div>
                     <div class="newsfeed-side">
                         <div class="newsfeed-side-box">
@@ -35,7 +35,7 @@
                     
                 </div>
             </div>
-            <div class="blue-button-box">
+            <div class="blue-button-box" style="margin-bottom: 6rem">
                 <div v-if="isLoadMore" class="blue-button" @click="loadMore">
                     <h4>Загрузить еще</h4>
                 </div>
@@ -52,6 +52,7 @@ import SideBarHeadings from '@/components/SideBarHeadings.vue';
 import Footer from '@/components/Footer.vue';
 import NewsAbout from './NewsAbout.vue';
 import { ref, computed } from 'vue';
+import { loadNews  } from '@/firebase/config';
 
 export default {
     name: "NewsView",
@@ -64,14 +65,13 @@ export default {
     const isLoadMore = ref(false)
     const displayNewsList = ref([''])
     
-
     const load = async () => {
       try {
-        let data = await fetch('http://localhost:3000/news-posts')
-        if(!data.ok) {
-          throw Error('no available data')
-        } 
-        newsFeed.value = await data.json()
+        newsFeed.value = await loadNews() // let data
+        //if(!data.ok) {
+          //throw Error('no available data')
+        //} 
+        //newsFeed.value = await data.json()
         console.log(newsFeed.value)
       }
       catch(err) {

@@ -4,13 +4,13 @@
 
     <div class="cover-box">
         <router-link to="/about" v-if="showCover1">
-            <img src="@/assets/covers/cover1.png">
+            <CoverPoster1/>
         </router-link>
         <router-link to="/about" v-if="showCover2">
-            <img src="@/assets/covers/cover2.png">
+            <img src="@/assets/covers/image-cover2.png">
         </router-link>
         <router-link to="/about" v-if="showCover3">
-            <img src="@/assets/covers/cover3.png">
+            <img src="@/assets/covers/image-cover3.png">
         </router-link>
         
     </div>
@@ -27,8 +27,10 @@
 
 <script>
 import { ref } from 'vue'
+import CoverPoster1 from './CoverPoster1.vue'
 
 export default {
+    components: {CoverPoster1},
     setup() {
         const showCover1 = ref(true)
         const showCover2 = ref(false)
@@ -63,7 +65,7 @@ export default {
 .cover {
     width: 100%;
     display: block;
-    margin-top: 2rem;
+    /*margin-top: 2rem;*/
     margin-bottom: 3rem;
 }
 
@@ -73,8 +75,9 @@ export default {
 }
 
 .cover-box img {
-    max-width: 100%;
-    height: auto;
+    object-fit: cover;
+    width: 100%;
+    height: calc(100vw * 9 / 16 - 5rem - 7rem);
 }
 
 .carousel {

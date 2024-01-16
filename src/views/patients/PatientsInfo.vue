@@ -26,6 +26,7 @@
 import InfoShort from './InfoShort.vue';
 import InfoAbout from './InfoAbout.vue';
 import { ref} from 'vue';
+import { loadInfo } from '@/firebase/config';
 
 export default {
     components: {InfoAbout, InfoShort},
@@ -40,11 +41,13 @@ export default {
 
     const load = async () => {
       try {
-        let data = await fetch('http://localhost:3000/info-posts')
+        infoFeed.value = await loadInfo()
+        /*
+        let data = await loadInfo()
         if(!data.ok) {
           throw Error('no available data')
         } 
-        infoFeed.value = await data.json()
+        infoFeed.value = await data.json()*/
         console.log(infoFeed.value)
       }
       catch(err) {

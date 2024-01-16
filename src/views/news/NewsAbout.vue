@@ -62,6 +62,8 @@ import SideBarHeadings from '@/components/SideBarHeadings.vue';
 import Footer from '@/components/Footer.vue';
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
+import { loadNews } from '@/firebase/config';
+import { loadNewsId } from '@/firebase/config';
 
 export default {
     name: "InfoAbout",
@@ -74,11 +76,11 @@ export default {
     const load = async () => {
       try {
         const id = route.params.id
-        let data = await fetch('http://localhost:3000/news-posts/' + id)
-        if(!data.ok) {
+        newsItem.value = await loadNewsId(id)
+        /*if(!data.ok) {
           throw Error('no available data')
         } 
-        newsItem.value = await data.json()
+        newsItem.value = await data.json()*/
         console.log(newsItem.value)
       }
       catch(err) {

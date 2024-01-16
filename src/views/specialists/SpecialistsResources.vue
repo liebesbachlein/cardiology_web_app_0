@@ -42,6 +42,7 @@
 import { ref } from 'vue'
 import Axios from 'axios'
 import ChevronHeader from '@/components/ChevronHeader.vue';
+import { loadSpResources } from '@/firebase/config';
 
 export default {
     components: {ChevronHeader},
@@ -50,11 +51,12 @@ export default {
         const error = ref('');
         const load = async () => {
             try {
-                let data = await fetch('http://localhost:3000/sp-resources');
+                files.value = await loadSpResources();
+                /*let data = await loadSpResources();
                 if (!data.ok) {
                     throw Error('no available data');
                 }
-                files.value = await data.json();
+                files.value = await data.json();*/
                 console.log(files.value);
             }
             catch (err) {
