@@ -1,32 +1,72 @@
 <template>
-
-<div class="poster">
-    <img src="@/assets/covers/image-cover1.png">
-
+<div class="poster1">
     <div class="poster-contents1">
-        <div class="header1">
-            <h1 stye="{font-size: 1.625rem; color: #FDFAFF; font-weight: 700}">VI Республиканский Конгресс</h1>
-            <h1 stye="{font-size: 5.625rem; color: var(--component-accent-color1); font-weight: 700}">Cardio</h1>
-            <h1 stye="{font-size: 3.75rem; color: var(--component-accent-color2); font-weight: 700}">forum</h1>
-
+        <div class="box">
+            
+            <div class="header1">
+                <h1  style="line-height: 2rem; font-size: 1.25rem; color: #FFF; font-weight: 500">VI Республиканский Конгресс</h1>
+                <h1 style="line-height: 8rem; font-size: 5.625rem; color: #FF2929; font-weight: 700">Cardio</h1>
+                <h1  style="line-height: 0rem; font-size: 3.75rem; color: #5CC1E2; font-weight: 700">forum</h1>
+            </div>
+            <div class="header2">
+                <h3 style="font-size: 1rem; font-weight: 400; color: #FFF">—  по артериальной гипертонии и кардиоваскулярной профилактике с международным участием </h3>
+               <h1  style="font-size: 1.5rem; font-weight: 700; color: #FFF; margin: 3rem 0">14 — 15 сентября</h1>
+                
+                <router-link  to="/about">
+                    <div class="cover-button">Подробнее</div>
+                </router-link>
+            </div>
+           
         </div>
-
     </div>
 </div>
 
 </template>
 
 <script>
+export default {
+    props: ['is']
+}
 
 </script>
 
 <style>
 
-.poster img {
+.cover-button {
+    height: 3.125rem;
+    width: 14.5rem;
+    border: 2px solid #DDDCDC;
+    border-radius: 0.25rem;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--subheading-font);
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+.cover-button:hover {
+    border: 2px solid #FFF5FB;
+    color: var(--component-accent-color1);
+    background-color: #FFF5FB;
+}
+
+
+.poster1 img {
     object-fit: cover;
     width: 100%;
     height: calc(100vw * 9 / 16 - 5rem - 7rem);
     z-index: 4;
+}
+
+.poster1 {
+    display: flex;
+    align-items: flex-start;
+    background-image: url('@/assets/covers/image-cover1.png');
+    width: 100%;
+    height: calc(100vw * 9 / 16 - 5rem - 7rem);
+    background-size: cover;
 }
 
 .poster-contents1 {
@@ -37,20 +77,29 @@
     justify-content: center;
     align-items: center;
     z-index: 5;
+    flex-wrap: nowrap;
 }
 
-.poster {
-    display: flex;
-    align-items: flex-start;
+.poster-contents1 .box {
+    display: inline-flex;
+    justify-content: center;
 }
 
-.header1 {
+
+
+.poster-contents1 .header1 {
+    
     text-align: center;
+    width: 25%;
 }
 
-
-
-
-
+.poster-contents1 .header2 {
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 33%;
+    text-align: left;
+}
 
 </style>

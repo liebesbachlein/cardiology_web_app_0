@@ -3,15 +3,23 @@
 <div class="cover">
 
     <div class="cover-box">
-        <router-link to="/about" v-if="showCover1">
-            <CoverPoster1/>
-        </router-link>
-        <router-link to="/about" v-if="showCover2">
-            <img src="@/assets/covers/image-cover2.png">
-        </router-link>
-        <router-link to="/about" v-if="showCover3">
-            <img src="@/assets/covers/image-cover3.png">
-        </router-link>
+         <!--name="slide-fade" mode="out-in">-->
+        <Transition mode="in-out" name="slider">
+            <div v-if="showCover1">
+                <CoverPoster1 :is="showCover1"/>
+            </div>
+        </Transition>
+        <Transition mode="in-out" name="slider">
+            <div v-if="showCover2">
+                <CoverPoster2 :is="showCover2"/>
+            </div>
+        </Transition>
+        <Transition mode="in-out" name="slider">
+            <div v-if="showCover3">
+                <CoverPoster3 :is="showCover3"/>
+            </div>
+        </Transition>
+      
         
     </div>
 
@@ -28,9 +36,11 @@
 <script>
 import { ref } from 'vue'
 import CoverPoster1 from './CoverPoster1.vue'
+import CoverPoster2 from './CoverPoster2.vue'
+import CoverPoster3 from './CoverPoster3.vue'
 
 export default {
-    components: {CoverPoster1},
+    components: {CoverPoster1, CoverPoster2, CoverPoster3},
     setup() {
         const showCover1 = ref(true)
         const showCover2 = ref(false)
@@ -62,21 +72,43 @@ export default {
 
 <style>
 
+.slider-enter-active,
+.slider-leave-active {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slider-enter-from,
+.slider-leave-to {
+  opacity: 0;
+}
+
 .cover {
     width: 100%;
     display: block;
     /*margin-top: 2rem;*/
     margin-bottom: 3rem;
+
+
 }
 
 .cover-box {
     display: block;
     text-align: center;
+    height: calc(100vw * 9 / 16 - 5rem - 7rem);
+    position: relative;
+    width: 100%;
 }
 
 .cover-box img {
     object-fit: cover;
     width: 100%;
+    height: calc(100vw * 9 / 16 - 5rem - 7rem);
+}
+    
+.cover-box>div {
+    position: absolute;
+    width: 100%;
+    display: block;
     height: calc(100vw * 9 / 16 - 5rem - 7rem);
 }
 

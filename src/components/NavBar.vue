@@ -47,13 +47,13 @@ export default {
       const arr = [this.$refs.about, this.$refs.news, this.$refs.sp, this.$refs.pt]
       //const ps = document.querySelectorAll('p');
       const redLine = this.$refs.redLine
-      if (window.scrollY > 6) {
+      if (window.scrollY > 100) {
         navBar.className = 'navbar-block-scroll';
         redLine.className = 'red-line-scroll';
         arr.forEach(e => e.children[0].style = 'color: #FFFFFF')
         //ps.forEach(e => e.className = 'divider-scroll')
 
-      } else if (window.scrollY == 0) {
+      } else if (window.scrollY <= 100) {
         navBar.className = 'navbar-block-zero';
         redLine.className = 'red-line-zero';
         arr.forEach(e => e.children[0].style = 'color: #454545')
@@ -100,7 +100,7 @@ export default {
   height: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: #FF929C;
+  background-color: var(--component-accent-color1);
   padding: 0 2.5rem; /*!!!!!!!!!!!!!!!!1*/
   
 }
@@ -165,7 +165,7 @@ a.logo {
 .red-line-scroll {
     display: block;
     width: 100%;
-    border-top: 2px solid var(--component-accent-color2);
+    border-top: 2px solid var(--component-accent-color1);
     margin: 0 auto;
 }
 

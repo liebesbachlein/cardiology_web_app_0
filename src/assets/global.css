@@ -32,7 +32,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    transition:all 0.5s;
+    transition: all 0.5s;
 }
 
 body {
@@ -44,28 +44,28 @@ h1 {
     font-size: var(--heading-font-size);
     font-family: var(--heading-font);
     font-weight: 700;
-    color: #000;
+    color: #2D2D2D;
 }
 
 h3 {
     font-size: var(--subheading-font-size);
     font-family: var(--subheading-font);
     font-weight: 600;
-    color: #000;
+    color: #2D2D2D;
 }
 
 h4 {
     font-size: var(--short-paragraph-font-size);
     font-family: var(--subheading-font);
     font-weight: 400;
-    color: #000;
+    color: #2D2D2D;
 }
 
 p {
     font-size: 1.0625rem;
     font-family: var(--plain-text-font);
     font-weight: 400;
-    color: #000;
+    color: #2D2D2D;
     white-space: pre-line;
 }
 
@@ -73,7 +73,7 @@ pre {
     font-size: 1.0625rem;
     font-family: var(--plain-text-font);
     font-weight: 400;
-    color: #000;
+    color: #2D2D2D;
     white-space: pre-line;
 }
 
@@ -81,7 +81,7 @@ li {
     font-size: 1.0625rem;
     font-family: var(--plain-text-font);
     font-weight: 400;
-    color: #000;
+    color: #2D2D2D;
     white-space: pre-line;
     margin: 0.5rem 0;
     list-style-type: inside;
