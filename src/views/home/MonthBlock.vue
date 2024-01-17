@@ -25,7 +25,7 @@ export default {
     margin: 0 auto;
     width: 200px;
     height: 40px;
-    border-radius: 25px;
+    border-radius: 0.25rem;
     border: 1px solid var(--component-accent-color2);
     justify-content: center;
     align-items: center;
@@ -33,6 +33,8 @@ export default {
 
 .month h4 {
     color: var(--component-accent-color2);
+    font-family: var(--tenor-font);
+    font-size: 1rem;
 }
 
 

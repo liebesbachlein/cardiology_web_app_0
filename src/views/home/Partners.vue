@@ -93,6 +93,15 @@
     text-align: center;
 }
 
+.header-top h1 {
+    font-family: var(--tenor-font);
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #2D2D2D;
+    font-style: normal;
+}
+
 
 
 </style>

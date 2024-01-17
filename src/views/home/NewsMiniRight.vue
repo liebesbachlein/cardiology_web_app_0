@@ -1,19 +1,32 @@
 <template>
+    
 <div class="newsmini-right">
+    
+
+    <div class="newsmini-img">
+        <img :src="news.url">
+    </div>
+    
     <LineCircle class="newsmini-line"/>
     <div class="news-box">
-        <div class="news-date">
-            <h4>{{ news.date }}</h4>
+        <div class="newsmini-upper">
+            <div class="news-date">
+                <h4>{{ news.date }}</h4>
+            </div>
+            <div class="news-format">
+                <h4>{{ news.format }}</h4>
+            </div>
         </div>
+        
 
         <div class="news-title-city">
-        <div class="news-title">
-            <h3>{{ news.title }}</h3>
-        </div>
+            <div class="news-title">
+                <h3>{{ news.title }}</h3>
+            </div>
 
-        <div class="news-city">
-            <h4>{{ news.city }}</h4>
-        </div>
+            <div class="news-city">
+                <h4>{{ news.city }}</h4>
+            </div>
         </div>
 
         <div class="news-chev-details">
@@ -40,6 +53,39 @@ export default {
 
 <style>
 
+.newsmini-right .newsmini-img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.newsmini-img img {
+    max-height: 10rem;
+    width: auto;
+    object-fit: contain;
+}
+
+.news-title-city {
+    margin-bottom: 1rem;
+}
+.newsmini-upper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.news-format h4 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #858585;
+}
+
 .newsmini-right {
     display: grid;
     grid-template-columns: 46.25% 7.5% 46.25%;
@@ -54,19 +100,18 @@ export default {
 .newsmini-right .news-box {
     grid-column: 3;
     grid-row: 1;
-    padding-left: 45px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .newsmini-right .news-date {
     display: grid;
-    width: 200px;
-    height: 40px;
+    width: 12.5rem;
+    height: 2.5rem;
     background-color: var(--component-accent-color1);
-    border-radius: 0 20px 20px 0;
-    padding-left: 22px;
+    border-radius: 0 0.75rem 0.75rem 0;
+    padding-left: 1.5rem;
     justify-content: left;
     align-items: center;
 }
@@ -81,15 +126,25 @@ export default {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
+   
 }
 
 .newsmini-right .news-city h4 {
     font-style: italic;
+    line-height: 1rem;
+}
+.news-chev-details h4 {
+    color: #858585;
 }
 
 .newsmini-right .news-detail {
-    margin-left: 8px;
+    margin-left: 0.5rem;
     display: inline;
+    
+}
+
+.news-title h3 {
+    color: var(--component-accent-color2)
 }
 
 

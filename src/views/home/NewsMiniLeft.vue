@@ -2,8 +2,14 @@
 <div class="newsmini-left">
     <LineCircle class="newsmini-line"/>
     <div class="news-box">
-        <div class="news-date">
-            <h4>{{ news.date }}</h4>
+        <div class="newsmini-upper">
+            <div class="news-format">
+                <h4>{{ news.format }}</h4>
+            </div>
+            <div class="news-date">
+                <h4>{{ news.date }}</h4>
+            </div>
+            
         </div>
 
         <div class="news-title-city">
@@ -23,6 +29,9 @@
             <ChevronLeft color="red"/>
         </div>
     </div>
+    <div class="newsmini-img">
+        <img :src="news.url">
+    </div>
 </div>
 
 </template>
@@ -40,6 +49,17 @@ export default {
 
 <style>
 
+.newsmini-left .newsmini-img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    grid-column: 3;
+    grid-row: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .newsmini-left {
     display: grid;
     grid-template-columns: 46.25% 7.5% 46.25%;
@@ -54,21 +74,19 @@ export default {
 .newsmini-left .news-box {
     grid-column: 1;
     grid-row: 1;
-    padding-right: 45px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     text-align: right;
 }
 
 .newsmini-left .news-date {
     margin-left: auto;
     display: grid;
-    width: 200px;
-    height: 40px;
+    width: 12.5rem;
+    height: 2.5rem;
     background-color: var(--component-accent-color1);
-    border-radius: 20px 0 0 20px;
-    padding-right: 22px;
+    border-radius: 0 0.75rem 0.75rem 0;
+    padding-right: 1.5rem;
     justify-content: right;
     align-items: center;
 }
@@ -85,15 +103,23 @@ export default {
     flex-wrap: nowrap;
     align-items: center;
     justify-content: right;
+    
 }
+
 
 .newsmini-left .news-city h4 {
     font-style: italic;
+    line-height: 1rem;
 }
 
 .newsmini-left .news-detail {
-    margin-right: 16px;
+    margin-right: 1rem;
     display: inline;
+}
+
+.news-detail h4 {
+    line-height: 1.25rem;
+    color: #000;
 }
 
 

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Philosopher:ital@1&family=Viaoda+Libre&family=El+Messiri:wght@400;500;600;700&family=Noto+Sans+Display:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:ital@1&family=Viaoda+Libre&family=El+Messiri:wght@400;500;600;700&family=Noto+Sans+Display:wght@400;500;600&family=Tenor+Sans&display=swap');
 
 :root {
     --header-color: #FFFFFF;
@@ -16,6 +16,7 @@
     --cursive-font: 'Philosopher', sans-serif;
     --news-title-font: 'Viaoda Libre', serif;
     --sans-serif-font: "Noto Sans Display", sans-serif;
+    --tenor-font: "Tenor Sans", sans-serif;
     --weight-regular: 400;
     --weight-medium: 500;
     --weight-semi-bold: 600;

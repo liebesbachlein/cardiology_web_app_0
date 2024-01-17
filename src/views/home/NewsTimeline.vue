@@ -36,22 +36,30 @@ export default {
             {date: '15 января', 
             title: 'Региональная Кардио-Школа', 
             city: 'Павлодар', 
-            details: 'Европейский Конгресс Кардиологов 2023'}, 
+            details: 'Европейский Конгресс Кардиологов 2023',
+            format: 'ОФФЛАЙН',
+            url: "/src/assets/events/event1.png"}, 
 
             {date: '17 февраля', 
             title: 'Образовательный Проект', 
             city: 'Алматы', 
-            details: 'Клинические разборы пациентов с СД и ССЗ на основе рекомендаций ЕОК-23'}, 
+            details: 'Клинические разборы пациентов с СД и ССЗ на основе рекомендаций ЕОК-23',
+            format: 'ОФФЛАЙН',
+            url: '/src/assets/events/event2.png'}, 
 
             {date: '25 февраля', 
             title: 'Образовательный Проект', 
             city: 'Туркестан', 
-            details: 'Простые и удобные инструменты по выбору оптимальной терапии вашим пациентам'},
+            details: 'Простые и удобные инструменты по выбору оптимальной терапии вашим пациентам',
+            format: 'ОФФЛАЙН',
+            url: '/src/assets/events/event1.png'}, 
             
             {date: '3 марта', 
             title: 'CardioForum', 
             city: 'Алматы', 
-            details: 'ПVI Конгресс по артериальной гипертонии и кардиоваскулярной профилактике с международным участием '}
+            details: 'ПVI Конгресс по артериальной гипертонии и кардиоваскулярной профилактике с международным участием',
+            format: 'ОФФЛАЙН',
+            url: '/src/assets/events/event2.png'}, 
     ]
 
     return {news}
@@ -79,8 +87,17 @@ export default {
     border-top: 2px solid var(--component-accent-color1);
 }
 
+.header h1 {
+    font-family: var(--tenor-font);
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #2D2D2D;
+    font-style: normal;
+}
+
 .month-news {
-    margin: 55px 0;
+    margin: 2.5rem 0;
 }
 
 

@@ -2,6 +2,7 @@
   <div class="site-content">
     <Cover/>
     <div class="site-content-in">
+      <Stats/>
       <NewsTimeline/>
       <Partners/>
       <Mission/>
@@ -16,10 +17,11 @@ import NewsTimeline from './NewsTimeline.vue';
 import Partners from './Partners.vue';
 import Mission from './Mission.vue';
 import Footer from '@/components/Footer.vue';
+import Stats from './Stats.vue';
 
 export default {
   name: 'HomeView',
-  components: {Cover, NewsTimeline, Partners, Mission, Footer},
+  components: {Cover, NewsTimeline, Partners, Mission, Footer, Stats},
   setup() {
     
   }
@@ -37,6 +39,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #FDFAFF;
   }
 
   .site-content-in {
