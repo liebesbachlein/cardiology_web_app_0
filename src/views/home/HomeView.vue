@@ -20,6 +20,7 @@ import Footer from '@/components/Footer.vue';
 import Stats from './Stats.vue';
 
 export default {
+  
   name: 'HomeView',
   components: {Cover, NewsTimeline, Partners, Mission, Footer, Stats},
   setup() {
