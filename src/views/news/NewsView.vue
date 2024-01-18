@@ -24,7 +24,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div v-else><h4>Loading ... </h4></div>
+                        <div v-else><Loader/></div>
                     </div>
                     <div class="newsfeed-side">
                         <div class="newsfeed-side-box">
@@ -50,13 +50,14 @@ import ChevronRight from '@/components/ChevronRight.vue';
 import NewsShort from './NewsShort.vue';
 import SideBarHeadings from '@/components/SideBarHeadings.vue';
 import Footer from '@/components/Footer.vue';
+import Loader from '@/components/Loader.vue';
 import NewsAbout from './NewsAbout.vue';
 import { ref, computed } from 'vue';
 import { loadNews  } from '@/firebase/config';
 
 export default {
     name: "NewsView",
-    components: {NewsAbout, ChevronRight, NewsShort, SideBarHeadings, Footer},
+    components: {NewsAbout, ChevronRight, NewsShort, SideBarHeadings, Footer, Loader},
     setup() { 
     const newsLimit = 8
     let loadIndex = 1
@@ -207,9 +208,10 @@ export default {
     display: inline-block;
     width: 100%;
     height: auto;
-    border: 1px solid var(--component-accent-color2);
+    background-color: #FFF;
+  box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.25);
+  border-radius: 0.5rem;
     padding: 3rem 1rem 0.5rem 1.25rem;
-    border-radius: 1.5rem;
 }
 
 .blue-button-box {

@@ -92,6 +92,7 @@ export default {
   justify-content: space-between;
   background-color: var(--header-color);
   padding: 0 3rem; /*!!!!!!!!!!!!!!!!1*/
+  box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.25);
 }
 
 .navbar-block-scroll {
@@ -102,6 +103,7 @@ export default {
   justify-content: space-between;
   background-color: var(--component-accent-color1);
   padding: 0 2.5rem; /*!!!!!!!!!!!!!!!!1*/
+  box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.25);
   
 }
 

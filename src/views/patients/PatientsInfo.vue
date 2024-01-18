@@ -11,7 +11,7 @@
                     </div>
                 </div>
             </div>
-            <div v-else><h3>Loading ... </h3></div>
+            <div v-else><Loader/></div>
         </div>
 
         <div class="blue-button-box">

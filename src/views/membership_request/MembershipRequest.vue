@@ -113,7 +113,7 @@
         </div>
       </div>
 
-
+<Footer/>
 </div>
 
 </template>
@@ -121,9 +121,10 @@
 <script>
 import ChevronRight from '@/components/ChevronRight.vue';
 
+import Footer from '@/components/Footer.vue';
 export default {
     name: 'MembershipRequest',
-    components: {ChevronRight}, 
+    components: {ChevronRight, Footer}, 
     data() {
       return {
         firstName: null,
@@ -330,7 +331,7 @@ export default {
 
 .membership form {
     margin: 30px 0 30px 0;
-    background: white;
+    background: #FDFAFF;
     text-align: left;
     padding: 40px 0;
     border-radius: 10px;

@@ -249,7 +249,7 @@
 
 .education form {
     margin: 30px 0 30px 0;
-    background: white;
+    background: #FDFAFF;
     text-align: left;
     padding: 40px 0;
     border-radius: 10px;

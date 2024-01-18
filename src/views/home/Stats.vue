@@ -1,10 +1,16 @@
 <template>
+    <div class="stats-img">
+    <img src="@/assets/heart.svg">
+</div>
     <div class="partners-header-cont">
             <div class="header-top">
                 <h1>Глобальная статистика</h1>
             </div>
         </div>
     <div class="stats">
+
+
+
 <div class="stats-item">
     <div class="stats-header">
         <h1>1 МЛРД</h1>
@@ -46,6 +52,20 @@
 </template>
 
 <style>
+
+.stats-img {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    z-index: -5;
+    left: 0;
+}
+
+.stats-img img {
+    object-fit: contain;
+}
+
+
 .stats {
     width: 100%;
     display: flex;

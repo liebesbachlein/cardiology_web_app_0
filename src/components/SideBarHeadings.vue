@@ -35,13 +35,16 @@ export default {
 }
 
 .sidebarheading a {
-    font-size: var(--subheading-font-size);
+    font-size: 1.0625rem;
     font-family: var(--subheading-font);
     font-weight: 400;
     color: #000;
     text-decoration: none;
 }
 
+.sidebarheading a:hover {
+    text-decoration: underline;
+}
 
 .sidebarheading a.router-link-active {
     font-size: var(--subheading-font-size);
