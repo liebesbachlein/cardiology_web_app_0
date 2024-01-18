@@ -49,6 +49,10 @@ export default {
 
 <style>
 
+.newsmini-left .news-format {
+    padding-left: 2rem;
+}
+
 .newsmini-left .newsmini-img {
     height: 100%;
     width: auto;
@@ -85,7 +89,7 @@ export default {
     width: 12.5rem;
     height: 2.5rem;
     background-color: var(--component-accent-color1);
-    border-radius: 0 0.75rem 0.75rem 0;
+    border-radius: 0.75rem 0 0 0.75rem;
     padding-right: 1.5rem;
     justify-content: right;
     align-items: center;

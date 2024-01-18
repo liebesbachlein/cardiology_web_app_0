@@ -80,10 +80,15 @@ export default {
     margin-bottom: 1rem;
 }
 
+.newsmini-right .news-format {
+    padding-right: 2rem;
+}
+
 .news-format h4 {
     font-size: 1rem;
     text-transform: uppercase;
-    color: #858585;
+    color: #454343;
+    text-decoration: none;
 }
 
 .newsmini-right {
@@ -138,7 +143,7 @@ export default {
 }
 
 .newsmini-right .news-detail {
-    margin-left: 0.5rem;
+    margin-left: 1rem;
     display: inline;
     
 }

@@ -97,7 +97,7 @@
     width: 100%;
     height: auto;
     background-color: #FFF;
-  box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.25);
+    box-shadow: -2px 2px 10px 0px rgba(170, 170, 170, 0.25);
   border-radius: 0.5rem;
     padding: 1.5rem 1rem 1rem 1.25rem;
   }

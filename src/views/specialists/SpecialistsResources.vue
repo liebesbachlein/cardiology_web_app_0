@@ -14,7 +14,7 @@
 
         <div  class="file-download-box">
             <div v-if="error">{{ error }}</div>
-            <div v-if="files.length">
+            <div v-else-if="files.length > 1">
                 <div v-for="file in files" :key="file.id">
                     <div v-if="file.id">
                         <div class="file-link-box">
@@ -43,9 +43,10 @@ import { ref } from 'vue'
 import Axios from 'axios'
 import ChevronHeader from '@/components/ChevronHeader.vue';
 import { loadSpResources } from '@/firebase/config';
+import Loader from '@/components/Loader.vue';
 
 export default {
-    components: {ChevronHeader},
+    components: {ChevronHeader, Loader},
     setup() {
         const files = ref(['']);
         const error = ref('');

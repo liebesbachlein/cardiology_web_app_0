@@ -7,14 +7,14 @@
 
        <div class="infoshort-info">
            <div class="infoshort-info-upper">
-               <div class="infoshort-info-phrase-date">
+               <!--<div class="infoshort-info-phrase-date">
                    <div class="infoshort-phrase">
                        <h4>{{ newsItem.phrase }}</h4>
                    </div>
                    <div class="infoshort-date">
                        <h4>{{ newsItem.date }}</h4>
                    </div>
-               </div>
+               </div>-->
                <div class="infoshort-title">
                    <h3>{{ newsItem.title }}</h3>
                </div>

@@ -2,7 +2,7 @@
     <div class="infofeed">
         <div  class="infofeed-timeline">
             <div v-if="error">{{ error }}</div>
-            <div v-if="infoFeed.length">
+            <div v-else-if="infoFeed.length > 1">
                 <div v-for="newsItem in displayInfoList" :key="newsItem.id">
                     <div v-if="newsItem.id">
                     <router-link :to="{name: 'InfoAbout', params: {id: newsItem.id}}">
@@ -27,9 +27,10 @@ import InfoShort from './InfoShort.vue';
 import InfoAbout from './InfoAbout.vue';
 import { ref} from 'vue';
 import { loadInfo } from '@/firebase/config';
+import Loader from '@/components/Loader.vue';
 
 export default {
-    components: {InfoAbout, InfoShort},
+    components: {InfoAbout, InfoShort, Loader},
     setup() { 
     const newsLimit = 8
     let loadIndex = 1

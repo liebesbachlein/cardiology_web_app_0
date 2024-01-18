@@ -1,5 +1,5 @@
 <template>
-  <div class="site-content">
+  <div class="site-content" style="background-color: #FDFAFF;">
     <Cover/>
     <div class="site-content-in">
       <Stats/>
@@ -39,7 +39,6 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #FDFAFF;
   }
 
   .site-content-in {

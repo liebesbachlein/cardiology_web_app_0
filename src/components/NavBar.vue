@@ -8,24 +8,30 @@
       </router-link>
     </div>
   
-    <div class="navbar-in-block">
-      <div class="navbar-item" ref="about">
-        <router-link  :to="{name: 'AboutView', params: {id: 1}}">О нас</router-link>
+    <div class="navbar-in-block"  >
+      
+      
+      <div class="navbar-item"  @mouseover="popAbout = true"  @mouseleave="popAbout = false">
+        <AboutPopMenu v-if="popAbout"/>
+        <router-link ref="about" id="about" :to="{name: 'AboutView', params: {id: 1}}" :class="{'a-hover': popAbout}">О нас</router-link>
       </div>
       <p class="divider-zero">|</p>
     
-      <div class="navbar-item" ref="news">
-        <router-link to="/news/">Новости</router-link>
+      <div class="navbar-item"   @mouseover="popNews = true"  @mouseleave="popNews = false">
+        <!--<NewsPopMenu v-if="popNews"/>-->
+        <router-link ref="news" id="news" to="/news/" :class="{'a-hover': popNews}">Новости</router-link>
       </div>
       <p class="divider-zero">|</p>
     
-      <div class="navbar-item" ref="sp">
-        <router-link  :to="{name: 'SpecialistsView', params: {id: 1}}">Специалистам</router-link>
+      <div class="navbar-item"   @mouseover="popSp = true"  @mouseleave="popSp = false">
+        <PtPopMenu v-if="popSp"/>
+        <router-link ref="sp" id="sp"  :to="{name: 'SpecialistsView', params: {id: 1}} " :class="{'a-hover': popSp}">Специалистам</router-link>
       </div>
       <p class="divider-zero">|</p>
 
-      <div class="navbar-item" ref="pt">
-        <router-link   :to="{name: 'PatientsView', params: {id: 1}}">Пациентам</router-link>
+      <div class="navbar-item"  @mouseover="popPt = true"  @mouseleave="popPt = false">
+        <SpPopMenu v-if="popPt"/>
+        <router-link ref="pt" id="pt"   :to="{name: 'PatientsView', params: {id: 1}}" :class="{'a-hover': popPt}">Пациентам</router-link>
       </div>
     </div>
   </div>
@@ -35,29 +41,42 @@
 </template>
 
 <script>
+import AboutPopMenu from './AboutPopMenu.vue';
+import NewsPopMenu from './NewsPopMenu.vue';
+import SpPopMenu from './SpPopMenu.vue';
+import PtPopMenu from './PtPopMenu.vue';
 
 
 export default {
+  components: {AboutPopMenu, SpPopMenu, PtPopMenu},
+  data: function () {
+    return {
+      popAbout: false, 
+      popNews: false, 
+      popSp: false, 
+      popPt: false
+    }
+  },
   mounted() {
     window.addEventListener('scroll', this.changeNavBar);
   },
   methods: {
     changeNavBar() {
       const navBar = this.$refs.navBar
-      const arr = [this.$refs.about, this.$refs.news, this.$refs.sp, this.$refs.pt]
-      //const ps = document.querySelectorAll('p');
+      const arr = [document.getElementById('about'), document.getElementById('news'), document.getElementById('sp'), document.getElementById('pt')]
+      const ps = document.querySelectorAll('.navbar-in-block p');
       const redLine = this.$refs.redLine
       if (window.scrollY > 100) {
-        navBar.className = 'navbar-block-scroll';
-        redLine.className = 'red-line-scroll';
-        arr.forEach(e => e.children[0].style = 'color: #FFFFFF')
-        //ps.forEach(e => e.className = 'divider-scroll')
+        navBar.className = 'navbar-block-scroll'
+        redLine.className = 'red-line-scroll'
+        arr.forEach(e => e.style = 'color: #FFFFFF')
+        ps.forEach(e => e.className = 'divider-scroll')
 
       } else if (window.scrollY <= 100) {
-        navBar.className = 'navbar-block-zero';
-        redLine.className = 'red-line-zero';
-        arr.forEach(e => e.children[0].style = 'color: #454545')
-        //ps.forEach(e => e.className = 'divider-zero')
+        navBar.className = 'navbar-block-zero'
+        redLine.className = 'red-line-zero'
+        arr.forEach(e => e.style = 'color: #454545')
+        ps.forEach(e => e.className = 'divider-zero')
       }
     }
   }
@@ -68,12 +87,16 @@ export default {
 
 <style>
 
+#about, #news, #sp, #pt {
+  padding: 0 2rem;
+}
+
 .divider-zero {
   color: var(--component-accent-color1)
 }
 
 .divider-scroll {
-  color: var(--component-accent-color1)
+  color: #FFF;
 }
 
 .navbar {
@@ -121,8 +144,11 @@ a.logo {
 .navbar-item {
   display: flex;
   height: 100%;
-  padding: 0 2rem ;
-  align-items: center;
+  
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 12;
+  flex-direction: column;
 }
 
 .navbar-item a {
@@ -132,19 +158,18 @@ a.logo {
   color: #454545;
   text-decoration: none;
   text-transform: uppercase;
+  
 }
 
 .navbar-item a.router-link-active {
-  color: var(--component-accent-color2);
-  text-decoration: none;
   font-weight: 700;
-  letter-spacing: 0.0625rem;
+  /*letter-spacing: 0.0625rem;*/
 }
 
-.navbar-item a:hover {
-  text-decoration: none;
-  font-weight: 700;
-  letter-spacing: 0.0625rem;
+.navbar-item .a-hover {
+  text-decoration: overline;
+  /*font-weight: 700;
+  letter-spacing: 0.0625rem;*/
 }
 
 .navbar-item a.router-link-click {
