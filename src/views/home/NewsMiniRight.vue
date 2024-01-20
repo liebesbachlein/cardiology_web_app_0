@@ -3,7 +3,7 @@
 <div class="newsmini-right">
     
 
-    <div class="newsmini-img">
+    <div v-if="!mobile" class="newsmini-img">
         <img :src="news.url">
     </div>
     
@@ -30,7 +30,7 @@
         </div>
 
         <div class="news-chev-details">
-            <ChevronRight color="red"/>
+            <ChevronRight color="red" v-if="!mobile"/>
             <div class="news-detail">
                 <h4>{{ news.details }}</h4>
             </div>
@@ -46,14 +46,131 @@ import ChevronRight from '@/components/ChevronRight.vue';
 
 export default {
     props: ['news'],
-    components: {LineCircle, ChevronRight}
+    components: {LineCircle, ChevronRight},
+    data: function() {
+        return {
+            mobile: null
+        }
+    },
+    mounted() {
+        this.mobile = window.matchMedia("(max-width: 768px)").matches
+    },
 }
 
 </script>
 
 <style>
-
+@media only screen and (max-width: 768px) {
 .newsmini-right .newsmini-img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    grid-column: 1;
+    grid-row: 1;
+    display: hidden;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.newsmini-img img {
+    max-height: 10rem;
+    width: auto;
+    object-fit: contain;
+    display: hidden;
+}
+
+.news-title-city {
+    margin-bottom: 1rem;
+}
+
+.newsmini-upper {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.news-format {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.news-format h4 {
+    font-size: 0.825rem;
+    text-transform: uppercase;
+    color: #454343;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.newsmini-right {
+    display: grid;
+    grid-template-columns: calc(100vw - 52px) 52px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.newsmini-right .newsmini-line {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.newsmini-right .news-box {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 1rem;
+}
+
+.newsmini-right .news-date {
+    display: grid;
+    width: 12.5rem;
+    height: 2.5rem;
+    background-color: var(--component-accent-color1);
+    border-radius: 0 0.75rem 0.75rem 0;
+    padding-left: 1.5rem;
+    justify-content: left;
+    align-items: center;
+    grid-column: 1;
+}
+
+.newsmini-right .news-date h4 {
+    grid-row: 1;
+    grid-column: 1;
+    color: #FFF;
+}
+
+.newsmini-right .news-chev-details {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.newsmini-right .news-city h4 {
+    font-style: italic;
+    line-height: 1rem;
+}
+.news-chev-details h4 {
+    color: #858585;
+}
+
+.newsmini-right .news-detail {
+    margin-left: 0;
+    display: inline;
+    
+}
+
+.news-title h3 {
+    color: var(--component-accent-color2)
+}
+
+}
+
+@media only screen and (min-width: 1024px) {
+    .newsmini-right .newsmini-img {
     height: 100%;
     width: auto;
     object-fit: cover;
@@ -152,5 +269,5 @@ export default {
     color: var(--component-accent-color2)
 }
 
-
+}
 </style>

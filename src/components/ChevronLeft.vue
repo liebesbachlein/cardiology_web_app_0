@@ -53,7 +53,7 @@ export default {
     transform: rotate(135deg);
     right: 3px;
     top: 0px;
-    left: 5px;
+    left: 3px;
 }
 
 </style>

@@ -20,6 +20,11 @@
         <div class="month-news">
             <NewsMiniLeft :news="news[3]"/>
         </div>
+
+        <MonthBlock monthName="Апрель 2024"></MonthBlock>
+        <div class="month-news">
+            <NewsMiniRight :news="news[0]"/>
+        </div>
     </div>
 
 </template>
@@ -37,28 +42,28 @@ export default {
             title: 'Региональная Кардио-Школа', 
             city: 'Павлодар', 
             details: 'Европейский Конгресс Кардиологов 2023',
-            format: 'ОФФЛАЙН',
+            format: 'oффлайн',
             url: "/events/event1.png"}, 
 
             {date: '17 февраля', 
             title: 'Образовательный Проект', 
             city: 'Алматы', 
             details: 'Клинические разборы пациентов с СД и ССЗ на основе рекомендаций ЕОК-23',
-            format: 'ОФФЛАЙН',
+            format: 'oффлайн',
             url: '/events/event2.png'}, 
 
             {date: '25 февраля', 
             title: 'Образовательный Проект', 
             city: 'Туркестан', 
             details: 'Простые и удобные инструменты по выбору оптимальной терапии вашим пациентам',
-            format: 'ОФФЛАЙН',
+            format: 'oффлайн',
             url: '/events/event1.png'}, 
             
             {date: '3 марта', 
             title: 'CardioForum', 
             city: 'Алматы', 
             details: 'ПVI Конгресс по артериальной гипертонии и кардиоваскулярной профилактике с международным участием',
-            format: 'ОФФЛАЙН',
+            format: 'oффлайн',
             url: '/events/event2.png'}, 
     ]
 
@@ -69,7 +74,7 @@ export default {
 </script>
 
 <style>
-
+@media only screen and (max-width: 768px) {
 .newstimeline {
     display: block;
     width: 100%;
@@ -90,7 +95,40 @@ export default {
 .header h1 {
     font-family: var(--tenor-font);
     text-transform: uppercase;
-    font-size: 1.25rem;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #2D2D2D;
+    font-style: normal;
+}
+
+.month-news {
+    margin: 0rem 0;
+}
+
+}
+
+@media only screen and (min-width: 1024px) {
+.newstimeline {
+    display: block;
+    width: 100%;
+}
+
+.newstimeline .header-box {
+    display: flex;
+    justify-content: center;
+}
+
+.newstimeline .header {
+    display: inline-block;
+    text-align: center;
+    padding: 12px 12px 60px 12px;
+    border-top: 2px solid var(--component-accent-color1);
+}
+
+.header h1 {
+    font-family: var(--tenor-font);
+    text-transform: uppercase;
+    font-size: 1rem;
     font-weight: 400;
     color: #2D2D2D;
     font-style: normal;
@@ -100,5 +138,5 @@ export default {
     margin: 2.5rem 0;
 }
 
-
+}
 </style>

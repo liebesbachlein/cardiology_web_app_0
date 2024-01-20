@@ -31,20 +31,10 @@
 </script>
 
 <style>
-.cover-button {
-    height: 3.125rem;
-    width: 11rem;
-    border: 2px solid #FFF;
-    background-color: #FFF;
-    border-radius: 0.25rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: var(--subheading-font);
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--component-accent-color1);
-}
+
+
+@media only screen and (max-width: 768px) {
+
 
 .poster-contents2 {
     width: 100%;
@@ -77,31 +67,15 @@
     flex-direction: column;
     justify-content: space-between;
 }
-
+}
 
 
 @media only screen and (min-width: 1024px) {
 
-.cover-button {
-    height: 3.125rem;
-    width: 14.5rem;
-    border: 2px solid #DDDCDC;
-    border-radius: 0.25rem;
-    color: #FFF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: var(--subheading-font);
-    font-weight: 500;
-    font-size: 1.25rem;
-}
 
-.cover-button:hover {
-    border: 2px solid #FFF5FB;
-    color: var(--component-accent-color1);
-    background-color: #FFF5FB;
-}
-
+    .poster-contents2 .cover-button {
+        margin-top: 2rem;
+    }
 
 .poster-contents2 {
     width: 100%;
@@ -134,5 +108,14 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+.header1 h1 {
+    line-height: 2rem;
 }
+
+.header1 h3 {
+    line-height: 1.5rem;
+}
+}
+
 </style>

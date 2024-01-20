@@ -17,7 +17,7 @@ export default {
     }
   },
   mounted() {
-    this.mobile = window.matchMedia("(max-width: 768px)")
+    this.mobile = window.matchMedia("(max-width: 768px)").matches
   },
   components: {
     NavBar, NavBarMobile

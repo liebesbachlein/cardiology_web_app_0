@@ -1,15 +1,14 @@
 <template>
-    <div class="stats-img">
-    <img src="@/assets/heart.svg">
-</div>
+    <div v-if="!mobile" class="stats-img">
+        <img src="@/assets/heart.svg">
+    </div>
     <div class="partners-header-cont">
-            <div class="header-top">
-                <h1>Глобальная статистика</h1>
-            </div>
+        <div class="header-top">
+            <h1>Глобальная статистика</h1>
         </div>
-    <div class="stats">
-
-
+    </div>
+    <StatsSwipeMobile v-if="mobile"/>
+    <div class="stats" v-else>
 
 <div class="stats-item">
     <div class="stats-header">
@@ -19,6 +18,7 @@
         <p>— людей на земле страдает от гипертонии</p>
     </div>
 </div>
+
 
 <div class="stats-item">
     <div class="stats-header">
@@ -46,13 +46,63 @@
         <p>— смертных случаев приходится на долю гипертонии</p>
     </div>
 </div>
-    </div>
+
+</div>
 
 
 </template>
 
+<script>
+import StatsSwipeMobile from './StatsSwipeMobile.vue'
+
+export default {
+    data: function() {
+        return {
+            mobile: null
+        }
+    },
+    mounted() {
+        this.mobile = window.matchMedia("(max-width: 768px)").matches
+    },
+    components: {StatsSwipeMobile}
+}
+
+</script>
+
 <style>
 
+@media only screen and (max-width: 768px) {
+
+.header-top h1 {
+    font-size: 1rem;
+}
+
+.stats-img {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    z-index: -5;
+    left: 0;
+}
+
+.stats-img img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+
+.stats {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 5rem 0;
+}
+
+}
+
+
+@media only screen and (min-width: 1024px) {
 .stats-img {
     width: 50%;
     height: 50%;
@@ -71,6 +121,7 @@
     display: flex;
     justify-content: space-between;
     margin: 5rem 0;
+    flex-direction: row;
 }
 
 .stats-item {
@@ -108,5 +159,5 @@
 .stats-header {
     margin-bottom: 1rem;
 }
-
+}
 </style>

@@ -46,6 +46,8 @@ export default {
 
 <style>
 
+@media only screen and (max-width: 768px) {
+
 .navbar {
   display: block;
   position: fixed;
@@ -69,7 +71,7 @@ export default {
   height: 100%;
   background-color: #FFF;
   /*background-color: var(--component-accent-color1);*/
-  padding: 0 2rem;
+  padding: 0 2rem 0 0;
   box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.25);
   
 }
@@ -104,5 +106,5 @@ export default {
     border-top: 2px solid var(--component-accent-color1);
     margin: 0 auto;
 }
-
+}
 </style>

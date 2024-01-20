@@ -16,6 +16,35 @@ export default {
 
 <style>
 
+
+
+@media only screen and (max-width: 768px) {
+.monthblock {
+    width: 100%;
+    
+}
+
+.month {
+    display: flex;
+    margin: 1rem auto 2.5rem auto;
+    width: 200px;
+    height: 40px;
+    border-radius: 0.25rem;
+    border: 1px solid var(--component-accent-color2);
+    justify-content: center;
+    align-items: center;
+}
+
+.month h4 {
+    color: var(--component-accent-color2);
+    font-family: var(--tenor-font);
+    font-size: 1rem;
+}
+
+}
+
+
+@media only screen and (min-width: 1024px) {
 .monthblock {
     width: 100%;
 }
@@ -37,7 +66,7 @@ export default {
     font-size: 1rem;
 }
 
-
+}
 
 
 </style>
