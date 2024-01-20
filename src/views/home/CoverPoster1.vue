@@ -36,8 +36,8 @@ export default {
 .cover-button {
     height: 3.125rem;
     width: 11rem;
-    border: 2px solid #FFF5FB;
-    background-color: #FFF5FB;
+    border: 2px solid #FFF;
+    background-color: #FFF;
     border-radius: 0.25rem;
     display: flex;
     justify-content: center;
@@ -51,7 +51,7 @@ export default {
 .poster1 {
     display: flex;
     align-items: flex-start;
-    background-image: url('@/assets/covers/image-cover1.png');
+    background-image: url('@/assets/covers/image-cover1-mobile.png');
     width: 100%;
     height: calc(100vw * 16 / 9 * 0.75);
     background-size: cover;
