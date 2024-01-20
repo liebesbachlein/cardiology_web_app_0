@@ -32,6 +32,8 @@
 
 <style>
 
+@media only screen and (min-width: 1024px) {
+
 .cover-button {
     height: 3.125rem;
     width: 14.5rem;
@@ -95,5 +97,5 @@
     flex-direction: column;
     justify-content: space-between;
 }
-
+}
 </style>

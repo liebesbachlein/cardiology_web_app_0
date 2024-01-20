@@ -1,13 +1,13 @@
 <template>
-  <div class="site-content" style="background-color: #FDFAFF;">
+  <div class="site-content" style="background-color: #FFF;"> <!--#FDFAFF-->
     <Cover/>
-    <div class="site-content-in">
+    <!--<div class="site-content-in">
       <Stats/>
       <NewsTimeline/>
       <Partners/>
       <Mission/>
     </div>
-    <Footer/>
+    <Footer/>-->
   </div>
 </template>
 
@@ -30,6 +30,46 @@ export default {
 </script>
 
 <style>
+
+.site-content {
+  position: absolute;
+  width: 100%;
+  top: 4.75rem;
+  right: 0;
+  left: 0;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.site-content-in {
+  margin: 0 1.5rem; 
+}
+
+
+
+
+@media only screen and (min-width: 768px) {
+  .site-content {
+    position: absolute;
+    width: 100%;
+    top: 80px;
+    right: 0;
+    left: 0;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .site-content-in {
+    width: 100%;
+    margin: 0 1.5rem; 
+  }
+}
+
+@media only screen and (min-width: 1024px) {
   .site-content {
     position: absolute;
     width: 100%;
@@ -44,7 +84,8 @@ export default {
 
   .site-content-in {
     width: 84%;
-    /*width: 1080px;*/
     margin: 0 auto; 
   }
+}
+
 </style>

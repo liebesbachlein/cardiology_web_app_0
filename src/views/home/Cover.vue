@@ -3,7 +3,6 @@
 <div class="cover">
 
     <div class="cover-box">
-         <!--name="slide-fade" mode="out-in">-->
         <Transition mode="in-out" name="slider">
             <div v-if="showCover1">
                 <CoverPoster1 :is="showCover1"/>
@@ -19,9 +18,9 @@
                 <CoverPoster3 :is="showCover3"/>
             </div>
         </Transition>
-      
         
     </div>
+
 
     <div class="carousel">
         <div class="carousel-box">
@@ -87,14 +86,12 @@ export default {
     display: block;
     /*margin-top: 2rem;*/
     margin-bottom: 3rem;
-
-
 }
 
 .cover-box {
     display: block;
     text-align: center;
-    height: calc(100vw * 9 / 16 - 5rem - 7rem);
+    height: calc(100vw * 16 / 9 * 0.75);
     position: relative;
     width: 100%;
 }
@@ -102,14 +99,39 @@ export default {
 .cover-box img {
     object-fit: cover;
     width: 100%;
-    height: calc(100vw * 9 / 16 - 5rem - 7rem);
+    height: calc(100vw * 16 / 9 * 0.75);
 }
     
 .cover-box>div {
     position: absolute;
     width: 100%;
     display: block;
-    height: calc(100vw * 9 / 16 - 5rem - 7rem);
+    height: calc(100vw * 16 / 9 * 0.75);
+}
+
+@media only screen and (min-width: 1024px) {
+
+    .cover-box {
+        display: block;
+        text-align: center;
+        height: calc(100vw * 9 / 16 - 5rem - 7rem);
+        position: relative;
+        width: 100%;
+    }
+
+    .cover-box img {
+        object-fit: cover;
+        width: 100%;
+        height: calc(100vw * 9 / 16 - 5rem - 7rem);
+    }
+        
+    .cover-box>div {
+        position: absolute;
+        width: 100%;
+        display: block;
+        height: calc(100vw * 9 / 16 - 5rem - 7rem);
+    }
+
 }
 
 .carousel {

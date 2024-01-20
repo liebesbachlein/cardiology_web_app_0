@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar" >
+  <div class="popmenu" >
   <div class="navbar-block-zero" ref="navBar" @click="check">
 
     <div class="navbar-in-block">
@@ -87,8 +87,6 @@ export default {
 
 <style>
 
-@media only screen and (min-width: 1024px) {
-
 #about, #news, #sp, #pt {
   padding: 0 2rem;
 }
@@ -106,7 +104,7 @@ export default {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 5rem;
+  height: 4.75rem;
   z-index: 10;
 }
 
@@ -198,5 +196,4 @@ a.logo {
     margin: 0 auto;
 }
 
-}
 </style>

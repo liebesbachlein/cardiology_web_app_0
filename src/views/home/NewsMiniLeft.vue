@@ -61,7 +61,13 @@ export default {
     grid-row: 1;
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
+}
+
+.newsmini-left .newsmini-img img {
+    max-height: 10rem;
+    width: auto;
+    object-fit: contain;
 }
 
 .newsmini-left {
