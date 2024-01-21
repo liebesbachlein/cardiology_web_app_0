@@ -4,12 +4,10 @@
     <div class="site-content-in">
       <Stats/>
       <NewsTimeline/>
-    </div>
-      
-      <!--<Partners/>
+      <Partners/>
       <Mission/>
     </div>
-    <Footer/>-->
+    <Footer/>
   </div>
 </template>
 
@@ -50,7 +48,7 @@ export default {
 
   .site-content-in {
     width: 100%;
-    margin: 0 1.5rem; 
+    padding: 0; 
   }
 }
 

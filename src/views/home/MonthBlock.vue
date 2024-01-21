@@ -26,12 +26,8 @@ export default {
 
 .month {
     display: flex;
-    margin: 1rem auto 2.5rem auto;
-    width: 200px;
-    height: 40px;
-    border-radius: 0.25rem;
-    border: 1px solid var(--component-accent-color2);
-    justify-content: center;
+    margin: 4rem 1.5rem 1.5rem auto;
+    justify-content: flex-end;
     align-items: center;
 }
 

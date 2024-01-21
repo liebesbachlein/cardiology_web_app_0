@@ -1,6 +1,6 @@
 <template>
   <div class="navbar" >
-  <div class="navbar-block-zero" ref="navBar" @click="check">
+  <div class="navbar-block-zero" ref="navBar">
 
     <div class="navbar-in-block">
       <router-link to="/" class="logo">

@@ -1,7 +1,7 @@
 <template>
     
      <div class="newsshort">
-        <div v-if="newsItem.imgSrc" class="newsshort-image">
+        <div v-if="newsItem.imgSrc && !mobile" class="newsshort-image">
             <img :src="'/news_posters/' + newsItem.imgSrc">
         </div>
 
@@ -15,6 +15,9 @@
                         <h4>{{ newsItem.date }}</h4>
                     </div>
                 </div>
+                <div v-if="newsItem.imgSrc && mobile" class="newsshort-image">
+                        <img :src="'/news_posters/' + newsItem.imgSrc">
+                    </div>
                 <div class="newsshort-title">
                     <h3>{{ newsItem.title }}</h3>
                 </div>
@@ -34,12 +37,77 @@ import NewsAbout from './NewsAbout.vue';
 
 export default {
     props: ['newsItem'], 
-    components: {NewsAbout}
+    components: {NewsAbout}, 
+    data: function() {
+    return {
+      mobile: null
+    }
+  },
+    mounted() {
+    this.mobile = window.matchMedia("(max-width: 768px)").matches
+  },
 }
 
 </script>
 
 <style>
+
+@media only screen and (max-width: 768px) {
+
+.newsshort {
+    width: 100%;
+    display: flex;
+    margin-bottom: 3rem;
+    cursor: pointer;
+}
+
+.newsshort-title h3 {
+    font-size: 1.18rem;
+}
+
+.newsshort-image {
+    width: 100%;
+    height: calc(( 100vw - 2rem) * 9 / 16 );
+    display: inline-block; 
+}
+
+.newsshort-image img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.newsshort-info {
+    width: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.newsshort-info-upper {
+    width: 100%;
+}
+
+.newsshort-info-phrase-date {
+    display: flex;
+    justify-content: space-between;
+}
+
+.newsshort-info-phrase-date h4 {
+    color: #969696
+}
+
+.newsshort-phrase {
+    text-transform: uppercase;
+}
+
+.newsshort-info-lower {
+    display: inline;
+    margin-top: 1rem;
+}
+}
+
+@media only screen and (min-width: 1024px) {
 
 .newsshort {
     width: 100%;
@@ -92,6 +160,7 @@ export default {
 
 .newsshort-info-lower {
     display: inline;
+}
 }
 
 </style>

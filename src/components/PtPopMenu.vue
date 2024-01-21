@@ -1,7 +1,7 @@
 <template>
     <div class="pop-menu">
         <router-link to="/patients/1" @mouseover="hoverOver1 = true" @mouseleave="hoverOver1 = false">
-            <Transition mode="out-in" name="navbar-fade">
+           
             <div v-if="hoverOver1" class="pop-menu-item">    
                 <ChevronLeft color="red"/>
                 <h4 style="color: var(--component-accent-color1); font-weight: 600;">Полезная информация</h4>
@@ -10,10 +10,10 @@
                 <ChevronRight color="blue"/>
                 <h4>Полезная информация</h4>
             </div>
-            </Transition>
+            
         </router-link>
         <router-link to="/patients/2"  @mouseover="hoverOver2 = true" @mouseleave="hoverOver2 = false">
-            <Transition mode="out-in" name="navbar-fade">
+           
             <div v-if="hoverOver2" class="pop-menu-item">    
                 <ChevronLeft color="red"/>
                 <h4 style="color: var(--component-accent-color1); font-weight: 600;">Частные вопросы</h4>
@@ -21,10 +21,10 @@
             <div v-else class="pop-menu-item">    
                 <ChevronRight color="blue"/>
                 <h4>Частные вопросы</h4>
-            </div></Transition>
+            </div>
         </router-link>
         <router-link to="/patients/3"  @mouseover="hoverOver3 = true" @mouseleave="hoverOver3 = false">
-            <Transition mode="out-in" name="navbar-fade">
+           
             <div v-if="hoverOver3" class="pop-menu-item">    
                 <ChevronLeft color="red"/>
                 <h4 style="color: var(--component-accent-color1); font-weight: 600;">Обратиться к специалисту</h4>
@@ -32,7 +32,7 @@
             <div v-else class="pop-menu-item">    
                 <ChevronRight color="blue"/>
                 <h4>Обратиться к специалисту</h4>
-            </div></Transition>
+            </div>
         </router-link>
         
     </div>

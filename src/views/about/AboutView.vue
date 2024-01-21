@@ -85,6 +85,47 @@ export default {
 
 <style>
 
+@media only screen and (max-width: 768px) {
+
+.about {
+    width: 100%;
+    margin-top: 3rem;
+    padding: 0 1rem;
+}
+
+.about-box {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.about-side {
+  width: 0%;
+  display: none
+}
+
+.about-side-box {
+  width: 0%;
+  display: none;
+  height: auto;
+  background-color: #FFF;
+  box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.25);
+  border-radius: 0.5rem;
+  padding: 1.5rem 1rem 1rem 1.25rem;
+}
+
+.about-content {
+  width: 100%;
+  margin-bottom: 8.5rem;
+  padding: 0 1rem;
+  
+}
+
+}
+
+@media only screen and (min-width: 1024px) {
+
 .about {
     width: 100%;
     margin-top: 100px;
@@ -116,7 +157,7 @@ export default {
   margin-bottom: 8.5rem;
 }
 
-
+}
 
 
 </style>

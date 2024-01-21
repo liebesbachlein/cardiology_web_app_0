@@ -121,6 +121,139 @@ export default {
 </script>
 
 <style>
+@media only screen and (max-width: 768px) {
+
+.newsfeed {
+    width: 100%;
+    margin-top: 3rem;
+    padding: 0 1rem;
+    min-height: calc(100vh - 5rem);
+}
+
+.breadcrumbs-box {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.breadcrumb-past {
+    display: inline-block;
+    padding-right: 2rem;
+}
+
+.breadcrumb-now {
+    display: inline-block;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.breadcrumb-past a {
+    font-size: var(--subheading-font-size);
+    font-family: var(--subheading-font);
+    font-weight: 400;
+    color: #000;
+    text-decoration: none;
+}
+
+.breadcrumb-past a.router-link-active {
+    font-size: var(--subheading-font-size);
+    font-family: var(--subheading-font);
+    font-weight: 400;
+    color: #000;
+    text-decoration: none;
+}
+
+
+.breadcrumb-now a {
+    font-weight: 600;
+    color: var(--text-accent-color1);
+    font-size: var(--subheading-font-size);
+    font-family: var(--subheading-font);
+    text-decoration: none;
+}
+
+.breadcrumb-now a.router-link-active {
+    font-weight: 600;
+    color: var(--text-accent-color1);
+    font-size: var(--subheading-font-size);
+    font-family: var(--subheading-font);
+    text-decoration: none;
+}
+
+
+.newsfeed-box {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 2rem;
+    
+}
+
+.newsfeed-timeline {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.newsfeed-timeline a {
+    text-decoration: none;
+}
+
+.newsfeed-timeline a.router-link-active {
+    text-decoration: none;
+}
+
+.newsfeed-side {
+    width: 0%;
+    margin: 3rem 0;
+    display: none;
+}
+
+.newsfeed-side-box {
+    display: inline-block;
+    width: 0%;
+    height: auto;
+    background-color: #FFF;
+    box-shadow: -2px 2px 10px 0px rgba(170, 170, 170, 0.25);
+  border-radius: 0.5rem;
+    padding: 3rem 1rem 0.5rem 1.25rem;
+    display: none;
+}
+
+.blue-button-box {
+    display: block;
+    margin-bottom: 6rem;
+    height: 3.76rem;
+    width: 100%;
+}
+
+.blue-button {
+    cursor: pointer;
+    margin: 0 auto;
+    display: flex;
+    height: 3.76rem;
+    width: 17rem;
+    border-radius: 1rem;
+    background-color: var(--component-accent-color2);
+    align-items: center;
+    justify-content: center;
+}
+
+.blue-button h4 {
+    color: #FFF;
+    font-weight: 400;
+}
+
+.blue-button h3 {
+    color: #FFF;
+    font-weight: 400;
+}
+}
+
+@media only screen and (min-width: 1024px) {
 
 .newsfeed {
     width: 100%;
@@ -228,7 +361,7 @@ export default {
     display: flex;
     height: 3.76rem;
     width: 17rem;
-    border-radius: 1.88rem;
+    border-radius: 1rem;
     background-color: var(--component-accent-color2);
     align-items: center;
     justify-content: center;
@@ -242,6 +375,7 @@ export default {
 .blue-button h3 {
     color: #FFF;
     font-weight: 400;
+}
 }
 
 </style>

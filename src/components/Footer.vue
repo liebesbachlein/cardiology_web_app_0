@@ -26,6 +26,48 @@
 
 <style>
 
+@media only screen and (max-width: 768px) {
+
+.footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--component-accent-color1);
+    padding-bottom: 20px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+    width: 100%;
+}
+
+.social-media-icon {
+    width: 30%;
+    display: inline-block;
+    text-align: center;
+}
+
+.social-media-icon img {
+    width: 2rem;
+}
+
+.footer-info {
+    width: 95%;
+    text-align: center;
+}
+
+.footer-info h4 {
+    color: #FFF;
+    font-size: 0.825rem;
+}
+}
+
+@media only screen and (min-width: 1024px) {
+
 .footer {
     width: 100%;
     display: flex;
@@ -60,6 +102,7 @@
 
 .footer-info h4 {
     color: #FFF;
+}
 }
 
 </style>

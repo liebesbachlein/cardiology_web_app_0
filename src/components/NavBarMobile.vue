@@ -1,13 +1,13 @@
 <template>
   <div class="navbar" >
-  <div class="navbar-block-zero" ref="navBar" @click="check">
+  <div class="navbar-block-zero" ref="navBar">
 
     <div class="navbar-in-block">
       <router-link to="/" class="logo">
       <img src="@/assets/logo01.png" style="max-height: 4.75rem; width: auto">
       </router-link>
 
-      <div class="navbar-side-img">
+      <div class="navbar-side-img" @click="openSideMenu">
           <img src="@/assets/three-lines.svg">
       </div>
 
@@ -37,6 +37,9 @@ export default {
         navBar.className = 'navbar-block-zero'
         redLine.className = 'red-line-zero'
       }
+    }, 
+    openSideMenu() {
+      this.$emit('openSideMenu')
     }
   }
 }
@@ -62,7 +65,7 @@ export default {
   width: 100%;
   height: 100%;
   background-color: #FFF;
-  padding: 0 2rem 0 0;
+  padding: 0 1.5rem 0 0;
   box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.25);
 }
 
@@ -71,7 +74,7 @@ export default {
   height: 100%;
   background-color: #FFF;
   /*background-color: var(--component-accent-color1);*/
-  padding: 0 2rem 0 0;
+  padding: 0 1.5rem 0 0;
   box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.25);
   
 }
@@ -85,13 +88,12 @@ export default {
 }
 
 .navbar-side-img {
-    width: 1.5625rem;
-    height: 1.25rem;
+  display: flex;
+  align-items: center;
+    width: auto;
+    height: 100%;
 }
 
-.navbar-side img {
-    object-fit: contain;
-}
 
 .red-line-zero {
     display: block;

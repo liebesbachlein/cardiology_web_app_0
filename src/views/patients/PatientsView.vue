@@ -8,7 +8,7 @@
                       </div>
                       <ChevronRight color="blue"/>
                       <div class="breadcrumb-now">
-                        <router-link :to="{name: 'PatientsView', params: {id: 1}}" @click="pageNum = 1">О нас</router-link>
+                        <router-link :to="{name: 'PatientsView', params: {id: 1}}" @click="pageNum = 1">Пациентам</router-link>
                       </div>
                       <ChevronRight color="blue"/>
                   </div>
@@ -75,6 +75,47 @@
   </script>
   
   <style>
+
+@media only screen and (max-width: 768px) {
+  
+  .patients {
+      width: 100%;
+      margin-top: 3rem;
+      padding: 0 1rem;
+  }
+  
+  .patients-box {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      margin-top: 2rem;
+  }
+  
+  .patients-side {
+    width: 0%;
+    display: none;
+  }
+  
+  .patients-side-box {
+    width: 0%;
+    display: none;
+    height: auto;
+    background-color: #FFF;
+    box-shadow: -2px 2px 10px 0px rgba(170, 170, 170, 0.25);
+  border-radius: 0.5rem;
+    padding: 1.5rem 1rem 1rem 1.25rem;
+  }
+  
+  .patients-content {
+    width: 100%;
+    margin-bottom: 8.5rem;
+    padding: 0 1rem;
+  }
+  
+}
+  
+  
+@media only screen and (min-width: 1024px) {
   
   .patients {
       width: 100%;
@@ -107,7 +148,6 @@
     margin-bottom: 8.5rem;
   }
   
-  
-  
+}
   
   </style>

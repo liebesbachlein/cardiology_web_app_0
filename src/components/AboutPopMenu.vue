@@ -1,7 +1,7 @@
 <template>
     <div class="pop-menu">
         <router-link to="/about/1" @mouseover="hoverOver1 = true" @mouseleave="hoverOver1 = false">
-            <Transition mode="out-in" name="navbar-fade">
+  
             <div v-if="hoverOver1" class="pop-menu-item">    
                 <ChevronLeft color="red"/>
                 <h4 style="color: var(--component-accent-color1); font-weight: 600;">Об Обществе</h4>
@@ -10,10 +10,10 @@
                 <ChevronRight color="blue"/>
                 <h4>Об Обществе</h4>
             </div>
-            </Transition>
+           
         </router-link>
         <router-link to="/about/2"  @mouseover="hoverOver2 = true" @mouseleave="hoverOver2 = false">
-            <Transition mode="out-in" name="navbar-fade">
+        
             <div v-if="hoverOver2" class="pop-menu-item">    
                 <ChevronLeft color="red"/>
                 <h4 style="color: var(--component-accent-color1); font-weight: 600;">Руководство</h4>
@@ -21,10 +21,10 @@
             <div v-else class="pop-menu-item">    
                 <ChevronRight color="blue"/>
                 <h4>Руководство</h4>
-            </div></Transition>
+            </div>
         </router-link>
         <router-link to="/about/3"  @mouseover="hoverOver3 = true" @mouseleave="hoverOver3 = false">
-            <Transition mode="out-in" name="navbar-fade">
+        
             <div v-if="hoverOver3" class="pop-menu-item">    
                 <ChevronLeft color="red"/>
                 <h4 style="color: var(--component-accent-color1); font-weight: 600;">Галерея</h4>
@@ -32,11 +32,11 @@
             <div v-else class="pop-menu-item">    
                 <ChevronRight color="blue"/>
                 <h4>Галерея</h4>
-            </div></Transition>
+            </div>
         </router-link>
         
         <router-link to="/about/4"  @mouseover="hoverOver4 = true" @mouseleave="hoverOver4 = false">
-            <Transition mode="out-in" name="navbar-fade">
+        
             <div v-if="hoverOver4" class="pop-menu-item">    
                 <ChevronLeft color="red"/>
                 <h4 style="color: var(--component-accent-color1); font-weight: 600;">Контакты</h4>
@@ -44,7 +44,7 @@
             <div v-else class="pop-menu-item">    
                 <ChevronRight color="blue"/>
                 <h4>Контакты</h4>
-            </div></Transition>
+            </div>
     </router-link>
     </div>
 
@@ -69,12 +69,12 @@ export default {
 
 </script>
 <style>
-
+/*
 .navbar-fade-enter-active,
 .navbar-fade-leave-active {
-  transition: all 0.1s ease-in;
+  transition: all 0s ease-in;
 }
-
+*/
 
 .pop-menu {
     position: fixed;

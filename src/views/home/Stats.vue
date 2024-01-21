@@ -96,7 +96,7 @@ export default {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin: 5rem 0;
+    margin: 8rem 0 4rem 0;
 }
 
 }

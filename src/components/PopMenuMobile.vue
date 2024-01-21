@@ -1,54 +1,178 @@
 <template>
-  <div class="popmenu" >
-  <div class="navbar-block-zero" ref="navBar" @click="check">
+<div class="popmenu">
+  <div class="pop-upper">
+<div class="navbar" >
+  <div class="navbar-block-zero" ref="navBar">
 
-    <div class="navbar-in-block">
+    <div class="navbar-upper">
       <router-link to="/" class="logo">
-      <img src="@/assets/logo01.png" style="max-height: 5rem; width: auto">
+      <img src="@/assets/logo01-white.png" style="max-height: 4.75rem; width: auto">
+      </router-link>
+
+      <div class="navbar-side-img" @click="closeSideMenu">
+          <img src="@/assets/cross.svg">
+      </div>
+    </div>  
+  </div>
+  
+  <div class="red-line-zero" ref="redLine"></div>
+</div>
+      
+   
+    <div class="navbar-in-block">
+      
+      <div class="navbar-item"  @click ="popAbout = !popAbout">
+        
+        <div class="nav-title" ref="about" id="about">
+          
+          <Transition mode="out-in" name="words">
+          <div v-if="popAbout == false" class="nav-sign-img"><img src="@/assets/plus.svg"></div>
+          <div v-else class="nav-sign-img"><img src="@/assets/minus.svg"></div>
+          </Transition>
+          <h3>О нас</h3>
+          
+        </div>
+        <div class="nav-details" v-if="popAbout">
+
+          <router-link to="/about/1">
+            <div class="mobile-pop-item">    
+                <h4>Об Обществе</h4>
+                <ChevronRight color="blue"/>
+            </div>
+          </router-link>
+
+          <router-link to="/about/2">
+            <div class="mobile-pop-item">    
+                <h4>Руководство</h4>
+                <ChevronRight color="blue"/>
+            </div>
+          </router-link>
+          
+          <router-link to="/about/3">
+            <div class="mobile-pop-item">    
+                <h4>Галерея</h4>
+                <ChevronRight color="blue"/>
+            </div>
+          </router-link>
+
+          <router-link to="/about/4">
+            <div class="mobile-pop-item">    
+                <h4>Контакты</h4>
+                <ChevronRight color="blue"/>
+            </div>
+          </router-link>
+
+        </div>
+      </div>
+    
+      
+        <router-link class="navbar-item-single" ref="news" id="news" to="/news/">
+            <div class="news-item-nav">
+              <div class="nav-sign-img"><img  src="@/assets/sign-white.svg"></div>
+              <h3>Новости</h3>
+            </div>
+            <ChevronRight color="blue"/>
+        </router-link>
+     
+    
+      <div class="navbar-item" @click ="popSp = !popSp">
+        <div class="nav-title" ref="sp" id="sp">
+          <Transition mode="out-in" name="words">
+          <div v-if="popSp == false" class="nav-sign-img"><img src="@/assets/plus.svg"></div>
+          <div v-else class="nav-sign-img"><img src="@/assets/minus.svg"></div></Transition>
+          <h3>Специалистам</h3>
+        </div>
+
+        <div class="nav-details" v-if="popSp">
+          <router-link to="/specialists/1">
+            <div class="mobile-pop-item">    
+                <h4>Членство</h4>
+                <ChevronRight color="blue"/>
+            </div>
+          </router-link>
+
+          <router-link to="/specialists/2">
+            <div class="mobile-pop-item">    
+                <h4>Ресурсы</h4>
+                <ChevronRight color="blue"/>
+            </div>
+          </router-link>
+          
+          <router-link to="/specialists/3">
+            <div class="mobile-pop-item">    
+                <h4>Заявка на обучение</h4>
+                <ChevronRight color="blue"/>
+            </div>
+          </router-link>
+
+        </div>
+      </div>
+    
+      <div class="navbar-item" @click ="popPt = !popPt">
+        <div class="nav-title" ref="sp" id="sp">
+          <Transition mode="out-in" name="words">
+          <div v-if="popPt == false" class="nav-sign-img"><img src="@/assets/plus.svg"></div>
+          <div v-else class="nav-sign-img"><img src="@/assets/minus.svg"></div></Transition>
+          <h3>Пациентам</h3>
+        </div>
+
+        <div class="nav-details" v-if="popPt">
+          <router-link to="/patients/1">
+            <div class="mobile-pop-item">    
+                <h4>Полезная информация</h4>
+                <ChevronRight color="blue"/>
+            </div>
+          </router-link>
+
+          <router-link to="/patients/2">
+            <div class="mobile-pop-item">    
+                <h4>Частные вопросы</h4>
+                <ChevronRight color="blue"/>
+            </div>
+          </router-link>
+          
+          <router-link to="/patients/3">
+            <div class="mobile-pop-item">    
+                <h4>Обратиться к специалисту</h4>
+                <ChevronRight color="blue"/>
+            </div>
+          </router-link>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+    <div class="pop-lower">
+
+    <div class="add-links-box">
+      <router-link to="/membership-request" class="add-links">
+        <h5>Стать членом Общества</h5>
+        <ChevronRight color="blue"/>
+      </router-link>
+      <router-link to="/specialists/3" class="add-links">
+        <h5>Записаться на обучение</h5>
+        <ChevronRight color="blue"/>
       </router-link>
     </div>
-  
-    <div class="navbar-in-block"  >
-      
-      
-      <div class="navbar-item"  @mouseover="popAbout = true"  @mouseleave="popAbout = false">
-        <AboutPopMenu v-if="popAbout"/>
-        <router-link ref="about" id="about" :to="{name: 'AboutView', params: {id: 1}}" :class="{'a-hover': popAbout}">О нас</router-link>
-      </div>
-      <p class="divider-zero">|</p>
-    
-      <div class="navbar-item"   @mouseover="popNews = true"  @mouseleave="popNews = false">
-        <!--<NewsPopMenu v-if="popNews"/>-->
-        <router-link ref="news" id="news" to="/news/" :class="{'a-hover': popNews}">Новости</router-link>
-      </div>
-      <p class="divider-zero">|</p>
-    
-      <div class="navbar-item"   @mouseover="popSp = true"  @mouseleave="popSp = false">
-        <PtPopMenu v-if="popSp"/>
-        <router-link ref="sp" id="sp"  :to="{name: 'SpecialistsView', params: {id: 1}} " :class="{'a-hover': popSp}">Специалистам</router-link>
-      </div>
-      <p class="divider-zero">|</p>
 
-      <div class="navbar-item"  @mouseover="popPt = true"  @mouseleave="popPt = false">
-        <SpPopMenu v-if="popPt"/>
-        <router-link ref="pt" id="pt"   :to="{name: 'PatientsView', params: {id: 1}}" :class="{'a-hover': popPt}">Пациентам</router-link>
-      </div>
-    </div>
-  </div>
-  <div class="red-line-zero" ref="redLine"></div>
-  </div>
+  <div class="red-line-zero" style="width: 75%"></div>
 
+  <div class="nav-info">
+    <h6>+7 (700) 076 43 54</h6>
+    <h6>Алматы, ул. Жибек Жолы 8, офис 31</h6>
+    <h6>ОО “Общество специалистов по артериальной гипертонии и кардиоваскулярной профилактике”</h6>
+  </div>
+ 
+</div>
+</div>
 </template>
 
 <script>
-import AboutPopMenu from './AboutPopMenu.vue';
-import NewsPopMenu from './NewsPopMenu.vue';
-import SpPopMenu from './SpPopMenu.vue';
-import PtPopMenu from './PtPopMenu.vue';
-
+import ChevronRight from './ChevronRight.vue';
 
 export default {
-  components: {AboutPopMenu, SpPopMenu, PtPopMenu},
+  components: {ChevronRight},
   data: function () {
     return {
       popAbout: false, 
@@ -56,28 +180,10 @@ export default {
       popSp: false, 
       popPt: false
     }
-  },
-  mounted() {
-    window.addEventListener('scroll', this.changeNavBar);
-  },
+  }, 
   methods: {
-    changeNavBar() {
-      const navBar = this.$refs.navBar
-      const arr = [document.getElementById('about'), document.getElementById('news'), document.getElementById('sp'), document.getElementById('pt')]
-      const ps = document.querySelectorAll('.navbar-in-block p');
-      const redLine = this.$refs.redLine
-      if (window.scrollY > 100) {
-        navBar.className = 'navbar-block-scroll'
-        redLine.className = 'red-line-scroll'
-        arr.forEach(e => e.style = 'color: #FFFFFF')
-        ps.forEach(e => e.className = 'divider-scroll')
-
-      } else if (window.scrollY <= 100) {
-        navBar.className = 'navbar-block-zero'
-        redLine.className = 'red-line-zero'
-        arr.forEach(e => e.style = 'color: #454545')
-        ps.forEach(e => e.className = 'divider-zero')
-      }
+    closeSideMenu() {
+      this.$emit('closeSideMenu')
     }
   }
 }
@@ -87,113 +193,194 @@ export default {
 
 <style>
 
-#about, #news, #sp, #pt {
-  padding: 0 2rem;
+@media only screen and (max-width: 768px) {
+
+  .words-enter-active,
+.words-leave-active {
+  transition: opacity 0.1s ease;
 }
 
-.divider-zero {
-  color: var(--component-accent-color1)
+.words-enter-from,
+.words-leave-to {
+  opacity: 50%;
 }
 
-.divider-scroll {
-  color: #FFF;
-}
 
-.navbar {
-  display: block;
-  position: fixed;
+.popmenu {
+  min-height: calc(100vh - 4.75rem);
+  width: 100%;
+  position: absolute;
   top: 0;
+  background-color: #FFF;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.popmenu .navbar {
+  display: block;
   width: 100%;
   height: 4.75rem;
-  z-index: 10;
+  z-index: 11;
 }
 
-.navbar-block-zero {
+.popmenu .navbar-block-zero {
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: space-between;
-  background-color: var(--header-color);
-  padding: 0 3rem; /*!!!!!!!!!!!!!!!!1*/
-  box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.25);
-}
-
-.navbar-block-scroll {
-  
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
   background-color: var(--component-accent-color1);
-  padding: 0 2.5rem; /*!!!!!!!!!!!!!!!!1*/
-  box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.25);
-  
+  padding: 0 1.5rem 0 0;
+  z-index: 11;
 }
 
-.navbar-in-block {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    flex-direction: row;
-}
-
-a.logo {
-  text-decoration: none;
-}
-
-.navbar-item {
+.popmenu .navbar-upper {
   display: flex;
   height: 100%;
-  
-  justify-content: center;
-  align-items: flex-end;
-  z-index: 12;
-  flex-direction: column;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.navbar-item a {
-  font-family: 'El Messiri', sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-  color: #454545;
-  text-decoration: none;
-  text-transform: uppercase;
-  
+.popmenu .navbar-side-img {
+  display: flex;
+  align-items: center;
+    width: auto;
+    height: 100%;
 }
 
-.navbar-item a.router-link-active {
-  font-weight: 700;
-  /*letter-spacing: 0.0625rem;*/
+.popmenu .navbar-side-img img {
+    color: #FFF;
 }
 
-.navbar-item .a-hover {
-  text-decoration: overline;
-  /*font-weight: 700;
-  letter-spacing: 0.0625rem;*/
-}
-
-.navbar-item a.router-link-click {
-  color: #000;
-  text-decoration: underline;
-}
-
-.navbar-item a.router-link-hover {
-  color: #000;
-  text-decoration: underline;
-}
-
-.red-line-zero {
-    display: block;
-    width: 33%;
-    border-top: 2px solid var(--component-accent-color1);
-    margin: 0 auto;
-}
-
-.red-line-scroll {
+.popmenu .red-line-zero {
     display: block;
     width: 100%;
     border-top: 2px solid var(--component-accent-color1);
     margin: 0 auto;
 }
+
+.popmenu  .navbar-in-block {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    margin-top: 4.75rem;
+    padding: 2rem 1rem 1rem 1rem;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 10;
+}
+
+.popmenu .add-links-box {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.popmenu .add-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem 0.5rem 0;
+}
+
+.popmenu .add-links h5 {
+  font-size: 1rem;
+  padding-left: 0.5rem;
+  font-weight: 400;
+  color: #454545;
+  letter-spacing: 1px;
+}
+
+.popmenu .navbar-item {
+  display: flex;
+  height: 100%;
+  align-items: flex-start;
+  z-index: 12;
+  flex-direction: column;
+  width: 100%;
+  margin: 1rem 0;
+  z-index: 10;
+
+}
+
+.popmenu  .navbar-item-single {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 12;
+  flex-direction: row;
+  width: 100%;
+  margin: 1rem 0;
+  padding-right: 1rem;
+  z-index: 10;
+}
+
+.news-item-nav {
+  display: flex;
+  align-items: center;
+}
+
+.popmenu .nav-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.popmenu h3 {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  padding-left: 1rem;
+  font-weight: 600;
+}
+
+.popmenu h4 {
+  font-size: 1.125rem;
+  padding-left: 1rem;
+  font-weight: 400;
+  color: #2D2D2D
+}
+
+.nav-details {
+  width: 100%;
+  padding: 0.25rem 1rem 0 1rem;
+}
+
+.mobile-pop-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.nav-info {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  padding: 2rem 1rem 0 1rem;
+  justify-content: center;
+  align-items: flex-start;
+
+}
+
+.nav-info h6 {
+  font-size: 0.925rem;
+  font-weight: 400;
+  margin: 0.5rem 0.5rem;
+  color: #6C6C6C;
+  font-family: var(--plain-font);
+}
+
+}
+
 
 </style>

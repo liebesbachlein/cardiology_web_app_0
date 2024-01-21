@@ -76,6 +76,48 @@ export default {
 
 <style>
 
+@media only screen and (max-width: 768px) {
+
+.about-head-box {
+    margin-bottom: 4rem;
+} 
+
+.about-head-title {
+    margin-bottom: 1rem;
+}
+
+.about-head-img {
+    width: 100%;
+    text-align: center;
+}
+
+
+.about-head-img img {
+    width: 100%;
+    height: auto;
+}
+
+.about-head-name-box {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.head-name {
+    display: inline-block;
+    padding-left: 2rem;
+}
+
+.head-name h3 {
+    color: var(--text-accent-color2);
+    font-weight: 600;
+}
+}
+
+@media only screen and (min-width: 1024px) {
+
 .about-head-box {
     margin-bottom: 4rem;
 } 
@@ -112,5 +154,5 @@ export default {
     color: var(--text-accent-color2);
     font-weight: 600;
 }
-
+}
 </style>

@@ -78,6 +78,7 @@ export default {
 .newstimeline {
     display: block;
     width: 100%;
+    padding-top: 3rem;
 }
 
 .newstimeline .header-box {
@@ -88,7 +89,7 @@ export default {
 .newstimeline .header {
     display: inline-block;
     text-align: center;
-    padding: 12px 12px 60px 12px;
+    padding: 12px;
     border-top: 2px solid var(--component-accent-color1);
 }
 
@@ -102,7 +103,7 @@ export default {
 }
 
 .month-news {
-    margin: 0rem 0;
+    margin: 0;
 }
 
 }

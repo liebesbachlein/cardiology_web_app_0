@@ -1,5 +1,8 @@
 <template>
     <div class="infofeed">
+        <div class="about-head-title">
+            <h1>Полезная информация</h1>
+        </div>
         <div  class="infofeed-timeline">
             <div v-if="error">{{ error }}</div>
             <div v-else-if="infoFeed.length > 1">
@@ -99,6 +102,7 @@ export default {
 
 <style>
 
+
 .infofeed-timeline {
     width: 100%;
     display: flex;
@@ -111,36 +115,6 @@ export default {
 
 .infofeed-timeline a.router-link-active {
     text-decoration: none;
-}
-
-
-.blue-button-box {
-    display: block;
-    margin-bottom: 0rem;
-    height: 3.76rem;
-    width: 100%;
-}
-
-.blue-button {
-    cursor: pointer;
-    margin: 0 auto;
-    display: flex;
-    height: 3.76rem;
-    width: 17rem;
-    border-radius: 1.88rem;
-    background-color: var(--component-accent-color2);
-    align-items: center;
-    justify-content: center;
-}
-
-.blue-button h4 {
-    color: #FFF;
-    font-weight: 400;
-}
-
-.blue-button h3 {
-    color: #FFF;
-    font-weight: 400;
 }
 
 </style>
