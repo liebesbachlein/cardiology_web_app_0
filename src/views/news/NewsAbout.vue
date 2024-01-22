@@ -100,14 +100,15 @@ export default {
 <style>
 @media only screen and (max-width: 768px) {
 
-    .newsabout {
+.newsabout {
+    display: block;
     width: 100%;
     margin-top: 3rem;
     padding: 0 1rem;
     min-height: calc(100vh - 5rem);
 }
 
-.newsabout .newsfeed-side {
+.newsfeed-side {
     width: 0%;
     display: none;
 }
@@ -147,7 +148,7 @@ export default {
 
 .news-about-title {
     display: block;
-    margin-top: 2rem;
+    padding-top: 0;
 }
 
 .news-about-title h1 {
@@ -158,7 +159,7 @@ export default {
 
 .news-about-summary {
     display: block;
-    margin-top: 3rem;
+    margin: 1rem 0 2rem 0;
 }
 
 .news-about-summary p {
@@ -167,7 +168,7 @@ export default {
 }
 
 .newsabout .news-about-image {
-    margin: 0;
+    margin: 1rem 0;
     padding: 0;
     width: 100%;
     height: calc(( 100vw - 2rem) * 9 / 16 );
@@ -181,7 +182,7 @@ export default {
 }
 
 .newsabout .newsshort-info-phrase-date {
-    margin-top: 2.5rem;
+    padding-top: 0rem;
 }
 
 .newsabout-content {

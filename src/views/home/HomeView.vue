@@ -48,7 +48,7 @@ export default {
 
   .site-content-in {
     width: 100%;
-    padding: 0; 
+    padding: 1rem 0; 
   }
 }
 

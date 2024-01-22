@@ -1,6 +1,6 @@
 <template>
     <div class="pop-menu">
-        <router-link to="/specialists/1" @mouseover="hoverOver1 = true" @mouseleave="hoverOver1 = false">
+        <router-link to="/specialists/1" @mouseover="hoverOver1 = true; hoverOver2 = false; hoverOver3 = false; hoverOver4 = false;" @mouseleave="hoverOver1 = false">
             
             <div v-if="hoverOver1" class="pop-menu-item">    
                 <ChevronLeft color="red"/>
@@ -12,7 +12,7 @@
             </div>
             
         </router-link>
-        <router-link to="/specialists/2"  @mouseover="hoverOver2 = true" @mouseleave="hoverOver2 = false">
+        <router-link to="/specialists/2"  @mouseover="hoverOver2 = true; hoverOver1 = false; hoverOver3 = false; hoverOver4 = false;" @mouseleave="hoverOver2 = false">
             
             <div v-if="hoverOver2" class="pop-menu-item">    
                 <ChevronLeft color="red"/>
@@ -23,7 +23,7 @@
                 <h4>Ресурсы</h4>
             </div>
         </router-link>
-        <router-link to="/specialists/3"  @mouseover="hoverOver3 = true" @mouseleave="hoverOver3 = false">
+        <router-link to="/specialists/3"  @mouseover="hoverOver3 = true; hoverOver2 = false; hoverOver1 = false; hoverOver4 = false;" @mouseleave="hoverOver3 = false">
             
             <div v-if="hoverOver3" class="pop-menu-item">    
                 <ChevronLeft color="red"/>

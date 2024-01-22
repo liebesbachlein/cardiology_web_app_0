@@ -77,6 +77,45 @@
   </script>
   
   <style>
+
+@media only screen and (max-width: 768px) {
+  
+  .specialists {
+      width: 100%;
+      padding: 2rem 1rem 0 1rem;
+
+  }
+  
+  .specialists-box {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      margin-top: 2.5rem;
+  }
+  
+  .specialists-side {
+    width: 0%;
+    display: none;
+  }
+  
+  .specialists-side-box {
+    display: none;
+    width: 0%;
+    height: auto;
+    background-color: #FFF;
+    box-shadow: -2px 2px 10px 0px rgba(170, 170, 170, 0.25);
+  border-radius: 0.5rem;
+    padding: 1.5rem 1rem 1rem 1.25rem;
+  }
+  
+  .specialists-content {
+    width: 100%;
+    margin-bottom: 8.5rem;
+    padding: 0 1rem;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
   
   .specialists {
       width: 100%;
@@ -99,7 +138,7 @@
     width: 100%;
     height: auto;
     background-color: #FFF;
-    box-shadow: -2px 2px 10px 0px rgba(170, 170, 170, 0.25);
+    box-shadow: -2px 2px 5px 0px rgba(170, 170, 170, 0.3);
   border-radius: 0.5rem;
     padding: 1.5rem 1rem 1rem 1.25rem;
   }
@@ -108,5 +147,6 @@
     width: 70%;
     margin-bottom: 8.5rem;
   }
+}
   
   </style>

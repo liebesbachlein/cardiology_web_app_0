@@ -217,7 +217,7 @@ export default {
     width: 0%;
     height: auto;
     background-color: #FFF;
-    box-shadow: -2px 2px 10px 0px rgba(170, 170, 170, 0.25);
+    box-shadow: -2px 2px 5px 0px rgba(170, 170, 170, 0.3);
   border-radius: 0.5rem;
     padding: 3rem 1rem 0.5rem 1.25rem;
     display: none;

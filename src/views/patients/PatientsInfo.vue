@@ -102,7 +102,6 @@ export default {
 
 <style>
 
-
 .infofeed-timeline {
     width: 100%;
     display: flex;

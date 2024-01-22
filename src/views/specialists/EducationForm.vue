@@ -235,6 +235,181 @@
   
 <style>
 
+@media only screen and (max-width: 768px) {
+
+.education .upper-form .success-input {
+  font-family: var(--plain-text-font);
+  font-size: 1rem;
+  font-weight: 400;
+  display: block;
+  padding: 0.6rem 0 0.25rem 0.5rem;
+  width: 100%;
+  border: 1px solid #A7ACBC;
+  border-radius: 0.25rem;
+  color: #A7ACBC;
+}
+
+.education form {
+    margin: 0 0 30px 0;
+    background: #FFF;
+    text-align: left;
+    padding: 40px 0;
+    border-radius: 10px;
+}
+
+.education .upper-form {
+  max-width: 100%;
+}
+
+.education .upper-form .regular-label {
+  font-family: var(--sans-serif-font);
+  color: var(--text-accent-color2);
+  display: inline-block;
+  margin: 1.5rem 0 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+.education .upper-form .error-label {
+  color: var(--text-accent-color2);
+  font-weight: 500;
+
+  font-family: var(--sans-serif-font);
+  display: inline-block;
+  margin: 1.5rem 0 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+}    
+
+.education .upper-form .success-label {
+  font-family: var(--sans-serif-font);
+  color: #A7ACBC;
+  display: inline-block;
+  margin: 1.5rem 0 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+
+.education .upper-form input:focus {
+  border: 1px solid #000;
+  outline: none;
+}
+
+.education .upper-form .regular-input {
+  font-family: var(--plain-text-font);
+  font-size: 1rem;
+  font-weight: 400;
+  display: block;
+  padding: 0.6rem 0 0.25rem 0.5rem;
+  width: 100%;
+  border: 1px solid #A7ACBC;
+  border-radius: 0.25rem;
+  color: #000;
+}
+
+.education .upper-form .error-input {
+  font-family: var(--plain-text-font);
+  font-size: 1rem;
+  font-weight: 400;
+  display: block;
+  padding: 0.6rem 0 0.25rem 0.5rem;
+  width: 100%;
+  border: 1px solid var(--component-accent-color1);
+  border-radius: 0.25rem;
+  color: #000;
+}
+
+.education .upper-form .success-input {
+  font-family: var(--plain-text-font);
+  font-size: 1rem;
+  font-weight: 400;
+  display: block;
+  padding: 0.6rem 0 0.25rem 0.5rem;
+  width: 100%;
+  border: 1px solid #A7ACBC;
+  border-radius: 0.25rem;
+  color: #A7ACBC;
+}
+
+.education .picks-box {
+  margin-top: 3rem;
+}
+
+.education .picks-box label {
+  font-family: var(--plain-text-font);
+  color: #000;
+  display: inline-block;
+  margin: 1.5rem 0 0.5rem 0;
+  font-size: 1.0625rem;
+  font-weight: 400;
+}
+
+.education .picks-box .checkbox-adjust label {
+  font-family: var(--plain-text-font);
+  color: #000;
+  display: inline-block;
+  margin: 1.5rem 0 0.5rem 0.7rem;
+  font-size: 1.0625rem;
+  font-weight: 400;
+}
+
+.education .picks-box .error-p {
+  color: var(--text-accent-color1);
+  font-weight: 500;
+}
+
+.education .picks-box .success-p {
+  color: #A7ACBC;
+  font-weight: 400;
+}
+
+.education .picks-box .checkbox-adjust {
+  position: relative;
+  right: 0.5rem;
+}
+
+
+.education .lower-form {
+  display: flex;
+  max-width: 100%;
+}
+    
+.education .lower-form .regular-label {
+  font-family: var(--sans-serif-font);
+  color: var(--text-accent-color2);
+  display: inline-block;
+  margin: 1.5rem 0 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+.education .lower-form .error-label { 
+  font-family: var(--sans-serif-font);
+  color: var(--text-accent-color1);
+  display: inline-block;
+  margin: 1.5rem 0 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+
+.education .lower-form input[type="checkbox"] {
+  display: inline-block;
+  width: 1rem;
+  margin: 0 1rem 0 0;
+  position: relative;
+  top: 2px;
+}
+
+}
+
+@media only screen and (min-width: 1024px) {
+
 .education .upper-form .success-input {
   font-family: var(--plain-text-font);
   font-size: 1rem;
@@ -404,5 +579,5 @@
   top: 2px;
 }
 
-
+}
 </style>

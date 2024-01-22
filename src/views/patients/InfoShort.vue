@@ -38,6 +38,66 @@ export default {
 
 <style>
 
+@media only screen and (max-width: 768px) {
+
+.infoshort {
+   width: 100%;
+   display: flex;
+   margin-bottom: 3rem;
+   cursor: pointer;
+   flex-direction: column;
+}
+
+.infoshort-title h3 {
+   font-size: 1.18rem;
+}
+
+.infoshort-image {
+   width: 100%;
+   display: inline-block;
+   margin: 1rem 0;
+}
+
+.infoshort-image img {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   max-width: 100%;
+   height: auto;
+}
+
+.infoshort-info {
+   width: 100%;
+   display: inline-flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.infoshort-info-upper {
+   width: 100%;
+}
+
+.infoshort-info-phrase-date {
+   display: flex;
+   justify-content: space-between;
+}
+
+.infoshort-info-phrase-date h4 {
+   color: #969696
+}
+
+.infoshort-phrase {
+   text-transform: uppercase;
+}
+
+.infoshort-info-lower {
+   display: inline;
+   margin-top: 1.5rem;
+}
+}
+
+@media only screen and (min-width: 1024px) {
+
 .infoshort {
    width: 100%;
    display: flex;
@@ -89,6 +149,7 @@ export default {
 
 .infoshort-info-lower {
    display: inline;
+}
 }
 
 </style>
