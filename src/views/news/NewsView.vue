@@ -76,6 +76,7 @@ export default {
         console.log(newsFeed.value)
       }
       catch(err) {
+        console.log('ERROR')
         error.value = err.message
         console.log(error.value)
       }

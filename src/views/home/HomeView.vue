@@ -40,7 +40,6 @@ export default {
     top: 4.75rem;
     right: 0;
     left: 0;
-    z-index: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,7 +58,6 @@ export default {
     top: 5rem;
     right: 0;
     left: 0;
-    z-index: 0;
     display: flex;
     flex-direction: column;
     align-items: center;

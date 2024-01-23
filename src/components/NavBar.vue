@@ -4,7 +4,7 @@
 
     <div class="navbar-in-block">
       <router-link to="/" class="logo">
-      <img src="@/assets/logo01.png" style="max-height: 5rem; width: auto">
+      <img src="@/assets/logo01.png" id="logo" style="max-height: 5rem; width: auto">
       </router-link>
     </div>
   
@@ -63,6 +63,7 @@ export default {
   methods: {
     changeNavBar() {
       const navBar = this.$refs.navBar
+      const logo = document.getElementById('logo')
       const arr = [document.getElementById('about'), document.getElementById('news'), document.getElementById('sp'), document.getElementById('pt')]
       const ps = document.querySelectorAll('.navbar-in-block p');
       const redLine = this.$refs.redLine
@@ -71,12 +72,14 @@ export default {
         redLine.className = 'red-line-scroll'
         arr.forEach(e => e.style = 'color: #FFFFFF')
         ps.forEach(e => e.className = 'divider-scroll')
+        logo.src = "/src/assets/logo01-white.png"
 
       } else if (window.scrollY <= 100) {
         navBar.className = 'navbar-block-zero'
         redLine.className = 'red-line-zero'
         arr.forEach(e => e.style = 'color: #454545')
         ps.forEach(e => e.className = 'divider-zero')
+        logo.src = "/src/assets/logo01.png"
       }
     }
   }
@@ -127,7 +130,7 @@ export default {
   display: flex;
   justify-content: space-between;
   background-color: var(--component-accent-color1);
-  padding: 0 2.5rem; /*!!!!!!!!!!!!!!!!1*/
+  padding: 0 3rem; /*!!!!!!!!!!!!!!!!1*/
   box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.25);
   
 }
