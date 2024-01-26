@@ -40,6 +40,10 @@ export default {
 }
 
 
+.pop-menu * {
+    transition: none;
+}
+
 .pop-menu {
     position: fixed;
     border: 1px solid #CCBEBE;

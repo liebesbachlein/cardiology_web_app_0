@@ -1,6 +1,6 @@
 <template>
     <div class="specialists-resources">
-        <div class="specialists-resources-title">
+        <div class="subpage-title">
             <h1>Ресурсы</h1>
         </div>
 
@@ -84,9 +84,6 @@ export default {
 </script>
 
 <style>
-.specialists-resources-title {
-    margin-bottom: 2rem; 
-}
 
 .file-download-box a {
     font-size: 1.0625rem;

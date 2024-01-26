@@ -1,10 +1,8 @@
+
+
 <template>
     <div class="partners">
-        <div class="partners-header-cont">
-            <div class="header-top">
-                <h1>Наши партнеры</h1>
-            </div>
-        </div>
+        <HomeHeader title="Наши партнеры"/>
         <div class="partners-icon-grid">
             <div class="grid-row1">
                 <div  id="pt1" class="partner-icon">
@@ -37,6 +35,15 @@
     </div>
 
 </template>
+
+<script>
+import HomeHeader from './HomeHeader.vue';
+
+export default {
+    components: {HomeHeader}
+}
+
+</script>
 
 <style>
 
@@ -240,18 +247,6 @@
     padding-top: 100px;
 }
 
-.partners-header-cont {
-    display: flex;
-    justify-content: center;
-}
-
-.partners-header {
-    display: inline-block;
-    text-align: center;
-    border-top: 2px solid var(--component-accent-color1);
-    padding: 12px;
-}
-
 .partners-icon-grid {
     display: grid;
 }
@@ -288,14 +283,7 @@
     text-align: center;
 }
 
-.header-top h1 {
-    font-family: var(--tenor-font);
-    text-transform: uppercase;
-    font-size: 1.25rem;
-    font-weight: 400;
-    color: #2D2D2D;
-    font-style: normal;
-}
+
 
 }
 

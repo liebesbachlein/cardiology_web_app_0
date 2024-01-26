@@ -51,7 +51,7 @@
 .poster2 {
     display: flex;
     align-items: flex-start;
-    background-image: url('@/assets/covers/image-cover2-mobile.png');
+    background-image: url('/covers/image-cover2-mobile.png');
     width: 100%;
     height: calc(100vw * 16 / 9 * 0.75 );
     background-size: cover;
@@ -92,7 +92,7 @@
 .poster2 {
     display: flex;
     align-items: flex-start;
-    background-image: url('@/assets/covers/image-cover2.png');
+    background-image: url('/covers/image-cover2.png');
     width: 100%;
     height: calc(100vw * 9 / 16 - 5rem - 7rem);
     background-size: cover;

@@ -35,11 +35,7 @@
                     
                 </div>
             </div>
-            <div class="blue-button-box" style="margin-bottom: 6rem">
-                <div v-if="isLoadMore" class="blue-button" @click="loadMore">
-                    <h4>Загрузить еще</h4>
-                </div>
-            </div>
+            <Button style="margin-bottom: 6rem" text="Загрузить еще" v-if="isLoadMore" class="blue-button" @click="loadMore"/>
         </div>
         <Footer/>
     </div>
@@ -54,10 +50,11 @@ import Loader from '@/components/Loader.vue';
 import NewsAbout from './NewsAbout.vue';
 import { ref, computed } from 'vue';
 import { loadNews  } from '@/firebase/config';
+import Button from '@/components/Button.vue';
 
 export default {
     name: "NewsView",
-    components: {NewsAbout, ChevronRight, NewsShort, SideBarHeadings, Footer, Loader},
+    components: {NewsAbout, ChevronRight, NewsShort, SideBarHeadings, Footer, Loader, Button},
     setup() { 
     const newsLimit = 8
     let loadIndex = 1
@@ -166,7 +163,6 @@ export default {
     text-decoration: none;
 }
 
-
 .breadcrumb-now a {
     font-weight: 600;
     color: var(--text-accent-color1);
@@ -182,7 +178,6 @@ export default {
     font-family: var(--subheading-font);
     text-decoration: none;
 }
-
 
 .newsfeed-box {
     display: flex;
@@ -208,49 +203,11 @@ export default {
 }
 
 .newsfeed-side {
-    width: 0%;
-    margin: 3rem 0;
     display: none;
 }
 
 .newsfeed-side-box {
-    display: inline-block;
-    width: 0%;
-    height: auto;
-    background-color: #FFF;
-    box-shadow: -2px 2px 5px 0px rgba(170, 170, 170, 0.3);
-  border-radius: 0.5rem;
-    padding: 3rem 1rem 0.5rem 1.25rem;
     display: none;
-}
-
-.blue-button-box {
-    display: block;
-    margin-bottom: 6rem;
-    height: 3.76rem;
-    width: 100%;
-}
-
-.blue-button {
-    cursor: pointer;
-    margin: 0 auto;
-    display: flex;
-    height: 3.76rem;
-    width: 17rem;
-    border-radius: 1rem;
-    background-color: var(--component-accent-color2);
-    align-items: center;
-    justify-content: center;
-}
-
-.blue-button h4 {
-    color: #FFF;
-    font-weight: 400;
-}
-
-.blue-button h3 {
-    color: #FFF;
-    font-weight: 400;
 }
 }
 
@@ -259,58 +216,6 @@ export default {
 .newsfeed {
     width: 100%;
     margin-top: 100px;
-}
-
-.breadcrumbs-box {
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    margin: 1rem 0;
-}
-
-.breadcrumb-past {
-    display: inline-block;
-    padding-right: 2rem;
-}
-
-.breadcrumb-now {
-    display: inline-block;
-    padding-left: 2rem;
-    padding-right: 2rem;
-}
-
-.breadcrumb-past a {
-    font-size: var(--subheading-font-size);
-    font-family: var(--subheading-font);
-    font-weight: 400;
-    color: #000;
-    text-decoration: none;
-}
-
-.breadcrumb-past a.router-link-active {
-    font-size: var(--subheading-font-size);
-    font-family: var(--subheading-font);
-    font-weight: 400;
-    color: #000;
-    text-decoration: none;
-}
-
-
-.breadcrumb-now a {
-    font-weight: 600;
-    color: var(--text-accent-color1);
-    font-size: var(--subheading-font-size);
-    font-family: var(--subheading-font);
-    text-decoration: none;
-}
-
-.breadcrumb-now a.router-link-active {
-    font-weight: 600;
-    color: var(--text-accent-color1);
-    font-size: var(--subheading-font-size);
-    font-family: var(--subheading-font);
-    text-decoration: none;
 }
 
 
@@ -344,39 +249,12 @@ export default {
     width: 100%;
     height: auto;
     background-color: #FFF;
-    box-shadow: -2px 2px 10px 0px rgba(170, 170, 170, 0.25);
+    box-shadow: -2px 2px 10px 0px rgba(170, 170, 170, 0.35);
   border-radius: 0.5rem;
     padding: 3rem 1rem 0.5rem 1.25rem;
 }
 
-.blue-button-box {
-    display: block;
-    margin-bottom: 6rem;
-    height: 3.76rem;
-    width: 100%;
-}
 
-.blue-button {
-    cursor: pointer;
-    margin: 0 auto;
-    display: flex;
-    height: 3.76rem;
-    width: 17rem;
-    border-radius: 1rem;
-    background-color: var(--component-accent-color2);
-    align-items: center;
-    justify-content: center;
-}
-
-.blue-button h4 {
-    color: #FFF;
-    font-weight: 400;
-}
-
-.blue-button h3 {
-    color: #FFF;
-    font-weight: 400;
-}
 }
 
 </style>

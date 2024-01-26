@@ -1,6 +1,6 @@
 <template>
     <div class="education">
-        <div class="education-title">
+        <div class="subpage-title">
             <h1>Обучение</h1>
         </div>
 
@@ -32,7 +32,5 @@ export default {
 </script>
 
 <style>
-.education-title {
-    margin-bottom: 2rem; 
-}
+
 </style>

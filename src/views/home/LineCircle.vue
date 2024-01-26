@@ -50,7 +50,7 @@
 .linecircle_line {
     grid-row: 1;
     grid-column: 1;
-    height: 200px;
+    height: 100%;
     border-left: 1px solid var(--component-accent-color2);
     width: 1px;
     position: relative;
@@ -63,7 +63,9 @@
     height: 10px;
     width: 11px;
     border-radius: 5px;
-    background-color: var(--component-accent-color2);
+    background-color: #FFF;
+    border: 1px solid var(--component-accent-color2);
+    z-index: 5;
 }
 
 }

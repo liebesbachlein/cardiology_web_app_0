@@ -1,6 +1,6 @@
 <template>
     <div class="membership">
-        <div class="membership-title">
+        <div class="subpage-title">
             <h1>Информация о членстве</h1>
         </div>
 
@@ -54,9 +54,5 @@ export default {
 
 
 <style>
-
-.membership-title {
-    margin-bottom: 1rem; 
-}
 
 </style>

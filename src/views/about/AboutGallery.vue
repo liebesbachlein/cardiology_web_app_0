@@ -8,7 +8,7 @@
     </div>
     
     <div class="gallery">
-        <div class="about-head-title">
+        <div class="subpage-title">
             <h1>Галерея</h1>
         </div>
 
@@ -68,7 +68,7 @@ export default {
             let arr = []
             let arrShow = []
             for (let j = 1; j <= this.data[i][1]; j++ ) {
-                arr.push('url(\"/src/assets/gallery/' + this.data[i][0] + '/' + String(j) + '.jpg\")')
+                arr.push('url(\"/gallery/' + this.data[i][0] + '/' + String(j) + '.jpg\")')
                 arrShow.push(1)
             }
             this.outputs.push({"data": arr, "name": this.data[i][2]})

@@ -1,6 +1,6 @@
 <template>
     <div class="contacts-box">
-        <div class="about-contacts-title">
+        <div class="subpage-title">
             <h1>Контактная информация</h1>
         </div>
 
@@ -15,9 +15,6 @@
 </template>
 
  <style>
-.about-contacts-title {
-    margin-bottom: 3rem;
-}
 
 .contacts-info h4 {
     margin: 2rem 0;

@@ -1,6 +1,6 @@
 <template>
     <div class="infofeed">
-        <div class="about-head-title">
+        <div class="subpage-title">
             <h1>Полезная информация</h1>
         </div>
         <div  class="infofeed-timeline">

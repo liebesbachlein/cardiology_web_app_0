@@ -1,10 +1,6 @@
 <template>
     <div class="newstimeline">
-        <div class="header-box">
-            <div class="header">
-                <h1>Предстоящие события</h1>
-            </div>
-        </div>
+        <HomeHeaderSinus title="Предстоящие события"/>
         <MonthBlock monthName="Январь 2024"></MonthBlock>
         <div class="month-news">
             <NewsMiniRight :news="news[0]"/>
@@ -12,13 +8,13 @@
 
         <MonthBlock monthName="Февраль 2024"></MonthBlock>
         <div class="month-news">
-            <NewsMiniLeft :news="news[1]"/>
+            <NewsMiniRight :news="news[1]"/>
             <NewsMiniRight :news="news[2]"/>
         </div>
 
         <MonthBlock monthName="Март 2024"></MonthBlock>
         <div class="month-news">
-            <NewsMiniLeft :news="news[3]"/>
+            <NewsMiniRight :news="news[3]"/>
         </div>
 
         <MonthBlock monthName="Апрель 2024"></MonthBlock>
@@ -33,15 +29,16 @@
 import MonthBlock from './MonthBlock.vue';
 import NewsMiniRight from './NewsMiniRight.vue';
 import NewsMiniLeft from './NewsMiniLeft.vue';
+import HomeHeaderSinus from './HomeHeaderSinus.vue'
 
 export default {
-    components: {MonthBlock, NewsMiniRight, NewsMiniLeft},
+    components: {MonthBlock, NewsMiniRight, NewsMiniLeft, HomeHeaderSinus},
     setup() {
         const news = [
             {date: '15 января', 
             title: 'Региональная Кардио-Школа', 
             city: 'Павлодар', 
-            details: 'Европейский Конгресс Кардиологов 2023',
+            details: 'Европейский Конгресс Кардиологов 2023. Клинические разборы пациентов с СД и ССЗ на основе рекомендаций ЕОК-23. Приглашаем всех в Региональную школу',
             format: 'oффлайн',
             url: "/events/event1.png"}, 
 
@@ -81,27 +78,6 @@ export default {
     padding-top: 3rem;
 }
 
-.newstimeline .header-box {
-    display: flex;
-    justify-content: center;
-}
-
-.newstimeline .header {
-    display: inline-block;
-    text-align: center;
-    padding: 12px;
-    border-top: 2px solid var(--component-accent-color1);
-}
-
-.header h1 {
-    font-family: var(--tenor-font);
-    text-transform: uppercase;
-    font-size: 1rem;
-    font-weight: 400;
-    color: #2D2D2D;
-    font-style: normal;
-}
-
 .month-news {
     margin: 0;
 }
@@ -114,29 +90,8 @@ export default {
     width: 100%;
 }
 
-.newstimeline .header-box {
-    display: flex;
-    justify-content: center;
-}
-
-.newstimeline .header {
-    display: inline-block;
-    text-align: center;
-    padding: 12px 12px 60px 12px;
-    border-top: 2px solid var(--component-accent-color1);
-}
-
-.header h1 {
-    font-family: var(--tenor-font);
-    text-transform: uppercase;
-    font-size: 1rem;
-    font-weight: 400;
-    color: #2D2D2D;
-    font-style: normal;
-}
-
 .month-news {
-    margin: 2.5rem 0;
+    margin: 0 0;
 }
 
 }

@@ -34,28 +34,28 @@
         </div>
         <div class="nav-details" v-if="popAbout">
 
-          <router-link to="/about/1">
+          <router-link to="/about/1" @click="closeSideMenu">
             <div class="mobile-pop-item">    
                 <h4>Об Обществе</h4>
                 <ChevronRight color="blue"/>
             </div>
           </router-link>
 
-          <router-link to="/about/2">
+          <router-link to="/about/2" @click="closeSideMenu">
             <div class="mobile-pop-item">    
                 <h4>Руководство</h4>
                 <ChevronRight color="blue"/>
             </div>
           </router-link>
           
-          <router-link to="/about/3">
+          <router-link to="/about/3" @click="closeSideMenu">
             <div class="mobile-pop-item">    
                 <h4>Галерея</h4>
                 <ChevronRight color="blue"/>
             </div>
           </router-link>
 
-          <router-link to="/about/4">
+          <router-link to="/about/4" @click="closeSideMenu">
             <div class="mobile-pop-item">    
                 <h4>Контакты</h4>
                 <ChevronRight color="blue"/>
@@ -66,7 +66,7 @@
       </div>
     
       
-        <router-link class="navbar-item-single" ref="news" id="news" to="/news/">
+        <router-link class="navbar-item-single" ref="news" id="news" to="/news/" @click="closeSideMenu">
             <div class="news-item-nav">
               <div class="nav-sign-img"><img  src="@/assets/sign-white.svg"></div>
               <h3>Новости</h3>
@@ -75,7 +75,7 @@
         </router-link>
      
     
-      <div class="navbar-item" @click ="popSp = !popSp">
+      <div class="navbar-item" @click ="popSp = !popSp" >
         <div class="nav-title" ref="sp" id="sp">
           <Transition mode="out-in" name="words">
           <div v-if="popSp == false" class="nav-sign-img"><img src="@/assets/plus.svg"></div>
@@ -84,21 +84,21 @@
         </div>
 
         <div class="nav-details" v-if="popSp">
-          <router-link to="/specialists/1">
+          <router-link to="/specialists/1" @click="closeSideMenu">
             <div class="mobile-pop-item">    
                 <h4>Членство</h4>
                 <ChevronRight color="blue"/>
             </div>
           </router-link>
 
-          <router-link to="/specialists/2">
+          <router-link to="/specialists/2" @click="closeSideMenu">
             <div class="mobile-pop-item">    
                 <h4>Ресурсы</h4>
                 <ChevronRight color="blue"/>
             </div>
           </router-link>
           
-          <router-link to="/specialists/3">
+          <router-link to="/specialists/3" @click="closeSideMenu">
             <div class="mobile-pop-item">    
                 <h4>Заявка на обучение</h4>
                 <ChevronRight color="blue"/>
@@ -117,21 +117,21 @@
         </div>
 
         <div class="nav-details" v-if="popPt">
-          <router-link to="/patients/1">
+          <router-link to="/patients/1" @click="closeSideMenu">
             <div class="mobile-pop-item">    
                 <h4>Полезная информация</h4>
                 <ChevronRight color="blue"/>
             </div>
           </router-link>
 
-          <router-link to="/patients/2">
+          <router-link to="/patients/2" @click="closeSideMenu">
             <div class="mobile-pop-item">    
                 <h4>Частные вопросы</h4>
                 <ChevronRight color="blue"/>
             </div>
           </router-link>
           
-          <router-link to="/patients/3">
+          <router-link to="/patients/3" @click="closeSideMenu">
             <div class="mobile-pop-item">    
                 <h4>Обратиться к специалисту</h4>
                 <ChevronRight color="blue"/>
@@ -146,11 +146,11 @@
     <div class="pop-lower">
 
     <div class="add-links-box">
-      <router-link to="/membership-request" class="add-links">
+      <router-link to="/membership-request" class="add-links" @click="closeSideMenu">
         <h5>Стать членом Общества</h5>
         <ChevronRight color="blue"/>
       </router-link>
-      <router-link to="/specialists/3" class="add-links">
+      <router-link to="/specialists/3" class="add-links" @click="closeSideMenu">
         <h5>Записаться на обучение</h5>
         <ChevronRight color="blue"/>
       </router-link>
@@ -194,6 +194,11 @@ export default {
 <style>
 
 @media only screen and (max-width: 768px) {
+
+  .nav-sign-img {
+    height: 1.25rem;
+    width: 1.25rem;
+  }
 
   .words-enter-active,
 .words-leave-active {
@@ -377,10 +382,9 @@ export default {
   font-weight: 400;
   margin: 0.5rem 0.5rem;
   color: #6C6C6C;
-  font-family: var(--plain-font);
+  font-family: var(--simple-font);
 }
 
 }
-
 
 </style>

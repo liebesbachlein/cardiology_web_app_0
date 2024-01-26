@@ -3,8 +3,8 @@
   <div class="navbar-block-zero" ref="navBar">
 
     <div class="navbar-in-block">
-      <router-link to="/" class="logo">
-      <img src="@/assets/logo01.png" id="logo" style="max-height: 5rem; width: auto">
+      <router-link to="/">
+      <div class="logo-zero" id="logo"></div>
       </router-link>
     </div>
   
@@ -24,13 +24,13 @@
       <p class="divider-zero">|</p>
     
       <div class="navbar-item"   @mouseover="popSp = true"  @mouseleave="popSp = false">
-        <PtPopMenu v-if="popSp"/>
+        <SpPopMenu v-if="popSp"/>
         <router-link ref="sp" id="sp"  :to="{name: 'SpecialistsView', params: {id: 1}} " :class="{'a-hover': popSp}">Специалистам</router-link>
       </div>
       <p class="divider-zero">|</p>
 
       <div class="navbar-item"  @mouseover="popPt = true"  @mouseleave="popPt = false">
-        <SpPopMenu v-if="popPt"/>
+        <PtPopMenu v-if="popPt"/>
         <router-link ref="pt" id="pt"   :to="{name: 'PatientsView', params: {id: 1}}" :class="{'a-hover': popPt}">Пациентам</router-link>
       </div>
     </div>
@@ -72,14 +72,14 @@ export default {
         redLine.className = 'red-line-scroll'
         arr.forEach(e => e.style = 'color: #FFFFFF')
         ps.forEach(e => e.className = 'divider-scroll')
-        logo.src = "/src/assets/logo01-white.png"
+        logo.className = 'logo-scroll'
 
       } else if (window.scrollY <= 100) {
         navBar.className = 'navbar-block-zero'
         redLine.className = 'red-line-zero'
         arr.forEach(e => e.style = 'color: #454545')
         ps.forEach(e => e.className = 'divider-zero')
-        logo.src = "/src/assets/logo01.png"
+        logo.className = 'logo-zero'
       }
     }
   }
@@ -120,7 +120,7 @@ export default {
   justify-content: space-between;
   background-color: var(--header-color);
   padding: 0 3rem; /*!!!!!!!!!!!!!!!!1*/
-  box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.25);
+  box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.5);
 }
 
 .navbar-block-scroll {
@@ -131,7 +131,7 @@ export default {
   justify-content: space-between;
   background-color: var(--component-accent-color1);
   padding: 0 3rem; /*!!!!!!!!!!!!!!!!1*/
-  box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.25);
+  box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.5);
   
 }
 
@@ -142,14 +142,24 @@ export default {
     flex-direction: row;
 }
 
-a.logo {
-  text-decoration: none;
+.logo-zero {
+  background-image: url("@/assets/logo01.png");
+  height: 5rem; 
+  width: 16rem;
+  background-size: cover;
+}
+
+.logo-scroll {
+  background-image: url("@/assets/logo01-white.png");
+  background-size: cover;
+  height: 5rem; 
+  width: 16rem;
+  
 }
 
 .navbar-item {
   display: flex;
   height: 100%;
-  
   justify-content: center;
   align-items: flex-end;
   z-index: 12;

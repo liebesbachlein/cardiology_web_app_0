@@ -73,7 +73,7 @@ export default {
 .poster1 {
     display: flex;
     align-items: flex-start;
-    background-image: url('@/assets/covers/image-cover1-mobile.png');
+    background-image: url('/covers/image-cover1-mobile.png');
     width: 100%;
     height: calc(100vw * 16 / 9 * 0.75);
     background-size: cover;
@@ -160,35 +160,6 @@ export default {
 .poster1 img {
     object-fit: cover;
     width: 100%;
-    height: calc(100vw * 16 / 9 - 5rem - 7rem);
-    z-index: 4;
-}
-
-.poster1 {
-    display: flex;
-    align-items: flex-start;
-    background-image: url('@/assets/covers/image-cover1.png');
-    width: 100%;
-    height: calc(100vw * 16 / 9 - 5rem - 7rem);
-    background-size: cover;
-}
-
-.poster-contents1 {
-    width: 100%;
-    height: calc(100vw * 16 / 9 - 5rem - 7rem);
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 5;
-    flex-wrap: nowrap;
-}
-
-
-
-.poster1 img {
-    object-fit: cover;
-    width: 100%;
     height: calc(100vw * 9 / 16 - 5rem - 7rem);
     z-index: 4;
 }
@@ -196,7 +167,7 @@ export default {
 .poster1 {
     display: flex;
     align-items: flex-start;
-    background-image: url('@/assets/covers/image-cover1.png');
+    background-image: url('/covers/image-cover1.png');
     width: 100%;
     height: calc(100vw * 9 / 16 - 5rem - 7rem);
     background-size: cover;

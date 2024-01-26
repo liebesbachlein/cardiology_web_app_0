@@ -6,7 +6,7 @@
 
         <div class="about-head-box">
             <div class="about-head-img">
-                <img src="@/assets/head_images/head1.jpg">
+                <img src="/head_images/head1.jpg">
             </div>
             
             <div class="about-head-name-box">
@@ -41,7 +41,7 @@
 
         <div class="about-head-box">
             <div class="about-head-img">
-                <img src="@/assets/head_images/head2.jpg">
+                <img src="/head_images/head2.jpg">
             </div>
             
             <div class="about-head-name-box">

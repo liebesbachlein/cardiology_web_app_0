@@ -1,10 +1,6 @@
 <template>
     <div class="mission">
-        <div class="header-top-box">
-            <div class="header-top">
-                <h1>Наша миссия</h1>
-            </div>
-        </div>
+        <HomeHeader title="Наша миссия"/>
         <div class="mission-text">
             <h3>
                 Содействие и усиление профилактической направленности здравоохранения 
@@ -17,6 +13,13 @@
 
 </template>
 
+<script>
+import HomeHeader from './HomeHeader.vue'
+
+export default {
+    components: {HomeHeader}
+}</script>
+
 <style>
 
 
@@ -26,13 +29,6 @@
     justify-content: center;
     margin-top: 4.5rem;
     margin-bottom: 100px;
-}
-
-.mission .header-top-box {
-    grid-column: 1;
-    grid-row: 1;
-    display: flex;
-    justify-content: center;
 }
 
 .mission-text {
@@ -55,13 +51,6 @@
     justify-content: center;
     margin-top: 80px;
     margin-bottom: 100px;
-}
-
-.mission .header-top-box {
-    grid-column: 1;
-    grid-row: 1;
-    display: flex;
-    justify-content: center;
 }
 
 .mission-text {

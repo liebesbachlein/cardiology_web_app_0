@@ -138,7 +138,7 @@
     width: 100%;
     height: auto;
     background-color: #FFF;
-    box-shadow: -2px 2px 5px 0px rgba(170, 170, 170, 0.3);
+    box-shadow: -2px 2px 10px 0px rgba(170, 170, 170, 0.35);
   border-radius: 0.5rem;
     padding: 1.5rem 1rem 1rem 1.25rem;
   }

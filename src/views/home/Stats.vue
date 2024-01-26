@@ -1,12 +1,8 @@
 <template>
-    <div v-if="!mobile" class="stats-img">
+    <div v-if="mobile != null" class="stats-img">
         <img src="@/assets/heart.svg">
     </div>
-    <div class="partners-header-cont">
-        <div class="header-top">
-            <h1>Глобальная статистика</h1>
-        </div>
-    </div>
+    <HomeHeader title="Глобальная статистика"/>
     <StatsSwipeMobile v-if="mobile"/>
     <div class="stats" v-else>
 
@@ -54,6 +50,7 @@
 
 <script>
 import StatsSwipeMobile from './StatsSwipeMobile.vue'
+import HomeHeader from './HomeHeader.vue'
 
 export default {
     data: function() {
@@ -64,7 +61,7 @@ export default {
     mounted() {
         this.mobile = window.matchMedia("(max-width: 768px)").matches
     },
-    components: {StatsSwipeMobile}
+    components: {StatsSwipeMobile, HomeHeader}
 }
 
 </script>
@@ -104,10 +101,11 @@ export default {
 
 @media only screen and (min-width: 1024px) {
 .stats-img {
+    max-width: 20rem;
     width: 50%;
     height: 50%;
     position: absolute;
-    z-index: -5;
+    z-index: 1;
     left: 0;
 }
 
@@ -127,22 +125,17 @@ export default {
 .stats-item {
     width: 20%;
     background-color: #FFF;
-    box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.25);
+    box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.5);
     border-radius: 0.5rem;
     height: 16.4rem;
     padding: 2rem 1rem 1rem 1rem;
+    z-index: 1;
 }
 
-/*
+
 .stats-item:hover {
-    width: 20%;
-    background-color: #FFF;
-    box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.25);
-    border-radius: 0.5rem;
-    height: 16.4rem;
-    padding: 2rem 1rem 1rem 1rem;
-    border: 1px solid var(--component-accent-color2);
-}*/
+    box-shadow: -2px 2px 10px 0px rgba(171, 183, 208, 0.7);
+}
 
 .stats-item h1 {
     font-size: 2rem;
@@ -158,6 +151,11 @@ export default {
 
 .stats-header {
     margin-bottom: 1rem;
+}
+
+.stats-header h1 {
+    font-family: var(--news-title-font);
+    font-weight: 500;
 }
 }
 </style>

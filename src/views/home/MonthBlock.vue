@@ -42,23 +42,28 @@ export default {
 
 @media only screen and (min-width: 1024px) {
 .monthblock {
-    width: 100%;
+    margin: 0 0 0 auto;
+    width: 12rem;
+    display: flex;
+    justify-content: center;
+
 }
 
 .month {
-    display: flex;
-    margin: 0 auto;
-    width: 200px;
-    height: 40px;
-    border-radius: 0.25rem;
+    display: inline-flex;
+    /*width: 200px;*/
+    height: 2.5rem;
+    border-radius: 1.25rem;
+    padding: 0.5rem 1rem;
     border: 1px solid var(--component-accent-color2);
-    justify-content: center;
+    justify-content: right;
     align-items: center;
 }
 
 .month h4 {
     color: var(--component-accent-color2);
-    font-family: var(--tenor-font);
+    font-family: var(--news-title-font);
+    font-weight: 500;
     font-size: 1rem;
 }
 
