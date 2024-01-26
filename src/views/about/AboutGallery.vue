@@ -1,9 +1,9 @@
 <template  >
     <div v-if="id1 != null && id2 != null">
-        <ImageView :url="url" :id1="id1" :id2="id2" :limit="limit"
-                            @closeImageView="closeImageView()"
-                            @leftIndex="leftIndex()"
-                            @rightIndex="rightIndex()"
+        <ImageView :url="url" :id1="id1" :id2="id2" :limit="limit" :label="data[id1][0] + '-' + id2 + '.jpg'"
+                            @closeImageView="closeImageView"
+                            @leftIndex="leftIndex"
+                            @rightIndex="rightIndex"
                             />
     </div>
     
@@ -19,7 +19,8 @@
                 <div v-for="(URL, ID2) in output.data" class="gallery-flexbox-item" :key="ID2">
                     <div class="gallery-aspect-box">
                         <div class="gallery-strechy-box">
-                            <div :style="{backgroundImage: URL}" @click="showImageView(ID1, ID2, URL)"></div>
+                            <div :style="{backgroundImage: URL}" @click="showImageView(ID1, ID2, URL)">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -45,7 +46,7 @@ export default {
             ['event1', 11, "Секреты женского сердца — 2020. Здоровье, стиль и долголетие женщины"], 
             ['event2', 17, "Республиканская конференция по антиагрегантной и антикоагулянтной терапии с международным участием (28 ноября 2019 года)"], 
             /*['event3', 16, "II Республиканский Конгресс по артериальной гипертонии и кардиоваскулярной профилактике с международным участием — «Кардиоваскулярная профилактика 2019: От клинического случая к рекомендациям» (10-11 октября 2019 года)"]*/
-        ],
+                ],
 
         outputs: [], 
         showParatemers: [],
@@ -75,27 +76,64 @@ export default {
             this.showParatemers.push(arrShow)
         }
 
-        document.addEventListener('keydown', function (event) {
+        document.addEventListener('keydown', (event) => {
+            if(this.id1 != null && this.id2 != null && this.url != null) {
         if (event.key === 'ArrowLeft') {
-            if(this.id2 == 0) {
-                this.id2 = this.showParatemers[this.id1].length - 1   
-            } else {
-                this.id2 = this.id2 - 1
-            }
-            this.url = this.outputs[this.id1].data[this.id2]
+            this.leftIndex()
         } else if (event.key === 'ArrowRight') {
-            if(this.id2 == this.showParatemers[this.id1].length - 1) {
-                this.id2 = 0
-            } else {
-                this.id2 = this.id2 + 1
-            }
-            this.url = this.outputs[this.id1].data[this.id2]
+            this.rightIndex()
         } else if (event.key === 'Escape') {
-            this.id1 = null
-            this.id2 = null
-            this.url = null
+            this.closeImageView()
         }
+    }
     })
+
+
+    document.addEventListener('touchstart', handleTouchStart, false);        
+document.addEventListener('touchmove', handleTouchMove, false);
+
+let xDown = null;                                                        
+let yDown = null;
+
+function getTouches(evt) {
+  return evt.touches ||             // browser API
+         evt.originalEvent.touches; // jQuery
+}                                                     
+                                                                         
+function handleTouchStart(evt) {
+    const firstTouch = getTouches(evt)[0];                                      
+    xDown = firstTouch.clientX;                                      
+    yDown = firstTouch.clientY;                                      
+};                                                
+                                                                         
+function handleTouchMove(evt) {
+    if ( ! xDown || ! yDown ) {
+        return;
+    }
+
+    var xUp = evt.touches[0].clientX;                                    
+    var yUp = evt.touches[0].clientY;
+
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+                                                                         
+    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
+        if ( xDiff > 0 ) {
+            this.rightIndex()
+        } else {
+            this.leftIndex()
+        }                       
+    } else {
+        if ( yDiff > 0 ) {
+            this.closeImageView()
+        } else { 
+            /* up swipe */
+        }                                                                 
+    }
+    /* reset values */
+    xDown = null;
+    yDown = null;                                             
+};
     }, 
     methods: {
         showImageView(id1, id2, url) {
@@ -131,10 +169,13 @@ export default {
 
 <style>
 @media only screen and (max-width: 768px) {
+
+
 .gallery .box-box {
     margin-bottom: 2rem;
     position: relative
 }
+
 
 .gallery-box {
     display: flex;
@@ -146,7 +187,6 @@ export default {
 .gallery-flexbox-item {
     width: 50%;
 }
-
 
 .gallery-aspect-box {
     width: 100%;
@@ -169,6 +209,7 @@ export default {
     background-size: cover;
     cursor: pointer;
 }
+
 
 .gallery-header {
     padding: 2rem 0.5rem 1rem 0.5rem;

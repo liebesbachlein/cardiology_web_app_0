@@ -1,23 +1,53 @@
 <template>
-    <div class="image-view-backdrop">
+    <div class="image-view-backdrop" @click.self="downloadPop = false">
+        
         <div class="image-view"  @click.self="closeImageView">
             <div class="left" @click.self="closeImageView"><img src="@/assets/chevron-left.svg" @click="leftIndex"></div>
-            <div class="image-box" :style="{backgroundImage: url}"></div>
+            <div class="image-box" :style="{backgroundImage: url}" @contextmenu.prevent="showContextMenu" @click="downloadPop = false"></div>
             <div class="right" @click.self="closeImageView"><img src="@/assets/chevron-right.svg" @click="rightIndex"></div>
             <div class="cross" @click.self="closeImageView"><img src="@/assets/cross-thick.svg" @click="closeImageView"></div>
             <div class="counter"><h3>{{ String(id2 + 1) + ' / ' + String(limit) }}</h3></div>
         </div>
-        
+        <DownloadPop id="pop" v-if="downloadPop"  :url="imgUrl()" :label="label" :style="{top: yVal, left: xVal}"/>
 
     </div>
 </template>
 
 
 <script>
+import DownloadPop from '@/components/DownloadPop.vue';
 
 export default {
-    props: ['url', 'limit', 'id2'],
+    
+    props: ['url', 'limit', 'id2', 'label'],
+    components: {DownloadPop},
+    data: () => {
+        return {
+            downloadPop: false,
+            xVal: null,
+            yVal: null,
+            mobile: null
+        }
+    },
+    mounted() {
+        this.mobile = window.matchMedia("(max-width: 960px)").matches
+    },
     methods: {
+        imgUrl() {
+            let imgUrl = this.url.replace('url("', '')
+            imgUrl = imgUrl.replace('")', '')
+            return imgUrl
+        },
+        showContextMenu(event) {
+            event.preventDefault();
+            this.downloadPop = true
+            this.xVal = event.clientX + 'px';
+            this.yVal = event.clientY + 'px';
+            if(this.mobile == true) {
+                this.xVal = event.clientX - 80 + 'px';
+                this.yVal = event.clientY - 50 + 'px';
+            }
+        },
         closeImageView() {
             this.$emit('closeImageView');
         },
@@ -27,6 +57,13 @@ export default {
         leftIndex() {
             this.$emit('leftIndex')
         }
+    }, 
+    computed: {
+        urlImg() {
+            let urlImg = this.url.replace('url("', '')
+            urlImg = urlImg.replace('")', '')
+            return urlImg
+        }
     }
 }
 
@@ -34,7 +71,16 @@ export default {
 
 <style>
 
+#pop {
+    z-index: 99999; 
+    position: absolute; 
+    top: 0; 
+    left: 0;
+    transition: none;
+}
+
 @media only screen and (max-width: 768px) {
+
 
 .counter {
     grid-column: 2;
@@ -124,7 +170,7 @@ export default {
     left: 0;
     position: fixed;
     z-index: 9998;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.9);
     /*mix-blend-mode: luminosity;*/
     width: 100%;
     height: 100%;

@@ -249,6 +249,7 @@ export default {
 
 .partners-icon-grid {
     display: grid;
+    padding-top: 2rem;
 }
 
 .partners-icon-grid .grid-row1 {
