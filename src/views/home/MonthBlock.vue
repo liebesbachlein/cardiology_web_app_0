@@ -1,8 +1,6 @@
 <template>
     <div class="monthblock">
-        <div class="month">
-            <h4>{{ monthName }}</h4>
-        </div>
+        <div class="month" :class="{'month-light': lightUp}">{{ monthName }}</div>
 
     </div>
 
@@ -10,7 +8,7 @@
 
 <script>
 export default {
-    props: ['monthName']
+    props: ['monthName', 'lightUp']
 }
 </script>
 
@@ -42,29 +40,35 @@ export default {
 
 @media only screen and (min-width: 1024px) {
 .monthblock {
+    z-index: 5;
     margin: 0 0 0 auto;
     width: 12rem;
     display: flex;
     justify-content: center;
-
+    position: relative;
 }
 
 .month {
     display: inline-flex;
     /*width: 200px;*/
-    height: 2.5rem;
     border-radius: 1.25rem;
     padding: 0.5rem 1rem;
     border: 1px solid var(--component-accent-color2);
-    justify-content: right;
+    justify-content: center;
     align-items: center;
-}
-
-.month h4 {
     color: var(--component-accent-color2);
     font-family: var(--news-title-font);
     font-weight: 500;
     font-size: 1rem;
+    background-color: #EDF1F3;
+}
+
+.month-light {
+    background-color: #FFF;
+    color: #454545;
+    border: 1px solid transparent;
+    box-shadow: -1px 1px 5px 0px rgba(171, 183, 208, 0.6);
+
 }
 
 }

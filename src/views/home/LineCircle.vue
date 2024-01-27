@@ -63,8 +63,8 @@
     height: 10px;
     width: 11px;
     border-radius: 5px;
-    background-color: #FFF;
-    border: 1px solid var(--component-accent-color2);
+    background-color: transparent;
+    border: 1px solid transparent;
     z-index: 5;
 }
 

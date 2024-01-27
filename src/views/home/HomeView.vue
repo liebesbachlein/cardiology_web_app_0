@@ -1,12 +1,14 @@
 <template>
-  <div class="site-content" style="background-color: #FDFAFF;"> <!--#FDFAFF-->
+  <div class="site-content"> <!--#FDFAFF-->
     <Cover/>
     <div class="site-content-in">
       <Stats/>
-      <NewsTimeline/>
-      <Partners/>
-      <Mission/>
     </div>
+      <NewsTimeline/>
+    <div class="site-content-in">
+      <Partners/>
+    </div>
+    <Mission/>
     <Footer/>
   </div>
 </template>

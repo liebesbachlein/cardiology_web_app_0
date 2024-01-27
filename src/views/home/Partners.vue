@@ -191,7 +191,7 @@ export default {
 
     
 #pt1 {
-    width: 25%;
+    width: 18%;
 }   
 
 #pt1 img {
@@ -199,7 +199,7 @@ export default {
 }
 
 #pt2 {
-    width: 18%;
+    width: 13%;
 } 
 
 #pt2 img {
@@ -208,7 +208,7 @@ export default {
 
 
 #pt3 {
-    width: 32%;
+    width: 24%;
 }  
 
 #pt3 img {
@@ -217,7 +217,7 @@ export default {
 
 
 #pt4 {
-    width: 25%;
+    width: 18%;
 }  
 
 #pt4 img {
@@ -226,7 +226,7 @@ export default {
 
 
 #pt5 {
-    width: 20%;
+    width: 15%;
 }  
 
 #pt5 img {
@@ -235,7 +235,7 @@ export default {
 
 
 #pt6 {
-    width: 20%;
+    width: 15%;
 }  
 
 #pt6 img {
@@ -244,12 +244,12 @@ export default {
 
 .partners {
     width: 100%;
-    padding-top: 100px;
+    padding-top: 7rem;
 }
 
 .partners-icon-grid {
     display: grid;
-    padding-top: 2rem;
+    padding-top: 3rem;
 }
 
 .partners-icon-grid .grid-row1 {

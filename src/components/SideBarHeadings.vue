@@ -36,7 +36,7 @@ export default {
 
 .sidebarheading a {
     font-size: 1.0625rem;
-    font-family: var(--subheading-font);
+    font-family: var(--plain-text-font);
     font-weight: 400;
     color: #000;
     text-decoration: none;
@@ -48,7 +48,7 @@ export default {
 
 .sidebarheading a.router-link-active {
     font-size: var(--subheading-font-size);
-    font-family: var(--subheading-font);
+    font-family: var(--plain-text-font);
     font-weight: 400;
     color: #000;
     text-decoration: none;

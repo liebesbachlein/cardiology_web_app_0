@@ -27,7 +27,7 @@
         </div>
 
         <div class="blue-button-box" style="margin: 2rem 0 0 0;">
-            <router-link :to="'/membership-request'">
+            <router-link to="/specialists/membership-request/">
                 <div class="blue-button" @click="requestMembership">
                     <h4>Подать заявку</h4>
                 

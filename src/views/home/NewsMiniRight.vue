@@ -4,40 +4,25 @@
         
         <div class="news-shadow-box">
             <div v-if="!mobile" class="newsmini-img">
-            <img :src="news.url">
-            </div>
-        <div class="news-box">
-            
-            <div class="newsmini-upper">
-                <div class="news-date">
-                    <h4>{{ news.date }}</h4>
-                </div>
-                <div class="news-format">
-                    <h4>{{ news.format }}</h4>
-                </div>
+                <img :src="news.imgUrl">
             </div>
             
-    
-            <div class="news-title-city">
+            <div class="news-box">
+            
+                <div class="newsmini-upper">
+                    <DateBox :date1="news.date1" :date2="news.date2"  :month="news.month"/>
+                    <AddressBox :address="news.address"/>
+                </div>  
+        
                 <div class="news-title">
-                    <h3>{{ news.title }}</h3>
+                    <router-link :to="news.url">
+                        {{ news.title }}
+                    </router-link>
                 </div>
     
-                <div class="news-city">
-                    <h4>{{ news.city }}</h4>
-                </div>
+                <div class="news-detail">{{ news.details }}</div>  
             </div>
-    
-            <div class="news-chev-details">
-                <div class="news-detail">
-                    <h4>{{ news.details }}</h4>
-                </div>
-            </div>
-    
-            
         </div>
-        </div>
-    
         <LineCircle class="newsmini-line"/>
     </div>
     
@@ -46,10 +31,12 @@
     <script>
     import LineCircle from './LineCircle.vue';
     import ChevronRight from '@/components/ChevronRight.vue';
+    import DateBox from './DateBox.vue';
+    import AddressBox from './AddressBox.vue';
     
     export default {
         props: ['news'],
-        components: {LineCircle, ChevronRight},
+        components: {LineCircle, ChevronRight, DateBox, AddressBox},
         data: function() {
             return {
                 mobile: null
@@ -191,10 +178,8 @@
         width: auto;
         object-fit: cover;
     }
-    
-    .news-title-city {
-        margin-bottom: 1rem;
-    }
+
+
     .newsmini-upper {
         display: flex;
         justify-content: space-between;
@@ -202,39 +187,22 @@
         margin-bottom: 1rem;
     }
     
-    .newsmini-right .news-format {
-        padding-right: 2rem;
-        
-    }
-    
-    .news-format h4 {
-        font-size: 1rem;
-        text-transform: uppercase;
-        color: #454343;
-        text-decoration: none;
-        font-family: var(--news-title-font);
-    }
-    
     .newsmini-right {
         display: flex;
         justify-content: space-between;
-        widows: 100%;
+        width: 100%;
     }
-
     
     .news-shadow-box {
         max-width: 80%;
         width: 75%; 
         display: flex;
         flex-wrap: nowrap;
-        margin: 2rem 0 2rem 2rem;
+        margin: 1rem 0 1rem 2rem;
     }
     
     .newsmini-right .newsmini-line {
-        grid-column: 2;
-        grid-row: 1;
         width: 12rem;
-    
     }
     
     .news-box {
@@ -242,55 +210,36 @@
         flex-direction: column;
         background-color: #FFF;
         box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.5);
-        border-radius: 0 1.5rem 1.5rem 0;
+        border-radius: 0 1rem 1rem 0;
         width: 80%;
         padding: 1rem;
     }
 
     .news-box:hover {
-    box-shadow: -2px 2px 10px 0px rgba(171, 183, 208, 0.6);
-}
+        box-shadow: -2px 2px 10px 0px rgba(171, 183, 208, 0.6);
+    }
+    
 
-    
-    .newsmini-right .news-date {
-        display: grid;
-        width: 12.5rem;
-        height: 2.5rem;
-        background-color: var(--component-accent-color1);
-        border-radius: 0 1.25rem 1.25rem 0;
-        padding-left: 1.5rem;
-        justify-content: left;
-        align-items: center;
-        box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.8);
-    }
-    
-    .newsmini-right .news-date h4 {
-        color: #FFF;
-    }
-    
-    .newsmini-right .news-chev-details {
-        display: flex;
-        flex-wrap: nowrap;
-        align-items: center;
-       
-    }
-    
-    .newsmini-right .news-city h4 {
-        font-style: italic;
-        line-height: 1rem;
-    }
-    .news-chev-details h4 {
-        color: #858585;
-    }
-    
     .newsmini-right .news-detail {
-        margin-left: 0rem;
         display: inline;
-        
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    .news-title {
+        margin-bottom: 0.5rem;
     }
     
-    .news-title h3 {
+    .news-title a {
         color: var(--component-accent-color2);
+        font-size: 1.125rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        transition: all 0.1s ease;
+    }
+
+    .news-title a:hover {
+        color: var(--component-accent-color1);
     }
     
     }

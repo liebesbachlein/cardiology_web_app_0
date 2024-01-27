@@ -27,7 +27,7 @@ export default {
     box-shadow: -2px 2px 10px 0px rgba(16, 90, 114, 0.35);
     color: #FFF;
     font-weight: 500;
-    font-family: var(--heading-font);
+    font-family: var(--plain-text-font);
     font-size: 1.075rem;
 }
 

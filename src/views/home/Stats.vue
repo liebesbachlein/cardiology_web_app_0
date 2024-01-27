@@ -1,5 +1,5 @@
 <template>
-    <div v-if="mobile != null" class="stats-img">
+    <div v-if="mobile != null" class="stats-img" v-show="false">
         <img src="@/assets/heart.svg">
     </div>
     <HomeHeader title="Глобальная статистика"/>
@@ -7,40 +7,23 @@
     <div class="stats" v-else>
 
 <div class="stats-item">
-    <div class="stats-header">
-        <h1>1 МЛРД</h1>
-    </div>
-    <div class="stats-bottom">
-        <p>— людей на земле страдает от гипертонии</p>
-    </div>
-</div>
-
-
-<div class="stats-item">
-    <div class="stats-header">
-        <h1>9,4 МЛН</h1>
-    </div>
-    <div class="stats-bottom">
-        <p>— случаев смерти в мире ежегодно из-за осложнения гипертонии</p>
-    </div>
+    <div class="stats-header">1 МЛРД</div>
+    <div class="stats-bottom">— людей на земле страдает от гипертонии</div>
 </div>
 
 <div class="stats-item">
-    <div class="stats-header">
-        <h1>40%</h1>
-    </div>
-    <div class="stats-bottom">
-        <p>— которой среди взрослого населения</p>
-    </div>
+    <div class="stats-header">9,4 МЛН</div>
+    <div class="stats-bottom">— случаев смерти в мире ежегодно из-за осложнения гипертонии</div>
 </div>
 
 <div class="stats-item">
-    <div class="stats-header">
-        <h1>45%</h1>
-    </div>
-    <div class="stats-bottom">
-        <p>— смертных случаев приходится на долю гипертонии</p>
-    </div>
+    <div class="stats-header">40%</div>
+    <div class="stats-bottom">— которой среди взрослого населения</div>
+</div>
+
+<div class="stats-item">
+    <div class="stats-header">45%</div>
+    <div class="stats-bottom">— смертных случаев приходится на долю гипертонии</div>
 </div>
 
 </div>
@@ -118,14 +101,14 @@ export default {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin: 5rem 0;
+    margin: 3rem 0 6rem 0;
     flex-direction: row;
 }
 
 .stats-item {
     width: 20%;
-    background-color: #FFF;
-    box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.5);
+    background-color: #F7F9FA;
+    box-shadow: -1px 1px 5px 0px rgba(170, 189, 231, 0.5);
     border-radius: 0.5rem;
     height: 16.4rem;
     padding: 2rem 1rem 1rem 1rem;
@@ -134,28 +117,21 @@ export default {
 
 
 .stats-item:hover {
-    box-shadow: -2px 2px 10px 0px rgba(171, 183, 208, 0.7);
+    box-shadow: -2px 2px 10px 0px rgba(153, 171, 210, 0.7);
 }
 
-.stats-item h1 {
-    font-size: 2rem;
-    color: var(--component-accent-color2);
-    font-weight: 700;
-}
-
-.stats-item p {
+.stats-bottom {
     font-size: 1rem;
-    color: #6C6C6C;
+    color: #454545;
     font-weight: 400;
 }
 
 .stats-header {
     margin-bottom: 1rem;
-}
-
-.stats-header h1 {
+    font-size: 2rem;
+    color: var(--component-accent-color2);
     font-family: var(--news-title-font);
-    font-weight: 500;
+    font-weight: 400;
 }
 }
 </style>

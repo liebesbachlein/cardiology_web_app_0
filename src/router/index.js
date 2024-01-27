@@ -4,7 +4,8 @@ import AboutView from '../views/about/AboutView.vue'
 import NewsView from '../views/news/NewsView.vue'
 import NewsAbout from '../views/news/NewsAbout.vue'
 import SpecialistsView from '../views/specialists/SpecialistsView.vue'
-import MembershipRequest from '../views/membership_request/MembershipRequest.vue'
+import MembershipRequest from '../views/specialists/MembershipRequest.vue'
+import EducationRequest from '../views/specialists/EducationRequest.vue'
 import PatientsView from '../views/patients/PatientsView.vue'
 import InfoAbout from '../views/patients/InfoAbout.vue'
 
@@ -44,9 +45,14 @@ const routes = [
     redirect: '/specialists/1/'
   }, 
   {
-    path: '/membership-request/',
+    path: '/specialists/membership-request/',
     name: 'MembershipRequest',
     component: MembershipRequest
+  }, 
+  {
+    path: '/specialists/education-request/',
+    name: 'EducationRequest',
+    component: EducationRequest
   }, 
   {
     path: '/patients/:id/',

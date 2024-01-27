@@ -1,26 +1,32 @@
 <template>
     <div class="newstimeline">
-        <HomeHeaderSinus title="Предстоящие события"/>
-        <MonthBlock monthName="Январь 2024"></MonthBlock>
+        <div class="site-content-in" id="newsTimeline">
+            <HomeHeader title="Мерояприятия" id="header"/>
+    
+
+        <div class="sticky-box" id="circle">
+            <div class="linecircle_fixed">
+                <div class="linecircle_circle_fixed" :style="{borderColor: hideCircle ? 'transparent' : 'var(--component-accent-color2)'}" />
+            </div> 
+        </div>
+
+        <MonthBlock id="m1" monthName="Январь 2024" :lightUp="ms[0]" style="position: relative"/>
         <div class="month-news">
             <NewsMiniRight :news="news[0]"/>
         </div>
 
-        <MonthBlock monthName="Февраль 2024"></MonthBlock>
+        <MonthBlock id="m2" monthName="Февраль 2024" :lightUp="ms[1]" style="position: relative"/>
         <div class="month-news">
             <NewsMiniRight :news="news[1]"/>
             <NewsMiniRight :news="news[2]"/>
         </div>
 
-        <MonthBlock monthName="Март 2024"></MonthBlock>
+        <MonthBlock id="m3" monthName="Март 2024" :lightUp="ms[2]" style="position: relative"/>
         <div class="month-news">
             <NewsMiniRight :news="news[3]"/>
         </div>
 
-        <MonthBlock monthName="Апрель 2024"></MonthBlock>
-        <div class="month-news">
-            <NewsMiniRight :news="news[0]"/>
-        </div>
+    </div>
     </div>
 
 </template>
@@ -28,44 +34,99 @@
 <script>
 import MonthBlock from './MonthBlock.vue';
 import NewsMiniRight from './NewsMiniRight.vue';
-import NewsMiniLeft from './NewsMiniLeft.vue';
-import HomeHeaderSinus from './HomeHeaderSinus.vue'
+import HomeHeader from './HomeHeader.vue'
 
 export default {
-    components: {MonthBlock, NewsMiniRight, NewsMiniLeft, HomeHeaderSinus},
-    setup() {
-        const news = [
-            {date: '15 января', 
+    components: {MonthBlock, NewsMiniRight, HomeHeader},
+    mounted() {
+
+        window.addEventListener('scroll', () => {
+            this.offsets1 = [document.getElementById('m1').getBoundingClientRect().top, document.getElementById('m1').getBoundingClientRect().bottom]
+            this.offsets2 = [document.getElementById('m2').getBoundingClientRect().top, document.getElementById('m2').getBoundingClientRect().bottom]
+            this.offsets3 = [document.getElementById('m3').getBoundingClientRect().top, document.getElementById('m3').getBoundingClientRect().bottom]
+            this.circleOffset = document.getElementById('circle').getBoundingClientRect().top
+        }) 
+
+    },
+    computed: {
+        ms() {
+            let ms = [false, false, false]
+            const dis12 = Math.abs(this.offsets1[0] - this.offsets2[0])
+            const dis23 = Math.abs(this.offsets2[0] - this.offsets3[0])
+
+            if (Math.abs(this.offsets1[0] - this.circleOffset) < 50 || Math.abs(this.offsets1[1] - this.circleOffset) <= dis12 / 2) {
+                ms[0] = true
+                ms[1] = false
+                ms[2] = false
+                if(Math.abs(this.offsets1[0] - this.circleOffset) < 50) {
+                    this.hideCircle = true
+                } else {
+                    this.hideCircle = false
+                }
+            } else if (Math.abs(this.offsets2[0] - this.circleOffset) < dis12 / 2 || Math.abs(this.offsets2[1] - this.circleOffset) <= dis23 / 2) {
+                ms[0] = false
+                ms[1] = true
+                ms[2] = false
+                this.hideCircle = false
+            } else if (Math.abs(this.offsets3[0] - this.circleOffset) < dis23 / 2 || Math.abs(this.offsets3[1] - this.circleOffset) < 50) {
+                ms[0] = false
+                ms[1] = false
+                ms[2] = true
+                this.hideCircle = false
+            } else {
+                this.hideCircle = true
+            }
+
+            return ms
+        }
+    },
+    data: function() {
+        return {
+            offsets1: [0, 0],
+            offsets2: [0, 0],
+            offsets3:  [0, 0],
+            circleOffset: 0,
+            hideCircle: true,
+        news: [
+            {date1: '15', 
+            date2: '',
+            month: 'января',
             title: 'Региональная Кардио-Школа', 
-            city: 'Павлодар', 
+            address: 'Покровский бульвар, ул. Назарбаева, д. 11, Павлодар', 
             details: 'Европейский Конгресс Кардиологов 2023. Клинические разборы пациентов с СД и ССЗ на основе рекомендаций ЕОК-23. Приглашаем всех в Региональную школу',
-            format: 'oффлайн',
-            url: "/events/event1.png"}, 
+            imgUrl: "/events/event1.png",
+            url: "/news/konferentsiya-secrety-zhenskog/"}, 
 
-            {date: '17 февраля', 
+            {
+            date1: '17', 
+            date2: '',
+            month: 'февраля',
             title: 'Образовательный Проект', 
-            city: 'Алматы', 
+            address: 'Улица Конаева, д. 23, Алматы', 
             details: 'Клинические разборы пациентов с СД и ССЗ на основе рекомендаций ЕОК-23',
-            format: 'oффлайн',
-            url: '/events/event2.png'}, 
+            imgUrl: '/events/event2.png', 
+            url: "/news/konferentsiya-secrety-zhenskog/"}, 
 
-            {date: '25 февраля', 
+            {date1: '25', 
+            date2: '26',
+            month: 'февраля',
             title: 'Образовательный Проект', 
-            city: 'Туркестан', 
+            address: 'Покровский бульвар, д. 11, Туркестан', 
             details: 'Простые и удобные инструменты по выбору оптимальной терапии вашим пациентам',
-            format: 'oффлайн',
-            url: '/events/event1.png'}, 
+            imgUrl: '/events/event1.png', 
+            url: "/news/konferentsiya-secrety-zhenskog/"}, 
             
-            {date: '3 марта', 
+            {date1: '3', 
+            date2: '',
+            month: 'марта',
             title: 'CardioForum', 
-            city: 'Алматы', 
+            address: '', 
             details: 'ПVI Конгресс по артериальной гипертонии и кардиоваскулярной профилактике с международным участием',
-            format: 'oффлайн',
-            url: '/events/event2.png'}, 
+            imgUrl: '/events/event2.png', 
+            url: "/news/konferentsiya-secrety-zhenskog/"}, 
     ]
-
-    return {news}
     }
+}
 }
 
 </script>
@@ -85,14 +146,41 @@ export default {
 }
 
 @media only screen and (min-width: 1024px) {
+
+.sticky-box {
+    width: 100%;
+    z-index: 4;
+    position: sticky;
+    transition: none;
+    display: flex;
+    justify-content: flex-end;
+    top: calc(50vh);
+    transition: none;
+}
+
+.linecircle_fixed {
+    display: flex;
+    width: 12rem;
+    align-items: center;
+    justify-content: center;
+    transition: none;
+}
+
+.linecircle_circle_fixed {
+    height: 10px;
+    width: 11px;
+    border-radius: 15px;
+    background-color: #EDF1F3;
+    border: 1px solid var(--component-accent-color2);
+    transition: none;
+}
+
 .newstimeline {
     display: block;
     width: 100%;
+    background-color: #EDF1F3;
+    padding: 2rem 0;
+    
 }
-
-.month-news {
-    margin: 0 0;
-}
-
 }
 </style>

@@ -15,7 +15,7 @@
         <p>Даты и время проведения будет назначены позже.</p>
 
         <div>
-            <EducationForm/>
+            <EducationRequest/>
         </div>
         
 
@@ -23,10 +23,10 @@
 </template>
 
 <script>
-import EducationForm from './EducationForm.vue';
+import EducationRequest from './EducationRequest.vue';
 
 export default {
-    components: {EducationForm} 
+    components: {EducationRequest} 
 }
 
 </script>

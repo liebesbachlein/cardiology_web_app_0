@@ -68,18 +68,18 @@ export default {
       const ps = document.querySelectorAll('.navbar-in-block p');
       const redLine = this.$refs.redLine
       if (window.scrollY > 100) {
-        navBar.className = 'navbar-block-scroll'
+        //navBar.className = 'navbar-block-scroll'
         redLine.className = 'red-line-scroll'
-        arr.forEach(e => e.style = 'color: #FFFFFF')
-        ps.forEach(e => e.className = 'divider-scroll')
-        logo.className = 'logo-scroll'
+        //arr.forEach(e => e.style = 'color: #FFFFFF')
+        //ps.forEach(e => e.className = 'divider-scroll')
+        //logo.className = 'logo-scroll'
 
       } else if (window.scrollY <= 100) {
-        navBar.className = 'navbar-block-zero'
+        //navBar.className = 'navbar-block-zero'
         redLine.className = 'red-line-zero'
-        arr.forEach(e => e.style = 'color: #454545')
-        ps.forEach(e => e.className = 'divider-zero')
-        logo.className = 'logo-zero'
+        //arr.forEach(e => e.style = 'color: #454545')
+        //ps.forEach(e => e.className = 'divider-zero')
+        //logo.className = 'logo-zero'
       }
     }
   }
@@ -118,13 +118,12 @@ export default {
   height: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: var(--header-color);
+  background-color: #FFF;
   padding: 0 3rem; /*!!!!!!!!!!!!!!!!1*/
   box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.5);
 }
 
 .navbar-block-scroll {
-  
   width: 100%;
   height: 100%;
   display: flex;
@@ -142,7 +141,7 @@ export default {
     flex-direction: row;
 }
 
-.logo-zero {
+.logo-zero, .logo-scroll {
   background-image: url("@/assets/logo01.png");
   height: 5rem; 
   width: 16rem;
@@ -154,7 +153,6 @@ export default {
   background-size: cover;
   height: 5rem; 
   width: 16rem;
-  
 }
 
 .navbar-item {
@@ -167,34 +165,15 @@ export default {
 }
 
 .navbar-item a {
-  font-family: 'El Messiri', sans-serif;
-  font-size: 1rem;
+  font-family: var(--plain-text-font);
+  font-size: 1.125rem;
   font-weight: 400;
   color: #454545;
-  text-decoration: none;
-  text-transform: uppercase;
-  
-}
-
-.navbar-item a.router-link-active {
-  font-weight: 700;
-  /*letter-spacing: 0.0625rem;*/
+  text-decoration: none;  
 }
 
 .navbar-item .a-hover {
   text-decoration: overline;
-  /*font-weight: 700;
-  letter-spacing: 0.0625rem;*/
-}
-
-.navbar-item a.router-link-click {
-  color: #000;
-  text-decoration: underline;
-}
-
-.navbar-item a.router-link-hover {
-  color: #000;
-  text-decoration: underline;
 }
 
 .red-line-zero {

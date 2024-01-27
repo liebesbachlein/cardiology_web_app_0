@@ -13,17 +13,11 @@
         </div>
 
         <div  class="file-download-box">
-            <div v-if="error">{{ error }}</div>
-            <div v-else-if="files.length > 1">
                 <div v-for="file in files" :key="file.id">
-                    <div v-if="file.id">
                         <div class="file-link-box">
                             <a :href="'sp_resources/' + file.url" v-text="file.text" @click.prevent="downloadItem(file.url, file.label)"/>
                         </div>
-                    </div>
                 </div>
-            </div>
-            <div v-else><Loader/></div>
         </div>
 
         <ChevronHeader text="Полезные ссылки"/>
@@ -42,30 +36,26 @@
 import { ref } from 'vue'
 import Axios from 'axios'
 import ChevronHeader from '@/components/ChevronHeader.vue';
-import { loadSpResources } from '@/firebase/config';
-import Loader from '@/components/Loader.vue';
 
 export default {
-    components: {ChevronHeader, Loader},
+    components: {ChevronHeader},
     setup() {
-        const files = ref(['']);
-        const error = ref('');
-        const load = async () => {
-            try {
-                files.value = await loadSpResources();
-                /*let data = await loadSpResources();
-                if (!data.ok) {
-                    throw Error('no available data');
-                }
-                files.value = await data.json();*/
-                console.log(files.value);
-            }
-            catch (err) {
-                error.value = err.message;
-                console.log(error.value);
-            }
-        };
-        load();
+        const files = [
+        {
+            "id": 1,
+            "text": "Консенсус: «Рекомендации Европейского общества по гипертонии для офисного и внеофисного измерения артериального давления» (RU)",
+            "label": "consensus_ru.pdf", 
+            "url": "/sp_resources/consensus_ru.pdf"
+        }, 
+
+        {
+            "id": 2,
+            "text": "Консенсус: «Рекомендации Европейского общества по гипертонии для офисного и внеофисного измерения артериального давления» (RU)",
+            "label": "consensus_ru.pdf", 
+            "url": "/sp_resources/consensus_ru.pdf"
+        }
+    ];
+        
         const downloadItem = (url, label) => {
             Axios.get(url, { responseType: 'blob' })
                 .then(response => {
@@ -77,7 +67,7 @@ export default {
                 URL.revokeObjectURL(link.href);
             }).catch(console.error);
         };
-        return { files, error, downloadItem };
+        return { files, downloadItem };
     }
 }
 

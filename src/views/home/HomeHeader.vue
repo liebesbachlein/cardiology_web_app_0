@@ -1,8 +1,6 @@
 <template>
 <div class="home-header-box">
-    <div class="home-header">
-        <h1>{{ title }}</h1>
-    </div>
+    <div class="home-header">{{ title }}</div>
 </div>
 
 </template>
@@ -18,26 +16,19 @@ export default {
 
 <style>
 
-.home-header h1 {
-    font-family: var(--news-title-font);
-    text-transform: uppercase;
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: #2D2D2D;
-    font-style: normal;
-    letter-spacing: 1px;
-}
-
 .home-header-box {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .home-header {
     display: inline-block;
-    text-align: center;
-    border-top: 2px solid var(--component-accent-color1);
-    padding: 12px;
+    /*border-top: 2px solid var(--component-accent-color1);*/
+    font-family: var(--messiri-font);
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #2D2D2D;
+    font-style: normal;
 }
 
 </style>

@@ -1,11 +1,6 @@
 <template>
 <div class="home-header-box-sinus">
-    <div class="rhythm-img-sinus" style="grid-column: 1; visibility: hidden;">
-        <img src="@/assets/sinus_rhythm.svg">
-    </div>
-    <div class="home-header">
-        <h1>{{ title }}</h1>
-    </div>
+    <div class="home-header">{{ title }}</div>
     <div class="rhythm-img-sinus">
         <img src="@/assets/sinus_rhythm.svg">
     </div>
@@ -25,7 +20,7 @@ export default {
 <style>
 
 .rhythm-img-sinus {
-    grid-column: 3;
+    grid-column: 2;
     display: flex;
     justify-content: flex-end;
     position: relative;
@@ -35,12 +30,13 @@ export default {
 
 .home-header-box-sinus {
     display: grid;
-    grid-template-columns: auto auto auto;
-    justify-content: center;
+    grid-template-columns: auto auto;
+    justify-content: flex-start;
 }
 
-home-header-box-sinus .home-header {
-    grid-column: 2;
+.home-header-box-sinus .home-header {
+    grid-column: 1;
+    border-top: 2px solid var(--component-accent-color1);
 }
 
 </style>
