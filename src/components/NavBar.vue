@@ -12,25 +12,24 @@
       
       
       <div class="navbar-item"  @mouseover="popAbout = true"  @mouseleave="popAbout = false">
-        <AboutPopMenu v-if="popAbout"/>
+        <Transition name="pop-menu" mode="in-out"><AboutPopMenu v-if="popAbout"/></Transition>
         <router-link ref="about" id="about" :to="{name: 'AboutView', params: {id: 1}}" :class="{'a-hover': popAbout}">О нас</router-link>
       </div>
       <p class="divider-zero">|</p>
     
       <div class="navbar-item"   @mouseover="popNews = true"  @mouseleave="popNews = false">
-        <!--<NewsPopMenu v-if="popNews"/>-->
         <router-link ref="news" id="news" to="/news/" :class="{'a-hover': popNews}">Новости</router-link>
       </div>
       <p class="divider-zero">|</p>
     
       <div class="navbar-item"   @mouseover="popSp = true"  @mouseleave="popSp = false">
-        <SpPopMenu v-if="popSp"/>
+        <Transition name="pop-menu" mode="in-out"><SpPopMenu v-if="popSp"/></Transition>
         <router-link ref="sp" id="sp"  :to="{name: 'SpecialistsView', params: {id: 1}} " :class="{'a-hover': popSp}">Специалистам</router-link>
       </div>
       <p class="divider-zero">|</p>
 
       <div class="navbar-item"  @mouseover="popPt = true"  @mouseleave="popPt = false">
-        <PtPopMenu v-if="popPt"/>
+        <Transition name="pop-menu" mode="in-out"><PtPopMenu v-if="popPt"/></Transition>
         <router-link ref="pt" id="pt"   :to="{name: 'PatientsView', params: {id: 1}}" :class="{'a-hover': popPt}">Пациентам</router-link>
       </div>
     </div>
@@ -42,7 +41,6 @@
 
 <script>
 import AboutPopMenu from './AboutPopMenu.vue';
-import NewsPopMenu from './NewsPopMenu.vue';
 import SpPopMenu from './SpPopMenu.vue';
 import PtPopMenu from './PtPopMenu.vue';
 
@@ -91,6 +89,18 @@ export default {
 <style>
 
 @media only screen and (min-width: 1024px) {
+
+.pop-menu-enter-active,
+.pop-menu-leave-active {
+  transition: all 0.2s;
+  max-height: 230px;
+}
+
+.pop-menu-enter-from,
+.pop-menu-leave-to {
+  opacity: 0;
+  max-height: 0px;
+}
 
 #about, #news, #sp, #pt {
   padding: 0 2rem;
@@ -179,14 +189,14 @@ export default {
 .red-line-zero {
     display: block;
     width: 33%;
-    border-top: 2px solid var(--component-accent-color1);
+    border-top: 1px solid var(--header-line);
     margin: 0 auto;
 }
 
 .red-line-scroll {
     display: block;
     width: 100%;
-    border-top: 2px solid var(--component-accent-color1);
+    border-top: 1px solid var(--header-line);
     margin: 0 auto;
 }
 

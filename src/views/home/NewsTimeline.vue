@@ -58,7 +58,7 @@ export default {
                 ms[0] = true
                 ms[1] = false
                 ms[2] = false
-                if(Math.abs(this.offsets1[0] - this.circleOffset) < 50) {
+                if(Math.abs(this.offsets1[0] - this.circleOffset) <= 10 || Math.abs(this.offsets1[2] - this.circleOffset) <= 10) {
                     this.hideCircle = true
                 } else {
                     this.hideCircle = false
@@ -73,9 +73,7 @@ export default {
                 ms[1] = false
                 ms[2] = true
                 this.hideCircle = false
-            } else {
-                this.hideCircle = true
-            }
+            } 
 
             return ms
         }

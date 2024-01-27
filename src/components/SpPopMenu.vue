@@ -2,35 +2,23 @@
     <div class="pop-menu">
         <router-link to="/specialists/1" @mouseover="hoverOver1 = true; hoverOver2 = false; hoverOver3 = false; hoverOver4 = false;" @mouseleave="hoverOver1 = false">
             
-            <div v-if="hoverOver1" class="pop-menu-item">    
-                <ChevronLeft color="red"/>
-                <h4 style="color: var(--component-accent-color1); font-weight: 600;">Членство</h4>
-            </div>
-            <div v-else class="pop-menu-item">    
-                <ChevronRight color="blue"/>
+            <div class="pop-menu-item" style="margin-top: 0.5rem;">    
+                <ChevronLeft  class="pop-chev"  color="blue"/>
                 <h4>Членство</h4>
             </div>
             
         </router-link>
         <router-link to="/specialists/2"  @mouseover="hoverOver2 = true; hoverOver1 = false; hoverOver3 = false; hoverOver4 = false;" @mouseleave="hoverOver2 = false">
             
-            <div v-if="hoverOver2" class="pop-menu-item">    
-                <ChevronLeft color="red"/>
-                <h4 style="color: var(--component-accent-color1); font-weight: 600;">Ресурсы</h4>
-            </div>
-            <div v-else class="pop-menu-item">    
-                <ChevronRight color="blue"/>
+            <div class="pop-menu-item">    
+                <ChevronLeft  class="pop-chev"  color="blue"/>
                 <h4>Ресурсы</h4>
             </div>
         </router-link>
         <router-link to="/specialists/3"  @mouseover="hoverOver3 = true; hoverOver2 = false; hoverOver1 = false; hoverOver4 = false;" @mouseleave="hoverOver3 = false">
-            
-            <div v-if="hoverOver3" class="pop-menu-item">    
-                <ChevronLeft color="red"/>
-                <h4 style="color: var(--component-accent-color1); font-weight: 600;">Заявка на обучение</h4>
-            </div>
-            <div v-else class="pop-menu-item">    
-                <ChevronRight color="blue"/>
+        
+            <div class="pop-menu-item">    
+                <ChevronLeft  class="pop-chev"  color="blue"/>
                 <h4>Заявка на обучение</h4>
             </div>
         </router-link>
@@ -58,39 +46,4 @@ export default {
 
 </script>
 <style>
-
-.navbar-fade-enter-active,
-.navbar-fade-leave-active {
-  transition: all 0.1s ease-in;
-}
-
-
-.pop-menu {
-    position: fixed;
-    border: 1px solid #CCBEBE;
-    background-color: #FFF;
-    top: 4rem;
-    padding: 1rem 2rem 1rem 1rem;
-    z-index: 11;
-    border-radius: 0.5rem;
-    width: 14rem;
-    height: auto;
-}
-
-
-.pop-menu-item {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    margin: 1rem 0;
-}
-
-.pop-menu-item h4 {
-    margin-left: 1rem;
-    text-transform: none;
-}
-
-.pop-menu a {
-    padding: 0;
-}
 </style>
