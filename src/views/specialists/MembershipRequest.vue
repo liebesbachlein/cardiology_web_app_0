@@ -26,11 +26,11 @@
   
   
           <label>Email <span>*</span></label>
-          <input :readonly="submitSuccess" :class="{'invalid' : errorEmail}" type="email" v-model="email" pattern="([a-z][0-9]._%+\-]+@[a-z0-9.\-]+\).[a-z]{2,}$"> required>
+          <input :readonly="submitSuccess" :class="{'invalid' : errorEmail}" type="email" v-model="email" @blur="validateEmail" required>
       
 
           <label>Контактный телефон <span>*</span></label>
-          <input :readonly="submitSuccess" :class="{'invalid' : errorPhoneNumber}" type="tel" v-model="phoneNumber" required>
+          <input @paste="pasteNum($event)"  @keypress="isNumber($event)" placeholder="+7 (___) ___ - __ - __" :readonly="submitSuccess" :class="{'invalid' : errorPhoneNumber}" type="tel" v-model="phoneNumber" required>
   
           <label>Дата рождения <span>*</span></label>
           <input :readonly="submitSuccess"  :class="{'invalid' : errorDateBirth}" type="text" v-model="dateBirth" required>
@@ -133,7 +133,11 @@ export default {
     },
     errorPhoneNumber: function() {
       if(this.phoneNumber != null) {
-        return this.phoneNumber.length == 0
+        if (this.phoneNumber.length == 0) {
+          return true
+        } else if (this.phoneNumber.length < 18) {
+          return true
+        }
       } else {
         return false
       }
@@ -154,7 +158,7 @@ export default {
     },
     errorEmail: function() {
       if(this.email != null) {
-        return this.email.length == 0
+        return !this.validateEmail()
       } else {
         return false
       }
@@ -212,6 +216,84 @@ export default {
 
   },
     methods: {
+      pasteNum: function(e) {
+        let value = e.clipboardData.getData('text/plain')
+        e.preventDefault()
+        if(this.phoneNumber != null && this.phoneNumber.length > 0) {
+          value = this.phoneNumber + value
+        }
+        let chars = []
+        const arr = ['+7 (', '_', '_', '_', ') ', '_', '_', '_', '-', '_', '_', '-', '_', '_']
+        const pos = [1, 2, 3, 5, 6, 7, 9, 10, 12, 13]
+        for (let i = 0; i < value.length; i++) {
+          if(chars.length == 11) {
+            break
+          }
+          if(/^[0-9]$/.test(value.charAt(i))) {
+            chars.push(value.charAt(i))
+          }
+        }
+        if (chars[0] === '7' && chars.length == 11) {
+          chars.shift()
+        }
+
+        let output = []
+        for (let i = 0; i < chars.length; i++) {
+          arr[pos[i]] = chars[i]
+        }
+        for (let i = 0; i <= pos[chars.length - 1]; i++) {
+          output.push(arr[i])
+        }
+
+        this.phoneNumber = output.join('')
+      },
+      isNumber: function (e) {
+        let char = String.fromCharCode(e.keyCode);
+        e.preventDefault()
+        if (/^[0-9+]$/.test(char)) {
+          if (this.phoneNumber == null) {
+
+            if (char === '7') {
+              this.phoneNumber = '+7'
+            } else if ( char === '+' ) {
+                this.phoneNumber = '+7 ('
+            }
+              else {
+              this.phoneNumber = '+7 (' + char
+            }  
+          } else {
+            if(this.phoneNumber.length == 0) {
+              if (char === '7') {
+                this.phoneNumber = '+7'
+              } else if ( char === '+' ) {
+                this.phoneNumber = '+7 ('
+              } else {
+                this.phoneNumber = '+7 (' + char
+              }  
+            } else if (this.phoneNumber.length == 2 && char != '+') {
+              this.phoneNumber = '+7 (' + char
+            } else if (this.phoneNumber.length == 6 && char != '+') {
+              this.phoneNumber = this.phoneNumber + char + ') '
+            } else if (this.phoneNumber.length == 11 && char != '+') {
+              this.phoneNumber = this.phoneNumber + char + '-'
+            } else if (this.phoneNumber.length == 14 && char != '+') {
+              this.phoneNumber = this.phoneNumber + char + '-'
+            } else {
+              if (this.phoneNumber.length <= 17 && char != '+') {
+                this.phoneNumber = this.phoneNumber + char
+              }
+            }
+          }
+        }
+      },
+      validateEmail: function() {
+        
+        if (/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.email)) {
+          return true
+        } else {
+          return false
+        }
+      },
       handleSubmit: function () {
 
         if(this.firstName && this.lastName && this.email && this.phoneNumber && this.address && this.dateBirth && this.placeBirth && 
