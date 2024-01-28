@@ -6,11 +6,11 @@
                     <div class="breadcrumb-past">
                         <router-link to="/">Главная</router-link>
                     </div>
-                    <ChevronRight color="blue"/>
+                    <ChevronRight color="grey"/>
                     <div class="breadcrumb-now">
                         <router-link to="/patients/1">Пациентам</router-link>
                     </div>
-                    <ChevronRight color="blue"/>
+                    <ChevronRight color="grey"/>
                 </div>
 
                 <div class="newsfeed-box">                   

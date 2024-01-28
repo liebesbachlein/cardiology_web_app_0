@@ -108,18 +108,18 @@ export default {
 .stats-item {
     width: 20%;
     background-color: #F7F9FA;
-    box-shadow: -1px 1px 5px 0px rgba(170, 189, 231, 0.5);
+    box-shadow: 0px 16px 20px rgba(15, 30, 104, 0.08), 0px 0px 6px rgba(15, 30, 104, 0.06);
     border-radius: 0.5rem;
     height: 16.4rem;
     padding: 2rem 1rem 1rem 1rem;
     z-index: 1;
 }
 
-
+/*
 .stats-item:hover {
-    box-shadow: -2px 2px 10px 0px rgba(153, 171, 210, 0.7);
+    box-shadow: 0px 16px 20px rgba(15, 30, 104, 0.08), 0px 0px 6px rgba(15, 30, 104, 0.06);
 }
-
+*/
 .stats-bottom {
     font-size: 1rem;
     color: #454545;

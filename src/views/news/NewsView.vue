@@ -6,7 +6,7 @@
                     <div class="breadcrumb-past">
                         <router-link to="/">Главная</router-link>
                     </div>
-                    <ChevronRight color="blue"/>
+                    <ChevronRight color="grey"/>
                     <div class="breadcrumb-now">
                         <router-link to="/news/">Новости</router-link>
                     </div>
@@ -35,9 +35,11 @@
                     
                 </div>
             </div>
-            <Button style="margin-bottom: 6rem" text="Загрузить еще" v-if="isLoadMore" class="blue-button" @click="loadMore"/>
+            <div class="short-blue-button" v-if="isLoadMore" @click="loadMore">
+                Загрузить еще
+            </div>
         </div>
-        <Footer/>
+        <Footer style="margin-top: 6rem" />
     </div>
 </template>
 
@@ -50,11 +52,10 @@ import Loader from '@/components/Loader.vue';
 import NewsAbout from './NewsAbout.vue';
 import { ref, computed } from 'vue';
 import { loadNews  } from '@/firebase/config';
-import Button from '@/components/Button.vue';
 
 export default {
     name: "NewsView",
-    components: {NewsAbout, ChevronRight, NewsShort, SideBarHeadings, Footer, Loader, Button},
+    components: {NewsAbout, ChevronRight, NewsShort, SideBarHeadings, Footer, Loader},
     setup() { 
     const newsLimit = 8
     let loadIndex = 1
@@ -128,57 +129,6 @@ export default {
     min-height: calc(100vh - 5rem);
 }
 
-.breadcrumbs-box {
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    margin: 1rem 0;
-}
-
-.breadcrumb-past {
-    display: inline-block;
-    padding-right: 2rem;
-}
-
-.breadcrumb-now {
-    display: inline-block;
-    padding-left: 2rem;
-    padding-right: 2rem;
-}
-
-.breadcrumb-past a {
-    font-size: var(--subheading-font-size);
-    font-family: var(--subheading-font);
-    font-weight: 400;
-    color: #000;
-    text-decoration: none;
-}
-
-.breadcrumb-past a.router-link-active {
-    font-size: var(--subheading-font-size);
-    font-family: var(--subheading-font);
-    font-weight: 400;
-    color: #000;
-    text-decoration: none;
-}
-
-.breadcrumb-now a {
-    font-weight: 600;
-    color: var(--text-accent-color1);
-    font-size: var(--subheading-font-size);
-    font-family: var(--subheading-font);
-    text-decoration: none;
-}
-
-.breadcrumb-now a.router-link-active {
-    font-weight: 600;
-    color: var(--text-accent-color1);
-    font-size: var(--subheading-font-size);
-    font-family: var(--subheading-font);
-    text-decoration: none;
-}
-
 .newsfeed-box {
     display: flex;
     width: 100%;
@@ -215,7 +165,7 @@ export default {
 
 .newsfeed {
     width: 100%;
-    margin-top: 100px;
+    margin-top: 6rem;
 }
 
 

@@ -50,7 +50,7 @@ export default {
 .mission {
     padding: 3rem 0; 
     margin-top: 5rem;
-    background-color: #EDF1F3;
+    background-color: var(--component-grey-color);
 }
 
 .mission-text {

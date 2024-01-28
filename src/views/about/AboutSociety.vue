@@ -1,7 +1,7 @@
 <template>
     <div class="about-society">
-        <div class="about-society-title">
-            <h1>Об Обществе</h1>
+        <div class="subpage-title">
+            Об Обществе
         </div>
         
         <div class="about-society-content">

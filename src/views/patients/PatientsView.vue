@@ -6,11 +6,11 @@
                       <div class="breadcrumb-past">
                           <router-link to="/">Главная</router-link>
                       </div>
-                      <ChevronRight color="blue"/>
+                      <ChevronRight color="grey"/>
                       <div class="breadcrumb-now">
                         <router-link :to="{name: 'PatientsView', params: {id: 1}}" @click="pageNum = 1">Пациентам</router-link>
                       </div>
-                      <ChevronRight color="blue"/>
+                      <ChevronRight color="grey"/>
                   </div>
         </div>
   
@@ -119,7 +119,7 @@
   
   .patients {
       width: 100%;
-      margin-top: 100px;
+      margin-top: 6rem;
   }
   
   .patients-box {

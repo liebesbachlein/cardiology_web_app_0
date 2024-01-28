@@ -1,7 +1,7 @@
 <template>
     <div class="membership">
         <div class="subpage-title">
-            <h1>Информация о членстве</h1>
+            Информация о членстве
         </div>
 
         <div class="question">
@@ -26,14 +26,11 @@
 <p>Станьте членом и поднимите свою карьеру и знания на новый уровень. ПОДАТЬ ЗАЯВКУ ОНЛАЙН НА САЙТЕ или отправить скан заявления (прикрепить образец заявления) на почту ashypertension.kz@gmail.com</p>
         </div>
 
-        <div class="blue-button-box" style="margin: 2rem 0 0 0;">
-            <router-link to="/specialists/membership-request/">
-                <div class="blue-button" @click="requestMembership">
-                    <h4>Подать заявку</h4>
-                
+            <router-link to="/specialists/membership-request/" style="margin-top: 2rem; display: inline-block;">
+                <div class="short-blue-button" @click="requestMembership">
+                    Подать заявку
                 </div>
             </router-link>
-        </div>
 
     </div>
     

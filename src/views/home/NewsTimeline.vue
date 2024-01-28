@@ -168,7 +168,7 @@ export default {
     height: 10px;
     width: 11px;
     border-radius: 15px;
-    background-color: #EDF1F3;
+    background-color: var(--component-grey-color);
     border: 1px solid var(--component-accent-color2);
     transition: none;
 }
@@ -176,7 +176,7 @@ export default {
 .newstimeline {
     display: block;
     width: 100%;
-    background-color: #EDF1F3;
+    background-color: var(--component-grey-color);
     padding: 2rem 0;
     
 }

@@ -1,7 +1,7 @@
 <template>
     <div class="contacts-box">
         <div class="subpage-title">
-            <h1>Контактная информация</h1>
+            Контактная информация
         </div>
 
         <div class="contacts-info">

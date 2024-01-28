@@ -1,7 +1,7 @@
 <template>
     <div class="specialists-resources">
         <div class="subpage-title">
-            <h1>Ресурсы</h1>
+            Ресурсы
         </div>
 
         <p>

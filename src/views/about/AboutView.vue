@@ -6,11 +6,11 @@
                     <div class="breadcrumb-past">
                         <router-link to="/">Главная</router-link>
                     </div>
-                    <ChevronRight color="blue"/>
+                    <ChevronRight color="grey"/>
                     <div class="breadcrumb-now">
                       <router-link :to="{name: 'AboutView', params: {id: 1}}" @click="pageNum = 1">О нас</router-link>
                     </div>
-                    <ChevronRight color="blue"/>
+                    <ChevronRight color="grey"/>
                 </div>
       </div>
 

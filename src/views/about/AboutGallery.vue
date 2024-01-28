@@ -9,7 +9,7 @@
     
     <div class="gallery">
         <div class="subpage-title">
-            <h1>Галерея</h1>
+            Галерея
         </div>
 
         <div v-for="(output, ID1) in outputs" class="box-box" :key="ID1">

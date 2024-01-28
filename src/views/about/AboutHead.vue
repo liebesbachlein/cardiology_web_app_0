@@ -1,7 +1,7 @@
 <template>
     <div class="about-head">
-        <div class="about-head-title">
-            <h1>Руководство</h1>
+        <div class="subpage-title">
+            Руководство
         </div>
 
         <div class="about-head-box">

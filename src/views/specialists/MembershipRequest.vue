@@ -1,109 +1,100 @@
 <template>
-  <div class="site-content">
+  <div class="site-content greyback">
         <div class="site-content-in">
-          <div class="contacts">
-            <div class="breadcrumbs-box">
-                        <div class="breadcrumb-past">
-                            <router-link to="/">Главная</router-link>
-                        </div>
-                        <ChevronRight color="blue"/>
-                        <div class="breadcrumb-now">
-                          <router-link :to="/membership-request/">Членство</router-link>
-                        </div>
+            <div class="breadcrumbs-box" style="margin-top: 3rem;">
+                    <div class="breadcrumb-past">
+                        <router-link to="/">Главная</router-link>
+                    </div>
+                    <ChevronRight color="grey"/>
+                    <div class="breadcrumb-now">
+                      <router-link :to="/membership-request/">Членство</router-link>
+                    </div>
               </div>
-  
-      <div class="request">
-                      
-      <form @submit.prevent="handleSubmit">
         
-          
-          <label>Фамилия *</label>
-          <input :readonly="submitSuccess" class="regular-input" type="text" v-model="lastName" :class="errorLastName  ? 'error-input' : submitSuccess ? 'success-input' : ''" required>
-          <label class="error-label" v-if="errorLastName">Введите фамилию</label>
+      <form @submit.prevent="handleSubmit" :class="{'success-form' : submitSuccess}" autocomplete="on">
+        
+        <div class="subpage-title" style="text-align: center;">Заяка на членство</div>
+          <label>Фамилия <span>*</span></label>
+          <input  :readonly="submitSuccess" type="text" v-model="lastName"  :class="{'invalid' : errorLastName}" required>
 
-          <label>Имя *</label>
-          <input :readonly="submitSuccess" class="regular-input" type="text" v-model="firstName" :class="errorFirstName  ? 'error-input' : submitSuccess ? 'success-input' : ''" required>
-          <label class="error-label" v-if="errorFirstName">Введите фамилию</label>
-  
+          <label>Имя <span>*</span></label>
+          <input :readonly="submitSuccess" type="text" v-model="firstName" :class="{'invalid' : errorFirstName}" required>
+    
 
           <label>Отчество</label>
-          <input :readonly="submitSuccess" class="regular-input" type="text" v-model="patroName" :class="submitSuccess ? 'success-input' : ''" required>
+          <input :readonly="submitSuccess" type="text" v-model="patroName" required>
   
   
-          <label>Email*</label>
-          <input :readonly="submitSuccess" class="regular-input" :class="errorEmail  ? 'error-input' : submitSuccess ? 'success-input' : ''" type="email" v-model="email" required>
-          <label  class="error-label" v-if="errorEmail">Введите email</label>
+          <label>Email <span>*</span></label>
+          <input :readonly="submitSuccess" :class="{'invalid' : errorEmail}" type="email" v-model="email" pattern="([a-z][0-9]._%+\-]+@[a-z0-9.\-]+\).[a-z]{2,}$"> required>
+      
+
+          <label>Контактный телефон <span>*</span></label>
+          <input :readonly="submitSuccess" :class="{'invalid' : errorPhoneNumber}" type="tel" v-model="phoneNumber" required>
   
-          <label>Контактный телефон*</label>
-          <input :readonly="submitSuccess" class="regular-input" :class="errorPhoneNumber  ? 'error-input' : submitSuccess ? 'success-input' : ''" type="tel" v-model="phoneNumber" required>
-          <label class="error-label" v-if="errorPhoneNumber">Введите контактный телефон</label>
+          <label>Дата рождения <span>*</span></label>
+          <input :readonly="submitSuccess"  :class="{'invalid' : errorDateBirth}" type="text" v-model="dateBirth" required>
   
-          <label>Дата рождения*</label>
-          <input :readonly="submitSuccess" class="regular-input" :class="errorDateBirth  ? 'error-input' : submitSuccess ? 'success-input' : ''" type="text" v-model="dateBirth" required>
-          <label  class="error-label" v-if="errorDateBirth">Введите дату рождения</label>
+          <label>Место рождения <span>*</span></label>
+          <input :readonly="submitSuccess"  type="text" v-model="placeBirth" :class="{'invalid' : errorPlaceBirth}" required>
   
-          <label>Место рождения*</label>
-          <input :readonly="submitSuccess" class="regular-input" type="text" v-model="placeBirth" :class="errorPlaceBirth  ? 'error-input' : submitSuccess ? 'success-input' : ''" required>
-          <label class="error-label" v-if="errorPlaceBirth">Введите место рождения</label>
+          <label>Адрес места жительства <span>*</span></label>
+          <input :readonly="submitSuccess"  type="text" v-model="address" :class="{'invalid' : errorAddress}" required>
   
-          <label>Адрес места жительства*</label>
-          <input :readonly="submitSuccess" class="regular-input" type="text" v-model="address" :class="errorAddress  ? 'error-input' : submitSuccess ? 'success-input' : ''" required>
-          <label class="error-label" v-if="errorAddress">Введите адрес места жительства</label>
+          <label>Номер/серия удостоверения личност <span>*</span></label>
+          <input :readonly="submitSuccess" type="text" v-model="idDoc" :class="{'invalid' : errorIdDoc}" required>
   
-          <label>Номер/серия удостоверения личности*</label>
-          <input :readonly="submitSuccess" class="regular-input" type="text" v-model="idDoc" :class="errorIdDoc  ? 'error-input' : submitSuccess ? 'success-input' : ''" required>
-          <label class="error-label" v-if="errorIdDoc">Введите номер/серию удостоверения личности</label>
+          <label>Дата выдачи удостоверения личности <span>*</span></label>
+          <input :readonly="submitSuccess" type="text" v-model="dateDoc" :class="{'invalid' : errorDateDoc}" required>
   
-          <label>Дата выдачи удостоверения личности*</label>
-          <input :readonly="submitSuccess" class="regular-input" type="text" v-model="dateDoc" :class="errorDateDoc  ? 'error-input' : submitSuccess ? 'success-input' : ''" required>
-          <label class="error-label" v-if="errorDateDoc">Введите дату выдачи удостоверения личности</label>
+          <label>Орган выдачи удостоверения личности <span>*</span></label>
+          <input :readonly="submitSuccess" type="text" v-model="placeDoc" :class="{'invalid' : errorPlaceDoc}" required>
   
-          <label>Орган выдачи удостоверения личности*</label>
-          <input :readonly="submitSuccess" class="regular-input" type="text" v-model="placeDoc" :class="errorPlaceDoc ? 'error-input' : submitSuccess ? 'success-input' : ''" required>
-          <label class="error-label" v-if="errorPlaceDoc">Введите орган выдачи удостоверения личности</label>
-  
-          <label class="regular-label" v-else>Образование (учебное заведение, специальность, дата окончания)*</label>
-          <textarea :readonly="submitSuccess" rows = "10" :class="errorEducation ? 'error-textarea' : submitSuccess ? 'success-textarea' : ''"  v-model="education" required/>
-          <label class="error-label" v-if="errorEducation">Введите образование (учебное заведение, специальность, дата окончания)</label>
+          <label>Образование (учебное заведение, специальность, дата окончания) <span>*</span></label>
+          <textarea :readonly="submitSuccess" rows = "10" :class="{'invalid' : errorEducation}"  v-model="education" required/>
   
           <label>Дополнительное образование</label>
-          <textarea :readonly="submitSuccess" rows = "10" :class="{'success-textarea' : submitSuccess}" v-model="addEducation" required/>
+          <textarea :readonly="submitSuccess" rows = "10" v-model="addEducation"/>
      
           <label>Интересы и увлечения</label>
-          <textarea :readonly="submitSuccess" rows = "10" :class="{'success-textarea' : submitSuccess}" v-model="interests" required/>
+          <textarea :readonly="submitSuccess" rows = "10" v-model="interests"/>
      
           <label>Опыт работы</label>
-          <textarea :readonly="submitSuccess" rows = "10" :class="{'success-textarea' : submitSuccess}" v-model="experience" required/>
+          <textarea :readonly="submitSuccess" rows = "10" v-model="experience"/>
      
        
-  
           <div class="consent">
-            <input :disabled="submitSuccess" type="checkbox" v-model="terms" required>
-            <label class="error-label" v-if="errorTerms">Принимаю условия политики конфиденциальности</label>
-            <label  class="regular-label" v-else :style="{color: submitSuccess? '#A7ACBC': ''}">Принимаю условия политики конфиденциальности</label>
+            <label class="checkbox-container">
+              <input :disabled="submitSuccess" type="checkbox" v-model="terms" required>
+              <span class="checkmark"></span>
+            </label>
+            <label class="consent-label" :style="{color: submitSuccess? '#A7ACBC': ''}">Принимаю <span @click.prevent="download">Условия политики конфиденциальности</span></label>
           </div>
-  
+          
     
         <div class="submit">
-          <div class="blue-button" style="background-color: #FFF; margin: 1rem 0 0 0; border: 1px solid #5cb85c" v-if="submitSuccess">Заявка успешно отправлена!</div>
-          <div v-else class="blue-button" style="background-color: var(--component-accent-color1); margin: 1rem 0 0 0;" @click="handleSubmit">Отправить заявку</div>
+          <input :disabled="!enableSubmit" class="long-blue-button" @click="handleSubmit" value="Отправить заявку">
         </div>
   
       </form>
-    </div>
+      <div class="long-blue-button" style="background-color: #FFF; margin: 1rem 0 0 0; border: 1px solid #5cb85c" v-if="submitSuccess">
+        "Заявка успешно отправлена!"
+      </div>
+
   
           </div>
+          <Footer/>
         </div>
   
-  <Footer/>
-  </div>
+  
   
   </template>
   
 <script>
 import ChevronRight from '@/components/ChevronRight.vue';
-
 import Footer from '@/components/Footer.vue';
+import Axios from 'axios'
+
 export default {
     name: 'MembershipRequest',
     components: {ChevronRight, Footer}, 
@@ -126,10 +117,13 @@ export default {
         addEducation: null,
         interests: null,
         experience: null
-
     }
   },
   computed: {
+    enableSubmit: function() {
+      return this.firstName && this.lastName && this.email && this.phoneNumber && this.address && this.dateBirth && this.placeBirth && 
+        this.idDoc && this.dateDoc && this.placeDoc && this.terms && this.education
+    },
     errorEducation: function() {
       if(this.education != null) {
         return this.education.length == 0
@@ -292,7 +286,18 @@ export default {
           this.placeBirth = ''
         }
         
-    }
+    }, 
+    download: function () {
+            Axios.get('/policy.pdf', { responseType: 'blob' })
+                .then(response => {
+                const blob = new Blob([response.data], { type: 'application/pdf' });
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = 'policy.pdf';
+                link.click();
+                URL.revokeObjectURL(link.href);
+            }).catch(console.error);
+        }
 }
 }
 
@@ -483,145 +488,167 @@ export default {
 
 
 @media only screen and (min-width: 1024px) {
-.contacts {
-    width: 100%;
-    margin-top: 100px;
-}
 
-.form-box {
+.greyback {
+  background-color: var(--component-grey-color);
+ } 
+
+
+form {
     display: block;
-    width: 100%;
-    margin-top: 3rem;
-}
-
-.request form {
-    margin: 30px 0 30px 0;
+    width: 75%;
+    margin: 3rem auto 6rem auto;
     background: #FFF;
     text-align: left;
-    padding: 40px 0;
-    border-radius: 10px;
+    padding: 3rem 10%;
+    border-radius: 0.5rem;
 }
 
-
-.request label {
-  font-family: var(--sans-serif-font);
-  color: var(--text-accent-color2);
-  display: inline-block;
-  margin: 1.5rem 0 0.5rem;
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  font-weight: 500;
+form * {
+  transition: all 0.1s ease;
 }
 
-.request .error-label {
-  color: var(--text-accent-color2);
-  font-weight: 500;
-  /*text-decoration: underline;*/
+form.success-form span, label, form.success-form input, form.success-form textarea{
+  color: #818698;
+}
 
-  font-family: var(--sans-serif-font);
-  display: inline-block;
-  margin: 1.5rem 0 0.5rem;
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-}    
-
-
-.request input:focus {
-  border: 1px solid #000;
+form.success-forminput:focus {
+  border: 1px solid #C4DAE5;
   outline: none;
 }
 
-.request input {
+form span {
   font-family: var(--plain-text-font);
-  font-size: 1rem;
-  font-weight: 400;
-  display: block;
-  padding: 0.6rem 0 0.25rem 0.5rem;
-  width: 100%;
-  border: 1px solid #A7ACBC;
-  border-radius: 0.25rem;
-  color: #000;
-}
-
-.request .error-input {
-  font-family: var(--plain-text-font);
-  font-size: 1rem;
-  font-weight: 400;
-  display: block;
-  padding: 0.6rem 0 0.25rem 0.5rem;
-  width: 100%;
-  border: 1px solid var(--component-accent-color1);
-  border-radius: 0.25rem;
-  color: #000;
-}
-
-.request .consent {
-  display: flex;
-  max-width: 50%;
-}
-    
-.request .consent label {
-  font-family: var(--sans-serif-font);
-  color: var(--text-accent-color2);
-  display: inline-block;
-  margin: 1.5rem 0 0.5rem;
-  font-size: 0.75rem;
-  letter-spacing: 2px;
+  font-size: 0.875rem;
   font-weight: 500;
+  color: var(--text-accent-color1);
 }
 
-.request .consent .error-label { 
-  /*text-decoration: underline;*/
-  font-family: var(--sans-serif-font);
-  color: var(--text-accent-color2);
+label {
   display: inline-block;
-  margin: 1.5rem 0 0.5rem;
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  font-weight: 600;
-}
-
-
-.request input[type="checkbox"] {
-  display: inline-block;
-  width: 1rem;
-  margin: 0 1rem 0 0;
-  position: relative;
-  top: 2px;
-}
-
-.request textarea {
-  resize: none;
-  width: 100%;
-  border: 1px solid #A7ACBC;
   font-family: var(--plain-text-font);
   font-size: 0.875rem;
   font-weight: 400;
-  display: block;
-  padding: 0.6rem 0 0.25rem 0.5rem;
-  width: 100%;
-  border-radius: 0.25rem;
-  color: #000;
+  margin-bottom: 0.5rem; 
+}   
+
+input:focus {
+  border: 1px solid #FFF;
+  outline: 1px solid #454545;
 }
 
-.request textarea:focus {
-  border: 1px solid #000;
+input, textarea {
+  width: 100%;
+  border: 1px solid #C4DAE5;
+  border-radius: 0.25rem;
+  color: #454545;
+  margin-bottom: 1.5rem;
+  font-family: var(--plain-text-font);
+  padding: 14px 14px 12px 14px;
+  font-weight: 400;
+  display: block;
+  font-size: 1rem;
+}
+
+input {
+  height: 48px;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  padding: 0;
+}
+
+input[type="checkbox"]:focus {
+  border: none;
   outline: none
 }
 
-
-
-.request .error-textarea {
+textarea {
   resize: none;
-  width: 100%;
+}
+
+textarea:focus {
+  border: 1px solid #454545;
+  outline: 1px solid #454545;
+}
+
+.invalid {
   border: 1px solid var(--component-accent-color1);
-  font-family: var(--plain-text-font);
-  font-size: 0.875rem;
-  font-weight: 400;
+  outline: none;
+}
+
+.consent {
+  margin-bottom: 1.5rem;
+}
+
+.consent-label {
+  margin: 0 0 0 2rem;
+}
+
+.consent-label span {
+  cursor: pointer;
+}
+
+.checkbox-container {
   display: block;
-  padding: 0.6rem 0 0.25rem 0.5rem;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 20px;
+  width: 20px;
+  background-color: #FFF;
+  border: 1px solid #C4DAE5;
   border-radius: 0.25rem;
-  color: #000;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: var(--component-accent-color2);
+  border: 1px solid var(--component-accent-color2);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 }

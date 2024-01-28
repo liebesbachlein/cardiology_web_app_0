@@ -1,7 +1,7 @@
 <template>
     <div class="infofeed">
         <div class="subpage-title">
-            <h1>Полезная информация</h1>
+            Полезная информация
         </div>
         <div  class="infofeed-timeline">
             <div v-if="error">{{ error }}</div>
