@@ -41,10 +41,12 @@ export default {
     mounted() {
 
         window.addEventListener('scroll', () => {
-            this.offsets1 = [document.getElementById('m1').getBoundingClientRect().top, document.getElementById('m1').getBoundingClientRect().bottom]
-            this.offsets2 = [document.getElementById('m2').getBoundingClientRect().top, document.getElementById('m2').getBoundingClientRect().bottom]
-            this.offsets3 = [document.getElementById('m3').getBoundingClientRect().top, document.getElementById('m3').getBoundingClientRect().bottom]
-            this.circleOffset = document.getElementById('circle').getBoundingClientRect().top
+            if (document.getElementById('m1')) {
+                this.offsets1 = [document.getElementById('m1').getBoundingClientRect().top, document.getElementById('m1').getBoundingClientRect().bottom]
+                this.offsets2 = [document.getElementById('m2').getBoundingClientRect().top, document.getElementById('m2').getBoundingClientRect().bottom]
+                this.offsets3 = [document.getElementById('m3').getBoundingClientRect().top, document.getElementById('m3').getBoundingClientRect().bottom]
+                this.circleOffset = document.getElementById('circle').getBoundingClientRect().top
+            }
         }) 
 
     },

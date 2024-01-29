@@ -30,13 +30,13 @@
       
 
           <label>Контактный телефон <span>*</span></label>
-          <input @paste="pasteNum($event)"  @keypress="isNumber($event)" placeholder="+7 (___) ___ - __ - __" :readonly="submitSuccess" :class="{'invalid' : errorPhoneNumber}" type="tel" v-model="phoneNumber" required>
+          <input id="phoneNumber" @paste="pasteNum($event)" @keypress="isNumber($event)" @keydown="eraseNum($event)" placeholder="+7 (___) ___ - __ - __" :readonly="submitSuccess" :class="{'invalid' : errorPhoneNumber}" type="tel" v-model="phoneNumber" required>
   
           <label>Дата рождения <span>*</span></label>
-          <input :readonly="submitSuccess"  :class="{'invalid' : errorDateBirth}" type="text" v-model="dateBirth" required>
+          <input placeholder="дд/мм/гггг" @paste.prevent  @keypress="isBirthDate($event)" :readonly="submitSuccess"  :class="{'invalid' : errorDateBirth}" type="text" v-model="dateBirth" required>
   
           <label>Место рождения <span>*</span></label>
-          <input :readonly="submitSuccess"  type="text" v-model="placeBirth" :class="{'invalid' : errorPlaceBirth}" required>
+          <input :readonly="submitSuccess" type="text" v-model="placeBirth" :class="{'invalid' : errorPlaceBirth}" required>
   
           <label>Адрес места жительства <span>*</span></label>
           <input :readonly="submitSuccess"  type="text" v-model="address" :class="{'invalid' : errorAddress}" required>
@@ -45,7 +45,7 @@
           <input :readonly="submitSuccess" type="text" v-model="idDoc" :class="{'invalid' : errorIdDoc}" required>
   
           <label>Дата выдачи удостоверения личности <span>*</span></label>
-          <input :readonly="submitSuccess" type="text" v-model="dateDoc" :class="{'invalid' : errorDateDoc}" required>
+          <input  placeholder="дд/мм/гггг" @paste.prevent @keypress="isIdDocDate($event)" :readonly="submitSuccess" type="text" v-model="dateDoc" :class="{'invalid' : errorDateDoc}" required>
   
           <label>Орган выдачи удостоверения личности <span>*</span></label>
           <input :readonly="submitSuccess" type="text" v-model="placeDoc" :class="{'invalid' : errorPlaceDoc}" required>
@@ -116,7 +116,7 @@ export default {
         submitSuccess: false, 
         addEducation: null,
         interests: null,
-        experience: null
+        experience: null, 
     }
   },
   computed: {
@@ -179,14 +179,22 @@ export default {
     }, 
     errorDateDoc: function() {
       if(this.dateDoc != null) {
-        return this.dateDoc.length == 0
+        if(/^[0-3][0-9]\/[0-1][0-9]\/[12][09][0-9][0-9]$/.test(this.dateDoc)) {
+          return false
+        } else {
+          return true
+        }
       } else {
         return false
       }
     }, 
     errorDateBirth: function() {
       if(this.dateBirth != null) {
-        return this.dateBirth.length == 0
+        if(/^[0-3][0-9]\/[0-1][0-9]\/[12][09][0-9][0-9]$/.test(this.dateDoc)) {
+          return false
+        } else {
+          return true
+        }
       } else {
         return false
       }
@@ -211,30 +219,29 @@ export default {
       } else {
         return false
       }
-    }, 
-
-
+    }
   },
     methods: {
-      pasteNum: function(e) {
-        let value = e.clipboardData.getData('text/plain')
-        e.preventDefault()
-        if(this.phoneNumber != null && this.phoneNumber.length > 0) {
-          value = this.phoneNumber + value
-        }
+      formatNum: function(number) {
+        if(!number) {
+          return '+'
+        } else if (number === '+') {
+          return '+'
+        } else if (number === '7') {
+          return '+7'
+        } else if (number != '+' && number != '7') {
+          return '+7 ( ' + number
+        } else { 
         let chars = []
-        const arr = ['+7 (', '_', '_', '_', ') ', '_', '_', '_', '-', '_', '_', '-', '_', '_']
-        const pos = [1, 2, 3, 5, 6, 7, 9, 10, 12, 13]
-        for (let i = 0; i < value.length; i++) {
+        const arr = ['+', '7', ' ', '(', '_', '_', '_', ')', ' ', '_', '_', '_', '–', '_', '_', '–', '_', '_']
+        const pos = [1, 4, 5, 6, 9, 10, 11, 13, 14, 16, 17]
+        for (let i = 0; i < number.length; i++) {
           if(chars.length == 11) {
             break
+          } 
+          if(/^[0-9]$/.test(number.charAt(i))) {
+            chars.push(number.charAt(i))
           }
-          if(/^[0-9]$/.test(value.charAt(i))) {
-            chars.push(value.charAt(i))
-          }
-        }
-        if (chars[0] === '7' && chars.length == 11) {
-          chars.shift()
         }
 
         let output = []
@@ -245,46 +252,168 @@ export default {
           output.push(arr[i])
         }
 
-        this.phoneNumber = output.join('')
+        return output.join('')
+      }
       },
-      isNumber: function (e) {
-        let char = String.fromCharCode(e.keyCode);
+      pasteNum: function(e) {
+        let value = e.clipboardData.getData('text/plain')
         e.preventDefault()
-        if (/^[0-9+]$/.test(char)) {
-          if (this.phoneNumber == null) {
+        if(this.phoneNumber == null) {
+          this.phoneNumber = this.formatNum(value)
+        } else {
+        let curPos = document.getElementById("phoneNumber").selectionStart; 
+        this.phoneNumber = this.formatNum(this.phoneNumber.slice(0, curPos) + value + this.phoneNumber.slice(curPos))
+        }
 
-            if (char === '7') {
-              this.phoneNumber = '+7'
-            } else if ( char === '+' ) {
-                this.phoneNumber = '+7 ('
+      },
+      isNumber: function (e) {    
+        let curPos = document.getElementById("phoneNumber").selectionStart;  
+        let curPosEnd = document.getElementById("phoneNumber").selectionEnd;  
+        let char = String.fromCharCode(e.keyCode);
+        if (/[0-9+]/.test(char)) {
+          if (this.phoneNumber == null) {
+            if(char == '7') {
+              this.phoneNumber = '+'
+            } else if (char != '+') {
+              this.phoneNumber = '+7 ('
             }
-              else {
-              this.phoneNumber = '+7 (' + char
-            }  
           } else {
-            if(this.phoneNumber.length == 0) {
-              if (char === '7') {
-                this.phoneNumber = '+7'
-              } else if ( char === '+' ) {
-                this.phoneNumber = '+7 ('
-              } else {
-                this.phoneNumber = '+7 (' + char
-              }  
-            } else if (this.phoneNumber.length == 2 && char != '+') {
-              this.phoneNumber = '+7 (' + char
-            } else if (this.phoneNumber.length == 6 && char != '+') {
-              this.phoneNumber = this.phoneNumber + char + ') '
-            } else if (this.phoneNumber.length == 11 && char != '+') {
-              this.phoneNumber = this.phoneNumber + char + '-'
-            } else if (this.phoneNumber.length == 14 && char != '+') {
-              this.phoneNumber = this.phoneNumber + char + '-'
+            if (char == '+') {
+              //this.phoneNumber = this.formatNum(this.phoneNumber)
+              this.phoneNumber = this.nextNum(this.phoneNumber)
+              e.preventDefault()
+            } else if (this.phoneNumber.length == 0) {
+                if (char == '7') {
+                  this.phoneNumber = '+'
+                } else {
+                  this.phoneNumber = '+7 ('
+                }
+            } else if (this.phoneNumber == '+' && char != '7' ) {
+              //let number = this.formatNum(this.phoneNumber.slice(0, curPos) + char + this.phoneNumber.slice(curPos))
+              this.phoneNumber = '+7 ('
+            } else if (this.phoneNumber == '+7' || this.phoneNumber == '+7 ' || this.phoneNumber == '+7 (' ) {
+              this.phoneNumber = '+7 ('
             } else {
-              if (this.phoneNumber.length <= 17 && char != '+') {
-                this.phoneNumber = this.phoneNumber + char
+              if(curPos == curPosEnd) {
+                let lenStart = this.phoneNumber.length
+                this.phoneNumber = this.formatNum(this.phoneNumber.slice(0, curPos) + char + this.phoneNumber.slice(curPos))
+                e.preventDefault()
+                let lenEnd = this.phoneNumber.length
+                let dif = lenEnd - lenStart
+                window.setTimeout(function() {
+                  document.getElementById("phoneNumber").setSelectionRange(curPos + dif, curPos + dif);
+                }, 0)
+              } else {
+                let lenStart = this.phoneNumber.length
+                this.phoneNumber = this.formatNum(this.phoneNumber.slice(0, curPos) + char + this.phoneNumber.slice(curPosEnd))
+              
+                e.preventDefault()
+                let lenEnd = this.phoneNumber.length
+                let dif = lenEnd - lenStart
+                window.setTimeout(function() {
+                  document.getElementById("phoneNumber").setSelectionRange(lenEnd, lenEnd);
+                }, 0)
               }
+              
             }
           }
+        } else {
+            //let lenStart = this.phoneNumber? this.phoneNumber.length : 0
+            this.phoneNumber = this.nextNum(this.phoneNumber)
+            e.preventDefault()
+            let lenStart = this.phoneNumber? this.phoneNumber.length : 0
+            /*let lenEnd = this.phoneNumber.length
+            let dif = lenEnd - lenStart == 0 ? 1 : lenEnd - lenStart
+            window.setTimeout(function() {
+              document.getElementById("phoneNumber").setSelectionRange(curPos + dif, curPos + dif);
+            }, 0)*/
+            window.setTimeout(function() {
+              document.getElementById("phoneNumber").setSelectionRange(lenStart, lenStart);
+            }, 0)
         }
+      },
+      eraseNum: function(e) {
+        const pos = [2, 3, 7, 8, 12, 15]
+        let curPos = document.getElementById("phoneNumber").selectionStart; 
+        let curPosEnd = document.getElementById("phoneNumber").selectionEnd;
+        if (e.key) {
+          if(e.key.toLowerCase() === 'backspace' && this.phoneNumber) {/////////////////
+            if(curPos == curPosEnd) {
+              
+              let flag = false
+              pos.forEach((x) => {
+                if (curPos - 1 == x) {
+                  e.preventDefault()
+                  window.setTimeout(function() {
+                    document.getElementById("phoneNumber").setSelectionRange(curPos - 1, curPos - 1);
+                    }, 0)
+                    flag=true
+                }
+              })
+           
+              if(flag) {
+                return true
+              }
+
+              let lenStart = this.phoneNumber.length
+              this.phoneNumber = this.formatNum(this.phoneNumber.slice(0, curPos - 1) + this.phoneNumber.slice(curPos))
+              //this.phoneNumber = this.nextNum(this.phoneNumber)
+              e.preventDefault()
+              let lenEnd = this.phoneNumber.length
+              let dif = lenEnd - lenStart
+              window.setTimeout(function() {
+                  document.getElementById("phoneNumber").setSelectionRange(curPos + dif, curPos + dif);
+                }, 0)
+
+            } else {
+              this.phoneNumber = this.formatNum(this.phoneNumber.slice(0, curPos) + this.phoneNumber.slice(curPosEnd))
+              //this.phoneNumber = this.nextNum(this.phoneNumber)
+              e.preventDefault()
+              let lenEnd = this.phoneNumber.length
+              window.setTimeout(function() {
+                document.getElementById("phoneNumber").setSelectionRange(lenEnd, lenEnd);
+              }, 0)
+            }
+        } else if(e.key.toLowerCase() === 'delete' && this.phoneNumber) {///////////////
+            if(curPos == curPosEnd) {
+              let lenStart = this.phoneNumber.length
+              this.phoneNumber = this.formatNum(this.phoneNumber.slice(0, curPos) + this.phoneNumber.slice(curPos + 1))
+              //this.phoneNumber = this.nextNum(this.phoneNumber)
+              e.preventDefault()
+              let lenEnd = this.phoneNumber.length
+              let dif = lenEnd - lenStart
+              window.setTimeout(function() {
+                document.getElementById("phoneNumber").setSelectionRange(curPos, curPos);
+                }, 0) }
+            else {
+              this.phoneNumber = this.formatNum(this.phoneNumber.slice(0, curPos) + this.phoneNumber.slice(curPosEnd))
+              //this.phoneNumber = this.nextNum(this.phoneNumber)
+              e.preventDefault()
+              let lenEnd = this.phoneNumber.length
+              window.setTimeout(function() {
+                document.getElementById("phoneNumber").setSelectionRange(lenEnd, lenEnd);
+              }, 0)
+            }
+        } 
+      }
+      },
+      nextNum: function(number) {
+        if (!number) {
+            return '+'
+        } else if (number.length >= 18) {
+          return number
+        } else { 
+        const arr = ['+', '7', ' ', '(', '_', '_', '_', ')', ' ', '_', '_', '_', '–', '_', '_', '–', '_', '_']
+        const pos = [0, 1, 2, 3, 7, 8, 12, 15]
+        
+        for (let i = 0; i < pos.length; i++) {
+          if(number.length == pos[i]) {
+            return number + arr[pos[i]]
+          }
+        }
+
+        return number
+      }
       },
       validateEmail: function() {
         
@@ -292,6 +421,64 @@ export default {
           return true
         } else {
           return false
+        }
+      },
+      isBirthDate: function (e) {
+        let char = String.fromCharCode(e.keyCode);
+        e.preventDefault()
+        if (/^[0-9/.-]$/.test(char)) {
+          if (this.dateBirth == null && !/^[/.-]$/.test(char)) {
+            this.dateBirth = char
+          } else {
+            if(this.dateBirth.length == 0 && !/^[/.-]$/.test(char)) {
+              this.dateBirth = char
+            } else if (this.dateBirth.length == 1) {
+              if(/^[/.-]$/.test(char)) {
+                this.dateBirth = '0' + this.dateBirth + '/'
+              } else {
+                this.dateBirth = this.dateBirth + char + '/'
+              }
+            } else if (this.dateBirth.length == 4) {
+              if(/^[/.-]$/.test(char)) {
+                this.dateBirth = this.dateBirth.slice(0, 3) +  '0' + this.dateBirth[3] + '/'
+              } else {
+                this.dateBirth = this.dateBirth + char + '/'
+              }
+            } else {
+              if (this.dateBirth.length < 10 && !/^[/.-]$/.test(char)) {
+                this.dateBirth = this.dateBirth + char
+              }
+            }
+          }
+        }
+      },
+      isIdDocDate: function (e) {
+        let char = String.fromCharCode(e.keyCode);
+        e.preventDefault()
+        if (/^[0-9/.-]$/.test(char)) {
+          if (this.dateDoc == null && !/^[/.-]$/.test(char)) {
+            this.dateDoc = char
+          } else {
+            if(this.dateDoc.length == 0 && !/^[/.-]$/.test(char)) {
+              this.dateDoc = char
+            } else if (this.dateDoc.length == 1) {
+              if(/^[/.-]$/.test(char)) {
+                this.dateDoc = '0' + this.dateDoc + '/'
+              } else {
+                this.dateDoc = this.dateDoc + char + '/'
+              }
+            } else if (this.dateDoc.length == 4) {
+              if(/^[/.-]$/.test(char)) {
+                this.dateDoc = this.dateDoc.slice(0, 3) +  '0' + this.dateDoc[3] + '/'
+              } else {
+                this.dateDoc = this.dateDoc + char + '/'
+              }
+            } else {
+              if (this.dateDoc.length < 10 && !/^[/.-]$/.test(char)) {
+                this.dateDoc = this.dateDoc + char
+              }
+            }
+          }
         }
       },
       handleSubmit: function () {
