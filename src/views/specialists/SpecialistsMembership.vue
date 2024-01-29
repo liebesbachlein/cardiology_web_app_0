@@ -27,8 +27,8 @@
         </div>
 
             <router-link to="/specialists/membership-request/" style="margin-top: 2rem; display: inline-block;">
-                <div class="short-blue-button" @click="requestMembership">
-                    Подать заявку
+                <div class="short-blue-button">
+                    Подать заявку на членство
                 </div>
             </router-link>
 
@@ -42,8 +42,6 @@ import ChevronHeader from '@/components/ChevronHeader.vue';
 export default {
     components: {ChevronHeader},
   setup() {
-    const requestMembership = () => {console.log('sending')}
-    return {requestMembership}
   }
 }
 

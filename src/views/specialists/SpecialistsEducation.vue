@@ -14,9 +14,11 @@
         <br>
         <p>Даты и время проведения будет назначены позже.</p>
 
-        <div>
-            <EducationRequest/>
-        </div>
+        <router-link to="/specialists/education-request/" style="margin-top: 2rem; display: inline-block;">
+                <div class="short-blue-button">
+                    Подать заявку на обучение
+                </div>
+            </router-link>
         
 
     </div>

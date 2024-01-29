@@ -7,6 +7,10 @@
                     </div>
                     <ChevronRight color="grey"/>
                     <div class="breadcrumb-now">
+                        <router-link to="/specialists/">Специалистам</router-link>
+                    </div>
+                    <ChevronRight color="grey"/>
+                    <div class="breadcrumb-now">
                       <router-link :to="/membership-request/">Членство</router-link>
                     </div>
               </div>
@@ -15,40 +19,40 @@
         
         <div class="subpage-title" style="text-align: center;">Заяка на членство</div>
           <label>Фамилия <span>*</span></label>
-          <input  :readonly="submitSuccess" type="text" v-model="lastName"  :class="{'invalid' : errorLastName}" required>
+          <input  :readonly="submitSuccess" type="text" v-model="lastName" id="lastName" :class="{'invalid' : errorLastName}" required>
 
           <label>Имя <span>*</span></label>
-          <input :readonly="submitSuccess" type="text" v-model="firstName" :class="{'invalid' : errorFirstName}" required>
+          <input :readonly="submitSuccess" type="text" v-model="firstName" id="firstName"  :class="{'invalid' : errorFirstName}" required>
     
 
           <label>Отчество</label>
-          <input :readonly="submitSuccess" type="text" v-model="patroName" required>
+          <input :readonly="submitSuccess" type="text" v-model="patroName" id="patroName" required>
   
   
           <label>Email <span>*</span></label>
-          <input :readonly="submitSuccess" :class="{'invalid' : errorEmail}" type="email" v-model="email" @blur="validateEmail" required>
+          <input :readonly="submitSuccess" :class="{'invalid' : errorEmail}" type="email" id="email"   v-model="email" @blur="validateEmail" required>
       
 
           <label>Контактный телефон <span>*</span></label>
-          <input id="phoneNumber" @paste="pasteNum($event)" @keypress="isNumber($event)" @keydown="eraseNum($event)" placeholder="+7 (___) ___ - __ - __" :readonly="submitSuccess" :class="{'invalid' : errorPhoneNumber}" type="tel" v-model="phoneNumber" required>
-  
+          <input id="phoneNumber" @paste="pasteNum($event)" @keydown="isNumber($event)" placeholder="+7 (___) ___ - __ - __" :readonly="submitSuccess" :class="{'invalid' : errorPhoneNumber}" type="tel" v-model="phoneNumber" required>
+
           <label>Дата рождения <span>*</span></label>
-          <input placeholder="дд/мм/гггг" @paste.prevent  @keypress="isBirthDate($event)" :readonly="submitSuccess"  :class="{'invalid' : errorDateBirth}" type="text" v-model="dateBirth" required>
+          <input :readonly="submitSuccess"  :class="{'invalid' : errorDateBirth}" type="date" v-model="dateBirth" id="dateBirth"  required>
   
           <label>Место рождения <span>*</span></label>
-          <input :readonly="submitSuccess" type="text" v-model="placeBirth" :class="{'invalid' : errorPlaceBirth}" required>
+          <input :readonly="submitSuccess" type="text" v-model="placeBirth" id="placeBirth" :class="{'invalid' : errorPlaceBirth}" required>
   
           <label>Адрес места жительства <span>*</span></label>
-          <input :readonly="submitSuccess"  type="text" v-model="address" :class="{'invalid' : errorAddress}" required>
+          <input :readonly="submitSuccess"  type="tel" v-model="address" id="address" :class="{'invalid' : errorAddress}" required>
   
-          <label>Номер/серия удостоверения личност <span>*</span></label>
-          <input :readonly="submitSuccess" type="text" v-model="idDoc" :class="{'invalid' : errorIdDoc}" required>
+          <label>Номер/серия удостоверения личности <span>*</span></label>
+          <input placeholder="123456789" :readonly="submitSuccess" type="text" v-model="idDoc" id="idDoc"  :class="{'invalid' : errorIdDoc}" required>
   
           <label>Дата выдачи удостоверения личности <span>*</span></label>
-          <input  placeholder="дд/мм/гггг" @paste.prevent @keypress="isIdDocDate($event)" :readonly="submitSuccess" type="text" v-model="dateDoc" :class="{'invalid' : errorDateDoc}" required>
+          <input :readonly="submitSuccess" type="date" v-model="dateDoc" id="dateDoc" :class="{'invalid' : errorDateDoc}" required>
   
           <label>Орган выдачи удостоверения личности <span>*</span></label>
-          <input :readonly="submitSuccess" type="text" v-model="placeDoc" :class="{'invalid' : errorPlaceDoc}" required>
+          <input :readonly="submitSuccess" type="text" v-model="placeDoc" id="placeDoc"  :class="{'invalid' : errorPlaceDoc}" required>
   
           <label>Образование (учебное заведение, специальность, дата окончания) <span>*</span></label>
           <textarea :readonly="submitSuccess" rows = "10" :class="{'invalid' : errorEducation}"  v-model="education" required/>
@@ -62,7 +66,9 @@
           <label>Опыт работы</label>
           <textarea :readonly="submitSuccess" rows = "10" v-model="experience"/>
      
-       
+          <label>Прошу принять в члены ОО «Общество специалистов по артериальной гипертонии и кардиоваскулярной профилактике» на добровольной основе с <span>*</span></label>
+          <input :readonly="submitSuccess" type="date" v-model="dateMember" id="dateMember" :class="{'invalid' : errorDateMember}" required>
+  
           <div class="consent">
             <label class="checkbox-container">
               <input :disabled="submitSuccess" type="checkbox" v-model="terms" required>
@@ -117,6 +123,7 @@ export default {
         addEducation: null,
         interests: null,
         experience: null, 
+        dateMember: null
     }
   },
   computed: {
@@ -165,7 +172,11 @@ export default {
     }, 
     errorIdDoc: function() {
       if(this.idDoc != null) {
-        return this.idDoc.length == 0
+        if(/[0-9]{9}/.test(this.idDoc)) {
+          return false
+        } else {
+          return true
+        }
       } else {
         return false
       }
@@ -219,17 +230,28 @@ export default {
       } else {
         return false
       }
-    }
+    }, 
+    errorDateMember: function() {
+      if(this.dateMember != null) {
+        if(/^[0-3][0-9]\/[0-1][0-9]\/[12][09][0-9][0-9]$/.test(this.dateDoc)) {
+          return false
+        } else {
+          return true
+        }
+      } else {
+        return false
+      }
+    }, 
   },
     methods: {
       formatNum: function(number) {
         if(!number) {
-          return '+'
+          return ''
         } else if (number === '+') {
           return '+'
         } else if (number === '7') {
           return '+7'
-        } else if (number != '+' && number != '7') {
+        } else if (number != '+' && number != '7' && number.length == 1) {
           return '+7 ( ' + number
         } else { 
         let chars = []
@@ -267,70 +289,83 @@ export default {
 
       },
       isNumber: function (e) {    
-        let curPos = document.getElementById("phoneNumber").selectionStart;  
-        let curPosEnd = document.getElementById("phoneNumber").selectionEnd;  
-        let char = String.fromCharCode(e.keyCode);
-        if (/[0-9+]/.test(char)) {
-          if (this.phoneNumber == null) {
-            if(char == '7') {
-              this.phoneNumber = '+'
-            } else if (char != '+') {
-              this.phoneNumber = '+7 ('
+    
+        if (e.key) {
+          if(e.key.toLowerCase() === 'backspace' || e.key.toLowerCase() === 'delete') {
+            this.eraseNum(e)
+            return
+          } 
+        }
+          let curPos = document.getElementById("phoneNumber").selectionStart;  
+          let curPosEnd = document.getElementById("phoneNumber").selectionEnd;  
+          let char = e.key
+          if (/[0-9+]/.test(char)) {
+            if (this.phoneNumber == null) {
+              if(char == '7') {
+                this.phoneNumber = '+'
+              } else if (char != '+') {
+                this.phoneNumber = '+7 ('
+              }
+            } else {
+              if (char == '+') {
+                //this.phoneNumber = this.formatNum(this.phoneNumber)
+                this.phoneNumber = this.nextNum(this.phoneNumber)
+                e.preventDefault()
+              } else if (this.phoneNumber.length == 0) {
+                  if (char == '7') {
+                    this.phoneNumber = '+'
+                  } else {
+                    this.phoneNumber = '+7 ('
+                  }
+              } else if (this.phoneNumber == '+' && char != '7' ) {
+                //let number = this.formatNum(this.phoneNumber.slice(0, curPos) + char + this.phoneNumber.slice(curPos))
+                this.phoneNumber = '+7 ('
+              } else if (this.phoneNumber == '+7' || this.phoneNumber == '+7 ' || this.phoneNumber == '+7 (' ) {
+                this.phoneNumber = '+7 ('
+              } else {
+                if(curPos == curPosEnd) {
+                  let lenStart = this.phoneNumber.length
+                  this.phoneNumber = this.formatNum(this.phoneNumber.slice(0, curPos) + char + this.phoneNumber.slice(curPos))
+                  
+                  e.preventDefault()
+                  let lenEnd = this.phoneNumber.length
+                  let dif = lenEnd - lenStart
+                  window.setTimeout(function() {
+                    document.getElementById("phoneNumber").setSelectionRange(curPos + dif, curPos + dif);
+                  }, 0)
+                } else {
+                  let lenStart = this.phoneNumber.length
+                  this.phoneNumber = this.formatNum(this.phoneNumber.slice(0, curPos) + char + this.phoneNumber.slice(curPosEnd))
+                
+                  e.preventDefault()
+                  let lenEnd = this.phoneNumber.length
+                  let dif = lenEnd - lenStart
+                  window.setTimeout(function() {
+                    document.getElementById("phoneNumber").setSelectionRange(lenEnd, lenEnd);
+                  }, 0)
+                }
+                
+              }
             }
           } else {
-            if (char == '+') {
-              //this.phoneNumber = this.formatNum(this.phoneNumber)
+              //let lenStart = this.phoneNumber? this.phoneNumber.length : 0
+              if(e.key) {
+                if(e.key.toLowerCase() === 'arrowright' || e.key.toLowerCase() === 'arrowleft') {
+                  return
+                } 
+              }
               this.phoneNumber = this.nextNum(this.phoneNumber)
               e.preventDefault()
-            } else if (this.phoneNumber.length == 0) {
-                if (char == '7') {
-                  this.phoneNumber = '+'
-                } else {
-                  this.phoneNumber = '+7 ('
-                }
-            } else if (this.phoneNumber == '+' && char != '7' ) {
-              //let number = this.formatNum(this.phoneNumber.slice(0, curPos) + char + this.phoneNumber.slice(curPos))
-              this.phoneNumber = '+7 ('
-            } else if (this.phoneNumber == '+7' || this.phoneNumber == '+7 ' || this.phoneNumber == '+7 (' ) {
-              this.phoneNumber = '+7 ('
-            } else {
-              if(curPos == curPosEnd) {
-                let lenStart = this.phoneNumber.length
-                this.phoneNumber = this.formatNum(this.phoneNumber.slice(0, curPos) + char + this.phoneNumber.slice(curPos))
-                e.preventDefault()
-                let lenEnd = this.phoneNumber.length
-                let dif = lenEnd - lenStart
-                window.setTimeout(function() {
-                  document.getElementById("phoneNumber").setSelectionRange(curPos + dif, curPos + dif);
-                }, 0)
-              } else {
-                let lenStart = this.phoneNumber.length
-                this.phoneNumber = this.formatNum(this.phoneNumber.slice(0, curPos) + char + this.phoneNumber.slice(curPosEnd))
-              
-                e.preventDefault()
-                let lenEnd = this.phoneNumber.length
-                let dif = lenEnd - lenStart
-                window.setTimeout(function() {
-                  document.getElementById("phoneNumber").setSelectionRange(lenEnd, lenEnd);
-                }, 0)
-              }
-              
-            }
+              let lenStart = this.phoneNumber? this.phoneNumber.length : 0
+              /*let lenEnd = this.phoneNumber.length
+              let dif = lenEnd - lenStart == 0 ? 1 : lenEnd - lenStart
+              window.setTimeout(function() {
+                document.getElementById("phoneNumber").setSelectionRange(curPos + dif, curPos + dif);
+              }, 0)*/
+              window.setTimeout(function() {
+                document.getElementById("phoneNumber").setSelectionRange(lenStart, lenStart);
+              }, 0)
           }
-        } else {
-            //let lenStart = this.phoneNumber? this.phoneNumber.length : 0
-            this.phoneNumber = this.nextNum(this.phoneNumber)
-            e.preventDefault()
-            let lenStart = this.phoneNumber? this.phoneNumber.length : 0
-            /*let lenEnd = this.phoneNumber.length
-            let dif = lenEnd - lenStart == 0 ? 1 : lenEnd - lenStart
-            window.setTimeout(function() {
-              document.getElementById("phoneNumber").setSelectionRange(curPos + dif, curPos + dif);
-            }, 0)*/
-            window.setTimeout(function() {
-              document.getElementById("phoneNumber").setSelectionRange(lenStart, lenStart);
-            }, 0)
-        }
       },
       eraseNum: function(e) {
         const pos = [2, 3, 7, 8, 12, 15]
@@ -852,6 +887,7 @@ textarea:focus {
 }
 
 .consent {
+  margin-top: 3rem;
   margin-bottom: 1.5rem;
 }
 
