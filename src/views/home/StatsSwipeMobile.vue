@@ -5,47 +5,47 @@
     <ChevronLeft color="blue" />
     </div>    
 
-<Transition mode="out-in" name="slider-quick">
-<div class="stats-item" v-if="pageNum == 1">
-    <div class="stats-header">
-        <h1>1 МЛРД</h1>
+    <Transition name="slider-quick" mode="out-in">
+    <div class="stats-item" v-if="pageNum == 1">
+        <div class="stats-header">
+            1 МЛРД
+        </div>
+        <div class="stats-bottom">
+            — людей на земле страдает от гипертонии
+        </div>
     </div>
-    <div class="stats-bottom">
-        <p>— людей на земле страдает от гипертонии</p>
-    </div>
-</div>
+   
 
+    <div class="stats-item" v-else-if="pageNum == 2">
+        <div class="stats-header">
+            9,4 МЛН
+        </div>
+        <div class="stats-bottom">
+            — случаев смерти в мире ежегодно из-за осложнения гипертонии
+        </div>
+    </div>
 
-<div class="stats-item" v-else-if="pageNum == 2">
-    <div class="stats-header">
-        <h1>9,4 МЛН</h1>
+    <div class="stats-item" v-else-if="pageNum == 3">
+        <div class="stats-header">
+            40%
+        </div>
+        <div class="stats-bottom">
+            — которой среди взрослого населения
+        </div>
     </div>
-    <div class="stats-bottom">
-        <p>— случаев смерти в мире ежегодно из-за осложнения гипертонии</p>
-    </div>
-</div>
 
-<div class="stats-item" v-else-if="pageNum == 3">
-    <div class="stats-header">
-        <h1>40%</h1>
+    <div class="stats-item" v-else-if="pageNum == 4">
+        <div class="stats-header">
+            45%
+        </div>
+        <div class="stats-bottom">
+            — смертных случаев приходится на долю гипертонии
+        </div>
     </div>
-    <div class="stats-bottom">
-        <p>— которой среди взрослого населения</p>
-    </div>
-</div>
-
-<div class="stats-item" v-else-if="pageNum == 4">
-    <div class="stats-header">
-        <h1>45%</h1>
-    </div>
-    <div class="stats-bottom">
-        <p>— смертных случаев приходится на долю гипертонии</p>
-    </div>
-</div>
 </Transition>
-<div class="chevron-tap"  @click="clickForward">
-<ChevronRight color="blue"/>
-</div>
+    <div class="chevron-tap"  @click="clickForward">
+    <ChevronRight color="blue"/>
+    </div>
 </div>
 </template>
 
@@ -87,27 +87,29 @@ export default {
 
 @media only screen and (max-width: 768px) {
 
+.chevron-tap {
+    padding: 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: 100ms;
+    z-index: 5;
+}
 
-    .chevron-tap {
-        padding: 4%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-    }
+.chevron-tap:active {
+    background-color: #FFF;
+    box-shadow: 2px 2px 4px rgba(15, 30, 104, 0.08), -2px -2px 4px rgba(15, 30, 104, 0.06);
+}
 
-    .chevron-tap:active {
-        background-color: rgba(33, 156, 196, 0.17);
-    }
-
-    .slider-quick-enter-active,
+.slider-quick-enter-active,
 .slider-quick-leave-active {
   transition: opacity 0.2s ease-in-out;
 }
 
 .slider-quick-enter-from,
 .slider-quick-leave-to {
-  opacity: 10%;
+    opacity: 0;
 }
 
 .stats-carousel {
@@ -122,26 +124,25 @@ export default {
     width: 17rem;
     max-width: 90%; /*!!!!!!!!!!!*/
     background-color: #FFF;
-    box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.25);
+    box-shadow: 0px 16px 20px rgba(15, 30, 104, 0.08), 0px 0px 6px rgba(15, 30, 104, 0.06);
     border-radius: 0.5rem;
     height: 16.4rem;
     padding: 1rem 1.5rem;
+    z-index: 4;
 }
 
-.stats-item h1 {
-    font-size: 2.5rem;
-    color: var(--component-accent-color2);
-    font-weight: 700;
-}
-
-.stats-item p {
+.stats-bottom {
     font-size: 1rem;
-    color: #6C6C6C;
+    color: #454545;
     font-weight: 400;
 }
 
 .stats-header {
     margin-bottom: 1rem;
+    font-size: 2rem;
+    color: var(--component-accent-color2);
+    font-family: var(--news-title-font);
+    font-weight: 400;
 }
 }
 

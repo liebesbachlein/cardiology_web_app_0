@@ -28,14 +28,14 @@ export default {
   methods: {
     changeNavBar() {
       const navBar = this.$refs.navBar
-      const redLine = this.$refs.redLine
+      //const redLine = this.$refs.redLine
       if (window.scrollY > 100) {
         navBar.className = 'navbar-block-scroll'
-        redLine.className = 'red-line-scroll'
+        //redLine.className = 'red-line-scroll'
 
       } else if (window.scrollY <= 100) {
         navBar.className = 'navbar-block-zero'
-        redLine.className = 'red-line-zero'
+        //redLine.className = 'red-line-zero'
       }
     }, 
     openSideMenu() {
@@ -66,7 +66,7 @@ export default {
   height: 100%;
   background-color: #FFF;
   padding: 0 1.5rem 0 0;
-  box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.25);
+  box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.5);
 }
 
 .navbar-block-scroll {
@@ -75,7 +75,7 @@ export default {
   background-color: #FFF;
   /*background-color: var(--component-accent-color1);*/
   padding: 0 1.5rem 0 0;
-  box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.25);
+  box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.5);
   
 }
 
@@ -94,12 +94,18 @@ export default {
     height: 100%;
 }
 
+.navbar-side-img img {
+  height: 1.5rem;
+  width: auto;
+}
+
 
 .red-line-zero {
     display: block;
     width: 50%;
     border-top: 2px solid var(--component-accent-color1);
     margin: 0 auto;
+    display: none;
 }
 
 .red-line-scroll {
@@ -107,6 +113,7 @@ export default {
     width: 50%;
     border-top: 2px solid var(--component-accent-color1);
     margin: 0 auto;
+    display: none;
 }
 }
 </style>

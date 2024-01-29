@@ -610,188 +610,8 @@ export default {
 
 <style>
 
-@media only screen and (max-width: 768px) {
-.contacts {
-    width: 100%;
-    margin-top: 3rem;
-    padding: 0 1rem;
-}
-
-.membership {
-  width: 100%;
-}
-
-.membership form {
-  margin: 1rem 1rem;
-  background: #FFF;
-  text-align: left;
-  padding: 1rem 0;
-  border-radius: 10px;
-}
-
-.membership .upper-form {
-  max-width: 100%;
-}
-
-.membership .upper-form .regular-label {
-  font-family: var(--sans-serif-font);
-  color: var(--text-accent-color2);
-  display: inline-block;
-  margin: 1.5rem 0 0.5rem;
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  font-weight: 500;
-}
-
-.membership .upper-form .error-label {
-  color: var(--text-accent-color2);
-  font-weight: 500;
-  /*text-decoration: underline;*/
-
-  font-family: var(--sans-serif-font);
-  display: inline-block;
-  margin: 1.5rem 0 0.5rem;
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-}    
 
 
-.membership .upper-form input:focus {
-  border: 1px solid #000;
-  outline: none;
-}
-
-.membership .upper-form .regular-input {
-  font-family: var(--plain-text-font);
-  font-size: 1rem;
-  font-weight: 400;
-  display: block;
-  padding: 0.6rem 0 0.25rem 0.5rem;
-  width: 100%;
-  border: 1px solid #A7ACBC;
-  border-radius: 0.25rem;
-  color: #000;
-}
-
-.membership .upper-form .error-input {
-  font-family: var(--plain-text-font);
-  font-size: 1rem;
-  font-weight: 400;
-  display: block;
-  padding: 0.6rem 0 0.25rem 0.5rem;
-  width: 100%;
-  border: 1px solid var(--component-accent-color1);
-  border-radius: 0.25rem;
-  color: #000;
-}
-
-.membership .lower-form {
-  display: flex;
-  max-width: 100%;
-}
-    
-.membership .lower-form .regular-label {
-  font-family: var(--sans-serif-font);
-  color: var(--text-accent-color2);
-  display: inline-block;
-  margin: 1.5rem 0 0.5rem;
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  font-weight: 500;
-}
-
-.membership .lower-form .error-label { 
-  /*text-decoration: underline;*/
-  font-family: var(--sans-serif-font);
-  color: var(--text-accent-color2);
-  display: inline-block;
-  margin: 1.5rem 0 0.5rem;
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  font-weight: 600;
-}
-
-
-.membership .lower-form input[type="checkbox"] {
-  display: inline-block;
-  width: 1rem;
-  margin: 0 1rem 0 0;
-  position: relative;
-  top: 2px;
-}
-
-.membership textarea {
-  resize: none;
-  width: 100%;
-  border: 1px solid #A7ACBC;
-  font-family: var(--plain-text-font);
-  font-size: 0.875rem;
-  font-weight: 400;
-  display: block;
-  padding: 0.6rem 0 0.25rem 0.5rem;
-  width: 100%;
-  border-radius: 0.25rem;
-  color: #000;
-}
-
-.membership textarea:focus {
-  border: 1px solid #000;
-  outline: none
-}
-
-
-
-.membership .upper-form .error-textarea {
-  resize: none;
-  width: 100%;
-  border: 1px solid var(--component-accent-color1);
-  font-family: var(--plain-text-font);
-  font-size: 0.875rem;
-  font-weight: 400;
-  display: block;
-  padding: 0.6rem 0 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  color: #000;
-}
-
-.membership .upper-form .success-textarea {
-  resize: none;
-  width: 100%;
-  border: 1px solid #A7ACBC;
-  font-family: var(--plain-text-font);
-  font-size: 0.875rem;
-  font-weight: 400;
-  display: block;
-  padding: 0.6rem 0 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  color: #A7ACBC;
-}
-
-.membership .upper-form .success-label {
-  font-family: var(--sans-serif-font);
-  color: #A7ACBC;
-  display: inline-block;
-  margin: 1.5rem 0 0.5rem;
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  font-weight: 500;
-}
-
-.membership .upper-form .success-input {
-  font-family: var(--plain-text-font);
-  font-size: 1rem;
-  font-weight: 400;
-  display: block;
-  padding: 0.6rem 0 0.25rem 0.5rem;
-  width: 100%;
-  border: 1px solid #A7ACBC;
-  border-radius: 0.25rem;
-  color: #A7ACBC;
-}
-}
-
-
-@media only screen and (min-width: 1024px) {
 
 .greyback {
   background-color: var(--component-grey-color);
@@ -956,5 +776,25 @@ textarea:focus {
   transform: rotate(45deg);
 }
 
+@media only screen and (max-width: 768px) {
+  form {
+      display: block;
+      width: 100%;
+      margin: 4rem 0 6rem 0;
+      background: #FFF;
+      text-align: left;
+      padding: 3rem 1rem;
+      border-radius: 0.5rem;
+  }
+
+  .greyback .site-content-in {
+  padding: 0 0.5rem;
+ } 
+
+ .greyback .breadcrumbs-box {
+  display: none;
+ }
 }
+
+
 </style>

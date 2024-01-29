@@ -1,7 +1,7 @@
 <template>
     <div class="newstimeline">
         <div class="site-content-in" id="newsTimeline">
-            <HomeHeader title="Мерояприятия" id="header"/>
+            <HomeHeader title="Мероприятия" id="header"/>
     
 
         <div class="sticky-box" id="circle">
@@ -133,10 +133,44 @@ export default {
 
 <style>
 @media only screen and (max-width: 768px) {
+
+    .sticky-box {
+    width: 100%;
+    z-index: 4;
+    position: sticky;
+    transition: none;
+    display: flex;
+    justify-content: flex-end;
+    top: calc(50vh);
+    transition: none;
+    visibility: hidden;
+}
+
+.linecircle_fixed {
+    display: flex;
+    width: 4rem;
+    align-items: center;
+    justify-content: center;
+    transition: none;
+    visibility: hidden;
+}
+
+.linecircle_circle_fixed {
+    height: 10px;
+    width: 11px;
+    border-radius: 15px;
+    background-color: var(--component-grey-color);
+    border: 1px solid var(--component-accent-color2);
+    transition: none;
+    visibility: hidden;
+}
+
 .newstimeline {
     display: block;
     width: 100%;
-    padding-top: 3rem;
+    padding: 3rem 0;
+    background-color: var(--component-grey-color);
+
 }
 
 .month-news {
@@ -180,7 +214,6 @@ export default {
     width: 100%;
     background-color: var(--component-grey-color);
     padding: 2rem 0;
-    
 }
 }
 </style>

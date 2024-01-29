@@ -73,9 +73,9 @@
 @media only screen and (min-width: 1024px) {
 
 
-    .poster-contents2 .cover-button {
-        margin-top: 2rem;
-    }
+.poster-contents2 .cover-button {
+    margin-top: 2rem;
+}
 
 .poster-contents2 {
     width: 100%;

@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Philosopher:ital@1&family=Viaoda+Libre&family=El+Messiri:wght@400;500;600;700&family=Noto+Sans+Display:wght@400;500;600&family=Tenor+Sans&family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Scada:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 :root {
     --component-accent-color1: #FE5353;
     --component-accent-color2: #219CC4;
@@ -13,6 +15,7 @@
     --messiri-font: "El Messiri", sans-serif;
     --sans-serif-font: "Noto Sans Display", sans-serif;
     --tenor-font: "Tenor Sans", sans-serif;
+    --scada-font: "Scada", sans-serif;
     --header-line: transparent;
 }
 

@@ -1,7 +1,5 @@
 <template>
-    <div v-if="mobile != null" class="stats-img" v-show="false">
-        <img src="@/assets/heart.svg">
-    </div>
+
     <HomeHeader title="Глобальная статистика"/>
     <StatsSwipeMobile v-if="mobile"/>
     <div class="stats" v-else>
@@ -51,52 +49,8 @@ export default {
 
 <style>
 
-@media only screen and (max-width: 768px) {
-
-.header-top h1 {
-    font-size: 1rem;
-}
-
-.stats-img {
-    width: 50%;
-    height: 50%;
-    position: absolute;
-    z-index: -5;
-    left: 0;
-}
-
-.stats-img img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-
-.stats {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin: 8rem 0 4rem 0;
-}
-
-}
-
 
 @media only screen and (min-width: 1024px) {
-.stats-img {
-    max-width: 20rem;
-    width: 50%;
-    height: 50%;
-    position: absolute;
-    z-index: 1;
-    left: 0;
-}
-
-.stats-img img {
-    object-fit: contain;
-}
-
-
 .stats {
     width: 100%;
     display: flex;
@@ -133,5 +87,16 @@ export default {
     font-family: var(--news-title-font);
     font-weight: 400;
 }
+}
+
+@media only screen and (max-width: 768px) {
+
+.stats {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 8rem 0 4rem 0;
+}
+
 }
 </style>

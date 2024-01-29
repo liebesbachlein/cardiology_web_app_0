@@ -81,5 +81,11 @@ export default {
     color: #2D2D2D
 }
 
+@media only screen and (max-width: 768px) {
+    .date-outer {
+    box-shadow: 1px 1px 3px 0px rgba(154, 150, 150, 0.3);
+    }
+}
+
 
 </style>

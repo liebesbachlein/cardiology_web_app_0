@@ -17,22 +17,35 @@ export default {
 
 
 @media only screen and (max-width: 768px) {
-.monthblock {
-    width: 100%;
-    
+    .monthblock {
+    z-index: 5;
+    margin: 0 1rem 0 auto;
+    display: flex;
+    justify-content: right;
+    position: relative;
 }
 
 .month {
-    display: flex;
-    margin: 4rem 1.5rem 1.5rem auto;
-    justify-content: flex-end;
+    display: inline-flex;
+    /*width: 200px;*/
+    border-radius: 1.25rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--component-accent-color2);
+    justify-content: center;
     align-items: center;
+    color: var(--component-accent-color2);
+    font-family: var(--plain-text-font);
+    font-weight: 400;
+    font-size: 0.875rem;
+    background-color: #EDF1F3;
 }
 
-.month h4 {
-    color: var(--component-accent-color2);
-    font-family: var(--tenor-font);
-    font-size: 1rem;
+.month-light {
+    background-color: #FFF;
+    color: #828698;
+    border: 1px solid transparent;
+    box-shadow: -1px 1px 2px 0px rgba(171, 183, 208, 0.3);
+
 }
 
 }

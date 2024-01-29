@@ -45,4 +45,27 @@ export default {
     margin-right: 0.25rem;
 }
 
+@media only screen and (max-width: 768px) {
+    .address-box {
+        display: inline-flex;
+        min-height: 2rem;
+        width: auto;
+        align-items: center;
+        border-radius: 0.5rem;
+        background-color: #E8F7FC;
+        padding: 0 0.5rem;
+        max-width: fit-content;
+    }
+
+    .address-name {
+        display: inline-flex;
+        align-items: center;
+        height: 100%;
+        font-size: 0.875rem;
+        color: var(--text-accent-color2);
+        text-wrap: wrap;
+        margin-right: 0.5rem;
+    }
+}
+
 </style>

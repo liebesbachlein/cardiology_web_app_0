@@ -15,7 +15,7 @@
     </div>  
   </div>
   
-  <div class="red-line-zero" ref="redLine"></div>
+  <!--<div class="red-line-zero" ref="redLine"></div>-->
 </div>
       
    
@@ -24,40 +24,35 @@
       <div class="navbar-item"  @click ="popAbout = !popAbout">
         
         <div class="nav-title" ref="about" id="about">
-          
-          <Transition mode="out-in" name="words">
-          <div v-if="popAbout == false" class="nav-sign-img"><img src="@/assets/plus.svg"></div>
-          <div v-else class="nav-sign-img"><img src="@/assets/minus.svg"></div>
-          </Transition>
-          <h3>О нас</h3>
+          О нас
           
         </div>
         <div class="nav-details" v-if="popAbout">
 
           <router-link to="/about/1" @click="closeSideMenu">
             <div class="mobile-pop-item">    
-                <h4>Об Обществе</h4>
+                Об Обществе
                 <ChevronRight color="blue"/>
             </div>
           </router-link>
 
           <router-link to="/about/2" @click="closeSideMenu">
             <div class="mobile-pop-item">    
-                <h4>Руководство</h4>
+                Руководство
                 <ChevronRight color="blue"/>
             </div>
           </router-link>
           
           <router-link to="/about/3" @click="closeSideMenu">
             <div class="mobile-pop-item">    
-                <h4>Галерея</h4>
+                Галерея
                 <ChevronRight color="blue"/>
             </div>
           </router-link>
 
           <router-link to="/about/4" @click="closeSideMenu">
             <div class="mobile-pop-item">    
-                <h4>Контакты</h4>
+                Контакты
                 <ChevronRight color="blue"/>
             </div>
           </router-link>
@@ -67,9 +62,8 @@
     
       
         <router-link class="navbar-item-single" ref="news" id="news" to="/news/" @click="closeSideMenu">
-            <div class="news-item-nav">
-              <div class="nav-sign-img"><img  src="@/assets/sign-white.svg"></div>
-              <h3>Новости</h3>
+            <div class="news-item-nav nav-title">
+              Новости
             </div>
             <ChevronRight color="blue"/>
         </router-link>
@@ -77,30 +71,27 @@
     
       <div class="navbar-item" @click ="popSp = !popSp" >
         <div class="nav-title" ref="sp" id="sp">
-          <Transition mode="out-in" name="words">
-          <div v-if="popSp == false" class="nav-sign-img"><img src="@/assets/plus.svg"></div>
-          <div v-else class="nav-sign-img"><img src="@/assets/minus.svg"></div></Transition>
-          <h3>Специалистам</h3>
+          Специалистам
         </div>
 
         <div class="nav-details" v-if="popSp">
           <router-link to="/specialists/1" @click="closeSideMenu">
             <div class="mobile-pop-item">    
-                <h4>Членство</h4>
+                Членство
                 <ChevronRight color="blue"/>
             </div>
           </router-link>
 
           <router-link to="/specialists/2" @click="closeSideMenu">
             <div class="mobile-pop-item">    
-                <h4>Ресурсы</h4>
+                Ресурсы
                 <ChevronRight color="blue"/>
             </div>
           </router-link>
           
           <router-link to="/specialists/3" @click="closeSideMenu">
             <div class="mobile-pop-item">    
-                <h4>Заявка на обучение</h4>
+                Заявка на обучение
                 <ChevronRight color="blue"/>
             </div>
           </router-link>
@@ -110,30 +101,27 @@
     
       <div class="navbar-item" @click ="popPt = !popPt">
         <div class="nav-title" ref="sp" id="sp">
-          <Transition mode="out-in" name="words">
-          <div v-if="popPt == false" class="nav-sign-img"><img src="@/assets/plus.svg"></div>
-          <div v-else class="nav-sign-img"><img src="@/assets/minus.svg"></div></Transition>
-          <h3>Пациентам</h3>
+          Пациентам
         </div>
 
         <div class="nav-details" v-if="popPt">
           <router-link to="/patients/1" @click="closeSideMenu">
             <div class="mobile-pop-item">    
-                <h4>Полезная информация</h4>
+                Полезная информация
                 <ChevronRight color="blue"/>
             </div>
           </router-link>
 
           <router-link to="/patients/2" @click="closeSideMenu">
             <div class="mobile-pop-item">    
-                <h4>Частные вопросы</h4>
+                Частные вопросы
                 <ChevronRight color="blue"/>
             </div>
           </router-link>
           
           <router-link to="/patients/3" @click="closeSideMenu">
             <div class="mobile-pop-item">    
-                <h4>Обратиться к специалисту</h4>
+                Обратиться к специалисту
                 <ChevronRight color="blue"/>
             </div>
           </router-link>
@@ -147,11 +135,11 @@
 
     <div class="add-links-box">
       <router-link to="/membership-request" class="add-links" @click="closeSideMenu">
-        <h5>Стать членом Общества</h5>
+        Стать членом Общества
         <ChevronRight color="blue"/>
       </router-link>
       <router-link to="/specialists/3" class="add-links" @click="closeSideMenu">
-        <h5>Записаться на обучение</h5>
+        Записаться на обучение
         <ChevronRight color="blue"/>
       </router-link>
     </div>
@@ -159,9 +147,9 @@
   <div class="red-line-zero" style="width: 75%"></div>
 
   <div class="nav-info">
-    <h6>+7 (700) 076 43 54</h6>
-    <h6>Алматы, ул. Жибек Жолы 8, офис 31</h6>
-    <h6>ОО “Общество специалистов по артериальной гипертонии и кардиоваскулярной профилактике”</h6>
+    +7 (700) 076 43 54<br>
+    Алматы, ул. Жибек Жолы 8, офис 31<br>
+    ОО “Общество специалистов по артериальной гипертонии и кардиоваскулярной профилактике”<br>
   </div>
  
 </div>
@@ -170,9 +158,10 @@
 
 <script>
 import ChevronRight from './ChevronRight.vue';
+import ChevronLeft from './ChevronLeft.vue';
 
 export default {
-  components: {ChevronRight},
+  components: {ChevronRight, ChevronLeft},
   data: function () {
     return {
       popAbout: false, 
@@ -260,7 +249,7 @@ export default {
 .popmenu .red-line-zero {
     display: block;
     width: 100%;
-    border-top: 2px solid var(--component-accent-color1);
+    border-top: 1px solid var(--component-accent-color1);
     margin: 0 auto;
 }
 
@@ -292,9 +281,6 @@ export default {
   width: 100%;
   margin: 0.5rem 0;
   padding: 0.5rem 1rem 0.5rem 0;
-}
-
-.popmenu .add-links h5 {
   font-size: 1rem;
   padding-left: 0.5rem;
   font-weight: 400;
@@ -337,20 +323,11 @@ export default {
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-}
-
-.popmenu h3 {
-  font-size: 1.25rem;
-  text-transform: uppercase;
-  padding-left: 1rem;
+  font-size: 1.375rem;
+  padding-left: 0.5rem;
   font-weight: 600;
-}
-
-.popmenu h4 {
-  font-size: 1.125rem;
-  padding-left: 1rem;
-  font-weight: 400;
-  color: #2D2D2D
+  color: #565964;
+  font-family: var(--messiri-font);
 }
 
 .nav-details {
@@ -364,6 +341,11 @@ export default {
   align-items: center;
   justify-content: space-between;
   margin: 1rem 0;
+  font-size: 1.125rem;
+  padding-left: 1rem;
+  font-weight: 400;
+  color: #2D2D2D;
+
 }
 
 .nav-info {
@@ -374,15 +356,10 @@ export default {
   padding: 2rem 1rem 0 1rem;
   justify-content: center;
   align-items: flex-start;
-
-}
-
-.nav-info h6 {
   font-size: 0.925rem;
   font-weight: 400;
   margin: 0.5rem 0.5rem;
   color: #6C6C6C;
-  font-family: var(--simple-font);
 }
 
 }

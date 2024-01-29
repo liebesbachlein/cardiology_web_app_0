@@ -500,6 +500,8 @@ export default {
 .picks-box label {
   display: block;
   margin: 2rem 0 1rem 0;
+  
+  color: #818698;
 }
 
 .picks-box .options {
@@ -511,6 +513,7 @@ export default {
   display: inline;
   margin: 0 0 0 1rem;
   padding: 0;
+  color: #454545;
 
 }
 
@@ -549,6 +552,18 @@ export default {
 
 .options-item .option-input {
   margin-right: 5px;
+}
+
+@media only screen and (max-width: 768px) { 
+  .picks-box .options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.picks-box .options>div {
+  height: 2rem;
+}
 }
 
 </style>

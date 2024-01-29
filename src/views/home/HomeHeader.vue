@@ -16,6 +16,7 @@ export default {
 
 <style>
 
+
 .home-header-box {
     display: flex;
     justify-content: flex-start;
@@ -30,5 +31,15 @@ export default {
     color: #2D2D2D;
     font-style: normal;
 }
+
+@media only screen and (max-width: 768px) {
+    .home-header {
+        font-size: 1.75rem;
+        margin-left: 1.5rem;
+        font-weight: 600;
+    }
+
+}
+
 
 </style>

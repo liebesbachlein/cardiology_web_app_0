@@ -33,6 +33,22 @@ export default {
 
 <style>
 
+.cover-button {
+    height: 3.125rem;
+    width: 11rem;
+    border: 2px solid #FFF;
+    background-color: #FFF;
+    border-radius: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--subheading-font);
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--component-accent-color1);
+}
+
+
 @media only screen and (max-width: 768px) {
 
     #hd1 {
@@ -54,21 +70,6 @@ export default {
     #hd5 {
         font-size: 1.625rem; font-weight: 700; color: #FFF; margin: 1.5rem 0
     }
-
-.cover-button {
-    height: 3.125rem;
-    width: 11rem;
-    border: 2px solid #FFF;
-    background-color: #FFF;
-    border-radius: 0.25rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: var(--subheading-font);
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--component-accent-color1);
-}
 
 .poster1 {
     display: flex;
@@ -107,7 +108,7 @@ export default {
     align-items: flex-start;
     width: 100%;
     text-align: left;
-    padding-left: 2rem;
+    padding: 0 2rem;
 }
 }
 
@@ -137,18 +138,9 @@ export default {
 
 .cover-button {
     background-color: transparent;
-    height: 3.125rem;
-    width: 14.5rem;
     border: 2px solid #DDDCDC;
-    border-radius: 0.25rem;
     color: #FFF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: var(--subheading-font);
-    font-weight: 500;
-    font-size: 1.25rem;
-    
+
 }
 
 .cover-button:hover {

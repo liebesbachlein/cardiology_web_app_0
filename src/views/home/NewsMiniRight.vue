@@ -9,10 +9,15 @@
             
             <div class="news-box">
             
-                <div class="newsmini-upper">
+                
+
+                <div v-if="!mobile" class="newsmini-upper">
                     <DateBox :date1="news.date1" :date2="news.date2"  :month="news.month"/>
                     <AddressBox :address="news.address"/>
                 </div>  
+
+                <DateBox v-if="mobile"  id="mobile1" :date1="news.date1" :date2="news.date2"  :month="news.month"/>
+                <AddressBox v-if="mobile" id="mobile2" :address="news.address"/>
         
                 <div class="news-title">
                     <router-link :to="news.url">
@@ -52,115 +57,90 @@
     <style>
     @media only screen and (max-width: 768px) {
     .newsmini-right .newsmini-img {
-        height: 100%;
-        width: auto;
-        object-fit: cover;
-        grid-column: 1;
-        grid-row: 1;
-        display: hidden;
-        justify-content: flex-end;
-        align-items: center;
+        display: none;
     }
     
     .newsmini-img img {
-        max-height: 10rem;
-        width: auto;
-        object-fit: contain;
-        display: hidden;
-    }
-    
-    .news-title-city {
-        margin-bottom: 1rem;
+        display: none;
     }
     
     .newsmini-upper {
-        display: grid;
-        grid-template-columns: auto auto;
+        display: none;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 1rem;
     }
-    
-    .news-format {
-        grid-column: 2;
+
+    #mobile1 {
+        grid-column: 1;
         grid-row: 1;
+        margin-bottom: 1rem;
+
     }
-    
-    .news-format h4 {
-        font-size: 0.825rem;
-        text-transform: uppercase;
-        color: #454343;
-        text-decoration: none;
-        font-weight: 600;
+    #mobile2 {
+        grid-column: 1;
+        grid-row: 4;
+        margin-top: 1rem;
     }
+
     
     .newsmini-right {
-        display: grid;
-        grid-template-columns: calc(100vw - 52px) 52px;
-        justify-content: space-between;
-        align-items: flex-start;
+        width: 100%;
+    }
+
+    .news-shadow-box {
+        width: 100%;
+        padding: 1rem;
     }
     
     .newsmini-right .newsmini-line {
-        grid-column: 2;
-        grid-row: 1;
+        width: 0;
+        display: none;
     }
     
-    .newsmini-right .news-box {
-        grid-column: 1;
-        grid-row: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-left: 1rem;
-    }
-    
-    .newsmini-right .news-date {
+    .news-box {
         display: grid;
-        width: 12.5rem;
-        height: 2.5rem;
-        background-color: var(--component-accent-color1);
-        border-radius: 0 0.75rem 0.75rem 0;
-        padding-left: 1.5rem;
-        justify-content: left;
-        align-items: center;
-        grid-column: 1;
+        background-color: #FFF;
+        box-shadow: -1px 1px 4px 0px rgba(212, 211, 211, 0.5);
+        border-radius: 0.25rem;
+        width: 100%;
+        padding: 1rem;
     }
     
-    .newsmini-right .news-date h4 {
-        grid-row: 1;
-        grid-column: 1;
-        color: #FFF;
-    }
-    
-    .newsmini-right .news-chev-details {
-        display: flex;
-        flex-wrap: nowrap;
-        align-items: center;
-    }
-    
-    .newsmini-right .news-city h4 {
-        font-style: italic;
-        line-height: 1rem;
-    }
-    .news-chev-details h4 {
-        color: #858585;
-    }
     
     .newsmini-right .news-detail {
-        margin-left: 0;
         display: inline;
-        
+        font-size: 1rem;
+        font-weight: 400;
+        grid-column: 1;
+        grid-row: 3;
     }
     
-    .news-title h3 {
-        color: var(--component-accent-color2)
+    .news-title {
+        margin-bottom: 0.5rem;
+        grid-column: 1;
+        grid-row: 2;
+    }
+    
+    .news-title a {
+        color: var(--component-accent-color2);
+        font-size: 1.125rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        transition: all 0.1s ease;
     }
     
     }
     
     @media only screen and (min-width: 1024px) {
     
+        .mobile1 {
+            display: none;
+        }
+
+        .mobile2 {
+            display: none;
+        }
     .newsmini-img {
         max-height: 15rem;
         height: 100%;
