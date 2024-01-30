@@ -85,7 +85,7 @@ export default {
 
 <style>
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1023px) and (min-width: 769px) {
 
 .chevron-tap {
     padding: 4%;

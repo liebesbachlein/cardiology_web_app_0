@@ -66,6 +66,40 @@
 }
 }
 
+@media only screen and (max-width: 1023px) and (min-width: 769px) {
+
+.poster-contents3 {
+    width: 100%;
+    height: calc(100vw * 16 / 9 * 0.75);
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 5;
+    flex-wrap: nowrap;
+    padding: 0 1rem;
+}
+
+.poster3 {
+    display: flex;
+    align-items: flex-start;
+    background-image: url('/covers/image-cover3-mobile.png');
+    width: 100%;
+    height: calc(100vw * 16 / 9 * 0.75);
+    background-size: cover;
+}
+
+.poster-contents3 .header1 {
+    max-height: 100%;
+    width: 100%;
+    border-radius: 16px;
+    display: inline-flex;
+    text-align: left;
+    padding: 1rem 1.5rem;
+    flex-direction: column;
+    justify-content: space-between;
+}
+}
 
 @media only screen and (min-width: 1024px) {
 

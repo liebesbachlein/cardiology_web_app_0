@@ -52,6 +52,138 @@ export default {
 <style>
 
 
+@media only screen and (max-width: 768px) {
+
+.newsshort {
+    width: 100%;
+    display: flex;
+    margin-bottom: 3rem;
+}
+
+
+.newsshort-title {
+    text-decoration: underline;
+    font-size: 1.375rem;
+    font-family: var(--news-title-font);
+    cursor: pointer;
+    color: var(--component-accent-color2);
+}
+
+.newsshort-title a {
+    color: #454545;
+}
+
+
+.newsshort-image {
+    width: 100%;
+    height: calc(( 100vw - 2rem) * 9 / 16 );
+    display: inline-block; 
+}
+
+.newsshort-image img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+
+.newsshort-info {
+    width: 100%;
+    margin: 0;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.newsshort-info-phrase-date {
+    display: flex;
+    justify-content: space-between;
+    
+}
+.newsshort-info-phrase-date>div {
+    font-size: 0.875rem;
+    font-weight: 400;
+    margin-bottom: 0.25rem;
+}
+
+.newsshort-title a:hover {
+    color: none;
+}
+
+.newsshort-phrase {
+    text-transform: uppercase;
+    
+}
+}
+
+
+@media only screen and (max-width: 1023px) and (min-width: 769px) {
+
+.newsshort {
+    width: 100%;
+    display: flex;
+    margin-bottom: 3rem;
+}
+
+
+.newsshort-title {
+    text-decoration: underline;
+    font-size: 1.375rem;
+    font-family: var(--news-title-font);
+    cursor: pointer;
+    color: var(--component-accent-color2);
+}
+
+.newsshort-title a {
+    color: #454545;
+}
+
+
+.newsshort-image {
+    width: 100%;
+    height: calc(( 100vw - 2rem) * 9 / 16 );
+    display: inline-block; 
+}
+
+.newsshort-image img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+
+.newsshort-info {
+    width: 100%;
+    margin: 0;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.newsshort-info-phrase-date {
+    display: flex;
+    justify-content: space-between;
+    
+}
+.newsshort-info-phrase-date>div {
+    font-size: 0.875rem;
+    font-weight: 400;
+    margin-bottom: 0.25rem;
+}
+
+.newsshort-title a:hover {
+    color: none;
+}
+
+.newsshort-phrase {
+    text-transform: uppercase;
+    
+}
+}
+
+@media only screen and (min-width: 1024px) {
 .newsshort {
     width: 100%;
     display: flex;
@@ -114,40 +246,6 @@ export default {
 .newsshort-phrase {
     text-transform: uppercase;
     
-}
-
-@media only screen and (max-width: 768px) {
-
-.newsshort {
-
-    margin-bottom: 3rem;
-}
-
-.newsshort-image {
-    width: 100%;
-    height: calc(( 100vw - 2rem) * 9 / 16 );
-    display: inline-block; 
-}
-
-.newsshort-image img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-.newsshort-info {
-    width: 100%;
-    margin: 0;
-}
-
-.newsshort-info-phrase-date>div {
-    font-size: 0.875rem;
-    font-weight: 400;
-    margin-bottom: 0.25rem;
-}
-
-.newsshort-title a:hover {
-    color: #454545;
 }
 }
 

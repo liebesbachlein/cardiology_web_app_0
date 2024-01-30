@@ -117,6 +117,37 @@ export default {
 
 }
 
+@media only screen and (max-width: 1023px)  and (min-width: 769px){
+
+.multi-page {
+    width: 100%;
+    margin-top: 3rem;
+    padding: 0 1rem;
+}
+
+.multi-page-box {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.page-side {
+  display: none
+}
+
+.page-side-box {
+  display: none;
+}
+
+.multi-page-content {
+  width: 100%;
+  margin-bottom: 8.5rem;
+  padding: 0;
+  
+}
+
+}
 @media only screen and (min-width: 1024px) {
 
 .multi-page {

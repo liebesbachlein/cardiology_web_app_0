@@ -566,4 +566,31 @@ export default {
 }
 }
 
+
+@media only screen and (max-width: 1023px) and (min-width: 769px) { 
+  .picks-box .options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.picks-box .options>div {
+  height: 2rem;
+}
+}
+
+@media only screen and (min-width: 1024px) { 
+  .picks-box .options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.picks-box .options>div {
+  display: flex;
+  width: 14rem;
+  align-items: center;
+}
+}
+
 </style>

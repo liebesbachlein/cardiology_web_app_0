@@ -22,11 +22,11 @@
             <div class="grid-row2">
                 <div id="pt5" class="partner-icon">
                     <img src="@/assets/partner_icons/gerb_logo.png">
-                    <h4>Министерство Здравоохранения РК</h4>
+                    <div>Министерство Здравоохранения РК</div>
                 </div>
                 <div  id="pt6" class="partner-icon">
                     <img src="@/assets/partner_icons/almaty_logo.png">
-                    <h4>Официальный интернет-ресурс г. Алматы</h4>
+                    <div>Официальный интернет-ресурс г. Алматы</div>
                 </div>
             </div>
             
@@ -48,7 +48,7 @@ export default {
 <style>
 
 @media only screen and (max-width: 768px) {
-
+    
 
 #pt1 {
     width: 100%;
@@ -177,6 +177,133 @@ export default {
 }
 
 }
+
+@media only screen and (max-width: 1023px) and (min-width: 769px) {
+    
+
+    #pt1 {
+    width: 100%;
+    grid-column: 1;
+    grid-row: 1;
+}   
+
+#pt1 img {
+    max-width: 40%;
+}
+
+#pt2 {
+    width: 100%;
+    grid-column: 2;
+    grid-row: 1;
+} 
+
+#pt2 img {
+    width: 25%;
+    grid-column: 2;
+}
+
+
+#pt3 {
+    width: 100%;
+    grid-column: 2;
+    grid-row: 2;
+}  
+
+#pt3 img {
+    width: 50%;
+}
+
+
+#pt4 {
+    width: 100%;
+    grid-column: 1;
+    grid-row: 2;
+}  
+
+#pt4 img {
+    width: 30%;
+}
+
+
+#pt5, #pt6 {
+    width: 50%;
+}  
+
+#pt5 img, #pt6 img {
+    width: 20%;
+}
+
+#pt5>div, #pt6>div {
+    font-size: 0.875;
+    padding: 0 20%;
+}
+
+
+.partners {
+    width: 100%;
+    padding-top: 4rem;
+}
+
+.partners-header-cont {
+    display: flex;
+    justify-content: center;
+}
+
+.partners-header {
+    display: inline-block;
+    text-align: center;
+    border-top: 2px solid var(--component-accent-color1);
+    padding: 12px;
+}
+
+.partners-icon-grid {
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.partners-icon-grid .grid-row1 {
+    margin-top: 2rem;
+    position: relative;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.partners-icon-grid .grid-row1>div {
+    text-align: center;
+    
+}
+
+.partners-icon-grid .grid-row2 {
+    padding-top: 2rem;
+    grid-row: 2;
+    display: flex;
+    align-items: flex-start;
+}
+
+.partners-icon-grid .grid-row2 h4 {
+    width: 90%;
+    font-size: 0.875rem;
+}
+
+.partner-icon {
+    display: inline-block;
+    text-align: center;
+}
+
+.partner-icon img {
+    height: auto;
+}
+
+.grid-row2 .partner-icon {
+    width: 190px;
+    text-align: center;
+}
+
+    }
 
 @media only screen and (min-width: 1024px) {
 

@@ -112,6 +112,68 @@ export default {
 }
 }
 
+@media only screen and (max-width: 1023px) and (min-width: 769px) {
+
+#hd1 {
+    line-height: 4rem; font-size: 1.25rem; color: #FFF; font-weight: 500
+}
+
+#hd2 {
+    line-height: 4rem; font-size: 5rem; color: var(--component-accent-color1);  font-weight: 700
+}
+
+#hd3 {
+    line-height: 4rem; font-size: 3.5rem; color: var(--component-accent-color2); font-weight: 700
+}
+
+#hd4 {
+    font-size: 1rem; font-weight: 400; color: #FFF; margin-top: 1rem;
+}
+
+#hd5 {
+    font-size: 1.625rem; font-weight: 700; color: #FFF; margin: 1.5rem 0
+}
+
+.poster1 {
+display: flex;
+align-items: flex-start;
+background-image: url('/covers/image-cover1-mobile.png');
+width: 100%;
+height: calc(100vw * 16 / 9 * 0.75);
+background-size: cover;
+width: 100%;
+}
+
+.poster-contents1 {
+width: 100%;
+height: calc(100vw * 16 / 9 * 0.75);
+position: absolute;
+display: flex;
+align-items: center;
+z-index: 5;
+flex-wrap: nowrap;
+}
+
+.poster-contents1 .box {
+display: flex;
+flex-direction: column;
+width: 100%;
+}
+
+.poster-contents1 .header1 {
+text-align: center;
+width: 100%;
+}
+
+.poster-contents1 .header2 {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+width: 100%;
+text-align: left;
+padding: 0 2rem;
+}
+}
 
 @media only screen and (min-width: 1024px) {
 

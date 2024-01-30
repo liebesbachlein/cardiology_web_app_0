@@ -227,6 +227,56 @@ function handleTouchMove(evt) {
 }
 }
 
+@media only screen and (max-width: 1023px) and (min-width: 769px) {
+
+
+.gallery .box-box {
+    position: relative
+}
+
+
+.gallery-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 0;
+}
+
+.gallery-flexbox-item {
+    width: 50%;
+}
+
+.gallery-aspect-box {
+    width: 100%;
+    padding-top: 75%;
+    position: relative;
+}
+
+.gallery-strechy-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 0.25rem;
+}
+
+.gallery-strechy-box>div {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    cursor: pointer;
+}
+
+
+.red-line-gallery {
+    display: block;
+    width: 33%;
+    border-top: 1px solid var(--component-accent-color1);
+    margin: 0 auto;
+}
+}
+
 @media only screen and (min-width: 1024px) {
 .gallery .box-box {
     position: relative

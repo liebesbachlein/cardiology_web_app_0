@@ -109,30 +109,6 @@ export default {
     height: calc(100vw * 16 / 9 * 0.75);
 }
 
-@media only screen and (min-width: 1024px) {
-
-    .cover-box {
-        display: block;
-        text-align: center;
-        height: calc(100vw * 9 / 16 - 5rem - 7rem);
-        position: relative;
-        width: 100%;
-    }
-
-    .cover-box img {
-        object-fit: cover;
-        width: 100%;
-        height: calc(100vw * 9 / 16 - 5rem - 7rem);
-    }
-        
-    .cover-box>div {
-        position: absolute;
-        width: 100%;
-        display: block;
-        height: calc(100vw * 9 / 16 - 5rem - 7rem);
-    }
-
-}
 
 .carousel {
     display: flex;
@@ -168,4 +144,28 @@ export default {
 }
 
 
+@media only screen and (min-width: 1024px) {
+
+.cover-box {
+    display: block;
+    text-align: center;
+    height: calc(100vw * 9 / 16 - 5rem - 7rem);
+    position: relative;
+    width: 100%;
+}
+
+.cover-box img {
+    object-fit: cover;
+    width: 100%;
+    height: calc(100vw * 9 / 16 - 5rem - 7rem);
+}
+    
+.cover-box>div {
+    position: absolute;
+    width: 100%;
+    display: block;
+    height: calc(100vw * 9 / 16 - 5rem - 7rem);
+}
+
+}
 </style>

@@ -17,29 +17,33 @@ export default {
 <style>
 
 
+.home-header {
+    font-size: 1.75rem;
+    margin-left: 1.5rem;
+    font-weight: 600;
+    display: inline-block;
+    font-family: var(--messiri-font);
+    color: #2D2D2D;
+    font-style: normal;
+}
+
+
+
+
 .home-header-box {
     display: flex;
     justify-content: flex-start;
 }
 
+@media only screen and (min-width: 1024px) {
 .home-header {
-    display: inline-block;
-    /*border-top: 2px solid var(--component-accent-color1);*/
-    font-family: var(--messiri-font);
     font-size: 2.5rem;
     font-weight: 500;
-    color: #2D2D2D;
-    font-style: normal;
+    margin: 0;
 }
 
-@media only screen and (max-width: 768px) {
-    .home-header {
-        font-size: 1.75rem;
-        margin-left: 1.5rem;
-        font-weight: 600;
-    }
-
 }
+
 
 
 </style>

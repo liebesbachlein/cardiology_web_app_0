@@ -134,11 +134,11 @@
     <div class="pop-lower">
 
     <div class="add-links-box">
-      <router-link to="/membership-request" class="add-links" @click="closeSideMenu">
+      <router-link to="/specialists/membership-request/" class="add-links" @click="closeSideMenu">
         Стать членом Общества
         <ChevronRight color="blue"/>
       </router-link>
-      <router-link to="/specialists/3" class="add-links" @click="closeSideMenu">
+      <router-link to="/specialists/membership-education/" class="add-links" @click="closeSideMenu">
         Записаться на обучение
         <ChevronRight color="blue"/>
       </router-link>
@@ -173,6 +173,17 @@ export default {
   methods: {
     closeSideMenu() {
       this.$emit('closeSideMenu')
+    }
+  }, 
+  mounted() {
+    let mobile = window.matchMedia("(max-width: 1023px)").matches
+
+    addEventListener("resize", (event) => {
+        mobile = window.matchMedia("(max-width: 1023px)").matches
+    });
+
+    if(mobile == false) {
+      this.closeSideMenu()
     }
   }
 }

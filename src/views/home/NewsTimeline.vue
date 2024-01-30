@@ -132,8 +132,8 @@ export default {
 </script>
 
 <style>
-@media only screen and (max-width: 768px) {
 
+@media only screen and (max-width: 768px) {
     .sticky-box {
     width: 100%;
     z-index: 4;
@@ -176,6 +176,54 @@ export default {
 .month-news {
     margin: 0;
 }
+
+
+}
+
+@media only screen and (max-width: 1023px) and (min-width: 769px) {
+    .sticky-box {
+    width: 100%;
+    z-index: 4;
+    position: sticky;
+    transition: none;
+    display: flex;
+    justify-content: flex-end;
+    top: calc(50vh);
+    transition: none;
+    visibility: hidden;
+}
+
+.linecircle_fixed {
+    display: flex;
+    width: 4rem;
+    align-items: center;
+    justify-content: center;
+    transition: none;
+    visibility: hidden;
+}
+
+.linecircle_circle_fixed {
+    height: 10px;
+    width: 11px;
+    border-radius: 15px;
+    background-color: var(--component-grey-color);
+    border: 1px solid var(--component-accent-color2);
+    transition: none;
+    visibility: hidden;
+}
+
+.newstimeline {
+    display: block;
+    width: 100%;
+    padding: 3rem 0;
+    background-color: var(--component-grey-color);
+
+}
+
+.month-news {
+    margin: 0;
+}
+
 
 }
 

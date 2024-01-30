@@ -618,15 +618,7 @@ export default {
  } 
 
 
-form {
-    display: block;
-    width: 75%;
-    margin: 3rem auto 6rem auto;
-    background: #FFF;
-    text-align: left;
-    padding: 3rem 10%;
-    border-radius: 0.5rem;
-}
+
 
 form * {
   transition: all 0.1s ease;
@@ -733,7 +725,6 @@ textarea:focus {
   font-size: 22px;
 }
 
-/* Create a custom checkbox */
 .checkmark {
   position: absolute;
   top: 0px;
@@ -745,25 +736,21 @@ textarea:focus {
   border-radius: 0.25rem;
 }
 
-/* When the checkbox is checked, add a blue background */
 .checkbox-container input:checked ~ .checkmark {
   background-color: var(--component-accent-color2);
   border: 1px solid var(--component-accent-color2);
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
 
-/* Show the checkmark when checked */
 .checkbox-container input:checked ~ .checkmark:after {
   display: block;
 }
 
-/* Style the checkmark/indicator */
 .checkbox-container .checkmark:after {
   left: 6px;
   top: 2px;
@@ -786,6 +773,46 @@ textarea:focus {
       padding: 3rem 1rem;
       border-radius: 0.5rem;
   }
+
+  .greyback .site-content-in {
+  padding: 0 0.5rem;
+ } 
+
+ .greyback .breadcrumbs-box {
+  display: none;
+ }
+}
+
+@media only screen and (max-width: 1023px) and (min-width: 769px) {
+  form {
+      display: block;
+      width: 100%;
+      margin: 4rem 0 6rem 0;
+      background: #FFF;
+      text-align: left;
+      padding: 3rem 1rem;
+      border-radius: 0.5rem;
+  }
+
+  .greyback .site-content-in {
+  padding: 0 0.5rem;
+ } 
+
+ .greyback .breadcrumbs-box {
+  display: none;
+ }
+}
+
+@media only screen and (min-width: 1024px) {
+  form {
+    display: block;
+    width: 75%;
+    margin: 3rem auto 6rem auto;
+    background: #FFF;
+    text-align: left;
+    padding: 3rem 10%;
+    border-radius: 0.5rem;
+}
 
   .greyback .site-content-in {
   padding: 0 0.5rem;

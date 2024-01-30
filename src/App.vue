@@ -22,7 +22,11 @@ export default {
     }
   },
   mounted() {
-    this.mobile = window.matchMedia("(max-width: 768px)").matches
+    this.mobile = window.matchMedia("(max-width: 1023px)").matches
+
+    addEventListener("resize", (event) => {
+        this.mobile = window.matchMedia("(max-width: 1023px)").matches
+    });
   },
   components: {
     NavBar, NavBarMobile,

@@ -50,16 +50,21 @@ export default {
 
 <style>
 
-.request-button-box {
-    margin-top: 2rem; 
-    display: inline-block;
-}
-
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1023px) and (min-width: 769px) {
     .request-button-box {
         display: block;
         text-align: center;
     }
 }
+
+@media only screen and (min-width: 1024px) {
+    .request-button-box {
+        margin-top: 2rem; 
+        display: inline-block;
+    }
+}
+
+
+
 
 </style>

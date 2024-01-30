@@ -33,11 +33,8 @@ export default {
 
 <style>
 
-.total {
-  min-height: 100vh;
-}
 
-@media only screen and (max-width: 768px) {
+
   .site-content {
     position: absolute;
     width: 100%;
@@ -52,6 +49,12 @@ export default {
   .site-content-in {
     width: 100%;
     padding: 0; 
+  }
+
+@media only screen and (min-width: 768px) {
+  .site-content-in {
+    width: 100%;
+    margin: 0 auto; 
   }
 }
 

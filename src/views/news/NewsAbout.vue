@@ -103,6 +103,117 @@ export default {
 
 <style>
 
+@media only screen and (max-width: 768px) {
+
+.newsabout {
+    display: block;
+    width: 100%;
+    margin-top: 3rem;
+    padding: 0 1rem;
+    min-height: calc(100vh - 5rem);
+}
+
+.newsabout-title {
+    display: block;
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-family: var(--news-title-font);
+    font-weight: 400;
+}
+
+
+.newsabout-summary {
+    margin-top: 3rem;
+    display: block;
+    font-family: var(--cursive-font);
+    font-style: italic;
+}
+
+.newsabout-image {
+    margin: 1rem 0;
+    padding: 0;
+    width: 100%;
+    height: calc(( 100vw - 2rem) * 9 / 16 );
+    display: inline-block; 
+}
+
+.newsabout-image img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.newsabout-info-phrase-date {
+    display: flex;
+    justify-content: space-between;
+}
+.newsabout-info-phrase-date>div {
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 0;
+}
+
+.newsabout-phrase {
+    text-transform: uppercase;
+}
+
+}
+
+@media only screen and (max-width: 1023px) and (min-width: 769px) {
+
+.newsabout {
+    display: block;
+    width: 100%;
+    margin-top: 3rem;
+    padding: 0 1rem;
+    min-height: calc(100vh - 5rem);
+}
+
+.newsabout-title {
+    display: block;
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-family: var(--news-title-font);
+    font-weight: 400;
+}
+
+
+.newsabout-summary {
+    margin-top: 3rem;
+    display: block;
+    font-family: var(--cursive-font);
+    font-style: italic;
+}
+
+.newsabout-image {
+    margin: 1rem 0;
+    padding: 0;
+    width: 100%;
+    height: calc(( 100vw - 2rem) * 9 / 16 );
+    display: inline-block; 
+}
+
+.newsabout-image img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.newsabout-info-phrase-date {
+    display: flex;
+    justify-content: space-between;
+}
+.newsabout-info-phrase-date>div {
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 0;
+}
+
+.newsabout-phrase {
+    text-transform: uppercase;
+}
+
+}
+
+@media only screen and (min-width: 1024px) {
 .newsabout {
     min-height: 100vh; 
 }
@@ -139,7 +250,6 @@ export default {
 .newsabout-info-phrase-date {
     display: flex;
     justify-content: space-between;
-    
 }
 
 .newsabout-info-phrase-date>div {
@@ -151,42 +261,7 @@ export default {
 .newsabout-phrase {
     text-transform: uppercase;
 }
-
-@media only screen and (max-width: 768px) {
-
-.newsabout {
-    display: block;
-    width: 100%;
-    margin-top: 3rem;
-    padding: 0 1rem;
-    min-height: calc(100vh - 5rem);
 }
 
-.newsabout-image {
-    margin: 1rem 0;
-    padding: 0;
-    width: 100%;
-    height: calc(( 100vw - 2rem) * 9 / 16 );
-    display: inline-block; 
-}
-
-.newsabout-image img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-.newsabout-info-phrase-date>div {
-    font-size: 1rem;
-    font-weight: 300;
-    margin: 0;
-}
-
-.newsabout-summary {
-    margin-top: 3rem;
-}
-
-
-}
 
 </style>

@@ -7,7 +7,6 @@ import SpecialistsView from '../views/specialists/SpecialistsView.vue'
 import MembershipRequest from '../views/specialists/MembershipRequest.vue'
 import EducationRequest from '../views/specialists/EducationRequest.vue'
 import PatientsView from '../views/patients/PatientsView.vue'
-import InfoAbout from '../views/patients/InfoAbout.vue'
 
 const routes = [
   {
@@ -63,12 +62,6 @@ const routes = [
     path: '/patients/',
     redirect: '/patients/1'
   }, 
-
-  {
-    path: '/patients/1/:id/',
-    name: 'InfoAbout',
-    component: InfoAbout
-  },
 
 ]
 

@@ -55,8 +55,8 @@ export default {
     background-color: var(--bright-red);
     padding-top: 0.25rem;
     border-radius: 0.25rem 0.25rem 0 0;
-
-    box-shadow: 1px 1px 5px 0px rgba(154, 150, 150, 0.4);
+    box-shadow: 1px 1px 3px 0px rgba(154, 150, 150, 0.3);
+    
 }
 
 .date-inner {
@@ -81,9 +81,10 @@ export default {
     color: #2D2D2D
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 1024px) {
     .date-outer {
-    box-shadow: 1px 1px 3px 0px rgba(154, 150, 150, 0.3);
+    
+    box-shadow: 1px 1px 5px 0px rgba(154, 150, 150, 0.4);
     }
 }
 

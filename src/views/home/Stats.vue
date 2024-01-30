@@ -40,7 +40,11 @@ export default {
         }
     },
     mounted() {
-        this.mobile = window.matchMedia("(max-width: 768px)").matches
+        this.mobile = window.matchMedia("(max-width: 1023px)").matches
+
+    addEventListener("resize", (event) => {
+        this.mobile = window.matchMedia("(max-width: 1023px)").matches
+    });
     },
     components: {StatsSwipeMobile, HomeHeader}
 }
@@ -49,6 +53,27 @@ export default {
 
 <style>
 
+@media only screen and (max-width: 768px) {
+
+.stats {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 8rem 0 4rem 0;
+}
+
+}
+
+@media only screen and (max-width: 1023px)  and (min-width: 769px){
+    
+    .stats {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin: 8rem 0 4rem 0;
+    }
+    
+    }
 
 @media only screen and (min-width: 1024px) {
 .stats {
@@ -89,14 +114,5 @@ export default {
 }
 }
 
-@media only screen and (max-width: 768px) {
 
-.stats {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin: 8rem 0 4rem 0;
-}
-
-}
 </style>

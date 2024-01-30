@@ -1,6 +1,6 @@
 <template>
   <div class="navbar" >
-  <div class="navbar-block-zero" ref="navBar">
+  <div class="navbar-block-zero" id="navBar">
 
     <div class="navbar-in-block">
       <router-link to="/">
@@ -60,25 +60,28 @@ export default {
   },
   methods: {
     changeNavBar() {
-      const navBar = this.$refs.navBar
+      
+      const navBar = document.getElementById('navBar')
       const logo = document.getElementById('logo')
       const arr = [document.getElementById('about'), document.getElementById('news'), document.getElementById('sp'), document.getElementById('pt')]
       const ps = document.querySelectorAll('.navbar-in-block p');
       const redLine = this.$refs.redLine
+      if(navBar && redLine) {
       if (window.scrollY > 100) {
         //navBar.className = 'navbar-block-scroll'
-        redLine.className = 'red-line-scroll'
+        //redLine.className = 'red-line-scroll'
         //arr.forEach(e => e.style = 'color: #FFFFFF')
         //ps.forEach(e => e.className = 'divider-scroll')
         //logo.className = 'logo-scroll'
 
       } else if (window.scrollY <= 100) {
         //navBar.className = 'navbar-block-zero'
-        redLine.className = 'red-line-zero'
+        //redLine.className = 'red-line-zero'
         //arr.forEach(e => e.style = 'color: #454545')
         //ps.forEach(e => e.className = 'divider-zero')
         //logo.className = 'logo-zero'
       }
+    }
     }
   }
 }

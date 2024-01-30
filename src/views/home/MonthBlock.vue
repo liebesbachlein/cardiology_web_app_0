@@ -16,7 +16,6 @@ export default {
 
 
 
-@media only screen and (max-width: 768px) {
     .monthblock {
     z-index: 5;
     margin: 0 1rem 0 auto;
@@ -45,8 +44,6 @@ export default {
     color: #828698;
     border: 1px solid transparent;
     box-shadow: -1px 1px 2px 0px rgba(171, 183, 208, 0.3);
-
-}
 
 }
 
