@@ -4,41 +4,73 @@
             Ресурсы
         </div>
 
-        <p>
-            Уважаемые коллеги, рады представить вам новейшие рекомендации по измерению артериального давления у ваших пациентов, разработанные Европейским обществом гипертонии. Здесь вы найдёте файлы для скачивания на русском и казахском языках:
-        </p>
-
-        <div class="file-download-box">
-            <a></a>
+        <div  class="links-menu-box">
+            <div class="link-item">
+                <a href="#s1"><AddressBox info="Файлы протоколов для скачивания" /></a>
+            </div>
+            <div class="link-item">
+                <a href="#s2"><AddressBox info="Полезные ссылки" /></a>
+            </div>
         </div>
 
-        <div  class="file-download-box">
-                <div v-for="file in files" :key="file.id">
+        <div class="pt-info-item">
+            <div class="pt-info-header" id="s1">
+                Файлы протоколов для скачивания
+                <img src="@/assets/pin.svg">
+            </div>
+            <div class="pt-info-text">
+                <p>
+                    Уважаемые коллеги, рады представить вам новейшие рекомендации по измерению артериального давления у ваших пациентов, разработанные Европейским обществом гипертонии. Здесь вы найдёте файлы для скачивания на русском и казахском языках:
+                </p>
+                <div  class="file-download-box">
+                    <div v-for="file in files" :key="file.id">
                         <div class="file-link-box">
                             <a :href="'sp_resources/' + file.url" v-text="file.text" @click.prevent="downloadItem(file.url, file.label)"/>
                         </div>
+                    </div>
                 </div>
+            </div>
         </div>
 
-        <ChevronHeader text="Полезные ссылки"/>
 
-        <div class="links-box">
-            <li><a href="http://scardio.ru/">Российское кардиологическое общество</a></li>
-            <li><a href="http://scardio.ru/">Российское кардиологическое общество</a></li>
-            <li><a href="http://scardio.ru/">Российское кардиологическое общество</a></li>
-            <li><a href="http://scardio.ru/">Российское кардиологическое общество</a></li>
+        <div class="pt-info-item">
+            <div class="pt-info-header" id="s2">
+                Полезные ссылки
+                <img src="@/assets/pin.svg">
+            </div>
+            <div class="pt-info-text">
+
+                <div class="links-box">
+                    <li><a href="http://scardio.ru/">Российское кардиологическое общество</a></li>
+                    <li><a href="http://scardio.ru/">Российское кардиологическое общество</a></li>
+                    <li><a href="http://scardio.ru/">Российское кардиологическое общество</a></li>
+                    <li><a href="http://scardio.ru/">Российское кардиологическое общество</a></li>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 
-import { ref } from 'vue'
 import Axios from 'axios'
-import ChevronHeader from '@/components/ChevronHeader.vue';
+import AddressBox from '../home/AddressBox.vue';
 
 export default {
-    components: {ChevronHeader},
+    components: {AddressBox},
+    mounted() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => { 
+            anchor.addEventListener('click', function (e) { 
+                e.preventDefault(); 
+                const targetElement =  
+                      document.querySelector(this.getAttribute('href')); 
+                window.scrollTo({ 
+                    top: targetElement.offsetTop, 
+                    behavior: 'smooth' 
+                }); 
+            }); 
+        }); 
+    },
     setup() {
         const files = [
         {

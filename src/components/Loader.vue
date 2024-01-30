@@ -18,7 +18,7 @@
 .loader {
     width: 48px;
     height: 48px;
-    border: 5px solid var(--component-accent-color2);
+    border: 5px solid var(--light-grey);
     border-bottom-color: transparent;
     border-radius: 50%;
     display: inline-block;

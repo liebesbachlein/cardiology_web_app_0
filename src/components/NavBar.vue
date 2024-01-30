@@ -95,14 +95,14 @@ export default {
 
 .pop-menu-enter-active,
 .pop-menu-leave-active {
-  transition: all 0.2s;
-  max-height: 230px;
+  transition: all 0.2s ease-out;
+  max-height: 13rem;
 }
 
 .pop-menu-enter-from,
 .pop-menu-leave-to {
   opacity: 0;
-  max-height: 0px;
+  max-height: 0;
 }
 
 #about, #news, #sp, #pt {

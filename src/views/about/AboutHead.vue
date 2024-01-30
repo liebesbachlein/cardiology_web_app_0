@@ -10,7 +10,7 @@
             </div>
             
             <div class="about-head-name-box">
-                <ChevronLeft color="red"/>
+                <!--<ChevronLeft color="red"/>-->
                 <div class="head-name">
                     Джунусбекова Гульнара Алдешовна
                 </div>
@@ -45,7 +45,7 @@
             </div>
             
             <div class="about-head-name-box">
-                <ChevronLeft color="red"/>
+                <!--<ChevronLeft color="red"/>-->
                 <div class="head-name">
                     Тундыбаева Мира Капсиметовна
                 </div>
@@ -107,9 +107,9 @@ export default {
 
 .head-name {
     display: inline-block;
-    padding-left: 2rem;
     color: var(--component-accent-color2);
     font-weight: 500;
+    font-size: 1.25rem;
 }
 }
 @media only screen and (max-width: 1023px) and (min-width: 769px) {
@@ -143,9 +143,10 @@ export default {
 
 .head-name {
     display: inline-block;
-    padding-left: 2rem;
+
     color: var(--component-accent-color2);
     font-weight: 500;
+    font-size: 1.25rem;
 }
 }
 @media only screen and (min-width: 1024px) {
@@ -179,9 +180,10 @@ export default {
 
 .head-name {
     display: inline-block;
-    padding-left: 2rem;
+
     color: var(--component-accent-color2);
     font-weight: 500;
+    font-size: 1.25rem;
 }
 
 }

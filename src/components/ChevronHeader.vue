@@ -1,8 +1,8 @@
 <template>
     <div class="chevron-header-box">
-        <ChevronLeft color="red"/>
+        
         <div class="head-name">
-            <h3>{{ text }}</h3>
+            {{ text }}
         </div>
     </div>
 
@@ -30,12 +30,9 @@ export default {
 
 .chevron-header-box .head-name {
     display: inline-block;
-    padding-left: 2rem;
+    color: var(--component-accent-color2);
+    font-weight: 500;
 }
 
-.chevron-header-box .head-name h3 {
-    color: var(--component-accent-color2);
-    font-weight: 600;
-}
 
 </style>

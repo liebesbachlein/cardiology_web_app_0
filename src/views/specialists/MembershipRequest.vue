@@ -129,7 +129,10 @@ export default {
   computed: {
     enableSubmit: function() {
       return this.firstName && this.lastName && this.email && this.phoneNumber && this.address && this.dateBirth && this.placeBirth && 
-        this.idDoc && this.dateDoc && this.placeDoc && this.terms && this.education
+        this.idDoc && this.dateDoc && this.placeDoc && this.terms && this.education && !this.errorEducation
+        && !this.errorPhoneNumber && !this.errorFirstName && !this.errorLastName && !this.errorEmail && !this.errorIdDoc 
+        && !this.errorPlaceDoc && !this.errorDateDoc && !this.errorDateBirth &&  !this.errorPlaceBirth && !this.errorAddress 
+         && !this.errorTerms && !this.errorDateMember
     },
     errorEducation: function() {
       if(this.education != null) {
@@ -172,7 +175,7 @@ export default {
     }, 
     errorIdDoc: function() {
       if(this.idDoc != null) {
-        if(/[0-9]{9}/.test(this.idDoc)) {
+        if(/^[0-9]{9}$/.test(this.idDoc)) {
           return false
         } else {
           return true
@@ -190,22 +193,14 @@ export default {
     }, 
     errorDateDoc: function() {
       if(this.dateDoc != null) {
-        if(/^[0-3][0-9]\/[0-1][0-9]\/[12][09][0-9][0-9]$/.test(this.dateDoc)) {
-          return false
-        } else {
-          return true
-        }
+        return this.dateDoc.length == 0
       } else {
         return false
       }
     }, 
     errorDateBirth: function() {
       if(this.dateBirth != null) {
-        if(/^[0-3][0-9]\/[0-1][0-9]\/[12][09][0-9][0-9]$/.test(this.dateDoc)) {
-          return false
-        } else {
-          return true
-        }
+        return this.dateBirth.length == 0
       } else {
         return false
       }
@@ -233,11 +228,7 @@ export default {
     }, 
     errorDateMember: function() {
       if(this.dateMember != null) {
-        if(/^[0-3][0-9]\/[0-1][0-9]\/[12][09][0-9][0-9]$/.test(this.dateDoc)) {
-          return false
-        } else {
-          return true
-        }
+        return this.dateMember.length == 0
       } else {
         return false
       }
@@ -458,64 +449,6 @@ export default {
           return false
         }
       },
-      isBirthDate: function (e) {
-        let char = String.fromCharCode(e.keyCode);
-        e.preventDefault()
-        if (/^[0-9/.-]$/.test(char)) {
-          if (this.dateBirth == null && !/^[/.-]$/.test(char)) {
-            this.dateBirth = char
-          } else {
-            if(this.dateBirth.length == 0 && !/^[/.-]$/.test(char)) {
-              this.dateBirth = char
-            } else if (this.dateBirth.length == 1) {
-              if(/^[/.-]$/.test(char)) {
-                this.dateBirth = '0' + this.dateBirth + '/'
-              } else {
-                this.dateBirth = this.dateBirth + char + '/'
-              }
-            } else if (this.dateBirth.length == 4) {
-              if(/^[/.-]$/.test(char)) {
-                this.dateBirth = this.dateBirth.slice(0, 3) +  '0' + this.dateBirth[3] + '/'
-              } else {
-                this.dateBirth = this.dateBirth + char + '/'
-              }
-            } else {
-              if (this.dateBirth.length < 10 && !/^[/.-]$/.test(char)) {
-                this.dateBirth = this.dateBirth + char
-              }
-            }
-          }
-        }
-      },
-      isIdDocDate: function (e) {
-        let char = String.fromCharCode(e.keyCode);
-        e.preventDefault()
-        if (/^[0-9/.-]$/.test(char)) {
-          if (this.dateDoc == null && !/^[/.-]$/.test(char)) {
-            this.dateDoc = char
-          } else {
-            if(this.dateDoc.length == 0 && !/^[/.-]$/.test(char)) {
-              this.dateDoc = char
-            } else if (this.dateDoc.length == 1) {
-              if(/^[/.-]$/.test(char)) {
-                this.dateDoc = '0' + this.dateDoc + '/'
-              } else {
-                this.dateDoc = this.dateDoc + char + '/'
-              }
-            } else if (this.dateDoc.length == 4) {
-              if(/^[/.-]$/.test(char)) {
-                this.dateDoc = this.dateDoc.slice(0, 3) +  '0' + this.dateDoc[3] + '/'
-              } else {
-                this.dateDoc = this.dateDoc + char + '/'
-              }
-            } else {
-              if (this.dateDoc.length < 10 && !/^[/.-]$/.test(char)) {
-                this.dateDoc = this.dateDoc + char
-              }
-            }
-          }
-        }
-      },
       handleSubmit: function () {
 
         if(this.firstName && this.lastName && this.email && this.phoneNumber && this.address && this.dateBirth && this.placeBirth && 
@@ -532,13 +465,12 @@ export default {
         console.log('Дата выдачи удостоверения личности:: ', this.dateDoc)
         console.log('Орган выдачи удостоверения личности: ', this.placeDoc)
         console.log('Условия подписаны: ', this.terms? "Да" : "Нет")
-        console.log('Образование: ', this.education? "Да" : "Нет")
+        console.log('Образование: ', this.education)
         console.log('Дополнительное бразование: ', this.addEducation ? this.addEducation : '—')
         console.log('Интересы и увлечения: ', this.interests ? this.interests : '—')
         console.log('Опыт работы: ', this.experience ? this.experience : '—')
         this.submitSuccess = true
         } else {
-          alert('Заполните все обязательные поля!')
           console.log('Incomplete form!')
         }
 

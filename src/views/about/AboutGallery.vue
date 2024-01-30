@@ -181,7 +181,8 @@ function handleTouchMove(evt) {
 
 
 .gallery .box-box {
-    position: relative
+    position: relative;
+    margin-bottom: 2rem;
 }
 
 
@@ -231,7 +232,8 @@ function handleTouchMove(evt) {
 
 
 .gallery .box-box {
-    position: relative
+    position: relative;
+    margin-bottom: 2rem;
 }
 
 
@@ -279,7 +281,8 @@ function handleTouchMove(evt) {
 
 @media only screen and (min-width: 1024px) {
 .gallery .box-box {
-    position: relative
+    position: relative;
+    margin-bottom: 2rem;
 }
 
 .gallery-box {

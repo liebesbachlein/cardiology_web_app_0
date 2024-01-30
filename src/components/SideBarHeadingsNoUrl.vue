@@ -40,7 +40,7 @@ export default {
 }
 
 .sidebarheading-no-url .side-word-active {
-    color: var(--bright-red);
+    color: var(--component-accent-color2);
     font-weight: 500;
 }
 

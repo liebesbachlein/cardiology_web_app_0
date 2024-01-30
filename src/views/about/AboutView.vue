@@ -168,8 +168,8 @@ export default {
   display: inline-block;
   width: 100%;
   height: auto;
-  background-color: var(--light-grey);
-  padding: 1.5rem 1rem 1rem 1.25rem;
+  background-color: #e4f0ff;
+  padding: 1.5rem 1.25rem 1rem 1.25rem;
 }
 
 .multi-page-content {

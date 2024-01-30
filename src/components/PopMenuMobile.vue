@@ -375,4 +375,186 @@ export default {
 
 }
 
+@media only screen and (max-width: 768px) and (min-width: 769px) {
+
+.nav-sign-img {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.words-enter-active,
+.words-leave-active {
+transition: opacity 0.1s ease;
+}
+
+.words-enter-from,
+.words-leave-to {
+opacity: 50%;
+}
+
+
+.popmenu {
+min-height: calc(100vh - 4.75rem);
+width: 100%;
+position: absolute;
+top: 0;
+background-color: #FFF;
+
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+.popmenu .navbar {
+display: block;
+width: 100%;
+height: 4.75rem;
+z-index: 11;
+}
+
+.popmenu .navbar-block-zero {
+width: 100%;
+height: 100%;
+background-color: var(--component-accent-color1);
+padding: 0 1.5rem 0 0;
+z-index: 11;
+}
+
+.popmenu .navbar-upper {
+display: flex;
+height: 100%;
+align-items: center;
+flex-direction: row;
+justify-content: space-between;
+}
+
+.popmenu .navbar-side-img {
+display: flex;
+align-items: center;
+  width: auto;
+  height: 100%;
+}
+
+.popmenu .navbar-side-img img {
+  color: #FFF;
+}
+
+.popmenu .red-line-zero {
+  display: block;
+  width: 100%;
+  border-top: 1px solid var(--component-accent-color1);
+  margin: 0 auto;
+}
+
+.popmenu  .navbar-in-block {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  margin-top: 4.75rem;
+  padding: 2rem 1rem 1rem 1rem;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 10;
+}
+
+.popmenu .add-links-box {
+width: 100%;
+display: flex;
+height: 100%;
+flex-direction: column;
+padding: 2rem 1rem;
+justify-content: center;
+align-items: flex-start;
+}
+
+.popmenu .add-links {
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 100%;
+margin: 0.5rem 0;
+padding: 0.5rem 1rem 0.5rem 0;
+font-size: 1rem;
+padding-left: 0.5rem;
+font-weight: 400;
+color: #454545;
+letter-spacing: 1px;
+}
+
+.popmenu .navbar-item {
+display: flex;
+height: 100%;
+align-items: flex-start;
+z-index: 12;
+flex-direction: column;
+width: 100%;
+margin: 1rem 0;
+z-index: 10;
+
+}
+
+.popmenu  .navbar-item-single {
+display: flex;
+height: 100%;
+align-items: center;
+justify-content: space-between;
+z-index: 12;
+flex-direction: row;
+width: 100%;
+margin: 1rem 0;
+padding-right: 1rem;
+z-index: 10;
+}
+
+.news-item-nav {
+display: flex;
+align-items: center;
+}
+
+.popmenu .nav-title {
+display: flex;
+justify-content: flex-start;
+align-items: center;
+width: 100%;
+font-size: 1.375rem;
+padding-left: 0.5rem;
+font-weight: 600;
+color: #565964;
+font-family: var(--messiri-font);
+}
+
+.nav-details {
+width: 100%;
+padding: 0.25rem 1rem 0 1rem;
+}
+
+.mobile-pop-item {
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin: 1rem 0;
+font-size: 1.125rem;
+padding-left: 1rem;
+font-weight: 400;
+color: #2D2D2D;
+
+}
+
+.nav-info {
+width: 100%;
+display: flex;
+height: 100%;
+flex-direction: column;
+padding: 2rem 1rem 0 1rem;
+justify-content: center;
+align-items: flex-start;
+font-size: 0.925rem;
+font-weight: 400;
+margin: 0.5rem 0.5rem;
+color: #6C6C6C;
+}
+
+}
+
 </style>

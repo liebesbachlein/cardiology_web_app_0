@@ -1,9 +1,15 @@
 <template>
-<div class="address-box">
-    <img v-if="address != ''" src="@/assets/address.svg">
+<div @mouseover="hover = true" @mouseleave="hover = false" class="address-box">
+    <img v-if="address" src="@/assets/address.svg">
+    <img v-else-if="info && !hover"  src="@/assets/info.svg">
+    <img v-else-if="info && hover"  src="@/assets/info-white.svg">
     <img v-else src="@/assets/video.svg">
-    <div v-if="address != ''" class="address-name">
+    
+    <div v-if="address" class="address-name">
         {{ address }}
+    </div>
+    <div v-else-if="info" class="address-name">
+        {{ info }}
     </div>
     <div v-else class="address-name">
         Онлайн
@@ -14,7 +20,12 @@
 
 <script>
 export default {
-    props: ['address']
+    props: ['address', 'info'],
+    data: () => {
+        return {
+            hover: false
+        }
+    }
 }
 </script>
 
@@ -48,6 +59,8 @@ export default {
     height: 1.25rem;
     margin-right: 0.25rem;
 }
+
+
 
 @media only screen and (min-width: 1024px) {
 
