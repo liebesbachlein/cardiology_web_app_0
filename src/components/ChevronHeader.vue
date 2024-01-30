@@ -34,7 +34,7 @@ export default {
 }
 
 .chevron-header-box .head-name h3 {
-    color: var(--text-accent-color2);
+    color: var(--component-accent-color2);
     font-weight: 600;
 }
 

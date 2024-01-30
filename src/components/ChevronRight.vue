@@ -68,8 +68,8 @@ export default {
     position: absolute;
     width: 10px;
     height: 10px;
-    border-bottom: 2px solid #B5C2C8;
-    border-right: 2px solid #B5C2C8;
+    border-bottom: 2px solid #98abcf;
+    border-right: 2px solid #98abcf;
     transform: rotate(-45deg);
     right: 3px;
     top: 0px

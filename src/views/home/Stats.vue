@@ -61,7 +61,7 @@ export default {
 
 .stats-item {
     width: 20%;
-    background-color: #F7F9FA;
+    background-color: var(--light-grey);
     box-shadow: 0px 16px 20px rgba(15, 30, 104, 0.08), 0px 0px 6px rgba(15, 30, 104, 0.06);
     border-radius: 0.5rem;
     height: 16.4rem;

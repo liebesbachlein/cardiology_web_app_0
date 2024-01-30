@@ -26,7 +26,6 @@
 
 <style>
 
-@media only screen and (max-width: 768px) {
 
 .footer {
     width: 100%;
@@ -64,6 +63,9 @@
     color: #FFF;
     font-size: 0.825rem;
 }
+
+@media only screen and (min-width: 768px) {
+
 }
 
 @media only screen and (min-width: 1024px) {

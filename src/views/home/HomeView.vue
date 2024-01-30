@@ -33,7 +33,9 @@ export default {
 
 <style>
 
-
+.total {
+  min-height: 100vh;
+}
 
 @media only screen and (max-width: 768px) {
   .site-content {
@@ -49,7 +51,7 @@ export default {
 
   .site-content-in {
     width: 100%;
-    padding: 1rem 0; 
+    padding: 0; 
   }
 }
 

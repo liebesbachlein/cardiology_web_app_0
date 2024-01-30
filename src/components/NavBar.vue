@@ -13,24 +13,24 @@
       
       <div class="navbar-item"  @mouseover="popAbout = true"  @mouseleave="popAbout = false" >
         <Transition name="pop-menu" mode="in-out"><AboutPopMenu v-if="popAbout" @closeAbout="popAbout = false"/></Transition>
-        <router-link ref="about" id="about" :to="{name: 'AboutView', params: {id: 1}}" :class="{'a-hover': popAbout}">О нас</router-link>
+        <router-link ref="about" id="about" :to="{name: 'AboutView', params: {id: 1}}" @click="popAbout = false" :class="{'a-hover': popAbout}">О нас</router-link>
       </div>
       <p class="divider-zero">|</p>
     
       <div class="navbar-item"   @mouseover="popNews = true"  @mouseleave="popNews = false" @close="popNews = false">
-        <router-link ref="news" id="news" to="/news/" :class="{'a-hover': popNews}">Новости</router-link>
+        <router-link ref="news" id="news" to="/news/" @click="popNews = false"  :class="{'a-hover': popNews}">Новости</router-link>
       </div>
       <p class="divider-zero">|</p>
     
       <div class="navbar-item"   @mouseover="popSp = true"  @mouseleave="popSp = false">
         <Transition name="pop-menu" mode="in-out"><SpPopMenu v-if="popSp" @closeSp="popSp = false"/></Transition>
-        <router-link ref="sp" id="sp"  :to="{name: 'SpecialistsView', params: {id: 1}} " :class="{'a-hover': popSp}">Специалистам</router-link>
+        <router-link ref="sp" id="sp"  @click="popSp = false"   :to="{name: 'SpecialistsView', params: {id: 1}} " :class="{'a-hover': popSp}">Специалистам</router-link>
       </div>
       <p class="divider-zero">|</p>
 
       <div class="navbar-item"  @mouseover="popPt = true"  @mouseleave="popPt = false">
         <Transition name="pop-menu" mode="in-out"><PtPopMenu v-if="popPt" @closePt="popPt = false"/></Transition>
-        <router-link ref="pt" id="pt"   :to="{name: 'PatientsView', params: {id: 1}}" :class="{'a-hover': popPt}">Пациентам</router-link>
+        <router-link ref="pt" id="pt"  @click="popPt = false"   :to="{name: 'PatientsView', params: {id: 1}}" :class="{'a-hover': popPt}">Пациентам</router-link>
       </div>
     </div>
   </div>
@@ -130,7 +130,7 @@ export default {
   justify-content: space-between;
   background-color: #FFF;
   padding: 0 3rem; /*!!!!!!!!!!!!!!!!1*/
-  box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.5);
+  box-shadow: 0 2px 4px 0px rgba(193, 209, 229, 0.5);
 }
 
 .navbar-block-scroll {
@@ -140,7 +140,7 @@ export default {
   justify-content: space-between;
   background-color: var(--component-accent-color1);
   padding: 0 3rem; /*!!!!!!!!!!!!!!!!1*/
-  box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.5);
+  box-shadow: 0 2px 4px 0px rgba(193, 209, 229, 0.5);
   
 }
 

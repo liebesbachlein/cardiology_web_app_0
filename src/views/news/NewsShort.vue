@@ -4,28 +4,27 @@
         <div v-if="newsItem.imgSrc && !mobile" class="newsshort-image">
             <img :src="'/news_posters/' + newsItem.imgSrc">
         </div>
+        
 
         <div class="newsshort-info">
-            <div class="newsshort-info-upper">
-                <div class="newsshort-info-phrase-date">
-                    <div class="newsshort-phrase">
-                        <h4>{{ newsItem.phrase }}</h4>
-                    </div>
-                    <div class="newsshort-date">
-                        <h4>{{ newsItem.date }}</h4>
-                    </div>
+            <div class="newsshort-info-phrase-date">
+                <div class="newsshort-phrase">
+                    {{ newsItem.phrase }}
                 </div>
-                <div v-if="newsItem.imgSrc && mobile" class="newsshort-image">
-                        <img :src="'/news_posters/' + newsItem.imgSrc">
-                    </div>
-                <div class="newsshort-title">
-                    <h3>{{ newsItem.title }}</h3>
+                <div class="newsshort-date">
+                    {{ newsItem.date }}
                 </div>
             </div>
-            <div class="newsshort-info-lower">
-                <div class="newsshort-title">
-                    <p>{{ newsItem.summary }}</p>
-                </div>
+            <div v-if="newsItem.imgSrc && mobile" class="newsshort-image">
+                    <img :src="'/news_posters/' + newsItem.imgSrc">
+            </div>
+            <div class="newsshort-title">
+                <router-link :to="{name: 'NewsAbout', params: {id: newsItem.id}}">
+                    {{ newsItem.title }}
+                </router-link>
+            </div>
+            <div class="newsshort-summary">
+                {{ newsItem.summary }}
             </div>
         </div>
     </div>
@@ -52,72 +51,32 @@ export default {
 
 <style>
 
-@media only screen and (max-width: 768px) {
 
 .newsshort {
     width: 100%;
     display: flex;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+}
+
+.newsshort-title {
+    text-decoration: underline;
+    font-size: 1.375rem;
+    font-family: var(--news-title-font);
     cursor: pointer;
+    color: var(--component-accent-color2);
 }
 
-.newsshort-title h3 {
-    font-size: 1.18rem;
+.newsshort-title a {
+    color: #454545;
 }
 
-.newsshort-image {
-    width: 100%;
-    height: calc(( 100vw - 2rem) * 9 / 16 );
-    display: inline-block; 
+.newsshort-title a:hover {
+    color: var(--component-accent-color1);
 }
 
-.newsshort-image img {
+.newsshort-summary {
     display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-.newsshort-info {
-    width: 100%;
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.newsshort-info-upper {
-    width: 100%;
-}
-
-.newsshort-info-phrase-date {
-    display: flex;
-    justify-content: space-between;
-}
-
-.newsshort-info-phrase-date h4 {
-    color: #969696
-}
-
-.newsshort-phrase {
-    text-transform: uppercase;
-}
-
-.newsshort-info-lower {
-    display: inline;
-    margin-top: 1rem;
-}
-}
-
-@media only screen and (min-width: 1024px) {
-
-.newsshort {
-    width: 100%;
-    display: flex;
-    margin: 3rem 0;
-    cursor: pointer;
-}
-
-.newsshort-title h3 {
-    font-size: 1.18rem;
+    font-size: 0.9375rem;
 }
 
 .newsshort-image {
@@ -137,29 +96,58 @@ export default {
     width: 60%;
     display: inline-flex;
     flex-direction: column;
-    justify-content: space-between;
     margin-left: 4%;
-}
-
-.newsshort-info-upper {
-    width: 100%;
 }
 
 .newsshort-info-phrase-date {
     display: flex;
     justify-content: space-between;
+    
 }
 
-.newsshort-info-phrase-date h4 {
-    color: #969696
+.newsshort-info-phrase-date>div {
+    color: #98abcf;
+    font-size: 0.8125rem;
+    font-weight: 300;
 }
 
 .newsshort-phrase {
     text-transform: uppercase;
+    
 }
 
-.newsshort-info-lower {
-    display: inline;
+@media only screen and (max-width: 768px) {
+
+.newsshort {
+
+    margin-bottom: 3rem;
+}
+
+.newsshort-image {
+    width: 100%;
+    height: calc(( 100vw - 2rem) * 9 / 16 );
+    display: inline-block; 
+}
+
+.newsshort-image img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.newsshort-info {
+    width: 100%;
+    margin: 0;
+}
+
+.newsshort-info-phrase-date>div {
+    font-size: 0.875rem;
+    font-weight: 400;
+    margin-bottom: 0.25rem;
+}
+
+.newsshort-title a:hover {
+    color: #454545;
 }
 }
 

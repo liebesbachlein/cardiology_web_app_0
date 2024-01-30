@@ -25,7 +25,7 @@ export default {
     min-height: 2rem;
     align-items: center;
     border-radius: 0.5rem;
-    background-color: #E8F7FC;
+    background-color: #e4f0ff;
     padding: 0 0.5rem;
     max-width: 25rem;
 }
@@ -34,7 +34,7 @@ export default {
     display: inline-block;
     height: 100%;
     font-size: 0.875rem;
-    color: var(--text-accent-color2);
+    color: var(--component-accent-color2);
     text-wrap: wrap;
 }
 
@@ -52,7 +52,6 @@ export default {
         width: auto;
         align-items: center;
         border-radius: 0.5rem;
-        background-color: #E8F7FC;
         padding: 0 0.5rem;
         max-width: fit-content;
     }
@@ -62,7 +61,6 @@ export default {
         align-items: center;
         height: 100%;
         font-size: 0.875rem;
-        color: var(--text-accent-color2);
         text-wrap: wrap;
         margin-right: 0.5rem;
     }

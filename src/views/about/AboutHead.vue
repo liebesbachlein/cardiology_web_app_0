@@ -12,7 +12,7 @@
             <div class="about-head-name-box">
                 <ChevronLeft color="red"/>
                 <div class="head-name">
-                    <h3>Джунусбекова Гульнара Алдешовна</h3>
+                    Джунусбекова Гульнара Алдешовна
                 </div>
             </div>
             <div class="about-head-text">
@@ -47,7 +47,7 @@
             <div class="about-head-name-box">
                 <ChevronLeft color="red"/>
                 <div class="head-name">
-                    <h3>Тундыбаева Мира Капсиметовна</h3>
+                    Тундыбаева Мира Капсиметовна
                 </div>
             </div>
             <div class="about-head-text">
@@ -79,7 +79,7 @@ export default {
 @media only screen and (max-width: 768px) {
 
 .about-head-box {
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 } 
 
 .about-head-title {
@@ -108,11 +108,8 @@ export default {
 .head-name {
     display: inline-block;
     padding-left: 2rem;
-}
-
-.head-name h3 {
-    color: var(--text-accent-color2);
-    font-weight: 600;
+    color: var(--component-accent-color2);
+    font-weight: 500;
 }
 }
 
@@ -148,11 +145,9 @@ export default {
 .head-name {
     display: inline-block;
     padding-left: 2rem;
+    color: var(--component-accent-color2);
+    font-weight: 500;
 }
 
-.head-name h3 {
-    color: var(--text-accent-color2);
-    font-weight: 600;
-}
 }
 </style>

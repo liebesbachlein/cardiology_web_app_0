@@ -1,18 +1,10 @@
 <template>
 
-    <div v-if="isActiveP" class="sidebarheading-no-url">
-        <ChevronLeft color="blue"/>
-        <div class="side-word-active" @click="handle">
-            <h4>{{ heading }}</h4>
+    <div class="sidebarheading-no-url">
+        <div class="chevron-right-col2" :class="{'chevron-right-col2-active': isActive}"></div>
+        <div class="side-word" :class="{'side-word-active': isActive, 'side-word-check': check}" >
+            {{ heading }}
         </div>
-    </div>
-
-    <div v-else class="sidebarheading-no-url">
-        <ChevronRight color="red"/>
-        <div class="side-word" @click="handle">
-            <h4>{{ heading }}</h4>
-        </div>
-        
     </div>
 
 </template>
@@ -20,18 +12,10 @@
 <script>
 import ChevronRight from '@/components/ChevronRight.vue';
 import ChevronLeft from '@/components/ChevronLeft.vue';
-import { computed } from 'vue';
 
 export default {
     components: { ChevronRight, ChevronLeft },
-    props: ['heading', 'isActive'], 
-    setup(props, {emit}) {
-        const isActiveP = computed(() => {return props.isActive})
-        const handle = () => {
-            emit('about-nav-click')
-        }
-        return {handle, isActiveP}
-    }
+    props: ['heading', 'isActive', 'check']
 }
 
 </script>
@@ -48,20 +32,20 @@ export default {
 .sidebarheading-no-url .side-word {
     display: inline-block;
     margin-left: 1rem;
-}
-
-.sidebarheading-no-url .side-word-active {
-    display: inline-block;
-    margin-left: 1rem;
-}
-
-.sidebarheading-no-url .side-word h4 {
     font-weight: 400;
 }
 
-.sidebarheading-no-url .side-word-active h4 {
-    font-weight: 600;
-    color: var(--component-accent-color2)
+.side-word-check:hover {
+    color: var(--bright-red);
+}
+
+.sidebarheading-no-url .side-word-active {
+    color: var(--bright-red);
+    font-weight: 500;
+}
+
+.chevron-right-col2-active {
+    transform: rotate(180deg);
 }
 
 </style>

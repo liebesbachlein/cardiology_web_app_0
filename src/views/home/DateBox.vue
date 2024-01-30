@@ -52,7 +52,7 @@ export default {
     display: inline-flex;
     align-items: flex-end;
     justify-content: center;
-    background-color: var(--component-accent-color1);
+    background-color: var(--bright-red);
     padding-top: 0.25rem;
     border-radius: 0.25rem 0.25rem 0 0;
 

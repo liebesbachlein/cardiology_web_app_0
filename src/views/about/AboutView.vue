@@ -1,22 +1,22 @@
 <template>
   <div class="site-content">
     <div class="site-content-in">
-      <div class="about">
+      <div class="multi-page">
         <div class="breadcrumbs-box">
-                    <div class="breadcrumb-past">
-                        <router-link to="/">Главная</router-link>
-                    </div>
-                    <ChevronRight color="grey"/>
-                    <div class="breadcrumb-now">
-                      <router-link :to="{name: 'AboutView', params: {id: 1}}" @click="pageNum = 1">О нас</router-link>
-                    </div>
-                    <ChevronRight color="grey"/>
-                </div>
-      </div>
+          <div class="breadcrumb-past">
+              <router-link to="/">Главная</router-link>
+          </div>
+          <ChevronRight color="grey"/>
+          <div class="breadcrumb-now">
+            <router-link :to="{name: 'AboutView', params: {id: 1}}" @click="pageNum = 1">О нас</router-link>
+          </div>
+          <ChevronRight color="grey"/>
+        </div>
+      
 
-      <div class="about-box">
-        <div class="about-side">
-          <div class="about-side-box">
+      <div class="multi-page-box">
+        <div class="page-side">
+          <div class="page-side-box">
             <router-link :to="{name: 'AboutView', params: {id: 1}}">
               <SideBarHeadingsNoUrl heading="Об обществе" :isActive="pageNum == 1" @about-nav-click="pageNum = 1"/>
             </router-link>
@@ -32,7 +32,7 @@
           </div>
         </div>
 
-        <div class="about-content">
+        <div class="multi-page-content">
 
           
           <div v-if="pageNum == 2">
@@ -53,7 +53,7 @@
         
       </div>
 
-
+    </div>
     </div>
     <Footer/>
   </div>
@@ -87,38 +87,31 @@ export default {
 
 @media only screen and (max-width: 768px) {
 
-.about {
+.multi-page {
     width: 100%;
     margin-top: 3rem;
     padding: 0 1rem;
 }
 
-.about-box {
+.multi-page-box {
     display: flex;
     width: 100%;
     justify-content: space-between;
     margin-top: 2rem;
 }
 
-.about-side {
-  width: 0%;
+.page-side {
   display: none
 }
 
-.about-side-box {
-  width: 0%;
+.page-side-box {
   display: none;
-  height: auto;
-  background-color: #FFF;
-  box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.25);
-  border-radius: 0.5rem;
-  padding: 1.5rem 1rem 1rem 1.25rem;
 }
 
-.about-content {
+.multi-page-content {
   width: 100%;
   margin-bottom: 8.5rem;
-  padding: 0 1rem;
+  padding: 0;
   
 }
 
@@ -126,33 +119,29 @@ export default {
 
 @media only screen and (min-width: 1024px) {
 
-.about {
+.multi-page {
     width: 100%;
-    margin-top: 100px;
 }
 
-.about-box {
+.multi-page-box {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    margin-top: 4rem;
 }
 
-.about-side {
+.page-side {
   width: 23%;
 }
 
-.about-side-box {
+.page-side-box {
   display: inline-block;
   width: 100%;
   height: auto;
-  background-color: #FFF;
-  box-shadow: -2px 2px 5px 0px rgba(170, 170, 170, 0.3);
-  border-radius: 0.5rem;
+  background-color: var(--light-grey);
   padding: 1.5rem 1rem 1rem 1.25rem;
 }
 
-.about-content {
+.multi-page-content {
   width: 70%;
   margin-bottom: 8.5rem;
 }

@@ -43,10 +43,14 @@
                                 </div>
                             </div>
                     </div>
-                    <div class="newsfeed-side">
-                        <div class="newsfeed-side-box">
-                            <SideBarHeadings heading="Подписаться на рассылку" url="/about"/>
-                            <SideBarHeadings heading="Стать членом Общества" url="/about"/>
+                    <div class="page-side">
+                        <div class="page-side-box">
+                            <router-link to="/specialists/education-request/">
+                                <SideBarHeadingsNoUrl  check="true" heading="Записаться на обучение" isActive="false"/>
+                            </router-link>
+                            <router-link to="/specialists/membership-request/">
+                                <SideBarHeadingsNoUrl  check="true" heading="Стать членом Общества" isActive="false"/>
+                            </router-link>
                         </div> 
                     </div>
                 </div>
@@ -58,7 +62,7 @@
 
 <script>
 import ChevronRight from '@/components/ChevronRight.vue';
-import SideBarHeadings from '@/components/SideBarHeadings.vue';
+import SideBarHeadingsNoUrl from '@/components/SideBarHeadingsNoUrl.vue';
 import Footer from '@/components/Footer.vue';
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
@@ -66,7 +70,7 @@ import { loadInfoId } from '@/firebase/config';
 
 export default {
     name: "NewsAbout",
-    components: {ChevronRight,  SideBarHeadings, Footer},
+    components: {ChevronRight,  SideBarHeadingsNoUrl, Footer},
     setup() { 
     const newsItem = ref(null)
     const error = ref(null)    

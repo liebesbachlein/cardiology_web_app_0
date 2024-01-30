@@ -37,7 +37,7 @@ export default {
     font-family: var(--plain-text-font);
     font-weight: 400;
     font-size: 0.875rem;
-    background-color: #EDF1F3;
+    background-color: var(--component-grey-color);
 }
 
 .month-light {
@@ -73,7 +73,7 @@ export default {
     font-family: var(--news-title-font);
     font-weight: 500;
     font-size: 1rem;
-    background-color: #EDF1F3;
+    background-color: var(--component-grey-color);
 }
 
 .month-light {

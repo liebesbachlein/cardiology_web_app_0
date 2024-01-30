@@ -56,11 +56,11 @@ export default {
     }
 
     #hd2 {
-        line-height: 4rem; font-size: 5rem; color: #FF2929; font-weight: 700
+        line-height: 4rem; font-size: 5rem; color: var(--component-accent-color1);  font-weight: 700
     }
 
     #hd3 {
-        line-height: 4rem; font-size: 3.5rem; color: #5CC1E2; font-weight: 700
+        line-height: 4rem; font-size: 3.5rem; color: var(--component-accent-color2); font-weight: 700
     }
 
     #hd4 {
@@ -121,11 +121,11 @@ export default {
     }
 
     #hd2 {
-        line-height: 8rem; font-size: 5.625rem; color: #FF2929; font-weight: 700
+        line-height: 8rem; font-size: 5.625rem; color: var(--component-accent-color1);  font-weight: 700
     }
 
     #hd3 {
-        line-height: 0rem; font-size: 3.75rem; color: #5CC1E2; font-weight: 700
+        line-height: 0rem; font-size: 3.75rem; color:  var(--component-accent-color2); font-weight: 700
     }
 
     #hd4 {

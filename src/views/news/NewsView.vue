@@ -1,7 +1,7 @@
 <template>
     <div class="site-content">
         <div class="site-content-in">
-            <div class="newsfeed">
+            <div class="newsfeed multi-page">
                 <div class="breadcrumbs-box">
                     <div class="breadcrumb-past">
                         <router-link to="/">Главная</router-link>
@@ -12,50 +12,53 @@
                     </div>
                 </div>
 
-                <div class="newsfeed-box">
-                    <div  class="newsfeed-timeline">
+                <div class="multi-page-box">
+                    <div  class="newsfeed-timeline multi-page-content">
                         <div v-if="error">{{ error }}</div>
                         <div v-else-if="newsFeed.length > 1">
                             <div v-for="newsItem in displayNewsList" :key="newsItem.id">
                                 <div v-if="newsItem.id">
-                                <router-link :to="{name: 'NewsAbout', params: {id: newsItem.id}}">
                                     <NewsShort :newsItem="newsItem"/>
-                                </router-link>
                                 </div>
                             </div>
                         </div>
                         <div v-else><Loader/></div>
-                    </div>
-                    <div class="newsfeed-side">
-                        <div class="newsfeed-side-box">
-                            <SideBarHeadings heading="Записаться на обучение" url="/specialists/education"/>
-                            <SideBarHeadings heading="Стать членом Общества" url="/membership-request"/>
-                        </div> 
+
+                        <div class="short-blue-button" v-if="isLoadMore" @click="loadMore">
+                            Загрузить еще
+                        </div>
                     </div>
                     
+                    <div class="page-side">
+                        <div class="page-side-box">
+                            <router-link to="/specialists/education-request/">
+                                <SideBarHeadingsNoUrl check="true" heading="Записаться на обучение"/>
+                            </router-link>
+                            <router-link to="/specialists/membership-request/">
+                                <SideBarHeadingsNoUrl check="true" heading="Стать членом Общества"/>
+                            </router-link>
+                        </div> 
+                    </div>
                 </div>
             </div>
-            <div class="short-blue-button" v-if="isLoadMore" @click="loadMore">
-                Загрузить еще
-            </div>
         </div>
-        <Footer style="margin-top: 6rem" />
+        <Footer/>
     </div>
 </template>
 
 <script>
 import ChevronRight from '@/components/ChevronRight.vue';
 import NewsShort from './NewsShort.vue';
-import SideBarHeadings from '@/components/SideBarHeadings.vue';
 import Footer from '@/components/Footer.vue';
 import Loader from '@/components/Loader.vue';
 import NewsAbout from './NewsAbout.vue';
 import { ref, computed } from 'vue';
 import { loadNews  } from '@/firebase/config';
+import SideBarHeadingsNoUrl from '@/components/SideBarHeadingsNoUrl.vue';
 
 export default {
     name: "NewsView",
-    components: {NewsAbout, ChevronRight, NewsShort, SideBarHeadings, Footer, Loader},
+    components: { NewsAbout, ChevronRight, NewsShort, Footer, Loader, SideBarHeadingsNoUrl },
     setup() { 
     const newsLimit = 8
     let loadIndex = 1
@@ -120,28 +123,16 @@ export default {
 </script>
 
 <style>
-@media only screen and (max-width: 768px) {
 
-.newsfeed {
-    width: 100%;
-    margin-top: 3rem;
-    padding: 0 1rem;
-    min-height: calc(100vh - 5rem);
+.newsfeed-timeline {
+    min-height: 100vh; 
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-.newsfeed-box {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
+.newsfeed-timeline .short-blue-button {
     margin-top: 2rem;
-    
-}
-
-.newsfeed-timeline {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-
 }
 
 .newsfeed-timeline a {
@@ -152,59 +143,5 @@ export default {
     text-decoration: none;
 }
 
-.newsfeed-side {
-    display: none;
-}
-
-.newsfeed-side-box {
-    display: none;
-}
-}
-
-@media only screen and (min-width: 1024px) {
-
-.newsfeed {
-    width: 100%;
-    margin-top: 6rem;
-}
-
-
-.newsfeed-box {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.newsfeed-timeline {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-}
-
-.newsfeed-timeline a {
-    text-decoration: none;
-}
-
-.newsfeed-timeline a.router-link-active {
-    text-decoration: none;
-}
-
-.newsfeed-side {
-    width: 22%;
-    margin: 3rem 0;
-}
-
-.newsfeed-side-box {
-    display: inline-block;
-    width: 100%;
-    height: auto;
-    background-color: #FFF;
-    box-shadow: -2px 2px 10px 0px rgba(170, 170, 170, 0.35);
-  border-radius: 0.5rem;
-    padding: 3rem 1rem 0.5rem 1.25rem;
-}
-
-
-}
 
 </style>

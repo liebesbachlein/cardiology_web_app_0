@@ -14,11 +14,11 @@
         <br>
         <p>Даты и время проведения будет назначены позже.</p>
 
-        <router-link to="/specialists/education-request/" style="margin-top: 2rem; display: inline-block;">
+        <router-link to="/specialists/education-request/" class="request-button-box" >
                 <div class="short-blue-button">
                     Подать заявку на обучение
                 </div>
-            </router-link>
+        </router-link>
         
 
     </div>
@@ -34,5 +34,7 @@ export default {
 </script>
 
 <style>
+
+
 
 </style>

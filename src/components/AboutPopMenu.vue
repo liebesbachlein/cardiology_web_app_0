@@ -63,7 +63,7 @@ export default {
     z-index: 100;
     width: 16rem;
     height: auto;
-    box-shadow: 4px 4px 4px 0 rgba(212, 211, 211, 0.2), -4px 4px 4px 0 rgba(212, 211, 211, 0.2);
+    box-shadow: -2px 2px 2px rgba(193, 209, 229, 0.5), 2px 2px 2px rgba(193, 209, 229, 0.5);
 }
 
 .pop-menu::before {

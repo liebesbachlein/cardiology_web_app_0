@@ -1,7 +1,7 @@
 <template>
   <div class="site-content greyback">
         <div class="site-content-in">
-            <div class="breadcrumbs-box" style="margin-top: 3rem;">
+            <div class="breadcrumbs-box">
                     <div class="breadcrumb-past">
                         <router-link to="/">Главная</router-link>
                     </div>
@@ -645,7 +645,7 @@ form span {
   font-family: var(--plain-text-font);
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--text-accent-color1);
+  color: var(--component-accent-color1);
 }
 
 label {

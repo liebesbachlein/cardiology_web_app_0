@@ -14,7 +14,7 @@
 
         <div v-for="(output, ID1) in outputs" class="box-box" :key="ID1">
             <div class="red-line-gallery"></div>
-            <div class="gallery-header"><h3>{{ output.name }}</h3></div>
+            <div class="gallery-header">{{ output.name }}</div>
             <div class="gallery-box">
                 <div v-for="(URL, ID2) in output.data" class="gallery-flexbox-item" :key="ID2">
                     <div class="gallery-aspect-box">
@@ -168,11 +168,19 @@ function handleTouchMove(evt) {
 </script>
 
 <style>
+
+.gallery-header {
+    padding: 2rem 0.5rem 1rem 0.5rem;
+    color: var(--component-accent-color2);
+    font-weight: 400;
+    font-size: 1.5rem;
+    font-family: var(--news-title-font);
+}
+
 @media only screen and (max-width: 768px) {
 
 
 .gallery .box-box {
-    margin-bottom: 2rem;
     position: relative
 }
 
@@ -211,27 +219,16 @@ function handleTouchMove(evt) {
 }
 
 
-.gallery-header {
-    padding: 2rem 0.5rem 1rem 0.5rem;
-}
-
-.gallery-header h3 {
-    color: var(--text-accent-color2);
-    font-weight: 500;
-    font-size: 1.125rem;
-}
-
 .red-line-gallery {
     display: block;
     width: 33%;
-    border-top: 2px solid var(--component-accent-color1);
+    border-top: 1px solid var(--component-accent-color1);
     margin: 0 auto;
 }
 }
 
 @media only screen and (min-width: 1024px) {
 .gallery .box-box {
-    margin-bottom: 2rem;
     position: relative
 }
 
@@ -269,20 +266,10 @@ function handleTouchMove(evt) {
     cursor: pointer;
 }
 
-.gallery-header {
-    padding: 2rem 0.5rem 1rem 0.5rem;
-}
-
-.gallery-header h3 {
-    color: var(--text-accent-color2);
-    font-weight: 500;
-    font-size: 1.125rem;
-}
-
 .red-line-gallery {
     display: block;
     width: 33%;
-    border-top: 2px solid var(--component-accent-color1);
+    border-top: 1px solid var(--component-accent-color1);
     margin: 0 auto;
 }
 }

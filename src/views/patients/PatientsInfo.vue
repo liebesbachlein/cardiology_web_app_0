@@ -1,100 +1,73 @@
 <template>
-    <div class="infofeed">
+    <div class="pt-info">
         <div class="subpage-title">
             Полезная информация
         </div>
-        <div  class="infofeed-timeline">
-            <div v-if="error">{{ error }}</div>
-            <div v-else-if="infoFeed.length > 1">
-                <div v-for="newsItem in displayInfoList" :key="newsItem.id">
-                    <div v-if="newsItem.id">
-                    <router-link :to="{name: 'InfoAbout', params: {id: newsItem.id}}">
-                        <InfoShort :newsItem="newsItem"/>
-                    </router-link>
+
+        <div  class="links-menu-box">
+            <div v-for="pt in ptInfo" class="link-item">
+                <a :href="'#' + pt.id" tag="div" class="address-box">
+                    <div class="address-name">
+                        {{ pt.title }}
                     </div>
+                </a>
+            </div>
+            
+        </div>
+        
+        <div class="pt-info-content">
+            <div v-for="pt in ptInfo" :key="pt.id" class="pt-info-item">
+                <div class="pt-info-header" :id="pt.id">
+                    {{ pt.title }}
+                </div>
+                <div class="pt-info-text">
+                    {{ pt.text }}
+                </div>
+                <div  v-if="pt.iframe.length" class="pt-info-video" v-html="pt.iframe">
                 </div>
             </div>
-            <div v-else><Loader/></div>
         </div>
 
-        <div class="blue-button-box">
-            <div v-if="isLoadMore" class="blue-button" @click="loadMore">
-                <h4>Загрузить еще</h4>
-            </div>
-        </div>
+
+
     </div>
 </template>
 
 <script>
-import InfoShort from './InfoShort.vue';
-import InfoAbout from './InfoAbout.vue';
+
 import { ref} from 'vue';
-import { loadInfo } from '@/firebase/config';
-import Loader from '@/components/Loader.vue';
+
 
 export default {
-    components: {InfoAbout, InfoShort, Loader},
-    setup() { 
-    const newsLimit = 8
-    let loadIndex = 1
-    const infoFeed = ref([''])
-    const error = ref('')
-    const isLoadMore = ref(false)
-    const displayInfoList = ref([''])
-    
+    data: () => {
+        return {
+            ptInfo: [
+                {
+                    id: 'link1',
+                    title: "Как проявляется стенокардия?",
+                    iframe: "",
+                    text: "Стенокардия – это своеобразный сигнал сердца о недостаточном кровоснабжении сердечной мышцы. Не всегда боль в сердце может проявляться за грудиной, симптомы стенокардии могут быть разными. Не игнорируйте свои ощущения и дискомфорт. Проконсультируйтесь с врачом, если заметили что-то подобное у себя: тяжесть в груди, усталость, затруднение дыхания, боль в руке, дискомфорт в области желудка, боль в шее. Стенокардию лучше держать под контролем, чем лечить ее осложнения, такие как инфаркт миокарда, сердечная недостаточность и так далее."
 
-    const load = async () => {
-      try {
-        infoFeed.value = await loadInfo()
-        /*
-        let data = await loadInfo()
-        if(!data.ok) {
-          throw Error('no available data')
-        } 
-        infoFeed.value = await data.json()*/
-        console.log(infoFeed.value)
-      }
-      catch(err) {
-        error.value = err.message
-        console.log(error.value)
-      }
-    }
+                },
+                {
+                    id: 'link2',
+                    title: "Ошибки измерения артериального давления",
+                    iframe: '<iframe width="560" height="315" src="https://www.youtube.com/embed/nkY9txjiNQg?si=Kk89rySJ584Ld69W" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+                    text: "Многие пациенты допускают ошибки при измерении артериального давления. Что влияет на точность результатов измерений? Ознакомьтесь, чтобы не допустить искажения Ваших результатов."
 
-    const displayNews = () => {
-            if(infoFeed.value) {
-                if(infoFeed.value.length) {
-                    if(infoFeed.value.length > loadIndex * newsLimit) {
-                        displayInfoList.value = infoFeed.value.slice(0, loadIndex * newsLimit)
-                        isLoadMore.value = true
-                    } else {
-                        displayInfoList.value = infoFeed.value
-                        isLoadMore.value = false
-                    }
-                } else {
-                    displayInfoList.value = []
-                    isLoadMore.value = false
-                }
-            } else {
-                displayInfoList.value = []
-                isLoadMore.value = false
-            }
+                },
+
+                {
+                    id: 'link3',
+                    title: "Правила измерения пульса",
+                    iframe: '<iframe width="560" height="315" src="https://www.youtube.com/embed/6RpS8ZgSuVU?si=tqKHg4SDCQ6MJb1w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+                    text: "По изменению пульса можно предположить о состоянии сердца и организма в целом. Просмотрев видео, Вы узнаете, как правильно измерить пульс самостоятельно и с помощью пульсометра."
+
+                },
+
+            ]
         }
-
-    const loadMore = () => {
-            if(infoFeed.value.length) {
-                if(loadIndex < (infoFeed.value.length / newsLimit)) {
-                    loadIndex = loadIndex + 1
-                    displayNews()
-                } 
-            } else
-            isLoadMore.value = false
-    }
-
-    load().then(() => { displayNews() })
-
-    
-    return { infoFeed, error, displayInfoList, loadMore, isLoadMore }
-  },
+    },
 }
 
 
@@ -102,18 +75,48 @@ export default {
 
 <style>
 
-.infofeed-timeline {
+.pt-info {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.infofeed-timeline a {
-    text-decoration: none;
+.pt-info-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
 }
 
-.infofeed-timeline a.router-link-active {
-    text-decoration: none;
+.pt-info-header {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.pt-info-text {
+    font-size: 1rem;
+    width: 100%;
+}
+
+.pt-info-video {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.links-menu-box {
+    padding: 0 0 2rem 0;
+}
+
+.links-menu-box .address-box {
+    margin: 0.5rem 0;
+    max-width: fit-content;
+}
+
+.links-menu-box .address-box:hover {
+    background-color: #f16676;
+}
+
+.links-menu-box .address-box:hover .address-name {
+    color: #FFF
 }
 
 </style>

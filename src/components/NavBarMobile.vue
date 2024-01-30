@@ -66,7 +66,7 @@ export default {
   height: 100%;
   background-color: #FFF;
   padding: 0 1.5rem 0 0;
-  box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.5);
+  box-shadow: 0 2px 4px 0px rgba(193, 209, 229, 0.5);
 }
 
 .navbar-block-scroll {
@@ -75,7 +75,7 @@ export default {
   background-color: #FFF;
   /*background-color: var(--component-accent-color1);*/
   padding: 0 1.5rem 0 0;
-  box-shadow: -2px 2px 10px 0px rgba(212, 211, 211, 0.5);
+  box-shadow: 0 2px 4px 0px rgba(193, 209, 229, 0.5);
   
 }
 

@@ -25,10 +25,6 @@
 
 <style>
 
-.about-society-title {
-    margin-bottom: 1rem;
-}
-
 p.cursive {
     font-family: var(--cursive-font);
     font-style: italic;
