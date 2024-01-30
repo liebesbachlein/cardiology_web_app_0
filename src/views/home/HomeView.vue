@@ -33,8 +33,6 @@ export default {
 
 <style>
 
-
-
   .site-content {
     position: absolute;
     width: 100%;
@@ -51,23 +49,21 @@ export default {
     padding: 0; 
   }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px)  {
+
+  .site-content {
+    top: 4.75rem;
+  }
+
   .site-content-in {
     width: 100%;
-    margin: 0 auto; 
+    padding: 0; 
   }
 }
 
 @media only screen and (min-width: 1024px) {
   .site-content {
-    position: absolute;
-    width: 100%;
     top: 5rem;
-    right: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 
   .site-content-in {

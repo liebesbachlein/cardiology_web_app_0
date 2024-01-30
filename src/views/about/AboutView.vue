@@ -85,11 +85,8 @@ export default {
 
 <style>
 
-@media only screen and (max-width: 768px) {
-
 .multi-page {
     width: 100%;
-    margin-top: 3rem;
     padding: 0 1rem;
 }
 
@@ -97,7 +94,6 @@ export default {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    margin-top: 2rem;
 }
 
 .page-side {
@@ -111,57 +107,28 @@ export default {
 .multi-page-content {
   width: 100%;
   margin-bottom: 8.5rem;
-  padding: 0;
   
 }
 
-}
 
-@media only screen and (max-width: 1023px)  and (min-width: 769px){
+@media only screen and (min-width: 768px){
 
 .multi-page {
     width: 100%;
-    margin-top: 3rem;
-    padding: 0 1rem;
+    padding: 0 2rem;
+}
 }
 
-.multi-page-box {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    margin-top: 2rem;
-}
-
-.page-side {
-  display: none
-}
-
-.page-side-box {
-  display: none;
-}
-
-.multi-page-content {
-  width: 100%;
-  margin-bottom: 8.5rem;
-  padding: 0;
-  
-}
-
-}
 @media only screen and (min-width: 1024px) {
 
 .multi-page {
     width: 100%;
-}
-
-.multi-page-box {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
+    padding: 0;
 }
 
 .page-side {
   width: 23%;
+  display: block;
 }
 
 .page-side-box {
@@ -174,9 +141,7 @@ export default {
 
 .multi-page-content {
   width: 70%;
-  margin-bottom: 8.5rem;
 }
-
 }
 
 

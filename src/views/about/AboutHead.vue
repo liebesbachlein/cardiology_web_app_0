@@ -76,7 +76,6 @@ export default {
 
 <style>
 
-@media only screen and (max-width: 768px) {
 
 .about-head-box {
     margin-bottom: 2rem;
@@ -90,7 +89,6 @@ export default {
     width: 100%;
     text-align: center;
 }
-
 
 .about-head-img img {
     width: 100%;
@@ -111,79 +109,20 @@ export default {
     font-weight: 500;
     font-size: 1.25rem;
 }
-}
-@media only screen and (max-width: 1023px) and (min-width: 769px) {
 
-.about-head-box {
-    margin-bottom: 2rem;
-} 
+@media only screen and (min-width: 768px) {
 
-.about-head-title {
-    margin-bottom: 1rem;
 }
 
-.about-head-img {
-    width: 100%;
-    text-align: center;
-}
-
-
-.about-head-img img {
-    width: 100%;
-    height: auto;
-}
-
-.about-head-name-box {
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    margin: 1rem 0;
-}
-
-.head-name {
-    display: inline-block;
-
-    color: var(--component-accent-color2);
-    font-weight: 500;
-    font-size: 1.25rem;
-}
-}
 @media only screen and (min-width: 1024px) {
 
 .about-head-box {
     margin-bottom: 4rem;
 } 
 
-.about-head-title {
-    margin-bottom: 1rem;
-}
-
-.about-head-img {
-    width: 100%;
-    text-align: center;
-}
-
-
 .about-head-img img {
     width: 60%;
     height: auto;
-}
-
-.about-head-name-box {
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    margin: 1rem 0;
-}
-
-.head-name {
-    display: inline-block;
-
-    color: var(--component-accent-color2);
-    font-weight: 500;
-    font-size: 1.25rem;
 }
 
 }
