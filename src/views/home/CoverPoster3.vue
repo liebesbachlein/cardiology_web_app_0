@@ -1,6 +1,6 @@
 <template>
 
-<div class="poster3">
+<div class="poster poster3">
     
     <div class="poster-contents3">
         <div class="header1" style="background-color: transparent">
@@ -28,30 +28,34 @@
 
 <script>
 
+export default {
+    mounted() {
+        this.$emit('dark')
+    },
+}
+
 </script>
 
 <style>
-@media only screen and (max-width: 768px) {
 
 .poster-contents3 {
     width: 100%;
-    height: calc(100vw * 16 / 9 * 0.75);
     position: absolute;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     z-index: 5;
     flex-wrap: nowrap;
-    padding: 0 1rem;
 }
 
+@media only screen and (max-width: 768px) {
+
 .poster3 {
-    display: flex;
-    align-items: flex-start;
     background-image: url('/covers/image-cover3-mobile.png');
-    width: 100%;
-    height: calc(100vw * 16 / 9 * 0.75);
-    background-size: cover;
+}
+
+.poster-contents3 {
+    padding: 0 1rem;
 }
 
 .poster-contents3 .header1 {
@@ -69,24 +73,11 @@
 @media only screen and (max-width: 1023px) and (min-width: 769px) {
 
 .poster-contents3 {
-    width: 100%;
-    height: calc(100vw * 16 / 9 * 0.75);
-    position: absolute;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    z-index: 5;
-    flex-wrap: nowrap;
     padding: 0 1rem;
 }
 
 .poster3 {
-    display: flex;
-    align-items: flex-start;
     background-image: url('/covers/image-cover3-mobile.png');
-    width: 100%;
-    height: calc(100vw * 16 / 9 * 0.75);
-    background-size: cover;
 }
 
 .poster-contents3 .header1 {
@@ -105,24 +96,11 @@
 
     
 .poster-contents3 {
-    width: 100%;
-    height: calc(100vw * 9 / 16 - 5rem - 7rem);
-    position: absolute;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    z-index: 5;
-    flex-wrap: nowrap;
     padding-right: 5%;
 }
 
 .poster3 {
-    display: flex;
-    align-items: flex-start;
     background-image: url('/covers/image-cover3.png');
-    width: 100%;
-    height: calc(100vw * 9 / 16 - 5rem - 7rem);
-    background-size: cover;
 }
 
 .poster-contents3 .header1 {
@@ -135,7 +113,7 @@
     justify-content: space-between;
 }
 
-.poster-contents3 .cover-button {
+.poster3 .cover-button {
     margin-top: 2rem;
 }
 }

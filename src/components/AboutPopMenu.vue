@@ -2,7 +2,7 @@
     <div class="pop-menu">
         <router-link to="/about/1">
   
-            <div class="pop-menu-item" style="margin-top: 0.5rem;" @click="close">    
+            <div class="pop-menu-item"  @click="close">    
                 <ChevronLeft class="pop-chev" color="blue"/>
                 <h4>Об Обществе</h4>
             </div>
@@ -52,20 +52,28 @@ export default {
 <style>
 
 .pop-menu {
-    position: fixed;
     border-radius: 0 0 0.25rem 0.25rem;
     border-color: var(--header-line);
     border-width: 0 1px 1px 1px;
     border-style: solid;
     background-color: #FFF;
-    top: 5rem;
-    padding: 0 1rem 1rem 1.5rem;
+    padding: 0.5rem 1rem;
     z-index: 100;
     width: 16rem;
-    height: auto;
+
+}
+
+.short .pop-menu {
+    position: absolute;
+    top: 3.375rem;
     box-shadow: -2px 2px 2px rgba(193, 209, 229, 0.5), 2px 2px 2px rgba(193, 209, 229, 0.5);
 }
 
+.home .pop-menu {
+    position: absolute;
+    top: 5rem; 
+}
+/*
 .pop-menu::before {
     content: "";
     position: absolute;
@@ -95,7 +103,7 @@ export default {
     left: 100%;
     box-shadow: -0.4rem -0.25rem 0 0 #FFF;
 }
-
+*/
 .pop-menu-item {
     display: flex;
     flex-wrap: nowrap;
@@ -109,10 +117,6 @@ export default {
     font-size: 1.025rem;
     transition: all 0.3s ease;
     font-weight: 400;
-}
-
-.pop-menu-item:hover h4 {
-    color: var(--component-accent-color1); 
 }
 
 .pop-menu-item:hover .pop-chev {

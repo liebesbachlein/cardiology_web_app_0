@@ -1,25 +1,38 @@
 <template>
 
     <div class="footer">
-        <div class="footer-links">
-            <div class="social-media-icon">
-                <img src="@/assets/social_media_icons/inst.png">
-            </div>
-            <div class="social-media-icon">
-                <img src="@/assets/social_media_icons/fb.png">
-            </div>
-            <div class="social-media-icon">
-                <img src="@/assets/social_media_icons/tw.png">
-            </div>
+        <div class="site-content-in">
+            <div class="footer-upper">
+                <div class="footer-contacts">
+                    <div class="footer-number">8 (700) 012 45 78</div>
+                    <div class="footer-text">Подписывайтесь на нас в социальных сетях</div>
+                    <div class="footer-links">
+                        
+                            <img src="@/assets/social_media_icons/inst.png">
+                        
+                            <img src="@/assets/social_media_icons/fb.png">
+                        
+                        <div class="social-media-icon">
+                            <img src="@/assets/social_media_icons/tw.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-lang-box">
+                    <div class="footer-lang-item-active" >
+                        Русский
+                    </div>
+                    <div class="footer-lang-item">
+                        Қазақ
+                    </div>
+                </div>
         </div>
 
-        <div class="footer-info">
-            <h4>
-                Общество специалистов по артериальной гипертонии и кардиоваскулярной 
-                профилактике. Адрес: Республика Казахстан, город Алматы, ул. Жибек Жолы 8, 
+        <div class="footer-lower">
+                © ОО "Общество специалистов по артериальной гипертонии и кардиоваскулярной 
+                профилактике", 2019-2024. Адрес: Республика Казахстан, город Алматы, ул. Жибек Жолы 8, 
                 офис 31
-            </h4>
         </div>
+    </div>
     </div>
 
 </template>
@@ -27,83 +40,82 @@
 <style>
 
 
-.footer {
+.footer * {
+        color: #FFF;
+    }
+
+    .footer {
     width: 100%;
+    background-color: #6495ED;;
+    padding: 3rem 1rem 1rem 1rem;
+
+}
+
+.footer-upper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--component-accent-color1);
-    padding-bottom: 20px;
+    margin: 1rem 0;
+}
+
+.footer-contacts {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.footer-number {
+    font-size: 2rem;
+    letter-spacing: 4px;
+    font-weight: 500;
+    font-family: var(--news-title-font);
+    margin-bottom: 1rem;
+}
+
+.footer-text {
+    font-size: 1.075rem;
 }
 
 .footer-links {
     display: flex;
-    justify-content: center;
-    padding: 50px 0;
-    width: 100%;
+    justify-content: space-between;
+    width: 60%;
+    margin: 2rem 0;
 }
 
-.social-media-icon {
-    width: 30%;
-    display: inline-block;
-    text-align: center;
+.footer-links img {
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
-.social-media-icon img {
-    width: 2rem;
+.footer-lang-item, .footer-lang-item-active {
+    font-size: 1.075rem;
+    margin: 0.5rem 0;
+    cursor: pointer;
 }
 
-.footer-info {
-    width: 95%;
-    text-align: center;
+.footer-lang-item-active {
+    font-weight: 600;
 }
 
-.footer-info h4 {
-    color: #FFF;
-    font-size: 0.825rem;
+.footer-lower {
+    font-size: 0.875rem;
 }
 
-@media only screen and (min-width: 768px) {
-
-}
 
 @media only screen and (min-width: 1024px) {
 
 .footer {
-    width: 100%;
+    padding: 3rem 0 1rem 0;
+}
+
+.footer-upper {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--component-accent-color1);
-    padding-bottom: 20px;
+    justify-content: space-between;
+    flex-direction: row;
 }
 
 .footer-links {
-    display: flex;
-    justify-content: center;
-    padding: 50px 0;
     width: 100%;
-}
-
-.social-media-icon {
-    width: 15%;
-    display: inline-block;
-    text-align: center;
-}
-
-.social-media-icon img {
-    width: 2rem;
-}
-
-.footer-info {
-    width: 92%;
-    text-align: center;
-}
-
-.footer-info h4 {
-    color: #FFF;
 }
 }
 

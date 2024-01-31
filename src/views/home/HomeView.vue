@@ -1,5 +1,5 @@
 <template>
-  <div class="site-content"> <!--#FDFAFF-->
+  <div class="site-content homeview"> <!--#FDFAFF-->
     <Cover/>
     <div class="site-content-in">
       <Stats/>
@@ -25,9 +25,7 @@ export default {
   
   name: 'HomeView',
   components: {Cover, NewsTimeline, Partners, Mission, Footer, Stats},
-  setup() {
-    
-  }
+
 }
 </script>
 
@@ -36,13 +34,15 @@ export default {
   .site-content {
     position: absolute;
     width: 100%;
-    top: 4.75rem;
+    top: 4rem;
     right: 0;
     left: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
+  
 
   .site-content-in {
     width: 100%;
@@ -62,8 +62,9 @@ export default {
 }
 
 @media only screen and (min-width: 1024px) {
+
   .site-content {
-    top: 5rem;
+    top: 3.375rem;
   }
 
   .site-content-in {
@@ -71,5 +72,9 @@ export default {
     margin: 0 auto; 
   }
 }
+
+.homeview {
+    top: 0;
+  } /* MUST BE ON THE VERY BOTTOM */
 
 </style>

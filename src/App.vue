@@ -1,16 +1,14 @@
 <template>
-    <NavBar v-if="!mobile"/>
+    <NavBar :class="shortMenu ? 'short' : 'home'" @openSideMenu="sideMenu = true"/>
     
-    <NavBarMobile v-if="!sideMenu && mobile" @openSideMenu="sideMenu = true"/>
-    <PopMenuMobile v-else-if="sideMenu && mobile" @closeSideMenu="sideMenu = false" />
+    <PopMenuMobile v-if="sideMenu && mobile" @closeSideMenu="sideMenu = false" />
 
-    <RouterView v-if="!sideMenu"/>
+    <RouterView/>
 </template>
 
 <script>
 import NavBar from './components/NavBar.vue'
-import NavBarMobile from './components/NavBarMobile.vue'
-import { RouterLink, RouterView } from 'vue-router'
+import {RouterView } from 'vue-router'
 import PopMenuMobile from './components/PopMenuMobile.vue'
 
 export default {
@@ -21,16 +19,29 @@ export default {
       sideMenu: false
     }
   },
+  computed: {
+    shortMenu() {
+      if (this.$route.path === '/' || this.$route.path === '') {
+        return false
+      } else {
+        return true
+      }
+    }
+  },
   mounted() {
+    addEventListener("resize", (event) => {
+        this.mobile = window.matchMedia("(max-width: 1023px)").matches
+    });
+
     this.mobile = window.matchMedia("(max-width: 1023px)").matches
 
     addEventListener("resize", (event) => {
         this.mobile = window.matchMedia("(max-width: 1023px)").matches
     });
+    
   },
   components: {
-    NavBar, NavBarMobile,
-    PopMenuMobile
+    NavBar, PopMenuMobile
 }
 }
 </script>

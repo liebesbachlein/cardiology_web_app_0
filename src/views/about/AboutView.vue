@@ -132,6 +132,7 @@ export default {
 }
 
 .page-side-box {
+  margin-top: 1rem;
   display: inline-block;
   width: 100%;
   height: auto;

@@ -117,7 +117,7 @@ export default {
 
     
     return { newsFeed, error, displayNewsList, loadMore, isLoadMore }
-  },
+  }
 }
 
 </script>

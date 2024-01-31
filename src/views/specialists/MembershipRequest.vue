@@ -542,15 +542,9 @@ export default {
 
 <style>
 
-
-
-
 .greyback {
   background-color: var(--component-grey-color);
  } 
-
-
-
 
 form * {
   transition: all 0.1s ease;
@@ -750,9 +744,6 @@ textarea:focus {
   padding: 0 0.5rem;
  } 
 
- .greyback .breadcrumbs-box {
-  display: none;
- }
 }
 
 

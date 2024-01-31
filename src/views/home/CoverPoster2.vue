@@ -1,6 +1,6 @@
 <template>
 
-<div class="poster2">
+<div class="poster poster2">
     
     <div class="poster-contents2">
         <div class="header1" style="background-color: transparent;">
@@ -27,34 +27,34 @@
 </template>
 
 <script>
-
+export default {
+    mounted() {
+        this.$emit('dark')
+    },
+}
 </script>
 
 <style>
 
-
-@media only screen and (max-width: 768px) {
-
-
 .poster-contents2 {
     width: 100%;
-    height: calc(100vw * 16 / 9 * 0.75 );
     position: absolute;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     z-index: 5;
     flex-wrap: nowrap;
+}
+
+@media only screen and (max-width: 768px) {
+
+.poster2 {
+    background-image: url('/covers/image-cover2-mobile.png');
     padding: 0 1rem;
 }
 
-.poster2 {
-    display: flex;
-    align-items: flex-start;
-    background-image: url('/covers/image-cover2-mobile.png');
-    width: 100%;
-    height: calc(100vw * 16 / 9 * 0.75 );
-    background-size: cover;
+.poster-contents2 {
+    padding: 0 1rem;
 }
 
 .poster-contents2 .header1 {
@@ -72,25 +72,12 @@
 @media only screen and (max-width: 1023px) and (min-width: 769px) {
 
 
-.poster-contents2 {
-    width: 100%;
-    height: calc(100vw * 16 / 9 * 0.75 );
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 5;
-    flex-wrap: nowrap;
-    padding: 0 1rem;
+.poster2 {
+    background-image: url('/covers/image-cover2-mobile.png');
 }
 
-.poster2 {
-    display: flex;
-    align-items: flex-start;
-    background-image: url('/covers/image-cover2-mobile.png');
-    width: 100%;
-    height: calc(100vw * 16 / 9 * 0.75 );
-    background-size: cover;
+.poster-contents2 {
+    padding: 0 1rem;
 }
 
 .poster-contents2 .header1 {
@@ -109,29 +96,16 @@
 @media only screen and (min-width: 1024px) {
 
 
-.poster-contents2 .cover-button {
+.poster2 .cover-button {
     margin-top: 2rem;
 }
 
-.poster-contents2 {
-    width: 100%;
-    height: calc(100vw * 9 / 16 - 5rem - 7rem);
-    position: absolute;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    z-index: 5;
-    flex-wrap: nowrap;
-    padding-left: 10%;
+.poster2 {
+    background-image: url('/covers/image-cover2.png');
 }
 
-.poster2 {
-    display: flex;
-    align-items: flex-start;
-    background-image: url('/covers/image-cover2.png');
-    width: 100%;
-    height: calc(100vw * 9 / 16 - 5rem - 7rem);
-    background-size: cover;
+.poster-contents2 {
+    padding-left: 10%;
 }
 
 .poster-contents2 .header1 {

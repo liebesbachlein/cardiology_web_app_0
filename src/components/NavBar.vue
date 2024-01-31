@@ -1,40 +1,51 @@
 <template>
   <div class="navbar" >
-  <div class="navbar-block-zero" id="navBar">
+  <div class="navbar-block">
 
     <div class="navbar-in-block">
       <router-link to="/">
-      <div class="logo-zero" id="logo"></div>
+        <div class="logo"></div>
       </router-link>
     </div>
   
-    <div class="navbar-in-block"  >
-      
-      
-      <div class="navbar-item"  @mouseover="popAbout = true"  @mouseleave="popAbout = false" >
-        <Transition name="pop-menu" mode="in-out"><AboutPopMenu v-if="popAbout" @closeAbout="popAbout = false"/></Transition>
-        <router-link ref="about" id="about" :to="{name: 'AboutView', params: {id: 1}}" @click="popAbout = false" :class="{'a-hover': popAbout}">О нас</router-link>
+    <div class="navbar-in-block all-menu-navs">
+       
+      <div class="navbar-item"   @mouseleave="popAbout = false">
+        <Transition name="pop-menu"><AboutPopMenu v-if="popAbout" @closeAbout="popAbout = false"/></Transition>
+        <div class="menu-item-round">
+          <router-link  @mouseover="popAbout = true" :to="{name: 'AboutView', params: {id: 1}}" @click="popAbout = false" :class="{'a-hover': popAbout}">О нас</router-link>
+        </div>
       </div>
-      <p class="divider-zero">|</p>
+      <p class="divider">|</p>
     
-      <div class="navbar-item"   @mouseover="popNews = true"  @mouseleave="popNews = false" @close="popNews = false">
-        <router-link ref="news" id="news" to="/news/" @click="popNews = false"  :class="{'a-hover': popNews}">Новости</router-link>
+      <div class="navbar-item"   @mouseleave="popNews = false">
+        <div class="menu-item-round">
+          <router-link   to="/news/" @mouseover="popNews = true" @click="popNews = false"  :class="{'a-hover': popNews}">Новости</router-link>
+        </div>
       </div>
-      <p class="divider-zero">|</p>
+      <p class="divider">|</p>
     
-      <div class="navbar-item"   @mouseover="popSp = true"  @mouseleave="popSp = false">
-        <Transition name="pop-menu" mode="in-out"><SpPopMenu v-if="popSp" @closeSp="popSp = false"/></Transition>
-        <router-link ref="sp" id="sp"  @click="popSp = false"   :to="{name: 'SpecialistsView', params: {id: 1}} " :class="{'a-hover': popSp}">Специалистам</router-link>
+      <div class="navbar-item"   @mouseleave="popSp = false">
+        <Transition name="pop-menu"><SpPopMenu v-if="popSp" @closeSp="popSp = false"/></Transition>
+        <div class="menu-item-round">
+          <router-link   @click="popSp = false" @mouseover="popSp = true"  :to="{name: 'SpecialistsView', params: {id: 1}} " :class="{'a-hover': popSp}">Специалистам</router-link>
+        </div>
       </div>
-      <p class="divider-zero">|</p>
+      <p class="divider">|</p>
 
-      <div class="navbar-item"  @mouseover="popPt = true"  @mouseleave="popPt = false">
-        <Transition name="pop-menu" mode="in-out"><PtPopMenu v-if="popPt" @closePt="popPt = false"/></Transition>
-        <router-link ref="pt" id="pt"  @click="popPt = false"   :to="{name: 'PatientsView', params: {id: 1}}" :class="{'a-hover': popPt}">Пациентам</router-link>
+      <div class="navbar-item"  @mouseleave="popPt = false">
+        <Transition name="pop-menu"><PtPopMenu v-if="popPt" @closePt="popPt = false"/></Transition>
+        <div class="menu-item-round">
+          <router-link  @click="popPt = false" @mouseover="popPt = true"   :to="{name: 'PatientsView', params: {id: 1}}" :class="{'a-hover': popPt}">Пациентам</router-link>
+        </div>
       </div>
     </div>
+    
+    <div class="navbar-in-block mobile-side" @click="openSideMenu">
+        <img src="@/assets/three-lines.svg">
+    </div>
   </div>
-  <div class="red-line-zero" ref="redLine"></div>
+  <div class="grey-line" id="redLine"></div>
   </div>
 
 </template>
@@ -54,36 +65,13 @@ export default {
       popSp: false, 
       popPt: false
     }
-  },
-  mounted() {
-    window.addEventListener('scroll', this.changeNavBar);
-  },
+  }, 
   methods: {
-    changeNavBar() {
-      
-      const navBar = document.getElementById('navBar')
-      const logo = document.getElementById('logo')
-      const arr = [document.getElementById('about'), document.getElementById('news'), document.getElementById('sp'), document.getElementById('pt')]
-      const ps = document.querySelectorAll('.navbar-in-block p');
-      const redLine = this.$refs.redLine
-      if(navBar && redLine) {
-      if (window.scrollY > 100) {
-        //navBar.className = 'navbar-block-scroll'
-        //redLine.className = 'red-line-scroll'
-        //arr.forEach(e => e.style = 'color: #FFFFFF')
-        //ps.forEach(e => e.className = 'divider-scroll')
-        //logo.className = 'logo-scroll'
 
-      } else if (window.scrollY <= 100) {
-        //navBar.className = 'navbar-block-zero'
-        //redLine.className = 'red-line-zero'
-        //arr.forEach(e => e.style = 'color: #454545')
-        //ps.forEach(e => e.className = 'divider-zero')
-        //logo.className = 'logo-zero'
-      }
-    }
-    }
-  }
+openSideMenu() {
+  this.$emit('openSideMenu')
+}
+}
 }
 
 </script>
@@ -91,59 +79,52 @@ export default {
 
 <style>
 
-@media only screen and (min-width: 1024px) {
-
-.pop-menu-enter-active,
-.pop-menu-leave-active {
-  transition: all 0.2s ease-out;
-  max-height: 13rem;
+.red-line {
+    display: block;
+    width: 33%;
+    border-top: 1px solid var(--header-line);
+    margin: 0 auto;
 }
 
-.pop-menu-enter-from,
-.pop-menu-leave-to {
-  opacity: 0;
-  max-height: 0;
+.home .grey-line {
+ display: none;
 }
 
-#about, #news, #sp, #pt {
-  padding: 0 2rem;
+.short .grey-line {
+    display: block;
+    width: 80%;
+    border-top: 1px solid var(--component-accent-color2);
+    margin: 0 auto;
 }
 
-.divider-zero {
-  color: var(--component-accent-color1)
-}
-
-.divider-scroll {
-  color: #FFF;
-}
 
 .navbar {
   display: block;
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
-  height: 5rem;
   z-index: 10;
 }
 
-.navbar-block-zero {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  background-color: #FFF;
-  padding: 0 3rem; /*!!!!!!!!!!!!!!!!1*/
-  box-shadow: 0 2px 4px 0px rgba(193, 209, 229, 0.5);
+.divider, .all-menu-navs, .navbar-item {
+  display: none;
 }
 
-.navbar-block-scroll {
+.short {
+  height: 4rem ;
+  position: absolute;
+}
+
+.home {
+  height: 4rem;
+}
+
+.navbar-block {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: var(--component-accent-color1);
-  padding: 0 3rem; /*!!!!!!!!!!!!!!!!1*/
-  box-shadow: 0 2px 4px 0px rgba(193, 209, 229, 0.5);
+  padding: 0 0.5rem;
   
 }
 
@@ -154,18 +135,103 @@ export default {
     flex-direction: row;
 }
 
-.logo-zero, .logo-scroll {
-  background-image: url("@/assets/logo01.png");
-  height: 5rem; 
-  width: 16rem;
-  background-size: cover;
+.home .navbar-block {
+  box-shadow: none;
+  background-color: transparent;
 }
 
-.logo-scroll {
-  background-image: url("@/assets/logo01-white.png");
-  background-size: cover;
-  height: 5rem; 
-  width: 16rem;
+.short .navbar-block {
+  background-color: #FFF;
+}
+
+.logo {
+  display: block;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.short .logo {
+  height: 2.5rem; 
+  width: 2.5rem;
+  background-image: url("@/assets/logo-square.png");
+}
+
+.home .logo {
+  height: 3rem; 
+  width: 13rem;
+  background-color: rgba(193, 209, 229, 0.5);
+  background-image: url("@/assets/logo01.png");
+  background-position: center;
+  border-radius: 0.5rem;
+}
+
+
+.mobile-side img {
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    border:  1px solid transparent;
+}
+
+.home .mobile-side img {
+  border:  1px solid rgba(75, 101, 144, 0.8);
+    border-radius: 0.5rem;
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+.pop-menu-enter-active,
+.pop-menu-leave-active {
+  transition: all 0.2s ease-out;
+  /*max-height: 6rem;*/
+}
+
+.pop-menu-enter-from,
+.pop-menu-leave-to {
+  opacity: 0;
+  /*max-height: 0;*/
+}
+
+.home .grey-line {
+    display: block;
+    width: 80%;
+    border-top: 1px solid rgba(75, 101, 144, 0.5);
+    margin: 0 auto;
+}
+
+.short .grey-line {
+  display: none;
+}
+
+.short .divider {
+  color: var(--component-accent-color1);
+  display: inline
+}
+
+.short {
+  height: 3.375rem;
+  position: absolute;
+}
+
+.home {
+  height: 5rem;
+}
+
+.navbar-block {
+  padding: 0 3rem;
+  box-shadow: 0 2px 4px 0px rgba(193, 209, 229, 0.5);
+}
+
+.short .logo {
+  height: 2.5rem; 
+  width: 2.5rem;
+}
+
+.home .logo {
+  height: 3rem; 
+  width: 14rem;
+  border-radius: 0.5rem;
 }
 
 .navbar-item {
@@ -177,31 +243,36 @@ export default {
   flex-direction: column;
 }
 
-.navbar-item a {
+.menu-item-round>a {
   font-family: var(--plain-text-font);
   font-size: 1.125rem;
   font-weight: 400;
-  color: #454545;
   text-decoration: none;  
+  padding: 0 0.75rem;
 }
 
-.navbar-item .a-hover {
+
+.menu-item-round>.a-hover {
   text-decoration: overline;
 }
 
-.red-line-zero {
-    display: block;
-    width: 33%;
-    border-top: 1px solid var(--header-line);
-    margin: 0 auto;
+.short .menu-item-round>a {
+  color: #454545;
+  padding: 0 1rem;
 }
 
-.red-line-scroll {
-    display: block;
-    width: 100%;
-    border-top: 1px solid var(--header-line);
-    margin: 0 auto;
+.home .menu-item-round>a {
+  color: #5b92c9;
+  border-radius: 0.5rem;
+  font-weight: 600;
 }
 
+.navbar .menu-item-round {
+  margin: 0 1.25rem;
+}
+
+.mobile-side {
+  display: none;
+}
 }
 </style>

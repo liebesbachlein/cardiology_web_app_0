@@ -17,17 +17,15 @@
             <div v-if="showCover3">
                 <CoverPoster3 :is="showCover3"/>
             </div>
-        </Transition>
-        
-    </div>
+        </Transition>  
 
-
-    <div class="carousel">
-        <div class="carousel-box">
-            <div class="indicator" @click="changeCover(1)" :class="{'indicator-active': showCover1}"></div>
-            <div class="indicator" @click="changeCover(2)" :class="{'indicator-active': showCover2}"></div>
-            <div class="indicator" @click="changeCover(3)" :class="{'indicator-active': showCover3}"></div>
-        </div>
+        <div class="carousel">
+            <div class="carousel-box">
+                <div class="indicator" @click="changeCover(1)" :class="{'indicator-active': showCover1}"></div>
+                <div class="indicator" @click="changeCover(2)" :class="{'indicator-active': showCover2}"></div>
+                <div class="indicator" @click="changeCover(3)" :class="{'indicator-active': showCover3}"></div>
+            </div>
+        </div> 
     </div>
 </div>
 </template>
@@ -37,6 +35,7 @@ import { ref } from 'vue'
 import CoverPoster1 from './CoverPoster1.vue'
 import CoverPoster2 from './CoverPoster2.vue'
 import CoverPoster3 from './CoverPoster3.vue'
+
 
 export default {
     components: {CoverPoster1, CoverPoster2, CoverPoster3},
@@ -91,80 +90,56 @@ export default {
 .cover-box {
     display: block;
     text-align: center;
-    height: calc(100vw * 16 / 9 * 0.75);
+    height: calc(100vw * 16 / 9 * 0.9);
     position: relative;
     width: 100%;
 }
 
-.cover-box img {
-    object-fit: cover;
-    width: 100%;
-    height: calc(100vw * 16 / 9 * 0.75);
-}
-    
-.cover-box>div {
-    position: absolute;
-    width: 100%;
-    display: block;
-    height: calc(100vw * 16 / 9 * 0.75);
-}
-
-
 .carousel {
-    display: flex;
-    padding: 1rem;
-    width: 100%;
+    display: block;
+    max-height: 4rem;
     justify-content: center;
+    position: absolute;
+    bottom: 5%;
+    width: 100%;
+
 }
 
 .carousel-box {
     display: inline-flex;
-    align-items: space-between;
+    align-items: center;
     justify-content: center;
 }
 
-.indicator {
+.indicator, .indicator-active {
     display: inline-block;
-    margin: 0 0.5rem;
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 0.25rem;
-    background-color: #C4C4C4;
+    margin: 0 1rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #8198bc;
     cursor: pointer;
 }
 
 .indicator-active {
-    display: inline-block;
-    margin: 0 0.5rem;
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 0.25rem;
     background-color: var(--component-accent-color1);
-    cursor: pointer;
 }
 
+@media only screen and (min-width: 768px) {
+    .cover-box {
+        height: calc(100vw * 4 / 3);
+    }
+}
 
 @media only screen and (min-width: 1024px) {
 
 .cover-box {
-    display: block;
-    text-align: center;
-    height: calc(100vw * 9 / 16 - 5rem - 7rem);
-    position: relative;
-    width: 100%;
+    height: calc(100vw * 9 / 16);
 }
 
-.cover-box img {
-    object-fit: cover;
-    width: 100%;
-    height: calc(100vw * 9 / 16 - 5rem - 7rem);
-}
-    
-.cover-box>div {
-    position: absolute;
-    width: 100%;
-    display: block;
-    height: calc(100vw * 9 / 16 - 5rem - 7rem);
+.carousel {
+    bottom: 10%;
+
 }
 
 }
