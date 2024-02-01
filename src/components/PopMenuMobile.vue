@@ -13,8 +13,12 @@
           </div>
 
           <div class="navbar-in-block mobile-side" @click="closeSideMenu">
-            <img src="@/assets/three-lines.svg">
-        </div>
+            <div class="mobile-side-menu-box">
+              
+            <img src="@/assets/close.svg">
+            <!--<img src="@/assets/three-dots.svg">-->
+            </div>
+          </div>
         </div>
         <div class="grey-line" id="redLine"></div>
       </div>
@@ -327,6 +331,10 @@ export default {
   font-weight: 400;
   margin: 0.5rem 0.5rem;
   color: #6C6C6C;
+}
+
+.side-pop-menu .mobile-side-menu-box {
+  border: 1px solid transparent
 }
 
 </style>

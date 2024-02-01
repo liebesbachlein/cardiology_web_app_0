@@ -3,20 +3,14 @@
 <div class="cover">
 
     <div class="cover-box">
-        <Transition mode="in-out" name="slider">
-            <div v-if="showCover1">
-                <CoverPoster1 :is="showCover1"/>
-            </div>
+        <Transition name="slider">
+                <CoverPoster1 v-if="showCover1" :is="showCover1"/>
         </Transition>
-        <Transition mode="in-out" name="slider">
-            <div v-if="showCover2">
-                <CoverPoster2 :is="showCover2"/>
-            </div>
+        <Transition name="slider">
+                <CoverPoster2 v-if="showCover2" :is="showCover2"/>
         </Transition>
-        <Transition mode="in-out" name="slider">
-            <div v-if="showCover3">
-                <CoverPoster3 :is="showCover3"/>
-            </div>
+        <Transition name="slider">
+                <CoverPoster3 v-if="showCover3" :is="showCover3"/>
         </Transition>  
 
         <div class="carousel">
@@ -72,12 +66,14 @@ export default {
 
 .slider-enter-active,
 .slider-leave-active {
-  transition: opacity 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  max-width: 100%;
 }
 
 .slider-enter-from,
 .slider-leave-to {
-  opacity: 0;
+    opacity: 0;
+  width: 0;
 }
 
 .cover {
@@ -93,6 +89,7 @@ export default {
     height: calc(100vw * 16 / 9 * 0.9);
     position: relative;
     width: 100%;
+    right: 0;
 }
 
 .carousel {

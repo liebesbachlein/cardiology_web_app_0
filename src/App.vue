@@ -1,8 +1,9 @@
 <template>
     <NavBar :class="shortMenu ? 'short' : 'home'" @openSideMenu="sideMenu = true"/>
     
+    <Transition name="side-pop-menu">
     <PopMenuMobile v-if="sideMenu && mobile" @closeSideMenu="sideMenu = false" />
-
+    </Transition>
     <RouterView/>
 </template>
 
@@ -46,6 +47,21 @@ export default {
 }
 </script>
 
+
+<style>
+.side-pop-menu-enter-active,
+.side-pop-menu-leave-active {
+  transition: all 0.2s ease;
+  max-height: 80%;
+}
+
+.side-pop-menu-enter-from,
+.side-pop-menu-leave-to {
+  opacity: 0;
+  width: 0;
+}
+
+</style>
 
 
 

@@ -32,6 +32,10 @@ export default {
 
 <style>
 
+.poster * {
+    transition: none;
+}
+
 .cover-button {
     height: 3.125rem;
     width: 11rem;

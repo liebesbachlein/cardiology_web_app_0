@@ -3,7 +3,7 @@
   <div class="navbar-block">
 
     <div class="navbar-in-block">
-      <router-link to="/">
+      <router-link to="/" tag="div" class="logo-home-container">
         <div class="logo"></div>
       </router-link>
     </div>
@@ -42,7 +42,11 @@
     </div>
     
     <div class="navbar-in-block mobile-side" @click="openSideMenu">
-        <img src="@/assets/three-lines.svg">
+      <div class="mobile-side-menu-box">
+        <div class="navbar-side-text">Меню</div>
+      <img src="@/assets/three-lines.svg">
+      <!--<img src="@/assets/three-dots.svg">-->
+      </div>
     </div>
   </div>
   <div class="grey-line" id="redLine"></div>
@@ -125,7 +129,6 @@ openSideMenu() {
   display: flex;
   justify-content: space-between;
   padding: 0 0.5rem;
-  
 }
 
 .navbar-in-block {
@@ -148,6 +151,7 @@ openSideMenu() {
   display: block;
   background-size: contain;
   background-repeat: no-repeat;
+  transition: opacity 0.1s;
 }
 
 .short .logo {
@@ -156,26 +160,45 @@ openSideMenu() {
   background-image: url("@/assets/logo-square.png");
 }
 
-.home .logo {
-  height: 3rem; 
+
+.home .logo-home-container {
+  height: 3.5rem; 
   width: 13rem;
-  background-color: rgba(193, 209, 229, 0.5);
-  background-image: url("@/assets/logo01.png");
-  background-position: center;
+  display: inline-block;
+  padding: 0.5rem;
   border-radius: 0.5rem;
+  background-color: rgba(193, 209, 229, 0.5);
 }
 
+.home .logo {
+  height: 2.5rem; 
+  width: calc(2.5rem * 4.7);
+  background-image: url("@/assets/logo01.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.mobile-side-menu-box {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 0.25rem;
+  border-radius: 0.125rem;
+  border: 1px solid rgba(193, 209, 229, 0.5);
+  align-items: center;
+  
+}
 
 .mobile-side img {
     display: inline-block;
-    width: 3rem;
-    height: 3rem;
-    border:  1px solid transparent;
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
-.home .mobile-side img {
-  border:  1px solid rgba(75, 101, 144, 0.8);
-    border-radius: 0.5rem;
+.navbar-side-text {
+  font-family: var(--news-title-font);
+  font-size: 1rem;
+  color: #5b92c9;
+  text-transform: uppercase;
 }
 
 
@@ -229,9 +252,8 @@ openSideMenu() {
 }
 
 .home .logo {
-  height: 3rem; 
-  width: 14rem;
-  border-radius: 0.5rem;
+  height: 2.5rem; 
+  width: calc(2.5rem * 4.7);
 }
 
 .navbar-item {
