@@ -49,6 +49,7 @@ export default {
                 showCover1.value = false
                 showCover2.value = true
                 showCover3.value = false
+                
             } else {
                 showCover1.value = false
                 showCover2.value = false
