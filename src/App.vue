@@ -1,8 +1,8 @@
 <template>
-    <NavBar :class="shortMenu ? 'short' : 'home'" @openSideMenu="sideMenu = true"/>
+    <NavBar v-if="!$route.meta.hideNavbar" :class="shortMenu ? 'short' : 'home'" @openSideMenu="sideMenu = true"/>
     
     <Transition name="side-pop-menu">
-    <PopMenuMobile v-if="sideMenu && mobile" @closeSideMenu="sideMenu = false" />
+    <PopMenuMobile v-if="!$route.meta.hideNavbar && sideMenu && mobile" @closeSideMenu="sideMenu = false" />
     </Transition>
     <RouterView/>
 </template>

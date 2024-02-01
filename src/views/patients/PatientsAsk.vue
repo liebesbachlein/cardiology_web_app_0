@@ -4,16 +4,16 @@
             Обратиться к специалисту
         </div>
 
-        <form>
+        <form ref="formAsk" >
             
             <label>Фамилия <span>*</span></label>
-          <input  :readonly="submitSuccess" type="text" v-model="name" id="name" :class="{'invalid' : errorName}" required>
+          <input  :readonly="submitSuccess" type="text" v-model="name" id="name"  name="name" :class="{'invalid' : errorName}" required>
 
           <label>Email <span>*</span></label>
-          <input :readonly="submitSuccess" :class="{'invalid' : errorEmail}" type="email" id="email"   v-model="email" @blur="validateEmail" required>
+          <input :readonly="submitSuccess" :class="{'invalid' : errorEmail}" type="email" id="email" name="email"   v-model="email" @blur="validateEmail" required>
       
           <label>Обращение <span>*</span></label>
-          <textarea :readonly="submitSuccess" rows = "10" :class="{'invalid' : errorText}"  v-model="text" required/>
+          <textarea :readonly="submitSuccess" rows = "10" :class="{'invalid' : errorText}"  v-model="text" name="text" required/>
   
           <div class="submit">
           <input :disabled="!enableSubmit" class="long-blue-button" @click="handleSubmit" value="Отправить заявку">

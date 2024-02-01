@@ -15,77 +15,79 @@
                     </div>
               </div>
         
-      <form @submit.prevent="handleSubmit" :class="{'success-form' : submitSuccess}" autocomplete="on">
+      <form ref="formMem"  @submit.prevent="handleSubmit" :class="{'success-form' : submitSuccess}" autocomplete="on">
         
         <div class="subpage-title" style="text-align: center;">Заяка на членство</div>
           <label>Фамилия <span>*</span></label>
-          <input  :readonly="submitSuccess" type="text" v-model="lastName" id="lastName" :class="{'invalid' : errorLastName}" required>
+          <input  :readonly="submitSuccess" type="text" v-model="lastName" id="lastName" name="lastName" :class="{'invalid' : errorLastName}" required>
 
           <label>Имя <span>*</span></label>
-          <input :readonly="submitSuccess" type="text" v-model="firstName" id="firstName"  :class="{'invalid' : errorFirstName}" required>
+          <input :readonly="submitSuccess" type="text" v-model="firstName" id="firstName" name="firstName"  :class="{'invalid' : errorFirstName}" required>
     
 
           <label>Отчество</label>
-          <input :readonly="submitSuccess" type="text" v-model="patroName" id="patroName" required>
+          <input :readonly="submitSuccess" type="text" v-model="patroName" id="patroName" name="patroName" required>
   
   
           <label>Email <span>*</span></label>
-          <input :readonly="submitSuccess" :class="{'invalid' : errorEmail}" type="email" id="email"   v-model="email" @blur="validateEmail" required>
+          <input :readonly="submitSuccess" :class="{'invalid' : errorEmail}" type="email" id="email"  name="email"  v-model="email" @blur="validateEmail" required>
       
 
           <label>Контактный телефон <span>*</span></label>
-          <input id="phoneNumber" @paste="pasteNum($event)" @keydown="isNumber($event)" placeholder="+7 (___) ___ - __ - __" :readonly="submitSuccess" :class="{'invalid' : errorPhoneNumber}" type="tel" v-model="phoneNumber" required>
+          <input id="phoneNumber" name="phoneNumber" @paste="pasteNum($event)" @keydown="isNumber($event)" placeholder="+7 (___) ___ - __ - __" :readonly="submitSuccess" :class="{'invalid' : errorPhoneNumber}" type="tel" v-model="phoneNumber" required>
 
           <label>Дата рождения <span>*</span></label>
-          <input :readonly="submitSuccess"  :class="{'invalid' : errorDateBirth}" type="date" v-model="dateBirth" id="dateBirth"  required>
+          <input :readonly="submitSuccess"  :class="{'invalid' : errorDateBirth}" type="date" v-model="dateBirth" id="dateBirth" name="dateBirth"  required>
   
           <label>Место рождения <span>*</span></label>
-          <input :readonly="submitSuccess" type="text" v-model="placeBirth" id="placeBirth" :class="{'invalid' : errorPlaceBirth}" required>
+          <input :readonly="submitSuccess" type="text" v-model="placeBirth" id="placeBirth" name="placeBirth" :class="{'invalid' : errorPlaceBirth}" required>
   
           <label>Адрес места жительства <span>*</span></label>
-          <input :readonly="submitSuccess"  type="tel" v-model="address" id="address" :class="{'invalid' : errorAddress}" required>
+          <input :readonly="submitSuccess"  type="tel" v-model="address" id="address" name="address" :class="{'invalid' : errorAddress}" required>
   
           <label>Номер/серия удостоверения личности <span>*</span></label>
-          <input placeholder="123456789" :readonly="submitSuccess" type="text" v-model="idDoc" id="idDoc"  :class="{'invalid' : errorIdDoc}" required>
+          <input placeholder="123456789" :readonly="submitSuccess" type="text" v-model="idDoc" id="idDoc"  name="idDoc"  :class="{'invalid' : errorIdDoc}" required>
   
           <label>Дата выдачи удостоверения личности <span>*</span></label>
-          <input :readonly="submitSuccess" type="date" v-model="dateDoc" id="dateDoc" :class="{'invalid' : errorDateDoc}" required>
+          <input :readonly="submitSuccess" type="date" v-model="dateDoc" id="dateDoc"  name="dateDoc" :class="{'invalid' : errorDateDoc}" required>
   
           <label>Орган выдачи удостоверения личности <span>*</span></label>
-          <input :readonly="submitSuccess" type="text" v-model="placeDoc" id="placeDoc"  :class="{'invalid' : errorPlaceDoc}" required>
+          <input :readonly="submitSuccess" type="text" v-model="placeDoc"  id="placeDoc"  name="placeDoc" :class="{'invalid' : errorPlaceDoc}" required>
   
           <label>Образование (учебное заведение, специальность, дата окончания) <span>*</span></label>
-          <textarea :readonly="submitSuccess" rows = "10" :class="{'invalid' : errorEducation}"  v-model="education" required/>
+          <textarea :readonly="submitSuccess" rows = "10" :class="{'invalid' : errorEducation}"  v-model="education" name="education" required/>
   
           <label>Дополнительное образование</label>
-          <textarea :readonly="submitSuccess" rows = "10" v-model="addEducation"/>
+          <textarea :readonly="submitSuccess" rows = "10" v-model="addEducation" name="addEducation"/>
      
           <label>Интересы и увлечения</label>
-          <textarea :readonly="submitSuccess" rows = "10" v-model="interests"/>
+          <textarea :readonly="submitSuccess" rows = "10" v-model="interests" name="interests"/>
      
           <label>Опыт работы</label>
-          <textarea :readonly="submitSuccess" rows = "10" v-model="experience"/>
+          <textarea :readonly="submitSuccess" rows = "10" v-model="experience" name="experience"/>
      
           <label>Прошу принять в члены ОО «Общество специалистов по артериальной гипертонии и кардиоваскулярной профилактике» на добровольной основе с <span>*</span></label>
-          <input :readonly="submitSuccess" type="date" v-model="dateMember" id="dateMember" :class="{'invalid' : errorDateMember}" required>
+          <input :readonly="submitSuccess" type="date" v-model="dateMember" name="dateMember" id="dateMember" :class="{'invalid' : errorDateMember}" required>
   
           <div class="consent">
             <label class="checkbox-container">
-              <input :disabled="submitSuccess" type="checkbox" v-model="terms" required>
+              <input :disabled="submitSuccess" type="checkbox" v-model="terms" name="terms" required>
               <span class="checkmark"></span>
             </label>
             <label class="consent-label" :style="{color: submitSuccess? '#A7ACBC': ''}">Принимаю <span @click.prevent="download">Условия политики конфиденциальности</span></label>
           </div>
           
     
-        <div class="submit">
-          <input :disabled="!enableSubmit" class="long-blue-button" @click="handleSubmit" value="Отправить заявку">
+          <div class="submit" style="display: flex; justify-content: center;">
+          <Loader style="position: absolute;" v-if="loader"/>
+          <input :disabled="!enableSubmit" class="long-blue-button" @click="handleSubmit" value="Отправить заявку" v-if="!formSuccess">
+        </div>
+        <div class="success-blue-button" style="background-color: #FFF; border: 1px solid var(--component-accent-color2); color: var(--component-accent-color2)" v-if="submitSuccess && formSuccess">
+          Заявка успешно отправлена!
         </div>
   
       </form>
-      <div class="long-blue-button" style="background-color: #FFF; margin: 1rem 0 0 0; border: 1px solid #5cb85c" v-if="submitSuccess">
-        "Заявка успешно отправлена!"
-      </div>
+
 
   
           </div>
@@ -100,10 +102,12 @@
 import ChevronRight from '@/components/ChevronRight.vue';
 import Footer from '@/components/Footer.vue';
 import Axios from 'axios'
+import emailjs from 'emailjs-com' 
+import Loader from '@/components/Loader.vue';
 
 export default {
     name: 'MembershipRequest',
-    components: {ChevronRight, Footer}, 
+    components: {ChevronRight, Footer, Loader}, 
     data() {
       return {
         firstName: null,
@@ -123,7 +127,10 @@ export default {
         addEducation: null,
         interests: null,
         experience: null, 
-        dateMember: null
+        dateMember: null, 
+        formSuccess: null,
+        formError: null, 
+        loader: null
     }
   },
   computed: {
@@ -450,29 +457,23 @@ export default {
         }
       },
       handleSubmit: function () {
-
+        if(this.submitSuccess) {
+        return
+       } 
         if(this.firstName && this.lastName && this.email && this.phoneNumber && this.address && this.dateBirth && this.placeBirth && 
         this.idDoc && this.dateDoc && this.placeDoc && this.terms && this.education) {
-        console.log('Фамилия: ', this.lastName)
-        console.log('Имя: ', this.firstName)
-        console.log('Отчество: ', this.patroName ? this.patroName : '—')
-        console.log('Email: ', this.email)
-        console.log('Контактный телефон: ', this.phoneNumber)
-        console.log('Дата рождения: ', this.dateBirth)
-        console.log('Место рождения: ', this.placeBirth)
-        console.log('Адрес: ', this.address)
-        console.log('Номер удостоверения личности: ', this.idDoc)
-        console.log('Дата выдачи удостоверения личности:: ', this.dateDoc)
-        console.log('Орган выдачи удостоверения личности: ', this.placeDoc)
-        console.log('Условия подписаны: ', this.terms? "Да" : "Нет")
-        console.log('Образование: ', this.education)
-        console.log('Дополнительное бразование: ', this.addEducation ? this.addEducation : '—')
-        console.log('Интересы и увлечения: ', this.interests ? this.interests : '—')
-        console.log('Опыт работы: ', this.experience ? this.experience : '—')
-        this.submitSuccess = true
-        } else {
-          console.log('Incomplete form!')
-        }
+          this.loader = ' '
+         this.submitSuccess= true
+          emailjs.sendForm('service_kejad4f', 'template_gq4284m', this.$refs.formMem, '5rwZj5R_LOCI4FI6C')
+            .then((result) => {
+              this.formSuccess = result.text
+              this.loader = null
+                console.log('SUCCESS!', result.text);
+            }, (error) => {
+              this.formError = error.text
+                console.log('FAILED...', error.text);
+            });
+        } 
 
         if(!this.terms) {
           this.terms = ''

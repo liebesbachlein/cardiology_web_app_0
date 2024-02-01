@@ -401,7 +401,7 @@ const firebaseConfig = {
     snapshot.docs.forEach((doc) => {
         news.push({ ...doc.data(), id: doc.id })
     }) 
-    console.log(news)
+    //console.log(news)
     return news
   })
 

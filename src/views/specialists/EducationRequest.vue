@@ -15,34 +15,34 @@
                     </div>
               </div>
         
-      <form @submit.prevent="handleSubmit" :class="{'success-form' : submitSuccess}" autocomplete="on">
+      <form ref="formEdu"  @submit.prevent="handleSubmit" :class="{'success-form' : submitSuccess}" autocomplete="on">
         
         <div class="subpage-title" style="text-align: center;">Заяка на обучение</div>
           <label>Фамилия <span>*</span></label>
-          <input  :readonly="submitSuccess" type="text" v-model="lastName" id="lastName" :class="{'invalid' : errorLastName}" required>
+          <input  :readonly="submitSuccess" type="text" v-model="lastName" name="lastName" id="lastName" :class="{'invalid' : errorLastName}" required>
 
           <label>Имя <span>*</span></label>
-          <input :readonly="submitSuccess" type="text" v-model="firstName" id="firstName"  :class="{'invalid' : errorFirstName}" required>
+          <input :readonly="submitSuccess" type="text" v-model="firstName" id="firstName" name="firstName" :class="{'invalid' : errorFirstName}" required>
     
 
           <label>Отчество</label>
-          <input :readonly="submitSuccess" type="text" v-model="patroName" id="patroName" required>
+          <input :readonly="submitSuccess" type="text" v-model="patroName" id="patroName" name="patroName" required>
   
   
           <label>Email <span>*</span></label>
-          <input :readonly="submitSuccess" :class="{'invalid' : errorEmail}" type="email" id="email"   v-model="email" @blur="validateEmail" required>
+          <input :readonly="submitSuccess" :class="{'invalid' : errorEmail}" type="email" id="email" name="email"   v-model="email" @blur="validateEmail" required>
       
           <label>Контактный телефон <span>*</span></label>
-          <input id="phoneNumber" @paste="pasteNum($event)" @keydown="isNumber($event)" placeholder="+7 (___) ___ - __ - __" :readonly="submitSuccess" :class="{'invalid' : errorPhoneNumber}" type="tel" v-model="phoneNumber" required>
+          <input id="phoneNumber" name="phoneNumber" @paste="pasteNum($event)" @keydown="isNumber($event)" placeholder="+7 (___) ___ - __ - __" :readonly="submitSuccess" :class="{'invalid' : errorPhoneNumber}" type="tel" v-model="phoneNumber" required>
   
           <label>Специальность <span>*</span></label>
-          <input :readonly="submitSuccess" type="text" v-model="speciality" id="speciality"  :class="{'invalid' : errorSpeciality}" required>
+          <input :readonly="submitSuccess" type="text" v-model="speciality" id="speciality" name="speciality"  :class="{'invalid' : errorSpeciality}" required>
  
           <label>Адрес места жительства <span>*</span></label>
-          <input :readonly="submitSuccess"  type="text" v-model="city" id="city" :class="{'invalid' : errorCity}" required>
+          <input :readonly="submitSuccess"  type="text" v-model="addressHome" id="addressHome" name="addressHome"   v-bind:name="addressHome" :class="{'invalid' : errorAddressHome}" required>
   
           <label>Адрес места работы <span>*</span></label>
-          <input :readonly="submitSuccess" type="text" v-model="jobPlace" id="jobPlace"  :class="{'invalid' : errorJobPlace}" required>
+          <input :readonly="submitSuccess" type="text" v-model="addressWork" id="addressWork" name="addressWork"  :class="{'invalid' : errorAddressWork}" required>
           
           <div class="picks-box">
         
@@ -50,14 +50,14 @@
             <div class="options">
               <div class="options-item">
                 <div class="option-input">
-                  <input :disabled="submitSuccess" type="radio" value="Апрель" v-model="pickedMonth" required>
+                  <input :disabled="submitSuccess" type="radio" value="Апрель" v-model="pickedMonth" name="pickedMonth" required>
                 </div>
                 <label>Апрель</label>
               </div>
 
               <div class="checkbox-adjust">
                 <div class="option-input">
-                <input :disabled="submitSuccess" type="radio" id="may" name="month" value="Май" v-model="pickedMonth" required>
+                <input :disabled="submitSuccess" type="radio" id="may" value="Май" v-model="pickedMonth" name="pickedMonth" required>
                 </div><label>Май</label>
               </div>
             </div>
@@ -66,13 +66,13 @@
             <div class="options">
               <div class="checkbox-adjust">
                 <div class="option-input">
-                 <input :disabled="submitSuccess" type="radio" id="first" value="В первой половине дня" v-model="pickedTime" required>          
+                 <input :disabled="submitSuccess" type="radio" id="first" value="В первой половине дня" v-model="pickedTime" name="pickedTime" required>          
               </div><label>1-я половина дня</label>
               </div>
 
               <div class="options-item">
                 <div class="option-input">
-                <input :disabled="submitSuccess" type="radio" id="second" value="Во второй половине дня" v-model="pickedTime" required>
+                <input :disabled="submitSuccess" type="radio" id="second" value="Во второй половине дня" v-model="pickedTime" name="pickedTime" required>
                 </div><label >2-я половина дня</label><!--style="margin-left: 0.75rem;"-->
               </div>
             </div>
@@ -80,21 +80,23 @@
 
           <div class="consent">
             <label class="checkbox-container">
-              <input :disabled="submitSuccess" type="checkbox" v-model="terms" required>
+              <input :disabled="submitSuccess" type="checkbox" v-model="terms" name="terms" required>
               <span class="checkmark"></span>
             </label>
             <label class="consent-label" :style="{color: submitSuccess? '#A7ACBC': ''}">Принимаю <span @click.prevent="download">Условия политики конфиденциальности</span></label>
           </div>
           
     
-        <div class="submit">
-          <input :disabled="!enableSubmit" class="long-blue-button" @click="handleSubmit" value="Отправить заявку">
+        <div class="submit" style="display: flex; justify-content: center;">
+          <Loader style="position: absolute;" v-if="loader"/>
+          <input :disabled="!enableSubmit" class="long-blue-button" @click="handleSubmit" value="Отправить заявку" v-if="!formSuccess">
+        </div>
+        <div class="success-blue-button" style="background-color: #FFF; border: 1px solid var(--component-accent-color2); color: var(--component-accent-color2)" v-if="submitSuccess && formSuccess">
+          Заявка успешно отправлена!
         </div>
   
       </form>
-      <div class="long-blue-button" style="background-color: #FFF; margin: 1rem 0 0 0; border: 1px solid #5cb85c" v-if="submitSuccess">
-        "Заявка успешно отправлена!"
-      </div>
+      
 
   
           </div>
@@ -109,10 +111,12 @@
 import ChevronRight from '@/components/ChevronRight.vue';
 import Footer from '@/components/Footer.vue';
 import Axios from 'axios'
+import emailjs from 'emailjs-com' 
+import Loader from '@/components/Loader.vue';
 
 export default {
     name: 'MembershipRequest',
-    components: {ChevronRight, Footer}, 
+    components: {ChevronRight, Footer, Loader}, 
     data() {
       return {
         firstName: null,
@@ -121,18 +125,22 @@ export default {
         email: null,
         phoneNumber: null,
         speciality: null,
-        city: null,
-        jobPlace: null,
+        addressHome: null,
+        addressWork: null,
         terms: null,
         pickedTime: null,
         pickedMonth: null,
-        submitSuccess: false
+        submitSuccess: false, 
+        formSuccess: null,
+        formError: null, 
+        loader: null
     }
   },
   computed: {
     enableSubmit: function() {
-      return this.name && this.email && this.phoneNumber && this.speciality && this.city && this.jobPlace && 
+      return this.firstName && this.lastName && this.email && this.phoneNumber && this.speciality && this.addressHome && this.addressWork && 
         this.terms && this.pickedMonth && this.pickedTime
+        
     },
     errorPhoneNumber: function() {
       if(this.phoneNumber != null) {
@@ -173,16 +181,16 @@ export default {
         return false
       }
     }, 
-    errorCity: function() {
-      if(this.city != null) {
-        return this.city.length == 0
+    errorAddressHome: function() {
+      if(this.addressHome != null) {
+        return this.addressHome.length == 0
       } else {
         return false
       }
     }, 
-    errorJobPlace: function() {
-      if(this.jobPlace != null) {
-        return this.jobPlace.length == 0
+    errorAddressWork: function() {
+      if(this.addressWork != null) {
+        return this.addressWork.length == 0
       } else {
         return false
       }
@@ -426,19 +434,22 @@ export default {
         }
       },
       handleSubmit: function () {
-       
-       if(this.name && this.email && this.phoneNumber && this.speciality && this.city && this.jobPlace && 
-       this.terms && this.pickedMonth && this.pickedTime) {
+       if(this.submitSuccess) {
+        return
+       } 
+       if(this.firstName && this.lastName && this.email && this.phoneNumber && this.speciality && this.addressHome && this.addressWork && 
+       this.terms && this.pickedMonth && this.pickedTimes) {
+        this.loader = ' '
          this.submitSuccess= true
-       console.log('ФИО: ', this.name)
-       console.log('Email: ', this.email)
-       console.log('Контактный телефон: ', this.phoneNumber)
-       console.log('Специальность: ', this.speciality)
-       console.log('Город: ', this.city)
-       console.log('Место работы: ', this.jobPlace)
-       console.log('Предпочтительный месяц: ', this.pickedMonth)
-       console.log('Предпочтительное время: ', this.pickedTime)
-       console.log('Условия подписаны: ', this.terms? "Да" : "Нет")
+          emailjs.sendForm('service_kejad4f', 'template_1bb61ip', this.$refs.formEdu, '5rwZj5R_LOCI4FI6C')
+            .then((result) => {
+              this.formSuccess = result.text
+              this.loader = null
+                console.log('SUCCESS!', result.text);
+            }, (error) => {
+              this.formError = error.text
+                console.log('FAILED...', error.text);
+            });
        } 
 
        if(!this.terms) {
@@ -466,16 +477,16 @@ export default {
          this.phoneNumber = ''
        }
 
-       if(!this.city) {
-         this.city = ''
+       if(!this.addressHome) {
+         this.addressHome = ''
        }
 
        if(!this.speciality) {
          this.speciality = ''
        }
 
-       if(!this.jobPlace) {
-         this.jobPlace = ''
+       if(!this.addressWork) {
+         this.addressWork = ''
        }
    }, 
     download: function () {

@@ -74,7 +74,7 @@ export default {
           //throw Error('no available data')
         //} 
         //newsFeed.value = await data.json()
-        console.log(newsFeed.value)
+        //console.log(newsFeed.value)
       }
       catch(err) {
         console.log('ERROR')
