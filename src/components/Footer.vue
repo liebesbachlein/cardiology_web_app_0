@@ -8,20 +8,21 @@
                     <div class="footer-text">Подписывайтесь на нас в социальных сетях</div>
                     <div class="footer-links">
                         
-                            <img src="@/assets/social_media_icons/inst.png">
+                        <a href="https://www.instagram.com/cardio_experts.kz?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+                            <img tag="img" src="@/assets/social_media_icons/inst.png" href="https://www.instagram.com/cardio_experts.kz?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+                        </a>
+                            <img src="@/assets/social_media_icons/fb.png" style="visibility: hidden;">
                         
-                            <img src="@/assets/social_media_icons/fb.png">
                         
-                        <div class="social-media-icon">
-                            <img src="@/assets/social_media_icons/tw.png">
-                        </div>
+                            <img src="@/assets/social_media_icons/tw.png" style="visibility: hidden;">
+                       
                     </div>
                 </div>
                 <div class="footer-lang-box">
                     <div class="footer-lang-item-active" >
                         Русский
                     </div>
-                    <div class="footer-lang-item">
+                    <div class="footer-lang-item" style="visibility: hidden;">
                         Қазақ
                     </div>
                 </div>

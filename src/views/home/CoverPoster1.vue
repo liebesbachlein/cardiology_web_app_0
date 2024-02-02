@@ -3,17 +3,16 @@
         <div class="box">
            
             <div class="header1">
-                <h1 id="hd1">VI Республиканский Конгресс</h1>
-                <h1 id="hd2">Cardio</h1>
-                <h1 id="hd3">forum</h1>
+                <h1 id="hd2" style="font-size: 3rem; font-weight: 700; color: var(--component-accent-color1)">Академия</h1>
+                <h1 id="hd3" style="font-size: 2.5rem; font-weight: 700; color: #FFF">Kардио-терапевта</h1>
             </div> 
             <div class="header2">
-                <h3 id="hd4">—  по артериальной гипертонии и кардиоваскулярной профилактике с международным участием </h3>
-                <h1 id="hd5">14 — 15 сентября</h1>
+                <h1 style="font-size: 2rem; font-weight: 700; color: #FFF">Шымкент</h1>
+                <h1 style="margin: 2rem 0; font-size: 1.5rem; font-weight: 600; color: #FFF">8 — 9 февраля</h1>
                 
-                 <router-link  to="/about">
-                    <div class="cover-button">Подробнее</div>
-                </router-link>
+                 <div  >
+                    <a class="cover-button" tag="div" href="https://www.instagram.com/p/C2INfZlCciy/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">Подробнее</a>
+                 </div>
             </div>    
         </div>
     
@@ -32,9 +31,6 @@ export default {
 
 <style>
 
-.poster * {
-    transition: none;
-}
 
 .cover-button {
     height: 3.125rem;
@@ -64,28 +60,10 @@ export default {
 
 @media only screen and (max-width: 768px) {
 
-    #hd1 {
-        line-height: 4rem; font-size: 1.25rem; color: #FFF; font-weight: 500
-    }
 
-    #hd2 {
-        line-height: 4rem; font-size: 5rem; color: var(--component-accent-color1);  font-weight: 700
-    }
-
-    #hd3 {
-        line-height: 4rem; font-size: 3.5rem; color: var(--component-accent-color2); font-weight: 700
-    }
-
-    #hd4 {
-        font-size: 1rem; font-weight: 400; color: #FFF; margin-top: 1rem;
-    }
-
-    #hd5 {
-        font-size: 1.625rem; font-weight: 700; color: #FFF; margin: 1.5rem 0
-    }
 
 .poster1 {
-    background-image: url('/covers/image-cover1-mobile.png');
+    background-image: url('/covers/shymkent-cover1-mobile.jpg');
 }
 
 .poster1 .box {
@@ -99,6 +77,8 @@ export default {
     width: 100%;
 }
 
+
+
 .poster2 .header2 {
     display: flex;
     flex-direction: column;
@@ -106,33 +86,20 @@ export default {
     width: 100%;
     text-align: left;
     padding: 0 2rem;
+    justify-content: center;
+    height: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: rgba(68, 75, 155, 0.5);
 }
 }
 
 @media only screen and (max-width: 1023px) and (min-width: 769px) {
 
-    #hd1 {
-        line-height: 4rem; font-size: 1.25rem; color: #FFF; font-weight: 500
-    }
 
-    #hd2 {
-        line-height: 4rem; font-size: 5rem; color: var(--component-accent-color1);  font-weight: 700
-    }
-
-    #hd3 {
-        line-height: 4rem; font-size: 3.5rem; color: var(--component-accent-color2); font-weight: 700
-    }
-
-    #hd4 {
-        font-size: 1rem; font-weight: 400; color: #FFF; margin-top: 1rem;
-    }
-
-    #hd5 {
-        font-size: 1.625rem; font-weight: 700; color: #FFF; margin: 1.5rem 0
-    }
 
 .poster1 {
-    background-image: url('/covers/image-cover1-mobile.png');
+    background-image: url('/covers/shymkent-cover1-mobile.jpg');
 }
 
 .poster1 .box {
@@ -153,34 +120,21 @@ export default {
     width: 100%;
     text-align: left;
     padding: 0 2rem;
+
+    justify-content: center;
+    height: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: rgba(68, 75, 155, 0.5);
 }
 }
 
 @media only screen and (min-width: 1024px) {
 
 
-    #hd1 {
-        line-height: 2rem; font-size: 1.25rem; color: #FFF; font-weight: 500
-    }
-
-    #hd2 {
-        line-height: 8rem; font-size: 5.625rem; color: var(--component-accent-color1);  font-weight: 700
-    }
-
-    #hd3 {
-        line-height: 0rem; font-size: 3.75rem; color:  var(--component-accent-color2); font-weight: 700
-    }
-
-    #hd4 {
-        font-size: 1rem; font-weight: 400; color: #FFF; 
-    }
-
-    #hd5 {
-        font-size: 1.5rem; font-weight: 700; color: #FFF; margin: 3rem 0
-    }
 
 .poster1 {
-    background-image: url('/covers/image-cover1.png');
+    background-image: url('/covers/shymkent-cover1.jpg');
 }
 
 .poster1 .box {
@@ -191,19 +145,26 @@ export default {
 
 
 .poster1 .header1 {
+    display: block;
     text-align: center;
-    width: 25%;
-    margin-right: 2rem;
+    width: 50%;
+
 }
 
 .poster1 .header2 {
-    margin-left: 5%;
+    margin-top: 1.5rem;
+    margin-left: 2rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 33%;
+    width: 40%;
     text-align: left;
-    justify-content: flex-start;
+
+    justify-content: center;
+    height: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: rgba(68, 75, 155, 0.5);
 
 }
 

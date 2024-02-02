@@ -3,14 +3,22 @@
 <div class="cover">
 
     <div class="cover-box">
-        <Transition name="slider">
-                <CoverPoster1 v-if="showCover1" :is="showCover1"/>
+
+
+        <Transition name="slider" mode="in-out">
+            <div v-if="showCover1">
+                <CoverPoster1 :is="showCover1"/>
+            </div>
         </Transition>
-        <Transition name="slider">
-                <CoverPoster2 v-if="showCover2" :is="showCover2"/>
+        <Transition name="slider" mode="in-out">
+            <div v-if="showCover2">
+                <CoverPoster2  :is="showCover2"/>
+            </div>
         </Transition>
-        <Transition name="slider">
-                <CoverPoster3 v-if="showCover3" :is="showCover3"/>
+        <Transition name="slider" mode="in-out">
+            <div v-if="showCover3">
+                <CoverPoster3  :is="showCover3"/>
+                </div>
         </Transition>  
 
         <div class="carousel">
@@ -33,32 +41,62 @@ import CoverPoster3 from './CoverPoster3.vue'
 
 export default {
     components: {CoverPoster1, CoverPoster2, CoverPoster3},
+
     setup() {
         const showCover1 = ref(true)
         const showCover2 = ref(false)
         const showCover3 = ref(false)
-
-        const autoCarousel = () => {}
+        let index = 1
 
         const changeCover = (currentCover) => {
             if (currentCover === 1) {
+                index = 1
                 showCover1.value = true
                 showCover2.value = false
                 showCover3.value = false
             } else if (currentCover === 2) {
+                index = 2
                 showCover1.value = false
                 showCover2.value = true
                 showCover3.value = false
                 
-            } else {
+            } else if (currentCover === 3){
+                index = 3
                 showCover1.value = false
                 showCover2.value = false
                 showCover3.value = true
             }
         }
 
-        return {showCover1, showCover2, showCover3, changeCover, autoCarousel}
+        
+window.onload = function () { 
+    setInterval(function () { 
+            
+            for (let i = 1; i <= 10; i++) { 
+                
+                if (index === 1) {
+                
+                setTimeout(() => changeCover(index), 380); 
+                index = 2
+
+            } else if (index === 2) {
+                setTimeout(() => changeCover(index), 380); 
+                index = 3
+
+                
+            } else if (index === 3){                
+                setTimeout(() => changeCover(index), 380); 
+                index = 1
+
+            }
+            }
+            
+        }, 5000); 
     }
+
+        return {showCover1, showCover2, showCover3, changeCover}
+    }
+
 }
 
 </script>

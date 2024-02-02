@@ -119,11 +119,11 @@ export default {
     justify-content: space-between;
 }
 
-.header1 h1 {
+.poster-contents2  .header1 h1 {
     line-height: 2rem;
 }
 
-.header1 h3 {
+.poster-contents2  .header1 h3 {
     line-height: 1.5rem;
 }
 }

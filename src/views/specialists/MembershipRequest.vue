@@ -43,10 +43,10 @@
           <input :readonly="submitSuccess" type="text" v-model="placeBirth" id="placeBirth" name="placeBirth" :class="{'invalid' : errorPlaceBirth}" required>
   
           <label>Адрес места жительства <span>*</span></label>
-          <input :readonly="submitSuccess"  type="tel" v-model="address" id="address" name="address" :class="{'invalid' : errorAddress}" required>
+          <input :readonly="submitSuccess"  type="text" v-model="address" id="address" name="address" :class="{'invalid' : errorAddress}" required>
   
           <label>Номер/серия удостоверения личности <span>*</span></label>
-          <input placeholder="123456789" :readonly="submitSuccess" type="text" v-model="idDoc" id="idDoc"  name="idDoc"  :class="{'invalid' : errorIdDoc}" required>
+          <input placeholder="123456789" :readonly="submitSuccess" type="number" v-model="idDoc" id="idDoc"  name="idDoc"  :class="{'invalid' : errorIdDoc}" required>
   
           <label>Дата выдачи удостоверения личности <span>*</span></label>
           <input :readonly="submitSuccess" type="date" v-model="dateDoc" id="dateDoc"  name="dateDoc" :class="{'invalid' : errorDateDoc}" required>

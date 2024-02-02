@@ -10,22 +10,22 @@
             </div> 
         </div>
 
-        <MonthBlock id="m1" monthName="Январь 2024" :lightUp="ms[0]" style="position: relative"/>
+        <MonthBlock id="m1" monthName="Февраль 2024" :lightUp="ms[0]" style="position: relative"/>
         <div class="month-news">
             <NewsMiniRight :news="news[0]"/>
         </div>
 
-        <MonthBlock id="m2" monthName="Февраль 2024" :lightUp="ms[1]" style="position: relative"/>
-        <div class="month-news">
+        <MonthBlock id="m2" monthName="Март 2024" :lightUp="ms[1]" style="position: relative; "/>
+        <!--<div class="month-news">
             <NewsMiniRight :news="news[1]"/>
             <NewsMiniRight :news="news[2]"/>
         </div>
 
-        <MonthBlock id="m3" monthName="Март 2024" :lightUp="ms[2]" style="position: relative"/>
+        <MonthBlock id="m3" monthName="Апрель 2024" :lightUp="ms[2]" style="position: relative"/>
         <div class="month-news">
             <NewsMiniRight :news="news[3]"/>
         </div>
-
+-->
     </div>
     </div>
 
@@ -44,17 +44,20 @@ export default {
             if (document.getElementById('m1')) {
                 this.offsets1 = [document.getElementById('m1').getBoundingClientRect().top, document.getElementById('m1').getBoundingClientRect().bottom]
                 this.offsets2 = [document.getElementById('m2').getBoundingClientRect().top, document.getElementById('m2').getBoundingClientRect().bottom]
-                this.offsets3 = [document.getElementById('m3').getBoundingClientRect().top, document.getElementById('m3').getBoundingClientRect().bottom]
+                /*this.offsets3 = [document.getElementById('m3').getBoundingClientRect().top, document.getElementById('m3').getBoundingClientRect().bottom]*/
                 this.circleOffset = document.getElementById('circle').getBoundingClientRect().top
             }
         }) 
+
+        
+
 
     },
     computed: {
         ms() {
             let ms = [false, false, false]
             const dis12 = Math.abs(this.offsets1[0] - this.offsets2[0])
-            const dis23 = Math.abs(this.offsets2[0] - this.offsets3[0])
+            //const dis23 = Math.abs(this.offsets2[0] - this.offsets3[0])
 
             if (Math.abs(this.offsets1[0] - this.circleOffset) < 50 || Math.abs(this.offsets1[1] - this.circleOffset) <= dis12 / 2) {
                 ms[0] = true
@@ -70,12 +73,12 @@ export default {
                 ms[1] = true
                 ms[2] = false
                 this.hideCircle = false
-            } else if (Math.abs(this.offsets3[0] - this.circleOffset) < dis23 / 2 || Math.abs(this.offsets3[1] - this.circleOffset) < 50) {
+            } /*else if (Math.abs(this.offsets3[0] - this.circleOffset) < dis23 / 2 || Math.abs(this.offsets3[1] - this.circleOffset) < 50) {
                 ms[0] = false
                 ms[1] = false
                 ms[2] = true
                 this.hideCircle = false
-            } 
+            } */
 
             return ms
         }
@@ -88,42 +91,14 @@ export default {
             circleOffset: 0,
             hideCircle: true,
         news: [
-            {date1: '15', 
-            date2: '',
-            month: 'января',
-            title: 'Региональная Кардио-Школа', 
-            address: 'Покровский бульвар, ул. Назарбаева, д. 11, Павлодар', 
-            details: 'Европейский Конгресс Кардиологов 2023. Клинические разборы пациентов с СД и ССЗ на основе рекомендаций ЕОК-23. Приглашаем всех в Региональную школу',
+            {date1: '8', 
+            date2: '9',
+            month: 'февраля',
+            title: 'Академия кардио-терапевта', 
+            address: 'ул. Бейбитшилик, 13, "Aidana Plaza Hotel", конференц-зал, Шымкент', 
+            details: 'И начавшийся 2024 год мы открываем региональным туром "Академия кардио-терапевта". Почему? Потому что первые, к кому обращаются пациенты с сердечно-сосудистыми заболеваниями - это терапевты и ВОП (врачи общей практики)! Потому что основную массу всех терапевтических пациентов составляют пациенты с ССЗ.',
             imgUrl: "/events/event1.png",
-            url: "/news/konferentsiya-secrety-zhenskog/"}, 
-
-            {
-            date1: '17', 
-            date2: '',
-            month: 'февраля',
-            title: 'Образовательный Проект', 
-            address: 'Улица Конаева, д. 23, Алматы', 
-            details: 'Клинические разборы пациентов с СД и ССЗ на основе рекомендаций ЕОК-23',
-            imgUrl: '/events/event2.png', 
-            url: "/news/konferentsiya-secrety-zhenskog/"}, 
-
-            {date1: '25', 
-            date2: '26',
-            month: 'февраля',
-            title: 'Образовательный Проект', 
-            address: 'Покровский бульвар, д. 11, Туркестан', 
-            details: 'Простые и удобные инструменты по выбору оптимальной терапии вашим пациентам',
-            imgUrl: '/events/event1.png', 
-            url: "/news/konferentsiya-secrety-zhenskog/"}, 
-            
-            {date1: '3', 
-            date2: '',
-            month: 'марта',
-            title: 'CardioForum', 
-            address: '', 
-            details: 'ПVI Конгресс по артериальной гипертонии и кардиоваскулярной профилактике с международным участием',
-            imgUrl: '/events/event2.png', 
-            url: "/news/konferentsiya-secrety-zhenskog/"}, 
+            url: "/news/academia-vrachei-cardiologov-shymkent/"}
     ]
     }
 }
