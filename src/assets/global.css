@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Philosopher:ital@1&family=Viaoda+Libre&family=El+Messiri:wght@400;500;600;700&family=Noto+Sans+Display:wght@400;500;600&family=Tenor+Sans&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Viaoda+Libre&family=El+Messiri:wght@400;500;600;700&family=Noto+Sans+Display:wght@400;500;600&family=Tenor+Sans&family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Scada:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 :root {
     --component-accent-color1: #D22B2B;
     --bright-red: #EE4B2B;
@@ -13,10 +13,11 @@
     --simple-font: "Roboto", sans-serif;
     --cursive-font: 'Philosopher', sans-serif;
     --news-title-font: 'Viaoda Libre', serif;
-    --messiri-font: "El Messiri", sans-serif;
+    --messiri-font: 'Philosopher', sans-serif;
     --sans-serif-font: "Noto Sans Display", sans-serif;
     --tenor-font: "Tenor Sans", sans-serif;
     --scada-font: "Scada", sans-serif;
+    --merri-font: "Merriweather", serif;
     --header-line: transparent;
 }
 
@@ -94,12 +95,14 @@ a {
 
 .long-blue-button {
     cursor: pointer;
-    display: inline-block;
-    padding: 0;
+    display: flex;
+    padding: auto;
     width: 100%;
     height: 3rem;
     border-radius: 0.3125rem;
     background-color: var(--component-accent-color2);
+    align-items: center;
+    justify-content: center;
     text-align: center;
     box-shadow: -2px 2px 10px 0px rgba(213, 213, 213, 0.35), 2px -2px 10px 0px rgba(213, 213, 213, 0.35);
     color: #FFF;

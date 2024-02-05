@@ -8,7 +8,7 @@
                     <div class="footer-text">Подписывайтесь на нас в социальных сетях</div>
                     <div class="footer-links">
                         
-                        <a href="https://www.instagram.com/cardio_experts.kz?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+                        <a href="https://www.instagram.com/cardio_experts.kz/">
                             <img tag="img" src="@/assets/social_media_icons/inst.png" href="https://www.instagram.com/cardio_experts.kz?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
                         </a>
                             <img src="@/assets/social_media_icons/fb.png" style="visibility: hidden;">

@@ -18,27 +18,22 @@
                         <div v-if="error">{{ error }}</div>
                         <div v-else-if="newsItem" class="newsabout-content">
                                 
-                            <div class="newsabout-info-phrase-date">
+                            <div class="newsabout-phrase-date">
                                 <div class="newsabout-phrase">
                                     {{ newsItem.phrase }}
                                 </div>
                                 <div class="newsabout-date">
-                                    {{ newsItem.date }}
+                                    {{ newsItem.date_published }}
                                 </div>
                             </div>
                             <div class="newsabout-title">
                                     {{ newsItem.title }}
                             </div>
                             <div class="newsabout-summary">
-                                <p>{{ newsItem.summary }}</p>
+                                {{ newsItem.summary }}
                             </div>
-
-                            <div class="newsabout-image">
-                                <img :src="'/news_posters/' + newsItem.imgSrc">
-                            </div> 
                             
-                            <div class="newsabout-content">
-                                <p v-html="newsItem.content"></p>
+                            <div class="newsabout-content" v-html="newsItem.content">
                             </div>
                         </div>
                         <Loader v-else/>
@@ -102,166 +97,53 @@ export default {
 </script>
 
 <style>
-
-@media only screen and (max-width: 768px) {
-
 .newsabout {
     display: block;
     width: 100%;
     margin-top: 3rem;
     padding: 0 1rem;
-    min-height: calc(100vh - 5rem);
+    min-height: calc(100vh - 3rem);
 }
 
-.newsabout-title {
-    display: block;
-    margin-top: 1rem;
-    font-size: 2rem;
-    font-family: var(--news-title-font);
-    font-weight: 400;
-}
-
-
-.newsabout-summary {
-    margin-top: 3rem;
-    display: block;
-    font-family: var(--cursive-font);
-    font-style: italic;
-}
-
-.newsabout-image {
-    margin: 1rem 0;
-    padding: 0;
-    width: 100%;
-    height: calc(( 100vw - 2rem) * 9 / 16 );
-    display: inline-block; 
-}
-
-.newsabout-image img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-.newsabout-info-phrase-date {
+.newsabout-phrase-date {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 1rem;
 }
-.newsabout-info-phrase-date>div {
-    font-size: 1rem;
+.newsabout-phrase-date>div {
+    font-size: 0.8125rem;
     font-weight: 300;
     margin: 0;
+    color: var(--component-accent-color2);
 }
 
 .newsabout-phrase {
     text-transform: uppercase;
 }
 
-}
-
-@media only screen and (max-width: 1023px) and (min-width: 769px) {
-
-.newsabout {
-    display: block;
-    width: 100%;
-    margin-top: 3rem;
-    padding: 0 1rem;
-    min-height: calc(100vh - 5rem);
-}
-
 .newsabout-title {
     display: block;
-    margin-top: 1rem;
     font-size: 2rem;
     font-family: var(--news-title-font);
     font-weight: 400;
+    margin-bottom: 1rem;
 }
-
 
 .newsabout-summary {
-    margin-top: 3rem;
     display: block;
-    font-family: var(--cursive-font);
-    font-style: italic;
-}
-
-.newsabout-image {
-    margin: 1rem 0;
-    padding: 0;
-    width: 100%;
-    height: calc(( 100vw - 2rem) * 9 / 16 );
-    display: inline-block; 
-}
-
-.newsabout-image img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-.newsabout-info-phrase-date {
-    display: flex;
-    justify-content: space-between;
-}
-.newsabout-info-phrase-date>div {
-    font-size: 1rem;
+    color: var(--component-accent-color2);
+    letter-spacing: 1px;
     font-weight: 300;
-    margin: 0;
+    font-size: 0.9275rem;
+    margin-bottom: 1rem;
 }
 
-.newsabout-phrase {
-    text-transform: uppercase;
-}
-
-}
 
 @media only screen and (min-width: 1024px) {
 .newsabout {
     min-height: 100vh; 
-}
-
-.newsabout-title {
-    display: block;
-    margin-top: 1rem;
-    font-size: 2rem;
-    font-family: var(--news-title-font);
-    font-weight: 400;
-}
-
-.newsabout-summary {
-    display: block;
-    margin-top: 2rem;
-    font-family: var(--cursive-font);
-    font-style: italic;
-}
-
-.newsabout-image {
-    width: 93%;
-    display: inline-block;
-    margin: 2rem 0 3rem 0;
-}
-
-.newsabout-image img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;
-    height: auto;
-}
-
-.newsabout-info-phrase-date {
-    display: flex;
-    justify-content: space-between;
-}
-
-.newsabout-info-phrase-date>div {
-    color: #98abcf;
-    font-size: 1.125rem;
-    font-weight: 300;
-}
-
-.newsabout-phrase {
-    text-transform: uppercase;
+    padding: 0;
 }
 }
-
 
 </style>

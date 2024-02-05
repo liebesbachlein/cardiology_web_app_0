@@ -1,28 +1,18 @@
 <template>
 
 <div class="poster poster2">
+    <div class="box">
     
-    <div class="poster-contents2">
-        <div class="header1" style="background-color: transparent;">
-            <h1 style="font-size: 1.75rem; font-weight: 500; color: #FFF; margin-bottom: 1rem">Курс “Диагностика, профилактика и лечение ХТЛГ” </h1>
-            <h3 style="font-size: 1rem; font-weight: 400; color: #E6E6E6; margin-bottom: 1rem;">Цикл лекций, созданный совместно с Научно-исследовательским институтом кардиологии и внутренних болезней</h3>            
-            <router-link to="/about">
-                <div class="cover-button">Подробнее</div>
-            </router-link>
-        </div>
+    <div class="header1">
+        <div>Исследование</div>
+        <div>Проведенное в Китае и направленное на оценку влияния уровня образования на прогноз после инсульта</div>
+        <a class="cover-button" tag="div" href="https://www.instagram.com/p/CwUMvkBNtxX/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">
+            Читать →</a>
     </div>
 
-    <div class="poster-contents2" style="mix-blend-mode: multiply; z-index: 4;">
-        <div class="header1" style="background-color: #75869A;">
-            <h1 style="font-size: 1.75rem; font-weight: 500; color: transparent; margin-bottom: 1rem">Курс “Диагностика, профилактика и лечение ХТЛГ” </h1>
-            <h3 style="font-size: 1rem; font-weight: 400; color: transparent; margin-bottom: 1rem">Цикл лекций, созданный совместно с Научно-исследовательским институтом кардиологии и внутренних болезней</h3>            
-            <router-link style="visibility:hidden;" to="/about">
-                <div class="cover-button">Подробнее</div>
-            </router-link>
-        </div>
     </div>
-
 </div>
+
 
 </template>
 
@@ -36,96 +26,74 @@ export default {
 
 <style>
 
-.poster-contents2 {
-    width: 100%;
-    position: absolute;
+
+.poster2 {
+    background-image: url('/covers/cover14-mobile.png');
+    padding: 0 1rem;
+}
+
+.poster2 .box {
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
     align-items: center;
-    z-index: 5;
-    flex-wrap: nowrap;
 }
 
-@media only screen and (max-width: 768px) {
-
-.poster2 {
-    background-image: url('/covers/image-cover2-mobile.png');
-    padding: 0 1rem;
-}
-
-.poster-contents2 {
-    padding: 0 1rem;
-}
-
-.poster-contents2 .header1 {
-    padding: 2.5rem 1.5rem;
-    text-align: left;
-    width: 100%;
-    border-radius: 1rem;
-    background-color: transparent;
+.poster2 .header1 {
+    width: 90%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-}
-
-@media only screen and (max-width: 1023px) and (min-width: 769px) {
-
-
-.poster2 {
-    background-image: url('/covers/image-cover2-mobile.png');
-}
-
-.poster-contents2 {
-    padding: 0 1rem;
-}
-
-.poster-contents2 .header1 {
-    padding: 2.5rem 1.5rem;
     text-align: left;
-    width: 100%;
-    border-radius: 1rem;
-    background-color: transparent;
-    display: flex;
     flex-direction: column;
-    justify-content: space-between;
-}
 }
 
+.poster2 .header1 div:nth-child(1){
+    font-family: var(--news-title-font);
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--bright-red);
 
-@media only screen and (min-width: 1024px) {
+    margin-bottom: 1rem;
+    
+}
 
+.poster2 .header1 div:nth-child(2) {
+    font-family: var(--plain-text-font);
+    font-size: 1.075rem;
+    font-weight: 400;
+    color: #454545;
+}
 
 .poster2 .cover-button {
     margin-top: 2rem;
 }
 
+@media only screen and (min-width: 1024px) {
+
 .poster2 {
-    background-image: url('/covers/image-cover2.png');
+    background-image: url('/covers/cover14.png');
+}
+.poster2 .box {
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
 }
 
-.poster-contents2 {
-    padding-left: 10%;
-}
-
-.poster-contents2 .header1 {
+.poster2 .header1 {
     width: 50%;
-    border-radius: 1rem;
-    background-color: #75869A;
-    display: flex;
-    text-align: left;
-    padding: 2.5rem 1.5rem;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
-.poster-contents2  .header1 h1 {
-    line-height: 2rem;
+.poster2 .header1 div:nth-child(1){
+    font-size: 5rem;
+    margin: 0;
 }
 
-.poster-contents2  .header1 h3 {
-    line-height: 1.5rem;
+.poster2 .header1 div:nth-child(2){
+    font-size: 1.25rem;
+    margin: 0;
 }
+
 }
 
 </style>

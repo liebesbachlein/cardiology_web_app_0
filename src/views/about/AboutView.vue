@@ -132,7 +132,7 @@ export default {
 }
 
 .page-side-box {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   display: inline-block;
   width: 100%;
   height: auto;
@@ -140,8 +140,13 @@ export default {
   padding: 1.5rem 1.25rem 1rem 1.25rem;
 }
 
+.newsfeed .page-side-box, .newsabout .page-side-box {
+  margin-top: 0;
+}
+
 .multi-page-content {
   width: 70%;
+  
 }
 }
 

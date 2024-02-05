@@ -2,6 +2,7 @@
   <div class="site-content homeview"> <!--#FDFAFF-->
     <Cover/>
     <div class="site-content-in">
+      <!--<div class="home-us">Мы — Общество специалистов по </div>-->
       <Stats/>
     </div>
       <NewsTimeline/>

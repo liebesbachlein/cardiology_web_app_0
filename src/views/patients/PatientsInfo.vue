@@ -5,8 +5,8 @@
         </div>
         
         <div  class="links-menu-box">
-            <div v-for="pt in ptInfo" class="link-item">
-                <a :href="'#' + pt.id">
+            <div v-for="pt, i in ptInfo" class="link-item">
+                <a :href="'#ptlink' + i">
                     <AddressBox :info="pt.title" />
                 </a>
             </div>
@@ -14,8 +14,8 @@
         </div>
         
         <div class="pt-info-content">
-            <div v-for="pt in ptInfo" :key="pt.id" class="pt-info-item">
-                <div class="pt-info-header" :id="pt.id">
+            <div v-for="pt, i in ptInfo" :key="'ptlink' + i" class="pt-info-item">
+                <div class="pt-info-header" :id="'ptlink' + i">
                     {{ pt.title }}
                     <img src="@/assets/pin.svg">
                 </div>
@@ -65,14 +65,12 @@ export default {
         return {
             ptInfo: [
                 {
-                    id: 'link1',
                     title: "Как проявляется стенокардия?",
                     iframe: "",
                     text: "Стенокардия – это своеобразный сигнал сердца о недостаточном кровоснабжении сердечной мышцы. Не всегда боль в сердце может проявляться за грудиной, симптомы стенокардии могут быть разными. Не игнорируйте свои ощущения и дискомфорт. Проконсультируйтесь с врачом, если заметили что-то подобное у себя: тяжесть в груди, усталость, затруднение дыхания, боль в руке, дискомфорт в области желудка, боль в шее. Стенокардию лучше держать под контролем, чем лечить ее осложнения, такие как инфаркт миокарда, сердечная недостаточность и так далее."
 
                 },
                 {
-                    id: 'link2',
                     title: "Ошибки измерения артериального давления измерения артериального давления измерения артериального давления",
                     iframe: "https://www.youtube.com/embed/nkY9txjiNQg?si=Kk89rySJ584Ld69W",
                     text: "Многие пациенты допускают ошибки при измерении артериального давления. Что влияет на точность результатов измерений? Ознакомьтесь, чтобы не допустить искажения Ваших результатов."
@@ -80,10 +78,23 @@ export default {
                 },
 
                 {
-                    id: 'link3',
                     title: "Правила измерения пульса",
-                    iframe: "https://www.youtube.com/embed/6RpS8ZgSuVU?si=tqKHg4SDCQ6MJb1w",
+                    iframe: "https://www.youtube.com/embed/6RpS8ZgSuVU?si=q5UvHnfxn-M8gh_w",
                     text: "По изменению пульса можно предположить о состоянии сердца и организма в целом. Просмотрев видео, Вы узнаете, как правильно измерить пульс самостоятельно и с помощью пульсометра."
+
+                },
+
+                {
+                    title: "Техника измерения артериального давления",
+                    iframe: "https://www.youtube.com/embed/esOQRX4BeB4?si=SoRkVeNf0uUS9x6B",
+                    text: "Важно знать и уметь правильно измерять артериальное давление! В ролике представлен материал о подготовке к измерению артериального давления и изложены основные правила его измерения."
+
+                },
+
+                {
+                    title: "Виды тонометров",
+                    iframe: "https://www.youtube.com/embed/Xkoxq3vhd20?si=1vswe4fj6zb-RKi2",
+                    text: "Какие на сегодняшний день существует тонометры? Какой тонометр лучше всего подобрать в той или иной ситуации? Ответы на эти вопросы Вы получите, просмотрев данный видеоролик."
 
                 },
 
@@ -141,7 +152,7 @@ export default {
 }
 
 .links-menu-box {
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 
 }
 

@@ -151,7 +151,7 @@ openSideMenu() {
   display: block;
   background-size: contain;
   background-repeat: no-repeat;
-  transition: opacity 0.1s;
+  transition: all 0.1s;
 }
 
 .short .logo {
@@ -160,7 +160,7 @@ openSideMenu() {
   background-image: url("@/assets/logo-square.png");
 }
 
-
+/*
 .home .logo-home-container {
   height: 3.5rem; 
   width: 13rem;
@@ -169,13 +169,17 @@ openSideMenu() {
   border-radius: 0.5rem;
   background-color: rgba(193, 209, 229, 0.5);
 }
-
+*/
 .home .logo {
+  height: 2.5rem; 
+  width: 2.5rem;
+  background-image: url("@/assets/logo-square.png");
+  /*
   height: 2.5rem; 
   width: calc(2.5rem * 4.7);
   background-image: url("@/assets/logo01.png");
   background-position: center;
-  background-size: cover;
+  background-size: cover;*/
 }
 
 .mobile-side-menu-box {
@@ -232,6 +236,11 @@ openSideMenu() {
   display: inline
 }
 
+.home .divider {
+  color: #54919A;
+  display: inline
+}
+
 .short {
   height: 3.375rem;
   position: absolute;
@@ -252,8 +261,8 @@ openSideMenu() {
 }
 
 .home .logo {
-  height: 2.5rem; 
-  width: calc(2.5rem * 4.7);
+  height: 3.5rem; 
+  width: 3.5rem;
 }
 
 .navbar-item {
@@ -284,7 +293,7 @@ openSideMenu() {
 }
 
 .home .menu-item-round>a {
-  color: #5b92c9;
+  color: var(--component-accent-color2);
   border-radius: 0.5rem;
   font-weight: 600;
 }

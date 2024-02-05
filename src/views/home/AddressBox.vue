@@ -66,21 +66,7 @@ export default {
 
 
 .address-box {
-    display: inline-flex;
-    min-height: 2rem;
-    align-items: center;
-    border-radius: 0.5rem;
-    background-color: #e4f0ff;
-    padding: 0 0.5rem;
-    max-width: 25rem;
-}
-
-.address-name {
-    display: inline-block;
-    height: 100%;
-    font-size: 0.875rem;
-    color: var(--component-accent-color2);
-    text-wrap: wrap;
+    max-width: 32rem;
 }
 }
 

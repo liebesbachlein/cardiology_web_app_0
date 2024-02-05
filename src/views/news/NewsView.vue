@@ -15,16 +15,16 @@
                 <div class="multi-page-box">
                     <div  class="newsfeed-timeline multi-page-content">
                         <div v-if="error">{{ error }}</div>
-                        <div v-else-if="newsFeed.length > 1">
-                            <div v-for="newsItem in displayNewsList" :key="newsItem.id">
-                                <div v-if="newsItem.id">
-                                    <NewsShort :newsItem="newsItem"/>
+                        <div v-else-if="newsFeed" style="width: 100%">
+                            <div v-for="newsItem in displayNewsList" :key="newsItem? newsItem.id : null" style="width: 100%">
+                                <div v-if="newsItem? newsItem.id : null" style="width: 100%">
+                                    <NewsShort :newsItem="newsItem? newsItem : null"/>
                                 </div>
                             </div>
                         </div>
                         <div v-else><Loader/></div>
 
-                        <div class="short-blue-button" v-if="isLoadMore" @click="loadMore">
+                        <div class="long-blue-button" v-if="isLoadMore" @click="loadMore">
                             Загрузить еще
                         </div>
                     </div>
@@ -62,19 +62,19 @@ export default {
     setup() { 
     const newsLimit = 8
     let loadIndex = 1
-    const newsFeed = ref([''])
-    const error = ref('')
+    const newsFeed = ref([null])
+    const error = ref(null)
     const isLoadMore = ref(false)
-    const displayNewsList = ref([''])
+    const displayNewsList = ref([null])
     
     const load = async () => {
       try {
-        newsFeed.value = await loadNews() // let data
-        //if(!data.ok) {
-          //throw Error('no available data')
-        //} 
-        //newsFeed.value = await data.json()
-        //console.log(newsFeed.value)
+        let data = await fetch('http://localhost:8080/api/items') 
+        if(!data.ok) {
+            throw Error('no available data')
+        } 
+        newsFeed.value = await data.json()
+        console.log(newsFeed.value)
       }
       catch(err) {
         console.log('ERROR')
@@ -131,7 +131,7 @@ export default {
     flex-direction: column;
 }
 
-.newsfeed-timeline .short-blue-button {
+.newsfeed-timeline .long-blue-button {
     margin-top: 2rem;
 }
 

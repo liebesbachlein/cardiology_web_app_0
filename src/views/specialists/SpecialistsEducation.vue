@@ -15,7 +15,7 @@
         <p>Даты и время проведения будет назначены позже.</p>
 
         <router-link to="/specialists/education-request/" class="request-button-box" >
-                <div class="short-blue-button">
+                <div class="long-blue-button">
                     Подать заявку на обучение
                 </div>
         </router-link>

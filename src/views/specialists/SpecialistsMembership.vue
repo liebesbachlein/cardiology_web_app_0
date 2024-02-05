@@ -26,10 +26,12 @@
 <p>Станьте членом и поднимите свою карьеру и знания на новый уровень. ПОДАТЬ ЗАЯВКУ ОНЛАЙН НА САЙТЕ или отправить скан заявления (прикрепить образец заявления) на почту ashypertension.kz@gmail.com</p>
         </div>
 
-            <router-link class="request-button-box" to="/specialists/membership-request/">
-                <div class="short-blue-button">
+            <router-link tag="span" class="request-button-box" to="/specialists/membership-request/">
+
+                <div class="long-blue-button">
                     Подать заявку на членство
                 </div>
+
             </router-link>
 
     </div>
@@ -50,21 +52,10 @@ export default {
 
 <style>
 
-@media only screen and (max-width: 1023px) and (min-width: 769px) {
     .request-button-box {
         display: block;
-        text-align: center;
-    }
-}
-
-@media only screen and (min-width: 1024px) {
-    .request-button-box {
         margin-top: 2rem; 
-        display: inline-block;
     }
-}
-
-
 
 
 </style>
