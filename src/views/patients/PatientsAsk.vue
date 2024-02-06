@@ -4,37 +4,45 @@
             Обратиться к специалисту
         </div>
 
-        <form ref="formAsk" >
+        <form ref="formAsk" :class="{'success-form' : submitSuccess}">
             
-            <label>Фамилия <span>*</span></label>
+          <label>ФИО <span>*</span></label>
           <input  :readonly="submitSuccess" type="text" v-model="name" id="name"  name="name" :class="{'invalid' : errorName}" required>
 
           <label>Email <span>*</span></label>
           <input :readonly="submitSuccess" :class="{'invalid' : errorEmail}" type="email" id="email" name="email"   v-model="email" @blur="validateEmail" required>
       
           <label>Обращение <span>*</span></label>
-          <textarea :readonly="submitSuccess" rows = "10" :class="{'invalid' : errorText}"  v-model="text" name="text" required/>
+          <textarea :readonly="submitSuccess" rows = "10" :class="{'invalid' : errorContent}"  v-model="content" name="content" required/>
   
-          <div class="submit">
-          <input :disabled="!enableSubmit" class="long-blue-button" @click="handleSubmit" value="Отправить заявку">
-        </div>
+          <div class="submit" style="display: flex; justify-content: center;">
+            <Loader style="position: absolute;" v-if="loader"/>
+            <input :disabled="!enableSubmit" class="long-blue-button" @click="handleSubmit" value="Отправить заявку" v-if="!formSuccess && !submitSuccess && !errorForm ">
+          </div>
+          <div class="success-blue-button" style="background-color: #FFF; border: 1px solid var(--component-accent-color2); color: var(--component-accent-color2)" v-if="submitSuccess || errorForm " v-text="errorForm? errorForm : 'Заявка успешно отправлена!'"/>
         </form>
     </div>
 </template>
 
 <script>
+import Loader from '@/components/Loader.vue'
+
 export default {
     data() {
       return {
         name: null,
         email: null,
-        text: null,   
+        content: null,   
         submitSuccess: false, 
+        formSuccess: null, 
+        loader: null,
+        errorForm: null
     }
   },
+  components: {Loader},
   computed: {
     enableSubmit: function() {
-      return this.name && this.email && this.text
+      return this.name && this.email && this.content
     },
     
     errorName: function() {
@@ -45,9 +53,9 @@ export default {
       }
     }, 
 
-    errorText: function() {
-      if(this.text != null) {
-        return this.text.length == 0
+    errorContent: function() {
+      if(this.content != null) {
+        return this.content.length == 0
       } else {
         return false
       }
@@ -70,22 +78,44 @@ export default {
           return false
         }
       },
-      handleSubmit: function () {
+      handleSubmit: async function () {
 
-        if(this.name && this.email && this.text) {
-        console.log('ФИО: ', this.name)
-        console.log('Email: ', this.email)
-        console.log('Образование: ', this.text)
-        this.submitSuccess = true
+        if(this.name && this.email && this.content) {
+          this.loader = ' '
+          this.submitSuccess= true
+          try {
+            const data = {
+              "name": this.name.toString(),
+              "email": this.email.toString(),
+              "content": this.content.toString()
+            }
+            const response = await fetch('http://localhost:8080/api/ask_items', {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(data)
+            });
+            if(!response.ok) {
+              throw Error('not available')
+            } 
+            this.formSuccess = true
+            this.loader = null
+          } catch (err) {
+            this.loader = null
+            this.errorForm = err.message
+          }
         } else {
           console.log('Incomplete form!')
         }
 
-        if(!this.text) {
-          this.text = ''
+        if(!this.content) {
+          this.content = ''
         }
 
-        if(!this.firstName) {
+        if(!this.name) {
           this.name = ''
         }
 

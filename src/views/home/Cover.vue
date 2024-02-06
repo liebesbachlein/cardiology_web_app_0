@@ -47,7 +47,7 @@
     
             const changeCover = (currentCover) => {
                 if( document.getElementById('cover1') && document.getElementById('cover2') && document.getElementById('cover3') ) {
-                    return
+                    return false
                 }
                 if (currentCover == 1 ) {
                     if (index == 3) {
@@ -123,6 +123,9 @@
     
         
     window.onload = async function () { 
+        if( document.getElementById('cover1') && document.getElementById('cover2') && document.getElementById('cover3') ) {
+                    return false
+                }
         return setInterval(function () { 
                 if (index == 1) {    
                     setTimeout(() => changeCover(nextIndexLeft(index), 380)); 

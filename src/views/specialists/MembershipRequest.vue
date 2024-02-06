@@ -15,81 +15,76 @@
                     </div>
               </div>
         
-      <form ref="formMem"  @submit.prevent="handleSubmit" :class="{'success-form' : submitSuccess}" autocomplete="on">
+      <form ref="formMem"  @submit.prevent="handleSubmit" :class="{'success-form' : successSubmit}" autocomplete="on">
         
         <div class="subpage-title" style="text-align: center;">Заяка на членство</div>
           <label>Фамилия <span>*</span></label>
-          <input  :readonly="submitSuccess" type="text" v-model="lastName" id="lastName" name="lastName" :class="{'invalid' : errorLastName}" required>
+          <input  :readonly="successSubmit" type="text" v-model="last_name" id="last_name" name="last_name" :class="{'invalid' : errorLast_name}" required>
 
           <label>Имя <span>*</span></label>
-          <input :readonly="submitSuccess" type="text" v-model="firstName" id="firstName" name="firstName"  :class="{'invalid' : errorFirstName}" required>
+          <input :readonly="successSubmit" type="text" v-model="first_name" id="first_name" name="first_name"  :class="{'invalid' : errorFirst_name}" required>
     
 
           <label>Отчество</label>
-          <input :readonly="submitSuccess" type="text" v-model="patroName" id="patroName" name="patroName" required>
+          <input :readonly="successSubmit" type="text" v-model="patro_name" id="patro_name" name="patro_name" required>
   
   
           <label>Email <span>*</span></label>
-          <input :readonly="submitSuccess" :class="{'invalid' : errorEmail}" type="email" id="email"  name="email"  v-model="email" @blur="validateEmail" required>
+          <input :readonly="successSubmit" :class="{'invalid' : errorEmail}" type="email" id="email"  name="email"  v-model="email" @blur="validateEmail" required>
       
 
           <label>Контактный телефон <span>*</span></label>
-          <input id="phoneNumber" name="phoneNumber" @paste="pasteNum($event)" @keydown="isNumber($event)" placeholder="+7 (___) ___ - __ - __" :readonly="submitSuccess" :class="{'invalid' : errorPhoneNumber}" type="tel" v-model="phoneNumber" required>
+          <input id="phone_number" name="phone_number" @paste="pasteNum($event)" @keydown="isNumber($event)" placeholder="+7 (___) ___ - __ - __" :readonly="successSubmit" :class="{'invalid' : errorPhone_number}" type="tel" v-model="phone_number" required>
 
           <label>Дата рождения <span>*</span></label>
-          <input :readonly="submitSuccess"  :class="{'invalid' : errorDateBirth}" type="date" v-model="dateBirth" id="dateBirth" name="dateBirth"  required>
+          <input :readonly="successSubmit"  :class="{'invalid' : errorDate_birth}" type="date" v-model="date_birth" id="date_birth" name="date_birth"  required>
   
           <label>Место рождения <span>*</span></label>
-          <input :readonly="submitSuccess" type="text" v-model="placeBirth" id="placeBirth" name="placeBirth" :class="{'invalid' : errorPlaceBirth}" required>
+          <input :readonly="successSubmit" type="text" v-model="place_birth" id="place_birth" name="place_birth" :class="{'invalid' : errorPlace_birth}" required>
   
           <label>Адрес места жительства <span>*</span></label>
-          <input :readonly="submitSuccess"  type="text" v-model="address" id="address" name="address" :class="{'invalid' : errorAddress}" required>
+          <input :readonly="successSubmit"  type="text" v-model="address" id="address" name="address" :class="{'invalid' : errorAddress}" required>
   
           <label>Номер/серия удостоверения личности <span>*</span></label>
-          <input placeholder="123456789" :readonly="submitSuccess" type="number" v-model="idDoc" id="idDoc"  name="idDoc"  :class="{'invalid' : errorIdDoc}" required>
+          <input placeholder="123456789" :readonly="successSubmit" type="text" v-model="id_doc" id="id_doc"  name="id_doc"  :class="{'invalid' : errorId_doc}" required>
   
           <label>Дата выдачи удостоверения личности <span>*</span></label>
-          <input :readonly="submitSuccess" type="date" v-model="dateDoc" id="dateDoc"  name="dateDoc" :class="{'invalid' : errorDateDoc}" required>
+          <input :readonly="successSubmit" type="date" v-model="date_doc" id="date_doc"  name="date_doc" :class="{'invalid' : errorDate_doc}" required>
   
           <label>Орган выдачи удостоверения личности <span>*</span></label>
-          <input :readonly="submitSuccess" type="text" v-model="placeDoc"  id="placeDoc"  name="placeDoc" :class="{'invalid' : errorPlaceDoc}" required>
+          <input :readonly="successSubmit" type="text" v-model="place_doc"  id="place_doc"  name="place_doc" :class="{'invalid' : errorPlace_doc}" required>
   
           <label>Образование (учебное заведение, специальность, дата окончания) <span>*</span></label>
-          <textarea :readonly="submitSuccess" rows = "10" :class="{'invalid' : errorEducation}"  v-model="education" name="education" required/>
+          <textarea :readonly="successSubmit" rows = "10" :class="{'invalid' : errorEducation}"  v-model="education" name="education" required/>
   
           <label>Дополнительное образование</label>
-          <textarea :readonly="submitSuccess" rows = "10" v-model="addEducation" name="addEducation"/>
+          <textarea :readonly="successSubmit" rows = "10" v-model="add_education" name="add_education"/>
      
           <label>Интересы и увлечения</label>
-          <textarea :readonly="submitSuccess" rows = "10" v-model="interests" name="interests"/>
+          <textarea :readonly="successSubmit" rows = "10" v-model="interests" name="interests"/>
      
           <label>Опыт работы</label>
-          <textarea :readonly="submitSuccess" rows = "10" v-model="experience" name="experience"/>
+          <textarea :readonly="successSubmit" rows = "10" v-model="experience" name="experience"/>
      
           <label>Прошу принять в члены ОО «Общество специалистов по артериальной гипертонии и кардиоваскулярной профилактике» на добровольной основе с <span>*</span></label>
-          <input :readonly="submitSuccess" type="date" v-model="dateMember" name="dateMember" id="dateMember" :class="{'invalid' : errorDateMember}" required>
+          <input :readonly="successSubmit" type="date" v-model="date_member" name="date_member" id="date_member" :class="{'invalid' : errorDate_member}" required>
   
           <div class="consent">
             <label class="checkbox-container">
-              <input :disabled="submitSuccess" type="checkbox" v-model="terms" name="terms" required>
+              <input :disabled="successSubmit" type="checkbox" v-model="terms" name="terms" required>
               <span class="checkmark"></span>
             </label>
-            <label class="consent-label" :style="{color: submitSuccess? '#A7ACBC': ''}">Принимаю <span @click.prevent="download">Условия политики конфиденциальности</span></label>
+            <label class="consent-label" :style="{color: successSubmit? '#A7ACBC': ''}">Принимаю <span @click.prevent="download">Условия политики конфиденциальности</span></label>
           </div>
           
     
           <div class="submit" style="display: flex; justify-content: center;">
           <Loader style="position: absolute;" v-if="loader"/>
-          <input :disabled="!enableSubmit" class="long-blue-button" @click="handleSubmit" value="Отправить заявку" v-if="!formSuccess">
+          <input :disabled="!enableSubmit" class="long-blue-button" @click="handleSubmit" value="Отправить заявку" v-if="!successSubmit && !errorSubmit ">
         </div>
-        <div class="success-blue-button" style="background-color: #FFF; border: 1px solid var(--component-accent-color2); color: var(--component-accent-color2)" v-if="submitSuccess && formSuccess">
-          Заявка успешно отправлена!
-        </div>
+        <div class="success-blue-button" style="background-color: #FFF; border: 1px solid var(--component-accent-color2); color: var(--component-accent-color2)" v-if="successSubmit || errorSubmit" v-text="errorSubmit? errorSubmit : 'Заявка успешно отправлена!'"/>
   
       </form>
-
-
-  
           </div>
           <Footer/>
         </div>
@@ -110,36 +105,35 @@ export default {
     components: {ChevronRight, Footer, Loader}, 
     data() {
       return {
-        firstName: null,
-        lastName: null,
-        patroName: null,
+        first_name: null,
+        last_name: null,
+        patro_name: null,
         email: null,
-        phoneNumber: null,
-        idDoc: null,
-        dateDoc: null,
-        placeDoc: null,
-        dateBirth: null,
-        placeBirth: null,
+        phone_number: null,
+        id_doc: null,
+        date_doc: null,
+        place_doc: null,
+        date_birth: null,
+        place_birth: null,
         address: null,
         terms: null,
         education: null,
-        submitSuccess: false, 
-        addEducation: null,
+        add_education: null,
         interests: null,
         experience: null, 
-        dateMember: null, 
-        formSuccess: null,
-        formError: null, 
-        loader: null
+        date_member: null, 
+        successSubmit: null, 
+        loader: null,
+        errorSubmit: null
     }
   },
   computed: {
     enableSubmit: function() {
-      return this.firstName && this.lastName && this.email && this.phoneNumber && this.address && this.dateBirth && this.placeBirth && 
-        this.idDoc && this.dateDoc && this.placeDoc && this.terms && this.education && !this.errorEducation
-        && !this.errorPhoneNumber && !this.errorFirstName && !this.errorLastName && !this.errorEmail && !this.errorIdDoc 
-        && !this.errorPlaceDoc && !this.errorDateDoc && !this.errorDateBirth &&  !this.errorPlaceBirth && !this.errorAddress 
-         && !this.errorTerms && !this.errorDateMember
+      return this.first_name && this.last_name && this.email && this.phone_number && this.address && this.date_birth && this.place_birth && 
+        this.id_doc && this.date_doc && this.place_doc && this.terms && this.education && !this.errorEducation
+        && !this.errorPhone_number && !this.errorFirst_name && !this.errorLast_name && !this.errorEmail && !this.errorId_doc 
+        && !this.errorPlace_doc && !this.errorDate_doc && !this.errorDate_birth &&  !this.errorPlace_birth && !this.errorAddress 
+         && !this.errorTerms && !this.errorDate_member
     },
     errorEducation: function() {
       if(this.education != null) {
@@ -148,27 +142,27 @@ export default {
         return false
       }
     },
-    errorPhoneNumber: function() {
-      if(this.phoneNumber != null) {
-        if (this.phoneNumber.length == 0) {
+    errorPhone_number: function() {
+      if(this.phone_number != null) {
+        if (this.phone_number.length == 0) {
           return true
-        } else if (this.phoneNumber.length < 18) {
+        } else if (this.phone_number.length < 18) {
           return true
         }
       } else {
         return false
       }
     }, 
-    errorFirstName: function() {
-      if(this.firstName != null) {
-        return this.firstName.length == 0
+    errorFirst_name: function() {
+      if(this.first_name != null) {
+        return this.first_name.length == 0
       } else {
         return false
       }
     }, 
-    errorLastName: function() {
-      if(this.lastName != null) {
-        return this.lastName.length == 0
+    errorLast_name: function() {
+      if(this.last_name != null) {
+        return this.last_name.length == 0
       } else {
         return false
       }
@@ -180,9 +174,9 @@ export default {
         return false
       }
     }, 
-    errorIdDoc: function() {
-      if(this.idDoc != null) {
-        if(/^[0-9]{9}$/.test(this.idDoc)) {
+    errorId_doc: function() {
+      if(this.id_doc != null) {
+        if(/^[0-9]{9}$/.test(this.id_doc)) {
           return false
         } else {
           return true
@@ -191,30 +185,30 @@ export default {
         return false
       }
     }, 
-    errorPlaceDoc: function() {
-      if(this.placeDoc != null) {
-        return this.placeDoc.length == 0
+    errorPlace_doc: function() {
+      if(this.place_doc != null) {
+        return this.place_doc.length == 0
       } else {
         return false
       }
     }, 
-    errorDateDoc: function() {
-      if(this.dateDoc != null) {
-        return this.dateDoc.length == 0
+    errorDate_doc: function() {
+      if(this.date_doc != null) {
+        return this.date_doc.length == 0
       } else {
         return false
       }
     }, 
-    errorDateBirth: function() {
-      if(this.dateBirth != null) {
-        return this.dateBirth.length == 0
+    errorDate_birth: function() {
+      if(this.date_birth != null) {
+        return this.date_birth.length == 0
       } else {
         return false
       }
     }, 
-    errorPlaceBirth: function() {
-      if(this.placeBirth != null) {
-        return this.placeBirth.length == 0
+    errorPlace_birth: function() {
+      if(this.place_birth != null) {
+        return this.place_birth.length == 0
       } else {
         return false
       }
@@ -233,9 +227,9 @@ export default {
         return false
       }
     }, 
-    errorDateMember: function() {
-      if(this.dateMember != null) {
-        return this.dateMember.length == 0
+    errorDate_member: function() {
+      if(this.date_member != null) {
+        return this.date_member.length == 0
       } else {
         return false
       }
@@ -278,11 +272,11 @@ export default {
       pasteNum: function(e) {
         let value = e.clipboardData.getData('text/plain')
         e.preventDefault()
-        if(this.phoneNumber == null) {
-          this.phoneNumber = this.formatNum(value)
+        if(this.phone_number == null) {
+          this.phone_number = this.formatNum(value)
         } else {
-        let curPos = document.getElementById("phoneNumber").selectionStart; 
-        this.phoneNumber = this.formatNum(this.phoneNumber.slice(0, curPos) + value + this.phoneNumber.slice(curPos))
+        let curPos = document.getElementById("phone_number").selectionStart; 
+        this.phone_number = this.formatNum(this.phone_number.slice(0, curPos) + value + this.phone_number.slice(curPos))
         }
 
       },
@@ -294,83 +288,83 @@ export default {
             return
           } 
         }
-          let curPos = document.getElementById("phoneNumber").selectionStart;  
-          let curPosEnd = document.getElementById("phoneNumber").selectionEnd;  
+          let curPos = document.getElementById("phone_number").selectionStart;  
+          let curPosEnd = document.getElementById("phone_number").selectionEnd;  
           let char = e.key
           if (/[0-9+]/.test(char)) {
-            if (this.phoneNumber == null) {
+            if (this.phone_number == null) {
               if(char == '7') {
-                this.phoneNumber = '+'
+                this.phone_number = '+'
               } else if (char != '+') {
-                this.phoneNumber = '+7 ('
+                this.phone_number = '+7 ('
               }
             } else {
               if (char == '+') {
-                //this.phoneNumber = this.formatNum(this.phoneNumber)
-                this.phoneNumber = this.nextNum(this.phoneNumber)
+                //this.phone_number = this.formatNum(this.phone_number)
+                this.phone_number = this.nextNum(this.phone_number)
                 e.preventDefault()
-              } else if (this.phoneNumber.length == 0) {
+              } else if (this.phone_number.length == 0) {
                   if (char == '7') {
-                    this.phoneNumber = '+'
+                    this.phone_number = '+'
                   } else {
-                    this.phoneNumber = '+7 ('
+                    this.phone_number = '+7 ('
                   }
-              } else if (this.phoneNumber == '+' && char != '7' ) {
-                //let number = this.formatNum(this.phoneNumber.slice(0, curPos) + char + this.phoneNumber.slice(curPos))
-                this.phoneNumber = '+7 ('
-              } else if (this.phoneNumber == '+7' || this.phoneNumber == '+7 ' || this.phoneNumber == '+7 (' ) {
-                this.phoneNumber = '+7 ('
+              } else if (this.phone_number == '+' && char != '7' ) {
+                //let number = this.formatNum(this.phone_number.slice(0, curPos) + char + this.phone_number.slice(curPos))
+                this.phone_number = '+7 ('
+              } else if (this.phone_number == '+7' || this.phone_number == '+7 ' || this.phone_number == '+7 (' ) {
+                this.phone_number = '+7 ('
               } else {
                 if(curPos == curPosEnd) {
-                  let lenStart = this.phoneNumber.length
-                  this.phoneNumber = this.formatNum(this.phoneNumber.slice(0, curPos) + char + this.phoneNumber.slice(curPos))
+                  let lenStart = this.phone_number.length
+                  this.phone_number = this.formatNum(this.phone_number.slice(0, curPos) + char + this.phone_number.slice(curPos))
                   
                   e.preventDefault()
-                  let lenEnd = this.phoneNumber.length
+                  let lenEnd = this.phone_number.length
                   let dif = lenEnd - lenStart
                   window.setTimeout(function() {
-                    document.getElementById("phoneNumber").setSelectionRange(curPos + dif, curPos + dif);
+                    document.getElementById("phone_number").setSelectionRange(curPos + dif, curPos + dif);
                   }, 0)
                 } else {
-                  let lenStart = this.phoneNumber.length
-                  this.phoneNumber = this.formatNum(this.phoneNumber.slice(0, curPos) + char + this.phoneNumber.slice(curPosEnd))
+                  let lenStart = this.phone_number.length
+                  this.phone_number = this.formatNum(this.phone_number.slice(0, curPos) + char + this.phone_number.slice(curPosEnd))
                 
                   e.preventDefault()
-                  let lenEnd = this.phoneNumber.length
+                  let lenEnd = this.phone_number.length
                   let dif = lenEnd - lenStart
                   window.setTimeout(function() {
-                    document.getElementById("phoneNumber").setSelectionRange(lenEnd, lenEnd);
+                    document.getElementById("phone_number").setSelectionRange(lenEnd, lenEnd);
                   }, 0)
                 }
                 
               }
             }
           } else {
-              //let lenStart = this.phoneNumber? this.phoneNumber.length : 0
+              //let lenStart = this.phone_number? this.phone_number.length : 0
               if(e.key) {
                 if(e.key.toLowerCase() === 'arrowright' || e.key.toLowerCase() === 'arrowleft') {
                   return
                 } 
               }
-              this.phoneNumber = this.nextNum(this.phoneNumber)
+              this.phone_number = this.nextNum(this.phone_number)
               e.preventDefault()
-              let lenStart = this.phoneNumber? this.phoneNumber.length : 0
-              /*let lenEnd = this.phoneNumber.length
+              let lenStart = this.phone_number? this.phone_number.length : 0
+              /*let lenEnd = this.phone_number.length
               let dif = lenEnd - lenStart == 0 ? 1 : lenEnd - lenStart
               window.setTimeout(function() {
-                document.getElementById("phoneNumber").setSelectionRange(curPos + dif, curPos + dif);
+                document.getElementById("phone_number").setSelectionRange(curPos + dif, curPos + dif);
               }, 0)*/
               window.setTimeout(function() {
-                document.getElementById("phoneNumber").setSelectionRange(lenStart, lenStart);
+                document.getElementById("phone_number").setSelectionRange(lenStart, lenStart);
               }, 0)
           }
       },
       eraseNum: function(e) {
         const pos = [2, 3, 7, 8, 12, 15]
-        let curPos = document.getElementById("phoneNumber").selectionStart; 
-        let curPosEnd = document.getElementById("phoneNumber").selectionEnd;
+        let curPos = document.getElementById("phone_number").selectionStart; 
+        let curPosEnd = document.getElementById("phone_number").selectionEnd;
         if (e.key) {
-          if(e.key.toLowerCase() === 'backspace' && this.phoneNumber) {/////////////////
+          if(e.key.toLowerCase() === 'backspace' && this.phone_number) {/////////////////
             if(curPos == curPosEnd) {
               
               let flag = false
@@ -378,7 +372,7 @@ export default {
                 if (curPos - 1 == x) {
                   e.preventDefault()
                   window.setTimeout(function() {
-                    document.getElementById("phoneNumber").setSelectionRange(curPos - 1, curPos - 1);
+                    document.getElementById("phone_number").setSelectionRange(curPos - 1, curPos - 1);
                     }, 0)
                     flag=true
                 }
@@ -388,43 +382,43 @@ export default {
                 return true
               }
 
-              let lenStart = this.phoneNumber.length
-              this.phoneNumber = this.formatNum(this.phoneNumber.slice(0, curPos - 1) + this.phoneNumber.slice(curPos))
-              //this.phoneNumber = this.nextNum(this.phoneNumber)
+              let lenStart = this.phone_number.length
+              this.phone_number = this.formatNum(this.phone_number.slice(0, curPos - 1) + this.phone_number.slice(curPos))
+              //this.phone_number = this.nextNum(this.phone_number)
               e.preventDefault()
-              let lenEnd = this.phoneNumber.length
+              let lenEnd = this.phone_number.length
               let dif = lenEnd - lenStart
               window.setTimeout(function() {
-                  document.getElementById("phoneNumber").setSelectionRange(curPos + dif, curPos + dif);
+                  document.getElementById("phone_number").setSelectionRange(curPos + dif, curPos + dif);
                 }, 0)
 
             } else {
-              this.phoneNumber = this.formatNum(this.phoneNumber.slice(0, curPos) + this.phoneNumber.slice(curPosEnd))
-              //this.phoneNumber = this.nextNum(this.phoneNumber)
+              this.phone_number = this.formatNum(this.phone_number.slice(0, curPos) + this.phone_number.slice(curPosEnd))
+              //this.phone_number = this.nextNum(this.phone_number)
               e.preventDefault()
-              let lenEnd = this.phoneNumber.length
+              let lenEnd = this.phone_number.length
               window.setTimeout(function() {
-                document.getElementById("phoneNumber").setSelectionRange(lenEnd, lenEnd);
+                document.getElementById("phone_number").setSelectionRange(lenEnd, lenEnd);
               }, 0)
             }
-        } else if(e.key.toLowerCase() === 'delete' && this.phoneNumber) {///////////////
+        } else if(e.key.toLowerCase() === 'delete' && this.phone_number) {///////////////
             if(curPos == curPosEnd) {
-              let lenStart = this.phoneNumber.length
-              this.phoneNumber = this.formatNum(this.phoneNumber.slice(0, curPos) + this.phoneNumber.slice(curPos + 1))
-              //this.phoneNumber = this.nextNum(this.phoneNumber)
+              let lenStart = this.phone_number.length
+              this.phone_number = this.formatNum(this.phone_number.slice(0, curPos) + this.phone_number.slice(curPos + 1))
+              //this.phone_number = this.nextNum(this.phone_number)
               e.preventDefault()
-              let lenEnd = this.phoneNumber.length
+              let lenEnd = this.phone_number.length
               let dif = lenEnd - lenStart
               window.setTimeout(function() {
-                document.getElementById("phoneNumber").setSelectionRange(curPos, curPos);
+                document.getElementById("phone_number").setSelectionRange(curPos, curPos);
                 }, 0) }
             else {
-              this.phoneNumber = this.formatNum(this.phoneNumber.slice(0, curPos) + this.phoneNumber.slice(curPosEnd))
-              //this.phoneNumber = this.nextNum(this.phoneNumber)
+              this.phone_number = this.formatNum(this.phone_number.slice(0, curPos) + this.phone_number.slice(curPosEnd))
+              //this.phone_number = this.nextNum(this.phone_number)
               e.preventDefault()
-              let lenEnd = this.phoneNumber.length
+              let lenEnd = this.phone_number.length
               window.setTimeout(function() {
-                document.getElementById("phoneNumber").setSelectionRange(lenEnd, lenEnd);
+                document.getElementById("phone_number").setSelectionRange(lenEnd, lenEnd);
               }, 0)
             }
         } 
@@ -456,14 +450,55 @@ export default {
           return false
         }
       },
-      handleSubmit: function () {
-        if(this.submitSuccess) {
+      handleSubmit: async function () {
+        if(this.successSubmit) {
         return
        } 
-        if(this.firstName && this.lastName && this.email && this.phoneNumber && this.address && this.dateBirth && this.placeBirth && 
-        this.idDoc && this.dateDoc && this.placeDoc && this.terms && this.education) {
+        if(this.first_name && this.last_name && this.email && this.phone_number && this.address && this.date_birth && this.place_birth && 
+        this.id_doc && this.date_doc && this.place_doc && this.terms && this.education) {
           this.loader = ' '
-         this.submitSuccess= true
+          try {
+            const data = {
+              last_name: this.last_name,
+              first_name: this.first_name,
+              patro_name: this.patro_name,
+              email: this.email,
+              phone_number: this.phone_number,
+              date_birth: this.date_birth,
+              place_birth: this.place_birth,
+              address: this.address,
+              id_doc: this.id_doc,
+              date_doc: this.date_doc,
+              place_doc: this.place_doc,
+              education: this.education,
+              add_education: this.add_education,
+              interests: this.interests,
+              experience: this.experience,
+              date_member: this.date_member,
+              terms: this.terms
+            }
+            const response = await fetch('http://localhost:8080/api/membership_items', {
+              credentials: 'include',
+              method: 'POST',
+              mode: 'no-cors',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+              body: JSON.stringify(data)
+            });
+            if(!response.ok) {
+              throw Error('not available')
+            } 
+            this.loader = null
+            this.successSubmit = true
+          } catch (err) {
+            this.loader = null
+            this.errorSubmit = err.message
+          }
+
+        
+        /*
           emailjs.sendForm('service_kejad4f', 'template_gq4284m', this.$refs.formMem, '5rwZj5R_LOCI4FI6C')
             .then((result) => {
               this.formSuccess = result.text
@@ -472,7 +507,7 @@ export default {
             }, (error) => {
               this.formError = error.text
                 console.log('FAILED...', error.text);
-            });
+            });*/
         } 
 
         if(!this.terms) {
@@ -483,44 +518,44 @@ export default {
           this.education = ''
         }
 
-        if(!this.idDoc) {
-          this.idDoc = ''
+        if(!this.id_doc) {
+          this.id_doc = ''
         }
 
-        if(!this.placeDoc) {
-          this.placeDoc = ''
+        if(!this.place_doc) {
+          this.place_doc = ''
         }
 
-        if(!this.dateDoc) {
-          this.dateDoc = ''
+        if(!this.date_doc) {
+          this.date_doc = ''
         }
 
-        if(!this.firstName) {
-          this.firstName = ''
+        if(!this.first_name) {
+          this.first_name = ''
         }
 
-        if(!this.lastName) {
-          this.lastName = ''
+        if(!this.last_name) {
+          this.last_name = ''
         }
 
         if(!this.email) {
           this.email = ''
         }
 
-        if(!this.phoneNumber) {
-          this.phoneNumber = ''
+        if(!this.phone_number) {
+          this.phone_number = ''
         }
 
         if(!this.address) {
           this.address = ''
         }
 
-        if(!this.dateBirth) {
-          this.dateBirth = ''
+        if(!this.date_birth) {
+          this.date_birth = ''
         }
 
-        if(!this.placeBirth) {
-          this.placeBirth = ''
+        if(!this.place_birth) {
+          this.place_birth = ''
         }
         
     }, 
@@ -690,7 +725,7 @@ textarea:focus {
   transform: rotate(45deg);
 }
 
-@media only screen and (max-width: 768px) {
+
   form {
       display: block;
       width: 100%;
@@ -708,29 +743,13 @@ textarea:focus {
  .greyback .breadcrumbs-box {
   display: none;
  }
-}
 
-@media only screen and (max-width: 1023px) and (min-width: 769px) {
-  form {
-      display: block;
-      width: 100%;
-      margin: 4rem 0 6rem 0;
-      background: #FFF;
-      text-align: left;
-      padding: 3rem 1rem;
-      border-radius: 0.5rem;
-  }
-
-  .greyback .site-content-in {
-  padding: 0 0.5rem;
- } 
-
- .greyback .breadcrumbs-box {
-  display: none;
- }
-}
 
 @media only screen and (min-width: 1024px) {
+  .greyback .breadcrumbs-box {
+  display: flex;
+ }
+
   form {
     display: block;
     width: 75%;
@@ -741,9 +760,6 @@ textarea:focus {
     border-radius: 0.5rem;
 }
 
-  .greyback .site-content-in {
-  padding: 0 0.5rem;
- } 
 
 }
 

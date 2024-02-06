@@ -69,15 +69,26 @@ export default {
     
     const load = async () => {
       try {
-        let data = await fetch('http://localhost:8080/api/items') 
+        let data = await fetch('http://localhost:8080/api/news-items') 
         if(!data.ok) {
             throw Error('no available data')
         } 
         newsFeed.value = await data.json()
         console.log(newsFeed.value)
+        newsFeed.value.sort((a, b) => {
+            let fa = a.date_published,
+                fb = b.date_published;
+
+                if (fa > fb) {
+                    return -1;
+                }
+                if (fa < fb) {
+                    return 1;
+                }
+                return 0;
+            });
       }
       catch(err) {
-        console.log('ERROR')
         error.value = err.message
         console.log(error.value)
       }

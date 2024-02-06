@@ -47,20 +47,7 @@ export default {
 
   .site-content-in {
     width: 100%;
-    padding: 0; 
   }
-
-@media only screen and (min-width: 768px)  {
-
-  .site-content {
-    top: 4.75rem;
-  }
-
-  .site-content-in {
-    width: 100%;
-    padding: 0; 
-  }
-}
 
 @media only screen and (min-width: 1024px) {
 

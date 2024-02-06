@@ -75,11 +75,11 @@ export default {
     const load = async () => {
       try {
         const id = route.params.id
-        newsItem.value = await loadNewsId(id)
-        /*if(!data.ok) {
+        let data = await fetch('http://localhost:8080/api/items/' + id) 
+        if(!data.ok) {
           throw Error('no available data')
         } 
-        newsItem.value = await data.json()*/
+        newsItem.value = await data.json()
         console.log(newsItem.value)
       }
       catch(err) {
