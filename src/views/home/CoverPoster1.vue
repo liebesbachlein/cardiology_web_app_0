@@ -3,19 +3,19 @@
         <div class="box">
            
             <div class="header1">
-                <div>Региональный тур</div>
-                <div>Академия</div>
-                <div>Kардио-терапевта</div>
+                <div>VI Республиканская научно-практическая конференциия
+                    с международным участием</div>
+                <div>Секреты женского сердца – 2024</div>
             </div> 
             <div class="header2">
-                <div class="poster-details-box"><div class="poster-details-name">Когда начинать лечение, какую терапию предпочесть в той или иной ситуации?</div></div>
-                <div class="poster-details-box"><div class="poster-details-name">Какие методы диагностики актуальны?</div></div>
-                <div class="poster-details-box"><div class="poster-details-name">Алгоритмы, чёткие планы ведения, реальные клинические ситуации</div></div>
-                <div class="poster-city"><img src="@/assets/address-white.svg">Шымкент, Aidana Plaza Hotel</div>
-                <div class="poster-date"><img src="@/assets/time.svg">8 — 9 февраля</div>
+                <div class="poster-details-box"><div class="poster-details-name">Гибридный формат: онлайн и оффлайн</div></div>
+                <div class="poster-details-box"><div class="poster-details-name">Актуальные вопросы в области ССЗ у женщин</div></div>
+                <div class="poster-details-box"><div class="poster-details-name">Oбмен опытом с ведущими специалистами</div></div>
+                <div class="poster-city"><img src="@/assets/address-white.svg">Отель «Kazzhol Park Almaty», Алматы</div>
+                <div class="poster-date"><img src="@/assets/time.svg">29 февраля</div>
                 
-                <a class="cover-button" tag="div" href="https://www.instagram.com/p/C2INfZlCciy/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">
-                    Подробнее →</a>
+                <a class="cover-button" tag="div" href="https://whs2024.online/">
+                    Зарегистрироваться →</a>
                 
             </div>    
         </div>
@@ -53,6 +53,10 @@ export default {
     margin-top: 0.5rem;
 }
 
+.poster1 .cover-button {
+    width: 13rem;
+}
+
 .poster {
     width: 100%;
     height: 100%;
@@ -66,7 +70,7 @@ export default {
 }
 
 .poster1 {
-    background-image: url('/covers/cover11-mobile.png');
+    background-image: url('/covers/cover24-mobile.png');
 }
 
 .poster1 .box {
@@ -80,7 +84,7 @@ export default {
 .poster1 .header1 {
     text-align: left;
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .poster1 .header2 {
@@ -95,16 +99,18 @@ export default {
 
 .poster1 .header1 div:nth-child(1) {
     font-family: var(--plain-text-font);
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 400;
-    color: rgb(158, 198, 234, 0.8);
+    color: #322957d2;
+    margin-bottom: 1rem;
 }
 
 .poster1 .header1 div:nth-child(2) {
     font-family: var(--tenor-font);
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 500;
-    color: var(--component-accent-color1)
+    color: #3E3561;
+    margin-bottom: 1.5rem;
 }
 
 .poster1 .header1 div:nth-child(3) {
@@ -119,7 +125,7 @@ export default {
     display: inline-flex;
     align-items: center;
     border-radius: 0.5rem;
-    background-color: rgb(158, 198, 234, 0.8);
+    background-color: rgba(144, 82, 155, 0.676);
     padding: 0.25rem 0.5rem;
     max-width: auto;
 }
@@ -128,21 +134,21 @@ export default {
     display: inline-block;
     height: 100%;
     text-wrap: wrap;
-    font-size: 1rem;
+    font-size: 0.875rem;
     color: #FFF;
 }
 
 .poster-city, .poster-date {
     display: flex;
     flex-wrap: nowrap;
-    font-size: 1.325rem;
+    font-size: 1.125rem;
     font-family: var(--plain-text-font);
     color: #FFF;
     align-items: center;
 }
 
 .poster-city {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
 }
 
 .poster-date {
@@ -170,7 +176,7 @@ export default {
 }
 
 .poster1 {
-    background-image: url('/covers/cover11.png');
+    background-image: url('/covers/cover24.png');
 }
 
 .poster1 .box {
@@ -178,6 +184,7 @@ export default {
     justify-content: center;
     align-items: flex-start;
     flex-direction: row;
+    padding-bottom: 4rem;
 }
 
 .poster1 .header1 {
@@ -191,16 +198,18 @@ export default {
     text-align: left;
     justify-content: center;
     height: 100%;
-
+    margin-left: 5rem;
+    margin-top: 0.5rem;
 }
 
 .poster1 .header1 div:nth-child(1) {
-    font-size: 1.25rem;
-    font-weight: 400;
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
 }
 
 .poster1 .header1 div:nth-child(2) {
-    font-size: 5rem;
+    font-size: 3.5rem;
     font-weight: 400;
 }
 
@@ -208,8 +217,21 @@ export default {
     font-size: 2.5rem;
     font-weight: 400;
 }
+.poster-details-name {
+    font-size: 1rem;
+}
 
+.poster-city, .poster-date {
+    font-size: 1.25rem;
+}
+.poster-city {
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
 
+.poster-date {
+    margin-bottom: 3rem;
+}
 
 
 }

@@ -15,7 +15,7 @@
                 <div class="multi-page-box">
                     <div  class="newsfeed-timeline multi-page-content">
                         <div v-if="error">{{ error }}</div>
-                        <div v-else-if="newsFeed" style="width: 100%">
+                        <div v-else-if="newsFeed.length > 1" style="width: 100%">
                             <div v-for="newsItem in displayNewsList" :key="newsItem? newsItem.id : null" style="width: 100%">
                                 <div v-if="newsItem? newsItem.id : null" style="width: 100%">
                                     <NewsShort :newsItem="newsItem? newsItem : null"/>
@@ -31,10 +31,10 @@
                     
                     <div class="page-side">
                         <div class="page-side-box">
-                            <router-link to="/specialists/education-request/">
+                            <router-link to="/specialists/3">
                                 <SideBarHeadingsNoUrl check="true" heading="Записаться на обучение"/>
                             </router-link>
-                            <router-link to="/specialists/membership-request/">
+                            <router-link to="/specialists/1">
                                 <SideBarHeadingsNoUrl check="true" heading="Стать членом Общества"/>
                             </router-link>
                         </div> 
@@ -53,14 +53,14 @@ import Footer from '@/components/Footer.vue';
 import Loader from '@/components/Loader.vue';
 import NewsAbout from './NewsAbout.vue';
 import { ref, computed } from 'vue';
-import { loadNews  } from '@/firebase/config';
+import { getNewsItemAll  } from '@/firebase/config';
 import SideBarHeadingsNoUrl from '@/components/SideBarHeadingsNoUrl.vue';
 
 export default {
     name: "NewsView",
     components: { NewsAbout, ChevronRight, NewsShort, Footer, Loader, SideBarHeadingsNoUrl },
     setup() { 
-    const newsLimit = 8
+    const newsLimit = 10
     let loadIndex = 1
     const newsFeed = ref([null])
     const error = ref(null)
@@ -69,12 +69,7 @@ export default {
     
     const load = async () => {
       try {
-        let data = await fetch('http://localhost:8080/api/news-items') 
-        if(!data.ok) {
-            throw Error('no available data')
-        } 
-        newsFeed.value = await data.json()
-        console.log(newsFeed.value)
+        newsFeed.value = await getNewsItemAll()
         newsFeed.value.sort((a, b) => {
             let fa = a.date_published,
                 fb = b.date_published;

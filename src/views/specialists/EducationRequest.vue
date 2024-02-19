@@ -11,7 +11,7 @@
                     </div>
                     <ChevronRight color="grey"/>
                     <div class="breadcrumb-now">
-                      <router-link :to="/membership-request/">Обучение</router-link>
+                      <router-link to="/specialists/membership-request/">Обучение</router-link>
                     </div>
               </div>
         
@@ -89,7 +89,7 @@
     
           <div class="submit" style="display: flex; justify-content: center;">
           <Loader style="position: absolute;" v-if="loader"/>
-          <input :disabled="!enableSubmit" class="long-blue-button" @click="handleSubmit" value="Отправить заявку" v-if="!successSubmit && !errorSubmit ">
+          <input type="submit" :disabled="!enableSubmit" class="long-blue-button" @click="handleSubmit" value="Отправить заявку" v-if="!successSubmit && !errorSubmit ">
         </div>
         <div class="success-blue-button" style="background-color: #FFF; border: 1px solid var(--component-accent-color2); color: var(--component-accent-color2)" 
         v-if="successSubmit || errorSubmit" v-text="errorSubmit? errorSubmit : 'Заявка успешно отправлена!'"/>
@@ -112,6 +112,7 @@ import Footer from '@/components/Footer.vue';
 import Axios from 'axios'
 import emailjs from 'emailjs-com' 
 import Loader from '@/components/Loader.vue';
+import { postEducationItem} from '@/firebase/config.js'
 
 export default {
     name: 'MembershipRequest',
@@ -440,51 +441,31 @@ export default {
         
         this.loader = ' '
           try {
-            const data = {
-              last_name: this.last_name,
-              first_name: this.first_name,
-              patro_name: this.patro_name,
-              email: this.email,
-              phone_number: this.phone_number,
-              speciality: this.speciality,
-              address_home: this.address_home,
-              address_work: this.address_work,
-              picked_month: this.picked_month,
-              picked_time: this.picked_time,
-              terms: this.terms
-            }
-            const response = await fetch('http://localhost:8080/api/education_items', {
-              credentials: 'include',
-              method: 'POST',
-              mode: 'no-cors',
-              headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-                },
-              body: JSON.stringify(data)
-            });
-            if(!response.ok) {
-              throw Error('not available')
-            } 
-            console.log('success post')
-            this.successSubmit= true
-            this.loader = null
+            const response = postEducationItem(
+              this.last_name,
+              this.first_name,
+              this.patro_name,
+              this.email,
+              this.phone_number,
+              this.speciality,
+              this.address_home,
+              this.address_work,
+              this.picked_month,
+              this.picked_time,
+              this.terms)
+            if(response) {
+              emailjs.sendForm('service_kejad4f', 'template_1bb61ip', this.$refs.formEdu, '5rwZj5R_LOCI4FI6C')
+              .then((result) => {
+                this.successSubmit= true
+                this.loader = null
+              }, (error) => {
+                this.errorSubmit = error.text
+              });
+            }  
           } catch (err) {
             this.loader = null
             this.errorSubmit = err.message
-          }
-
-
-
-          /*emailjs.sendForm('service_kejad4f', 'template_1bb61ip', this.$refs.formEdu, '5rwZj5R_LOCI4FI6C')
-            .then((result) => {
-              this.formSuccess = result.text
-              this.loader = null
-                console.log('SUCCESS!', result.text);
-            }, (error) => {
-              this.formError = error.text
-                console.log('FAILED...', error.text);
-            });*/
+          }          
        } 
 
        if(!this.terms) {

@@ -80,9 +80,10 @@
     
           <div class="submit" style="display: flex; justify-content: center;">
           <Loader style="position: absolute;" v-if="loader"/>
-          <input :disabled="!enableSubmit" class="long-blue-button" @click="handleSubmit" value="Отправить заявку" v-if="!successSubmit && !errorSubmit ">
+          <input type="submit" :disabled="!enableSubmit" class="long-blue-button" @click="handleSubmit" value="Отправить заявку" v-if="!successSubmit && !errorSubmit ">
         </div>
-        <div class="success-blue-button" style="background-color: #FFF; border: 1px solid var(--component-accent-color2); color: var(--component-accent-color2)" v-if="successSubmit || errorSubmit" v-text="errorSubmit? errorSubmit : 'Заявка успешно отправлена!'"/>
+        <div class="success-blue-button" style="background-color: #FFF; border: 1px solid var(--component-accent-color2); color: var(--component-accent-color2)" 
+        v-if="successSubmit || errorSubmit" v-text="errorSubmit? errorSubmit : 'Заявка успешно отправлена!'"/>
   
       </form>
           </div>
@@ -99,6 +100,7 @@ import Footer from '@/components/Footer.vue';
 import Axios from 'axios'
 import emailjs from 'emailjs-com' 
 import Loader from '@/components/Loader.vue';
+import { postMembershipItem} from '@/firebase/config.js'
 
 export default {
     name: 'MembershipRequest',
@@ -458,56 +460,38 @@ export default {
         this.id_doc && this.date_doc && this.place_doc && this.terms && this.education) {
           this.loader = ' '
           try {
-            const data = {
-              last_name: this.last_name,
-              first_name: this.first_name,
-              patro_name: this.patro_name,
-              email: this.email,
-              phone_number: this.phone_number,
-              date_birth: this.date_birth,
-              place_birth: this.place_birth,
-              address: this.address,
-              id_doc: this.id_doc,
-              date_doc: this.date_doc,
-              place_doc: this.place_doc,
-              education: this.education,
-              add_education: this.add_education,
-              interests: this.interests,
-              experience: this.experience,
-              date_member: this.date_member,
-              terms: this.terms
-            }
-            const response = await fetch('http://localhost:8080/api/membership_items', {
-              credentials: 'include',
-              method: 'POST',
-              mode: 'no-cors',
-              headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-                },
-              body: JSON.stringify(data)
-            });
-            if(!response.ok) {
-              throw Error('not available')
+            const response = postMembershipItem(
+              this.last_name,
+              this.first_name,
+              this.patro_name,
+              this.email,
+              this.phone_number,
+              this.date_birth,
+              this.place_birth,
+              this.address,
+              this.id_doc,
+              this.date_doc,
+              this.place_doc,
+              this.education,
+              this.add_education,
+              this.interests,
+              this.experience,
+              this.date_member,
+              this.terms)
+            if(response) {
+              emailjs.sendForm('service_kejad4f', 'template_gq4284m', this.$refs.formMem, '5rwZj5R_LOCI4FI6C')
+              .then((result) => {
+                this.successSubmit = true
+              this.loader = null
+              }, (error) => {
+                this.errorSubmit = error.text
+              });
+              
             } 
-            this.loader = null
-            this.successSubmit = true
           } catch (err) {
             this.loader = null
             this.errorSubmit = err.message
           }
-
-        
-        /*
-          emailjs.sendForm('service_kejad4f', 'template_gq4284m', this.$refs.formMem, '5rwZj5R_LOCI4FI6C')
-            .then((result) => {
-              this.formSuccess = result.text
-              this.loader = null
-                console.log('SUCCESS!', result.text);
-            }, (error) => {
-              this.formError = error.text
-                console.log('FAILED...', error.text);
-            });*/
         } 
 
         if(!this.terms) {

@@ -46,9 +46,6 @@
             let index = 1
     
             const changeCover = (currentCover) => {
-                if( document.getElementById('cover1') && document.getElementById('cover2') && document.getElementById('cover3') ) {
-                    return false
-                }
                 if (currentCover == 1 ) {
                     if (index == 3) {
                         document.getElementById('cover' + index).className ='poster ' + 'poster' + index + ' zindex2-now'
@@ -123,25 +120,31 @@
     
         
     window.onload = async function () { 
-        if( document.getElementById('cover1') && document.getElementById('cover2') && document.getElementById('cover3') ) {
-                    return false
-                }
+                    
         return setInterval(function () { 
                 if (index == 1) {    
-                    setTimeout(() => changeCover(nextIndexLeft(index), 380)); 
+                    if( !document.getElementById('cover1') || !document.getElementById('cover2') || !document.getElementById('cover3') ) {
+                        return false
+                    }
+                    setTimeout(() => changeCover(nextIndexLeft(index), 500)); 
                 } else if (index == 2) {
-                    setTimeout(() => changeCover(nextIndexLeft(index), 380)); 
-                    
+                    if( !document.getElementById('cover1') || !document.getElementById('cover2') || !document.getElementById('cover3') ) {
+                        return false
+                    }
+                    setTimeout(() => changeCover(nextIndexLeft(index), 500)); 
                 } else if (index == 3){                
-                    setTimeout(() => changeCover(nextIndexLeft(index), 380)); 
+                    if( !document.getElementById('cover1') || !document.getElementById('cover2') || !document.getElementById('cover3') ) {
+                        return false
+                    }
+                    setTimeout(() => changeCover(nextIndexLeft(index), 500)); 
                 }
                 
-            }, 8000); 
+            }, 10000); 
         }
     
-            return {showCover1, showCover2, showCover3, changeCover}
-        }
-    
+            
+        return {showCover1, showCover2, showCover3, changeCover}
+    }
     }
     
     </script>
@@ -160,7 +163,7 @@
     
     .zindex1, .zindex2-now, .zindex2-next, .zindex3-now, .zindex3-next {
         position: absolute;
-        transition: clip-path 0.5s linear;
+        transition: clip-path 1s ease-in-out;
     }
     
     .zindex1 {

@@ -7,7 +7,6 @@ import SpecialistsView from '../views/specialists/SpecialistsView.vue'
 import MembershipRequest from '../views/specialists/MembershipRequest.vue'
 import EducationRequest from '../views/specialists/EducationRequest.vue'
 import PatientsView from '../views/patients/PatientsView.vue'
-import JsonView from '../views/jsonVue/JsonView.vue'
 
 const routes = [
   {
@@ -97,14 +96,6 @@ const routes = [
      }
   }, 
 
-  {
-    path: '/json-news-posts/',
-    name: 'JsonView',
-    component: () => import('@/views/jsonVue/JsonView.vue'),
-    meta: {
-      hideNavbar: true,
-     }
-  },
 
 ]
 

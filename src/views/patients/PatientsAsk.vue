@@ -4,28 +4,30 @@
             Обратиться к специалисту
         </div>
 
-        <form ref="formAsk" :class="{'success-form' : submitSuccess}">
+        <form ref="formAsk" :class="{'success-form' : successSubmit}">
             
           <label>ФИО <span>*</span></label>
-          <input  :readonly="submitSuccess" type="text" v-model="name" id="name"  name="name" :class="{'invalid' : errorName}" required>
+          <input  :readonly="successSubmit" type="text" v-model="name" id="name"  name="name" :class="{'invalid' : errorName}" required>
 
           <label>Email <span>*</span></label>
-          <input :readonly="submitSuccess" :class="{'invalid' : errorEmail}" type="email" id="email" name="email"   v-model="email" @blur="validateEmail" required>
+          <input :readonly="successSubmit" :class="{'invalid' : errorEmail}" type="email" id="email" name="email"   v-model="email" @blur="validateEmail" required>
       
           <label>Обращение <span>*</span></label>
-          <textarea :readonly="submitSuccess" rows = "10" :class="{'invalid' : errorContent}"  v-model="content" name="content" required/>
+          <textarea :readonly="successSubmit" rows = "10" :class="{'invalid' : errorContent}"  v-model="content" name="content" required/>
   
           <div class="submit" style="display: flex; justify-content: center;">
             <Loader style="position: absolute;" v-if="loader"/>
-            <input :disabled="!enableSubmit" class="long-blue-button" @click="handleSubmit" value="Отправить заявку" v-if="!formSuccess && !submitSuccess && !errorForm ">
+            <input type="submit" :disabled="!enableSubmit" class="long-blue-button" @click="handleSubmit" value="Отправить заявку" v-if="!successSubmit && !errorSubmit ">
           </div>
-          <div class="success-blue-button" style="background-color: #FFF; border: 1px solid var(--component-accent-color2); color: var(--component-accent-color2)" v-if="submitSuccess || errorForm " v-text="errorForm? errorForm : 'Заявка успешно отправлена!'"/>
+          <div class="success-blue-button" style="background-color: #FFF; border: 1px solid var(--component-accent-color2); color: var(--component-accent-color2)" v-if="successSubmit || errorSubmit " v-text="errorSubmit? errorSubmit : 'Заявка успешно отправлена!'"/>
         </form>
     </div>
 </template>
 
 <script>
 import Loader from '@/components/Loader.vue'
+import { postAskItem} from '@/firebase/config.js'
+import Axios from 'axios'
 
 export default {
     data() {
@@ -33,10 +35,9 @@ export default {
         name: null,
         email: null,
         content: null,   
-        submitSuccess: false, 
-        formSuccess: null, 
+        successSubmit: null, 
         loader: null,
-        errorForm: null
+        errorSubmit: null
     }
   },
   components: {Loader},
@@ -82,30 +83,29 @@ export default {
 
         if(this.name && this.email && this.content) {
           this.loader = ' '
-          this.submitSuccess= true
           try {
-            const data = {
-              "name": this.name.toString(),
-              "email": this.email.toString(),
-              "content": this.content.toString()
-            }
-            const response = await fetch('http://localhost:8080/api/ask_items', {
-              method: 'POST',
-              mode: 'no-cors',
-              headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(data)
-            });
-            if(!response.ok) {
-              throw Error('not available')
+            const response = postAskItem(this.name, this.email, this.content)
+            if(response) {
+              this.successSubmit= true
+              this.loader = null
             } 
-            this.formSuccess = true
-            this.loader = null
+
+            /*const config = {
+                    responseType: 'text',
+                };
+
+            let responsePHP = await Axios.post('/post.php', {text : 'Hello, Aigerim'}, config)
+
+            if (responsePHP) {
+              console.log('success')
+              console.log(responsePHP)
+              console.log(responsePHP.data)
+              console.log(responsePHP.data.message)
+            }*/
+
           } catch (err) {
             this.loader = null
-            this.errorForm = err.message
+            this.errorSubmit = err.message
           }
         } else {
           console.log('Incomplete form!')

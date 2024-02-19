@@ -16,7 +16,7 @@
                 <div class="multi-page-box">                   
                     <div class="multi-page-content">
                         <div v-if="error">{{ error }}</div>
-                        <div v-else-if="newsItem" class="newsabout-content">
+                        <div v-else-if="newsItem.title != null" class="newsabout-content">
                                 
                             <div class="newsabout-phrase-date">
                                 <div class="newsabout-phrase">
@@ -40,10 +40,10 @@
                     </div>
                     <div class="page-side">
                         <div class="page-side-box">
-                            <router-link to="/specialists/education-request/">
+                            <router-link to="/specialists/3">
                                 <SideBarHeadingsNoUrl  check="true" heading="Записаться на обучение"/>
                             </router-link>
-                            <router-link to="/specialists/membership-request/">
+                            <router-link to="/specialists/1">
                                 <SideBarHeadingsNoUrl  check="true" heading="Стать членом Общества"/>
                             </router-link>
                         </div> 
@@ -61,26 +61,48 @@ import SideBarHeadingsNoUrl from '@/components/SideBarHeadingsNoUrl.vue';
 import Footer from '@/components/Footer.vue';
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
-import { loadNews } from '@/firebase/config';
-import { loadNewsId } from '@/firebase/config';
+import { getNewsItemById  } from '@/firebase/config';
 import Loader from '@/components/Loader.vue';
+
+import Axios from 'axios'
+
 export default {
     name: "InfoAbout",
     components: {ChevronRight,  SideBarHeadingsNoUrl, Footer, Loader},
+    mounted() {
+        if(this.newsItem.value != null) {
+            const link = document.getElementById(news.id)
+            if(link != null) {
+                link.addEventListener('click.prevent', (e) => {
+                    e.preventDefault()
+                    downloadItem(news.id, 'Программа мероприятия (pdf)')
+                    e.stopImmediatePropagation();
+                })
+            }
+        }
+
+        const downloadItem = (url, label) => {
+            Axios.get(url, { responseType: 'blob' })
+                .then(response => {
+                const blob = new Blob([response.data], { type: 'application/pdf' });
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = label;
+                link.click();
+                URL.revokeObjectURL(link.href);
+            }).catch(console.error);
+        };
+    },
     setup() { 
-    const newsItem = ref(null)
+    const newsItem = ref([null])
     const error = ref(null)    
     const route = useRoute()
 
     const load = async () => {
       try {
         const id = route.params.id
-        let data = await fetch('http://localhost:8080/api/items/' + id) 
-        if(!data.ok) {
-          throw Error('no available data')
-        } 
-        newsItem.value = await data.json()
-        console.log(newsItem.value)
+        newsItem.value = await getNewsItemById(id)
+        
       }
       catch(err) {
         error.value = err.message
@@ -90,7 +112,10 @@ export default {
     
     load()
 
-    return { newsItem, error }
+
+    
+
+    return { newsItem, error}
   }
 }
 

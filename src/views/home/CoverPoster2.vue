@@ -4,10 +4,10 @@
     <div class="box">
     
     <div class="header1">
-        <div>Исследование</div>
-        <div>Проведенное в Китае и направленное на оценку влияния уровня образования на прогноз после инсульта</div>
-        <a class="cover-button" tag="div" href="https://www.instagram.com/p/CwUMvkBNtxX/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">
-            Читать →</a>
+        <div>Отчет с Конференции «Академия Кардио-Терапевта»</div>
+        <div>В течение двух дней участники принимали участие в докладах с интерактивными элементами, включая разбор клинических случаев из реальной практики с комментариями экспертов. Это позволило участникам расширить свои знания и поделиться опытом с коллегами.</div>
+        <router-link class="cover-button" tag="div" to="/news/cod4j7hB6vOq1Ms5O565/">
+            Читать →</router-link>
     </div>
 
     </div>
@@ -17,11 +17,7 @@
 </template>
 
 <script>
-export default {
-    mounted() {
-        this.$emit('dark')
-    },
-}
+
 </script>
 
 <style>
@@ -49,7 +45,7 @@ export default {
 
 .poster2 .header1 div:nth-child(1){
     font-family: var(--news-title-font);
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 400;
     color: var(--bright-red);
 
@@ -85,8 +81,8 @@ export default {
 }
 
 .poster2 .header1 div:nth-child(1){
-    font-size: 5rem;
-    margin: 0;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
 .poster2 .header1 div:nth-child(2){

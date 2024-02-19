@@ -139,11 +139,11 @@
     <div class="pop-lower">
 
     <div class="add-links-box">
-      <router-link to="/specialists/membership-request/" class="add-links" @click="closeSideMenu">
+      <router-link to="/specialists/1" class="add-links" @click="closeSideMenu">
         Стать членом Общества
         <ChevronRight color="blue"/>
       </router-link>
-      <router-link to="/specialists/membership-education/" class="add-links" @click="closeSideMenu">
+      <router-link to="/specialists/3" class="add-links" @click="closeSideMenu">
         Записаться на обучение
         <ChevronRight color="blue"/>
       </router-link>
