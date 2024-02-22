@@ -151,8 +151,6 @@
     
     <style>
     
-
-    
     .cover {
         width: 100%;
         display: block;

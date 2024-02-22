@@ -15,7 +15,7 @@
                     </div>
               </div>
         
-      <form ref="formMem"  @submit.prevent="handleSubmit" :class="{'success-form' : successSubmit}" autocomplete="on">
+      <form ref="formMem"  @submit.prevent="handleSubmit" :class="{'success-form' : successSubmit}" autocomplete="on" >
         
         <div class="subpage-title" style="text-align: center;">Заяка на членство</div>
           <label>Фамилия <span>*</span></label>
@@ -80,7 +80,7 @@
     
           <div class="submit" style="display: flex; justify-content: center;">
           <Loader style="position: absolute;" v-if="loader"/>
-          <input type="submit" :disabled="!enableSubmit" class="long-blue-button" @click="handleSubmit" value="Отправить заявку" v-if="!successSubmit && !errorSubmit ">
+          <input type="submit" :disabled="!enableSubmit" class="long-blue-button" value="Отправить заявку" v-if="!successSubmit && !errorSubmit ">
         </div>
         <div class="success-blue-button" style="background-color: #FFF; border: 1px solid var(--component-accent-color2); color: var(--component-accent-color2)" 
         v-if="successSubmit || errorSubmit" v-text="errorSubmit? errorSubmit : 'Заявка успешно отправлена!'"/>
@@ -460,7 +460,7 @@ export default {
         this.id_doc && this.date_doc && this.place_doc && this.terms && this.education) {
           this.loader = ' '
           try {
-            const response = postMembershipItem(
+            postMembershipItem(
               this.last_name,
               this.first_name,
               this.patro_name,
@@ -477,17 +477,14 @@ export default {
               this.interests,
               this.experience,
               this.date_member,
-              this.terms)
-            if(response) {
-              emailjs.sendForm('service_kejad4f', 'template_gq4284m', this.$refs.formMem, '5rwZj5R_LOCI4FI6C')
-              .then((result) => {
+              this.terms).then((res1) => 
+              emailjs.sendForm('service_kejad4f', 'template_gq4284m', 
+              this.$refs.formMem, '5rwZj5R_LOCI4FI6C')
+              .then((res2) => {
                 this.successSubmit = true
-              this.loader = null
-              }, (error) => {
-                this.errorSubmit = error.text
-              });
-              
-            } 
+                this.loader = null
+              }));
+             
           } catch (err) {
             this.loader = null
             this.errorSubmit = err.message

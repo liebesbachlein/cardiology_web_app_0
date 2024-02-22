@@ -4,7 +4,7 @@
             Обратиться к специалисту
         </div>
 
-        <form ref="formAsk" :class="{'success-form' : successSubmit}">
+        <form ref="formAsk" @submit.prevent="handleSubmit" :class="{'success-form' : successSubmit}">
             
           <label>ФИО <span>*</span></label>
           <input  :readonly="successSubmit" type="text" v-model="name" id="name"  name="name" :class="{'invalid' : errorName}" required>
@@ -17,7 +17,7 @@
   
           <div class="submit" style="display: flex; justify-content: center;">
             <Loader style="position: absolute;" v-if="loader"/>
-            <input type="submit" :disabled="!enableSubmit" class="long-blue-button" @click="handleSubmit" value="Отправить заявку" v-if="!successSubmit && !errorSubmit ">
+            <input type="submit" :disabled="!enableSubmit" class="long-blue-button" value="Отправить заявку" v-if="!successSubmit && !errorSubmit ">
           </div>
           <div class="success-blue-button" style="background-color: #FFF; border: 1px solid var(--component-accent-color2); color: var(--component-accent-color2)" v-if="successSubmit || errorSubmit " v-text="errorSubmit? errorSubmit : 'Заявка успешно отправлена!'"/>
         </form>
@@ -28,6 +28,7 @@
 import Loader from '@/components/Loader.vue'
 import { postAskItem} from '@/firebase/config.js'
 import Axios from 'axios'
+import emailjs from 'emailjs-com' 
 
 export default {
     data() {
@@ -84,11 +85,13 @@ export default {
         if(this.name && this.email && this.content) {
           this.loader = ' '
           try {
-            const response = postAskItem(this.name, this.email, this.content)
-            if(response) {
-              this.successSubmit= true
-              this.loader = null
-            } 
+            postAskItem(this.name, this.email, this.content).then((res1) => emailjs
+            .sendForm('service_kejad4f', 'template_1bb61ip', this.$refs.formAsk, '5rwZj5R_LOCI4FI6C')
+              .then((result) => {
+                this.successSubmit= true
+                this.loader = null
+              }))
+            
 
             /*const config = {
                     responseType: 'text',

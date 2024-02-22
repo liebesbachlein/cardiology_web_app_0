@@ -15,7 +15,7 @@
                     </div>
               </div>
         
-      <form ref="formEdu"  @submit.prevent="handleSubmit" :class="{'success-form' : successSubmit}" autocomplete="on">
+      <form ref="formEdu" @submit.prevent="handleSubmit" :class="{'success-form' : successSubmit}" autocomplete="on">
         
         <div class="subpage-title" style="text-align: center;">Заяка на обучение</div>
           <label>Фамилия <span>*</span></label>
@@ -89,7 +89,7 @@
     
           <div class="submit" style="display: flex; justify-content: center;">
           <Loader style="position: absolute;" v-if="loader"/>
-          <input type="submit" :disabled="!enableSubmit" class="long-blue-button" @click="handleSubmit" value="Отправить заявку" v-if="!successSubmit && !errorSubmit ">
+          <input type="submit" :disabled="!enableSubmit" class="long-blue-button" value="Отправить заявку" v-if="!successSubmit && !errorSubmit ">
         </div>
         <div class="success-blue-button" style="background-color: #FFF; border: 1px solid var(--component-accent-color2); color: var(--component-accent-color2)" 
         v-if="successSubmit || errorSubmit" v-text="errorSubmit? errorSubmit : 'Заявка успешно отправлена!'"/>
@@ -110,7 +110,6 @@
 import ChevronRight from '@/components/ChevronRight.vue';
 import Footer from '@/components/Footer.vue';
 import Axios from 'axios'
-import emailjs from 'emailjs-com' 
 import Loader from '@/components/Loader.vue';
 import { postEducationItem} from '@/firebase/config.js'
 
@@ -453,15 +452,7 @@ export default {
               this.picked_month,
               this.picked_time,
               this.terms)
-            if(response) {
-              emailjs.sendForm('service_kejad4f', 'template_1bb61ip', this.$refs.formEdu, '5rwZj5R_LOCI4FI6C')
-              .then((result) => {
-                this.successSubmit= true
-                this.loader = null
-              }, (error) => {
-                this.errorSubmit = error.text
-              });
-            }  
+              
           } catch (err) {
             this.loader = null
             this.errorSubmit = err.message

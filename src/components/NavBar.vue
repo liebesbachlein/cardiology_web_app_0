@@ -223,7 +223,7 @@ openSideMenu() {
 .home .grey-line {
     display: block;
     width: 80%;
-    border-top: 1px solid rgba(75, 101, 144, 0.5);
+    border-top: 1px solid #0f091240;
     margin: 0 auto;
 }
 
@@ -237,7 +237,7 @@ openSideMenu() {
 }
 
 .home .divider {
-  color: #54919A;
+  color: #0f091279;
   display: inline
 }
 
@@ -293,7 +293,7 @@ openSideMenu() {
 }
 
 .home .menu-item-round>a {
-  color: var(--component-accent-color2);
+  color: #0f091279;
   border-radius: 0.5rem;
   font-weight: 600;
 }
