@@ -4,7 +4,7 @@
         <div class="site-content-in">
             <div class="footer-upper">
                 <div class="footer-contacts">
-                    <div class="footer-number">8 (700) 012 45 78</div>
+                    <div class="footer-number">8 (701) 492-48-11</div>
                     <div class="footer-text">Подписывайтесь на нас в социальных сетях</div>
                     <div class="footer-links">
                         

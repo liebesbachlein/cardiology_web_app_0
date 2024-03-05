@@ -1,32 +1,30 @@
 <template>
 
-    <div class="poster poster3">
+    <div class="poster poster2">
         <div class="box">
         
         <div class="header1">
-            <div>Рекомендации по физическим нагрузкам для людей с артериальной гипертонией</div>
-            <a class="cover-button" tag="div" href="https://www.instagram.com/p/CtqZrrItrZ1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">
-                Читать →</a>
+            <div>Успешно проведена Конференция «Секреты Женского Сердца»</div>
+        <div>Уникальность конференции заключалась в ее гибридном формате, который позволил участникам принять участие как лично, так и через онлайн-платформу, обеспечивая максимальную доступность для всех заинтересованных лиц</div>
+        <router-link class="cover-button" tag="div" to="/news/proshla-konferentzya-secrety-zheskogo-serdtza-2024/">
+                Читать →</router-link>
         </div>
     
         </div>
     </div>
     
+    
     </template>
     
     <script>
-    export default {
-        mounted() {
-            this.$emit('dark')
-        },
-    }
+    
     </script>
     
     <style>
     
     
     .poster3 {
-        background-image: url('/covers/cover18-mobile.png');
+        background-image: url('/covers/cover24-mobile.jpg');
         padding: 0 1rem;
     }
     
@@ -37,10 +35,11 @@
         width: 100%;
         justify-content: center;
         align-items: center;
+        margin-top: 2rem;
     }
     
     .poster3 .header1 {
-        width: 90%;
+        width: 95%;
         display: flex;
         text-align: left;
         flex-direction: column;
@@ -51,19 +50,25 @@
         font-family: var(--plain-text-font);
         font-size: 2rem;
         font-weight: 400;
-        color: #FFF;
+        color: #3E3561;
         margin-bottom: 1rem;
+    }
+
+    .poster3 .header1 div:nth-child(2){
+        font-size: 1rem;
+        color: #FFF;
+        
     }
 
     
     .poster3 .cover-button {
-        margin-top: 2rem;
+        margin: 2rem 0 0 0; 
     }
     
     @media only screen and (min-width: 1024px) {
     
     .poster3 {
-        background-image: url('/covers/cover18.png');
+        background-image: url('/covers/cover24.jpg');
     }
     .poster3 .header1 {
         width: 80%;
@@ -73,6 +78,15 @@
         font-size: 3rem;
 
     }
+
+    .poster3 .header1 div:nth-child(2){
+        font-size: 1.125rem;
+        color: #2D2D2D;
+    }
+
+    .poster3 .cover-button {
+        margin: 2rem 2rem 0 auto; 
+    }
 }
-    
-    </style>
+
+</style>

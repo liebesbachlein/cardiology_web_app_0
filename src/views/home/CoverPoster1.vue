@@ -3,19 +3,20 @@
         <div class="box">
            
             <div class="header1">
-                <div>VI Республиканская научно-практическая конференциия
-                    с международным участием</div>
-                <div>Секреты женского сердца – 2024</div>
+                <div>Региональный тур</div>
+                <div>Академия</div>
+                <div>Kардио-терапевта</div>
             </div> 
             <div class="header2">
-                <div class="poster-details-box"><div class="poster-details-name">Гибридный формат: онлайн и оффлайн</div></div>
-                <div class="poster-details-box"><div class="poster-details-name">Актуальные вопросы в области ССЗ у женщин</div></div>
-                <div class="poster-details-box"><div class="poster-details-name">Oбмен опытом с ведущими специалистами</div></div>
-                <div class="poster-city"><img src="@/assets/address-white.svg">Отель «Kazzhol Park Almaty», Алматы</div>
-                <div class="poster-date"><img src="@/assets/time.svg">29 февраля</div>
+                <div class="poster-details-box"><div class="poster-details-name">Широкий спектр актуальных тем</div></div>
+                <div class="poster-details-box"><div class="poster-details-name">Проведение workshop'ов</div></div>
+                <div class="poster-details-box"><div class="poster-details-name">Практические мастер-классы</div></div>
+                <div class="poster-city"><img src="@/assets/address-white.svg">              
+                    Отель «Dedeman Oskemen Tavros Hotel», Пермитина 11/1, Усть-Каменогорск</div>
+                <div class="poster-date"><img src="@/assets/time.svg">14 — 15 марта</div>
                 
-                <a class="cover-button" tag="div" href="https://whs2024.online/">
-                    Зарегистрироваться →</a>
+                <a class="cover-button" tag="div" href="/news/academia-v-ust-kamenogorske-mart-2024/">
+                    Подробнее →</a>
                 
             </div>    
         </div>
@@ -70,7 +71,7 @@ export default {
 }
 
 .poster1 {
-    background-image: url('/covers/cover24-mobile.png');
+    background-image: url('/covers/cover19-mobile.jpg');
 }
 
 .poster1 .box {
@@ -97,25 +98,24 @@ export default {
     height: 100%;
 }
 
+
 .poster1 .header1 div:nth-child(1) {
     font-family: var(--plain-text-font);
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 400;
     color: #322957d2;
-    margin-bottom: 1rem;
 }
 
 .poster1 .header1 div:nth-child(2) {
     font-family: var(--tenor-font);
-    font-size: 2.5rem;
+    font-size: 3.75rem;
     font-weight: 500;
-    color: #3E3561;
-    margin-bottom: 1.5rem;
+    color: var(--bright-red);
 }
 
 .poster1 .header1 div:nth-child(3) {
     font-family: var(--tenor-font);
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: 400;
     color: #FFF;
 }
@@ -125,9 +125,13 @@ export default {
     display: inline-flex;
     align-items: center;
     border-radius: 0.5rem;
-    background-color: rgba(144, 82, 155, 0.676);
+    background-color: #AD78D8bc;
     padding: 0.25rem 0.5rem;
     max-width: auto;
+}
+
+.poster1 .poster-details-box {
+    display: none;
 }
 
 .poster-details-name {
@@ -148,7 +152,7 @@ export default {
 }
 
 .poster-city {
-    margin-top: 0.5rem;
+    margin: 0.5rem 0;
 }
 
 .poster-date {
@@ -176,7 +180,7 @@ export default {
 }
 
 .poster1 {
-    background-image: url('/covers/cover24.png');
+    background-image: url('/covers/cover19.jpg');
 }
 
 .poster1 .box {
@@ -184,7 +188,6 @@ export default {
     justify-content: center;
     align-items: flex-start;
     flex-direction: row;
-    padding-bottom: 4rem;
 }
 
 .poster1 .header1 {
@@ -193,30 +196,35 @@ export default {
     margin: 0;
 }
 
+.poster1 .header1>div {
+    display: block;
+}
+
 .poster1 .header2 {
     width: 50%;
     text-align: left;
     justify-content: center;
     height: 100%;
-    margin-left: 5rem;
     margin-top: 0.5rem;
 }
 
 .poster1 .header1 div:nth-child(1) {
-    font-size: 1.125rem;
-    margin-bottom: 2rem;
     font-weight: 500;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
 }
 
 .poster1 .header1 div:nth-child(2) {
-    font-size: 3.5rem;
     font-weight: 400;
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
 }
 
 .poster1 .header1 div:nth-child(3) {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 400;
 }
+
 .poster-details-name {
     font-size: 1rem;
 }
@@ -225,14 +233,13 @@ export default {
     font-size: 1.25rem;
 }
 .poster-city {
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-bottom: 0.5rem;
 }
 
-.poster-date {
-    margin-bottom: 3rem;
+.poster1 .poster-details-box {
+    display: block;
 }
-
 
 }
 

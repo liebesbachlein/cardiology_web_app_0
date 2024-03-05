@@ -10,12 +10,16 @@
             </div> 
         </div>
 
-        <MonthBlock id="m1" monthName="Февраль 2024" :lightUp="ms[0]" style="position: relative"/>
+        <MonthBlock id="m1" monthName="Март 2024" :lightUp="ms[0]" style="position: relative"/>
         <div class="month-news">
             <NewsMiniRight :news="news[0]"/>
         </div>
 
-        <MonthBlock id="m2" monthName="Март 2024" :lightUp="ms[1]" style="position: relative; "/>
+        <MonthBlock id="m2" monthName="Май 2024" :lightUp="ms[1]" style="position: relative; "/>
+        <div class="month-news">
+            <NewsMiniRight :news="news[1]"/>
+        </div>
+        <MonthBlock id="m3" monthName="Июнь 2024" :lightUp="ms[2]" style="position: relative; "/>
         <!--<div class="month-news">
             <NewsMiniRight :news="news[1]"/>
             <NewsMiniRight :news="news[2]"/>
@@ -44,7 +48,7 @@ export default {
             if (document.getElementById('m1')) {
                 this.offsets1 = [document.getElementById('m1').getBoundingClientRect().top, document.getElementById('m1').getBoundingClientRect().bottom]
                 this.offsets2 = [document.getElementById('m2').getBoundingClientRect().top, document.getElementById('m2').getBoundingClientRect().bottom]
-                /*this.offsets3 = [document.getElementById('m3').getBoundingClientRect().top, document.getElementById('m3').getBoundingClientRect().bottom]*/
+                this.offsets3 = [document.getElementById('m3').getBoundingClientRect().top, document.getElementById('m3').getBoundingClientRect().bottom]
                 this.circleOffset = document.getElementById('circle').getBoundingClientRect().top
             }
         }) 
@@ -57,7 +61,7 @@ export default {
         ms() {
             let ms = [false, false, false]
             const dis12 = Math.abs(this.offsets1[0] - this.offsets2[0])
-            //const dis23 = Math.abs(this.offsets2[0] - this.offsets3[0])
+            const dis23 = Math.abs(this.offsets2[0] - this.offsets3[0])
 
             if (Math.abs(this.offsets1[0] - this.circleOffset) < 50 || Math.abs(this.offsets1[1] - this.circleOffset) <= dis12 / 2) {
                 ms[0] = true
@@ -73,12 +77,12 @@ export default {
                 ms[1] = true
                 ms[2] = false
                 this.hideCircle = false
-            } /*else if (Math.abs(this.offsets3[0] - this.circleOffset) < dis23 / 2 || Math.abs(this.offsets3[1] - this.circleOffset) < 50) {
+            } else if (Math.abs(this.offsets3[0] - this.circleOffset) < dis23 / 2 || Math.abs(this.offsets3[1] - this.circleOffset) < 50) {
                 ms[0] = false
                 ms[1] = false
                 ms[2] = true
                 this.hideCircle = false
-            } */
+            } 
 
             return ms
         }
@@ -91,14 +95,20 @@ export default {
             circleOffset: 0,
             hideCircle: true,
         news: [
-            {date1: '28', 
-            date2: '',
-            month: 'февраля',
-            title: '«Секреты женского сердца – 2024»', 
-            address: 'ул. Наурызбай батыра, 108, отель «Kazzhol Park Almaty», Алматы', 
-            details: 'VI Республиканская научно-практическая конференция с международным участием «Особенности сердечно-сосудистых заболеваний у женщин» под названием «Секреты женского сердца – 2024». Это отличная возможность обсудить актуальные вопросы в области сердечно-сосудистых заболеваний у женщин, обменяться опытом и получить новые знания от ведущих специалистов.',
-            imgUrl: "/events/event0.png",
-            url: "/news/programme-secrety-zheskogo-tela-2-2024/"}
+            {date1: '14', 
+            date2: '15',
+            month: 'марта',
+            title: 'Региональный тур «Академия Kардио-терапевта»', 
+            address: 'Отель «Dedeman Oskemen Tavros Hotel», Пермитина 11/1, Усть-Каменогорск', 
+            details: 'В рамках этого события будет представлен широкий спектр актуальных тем, связанных с кардиологией и терапией. Ожидается представление лекционного материала, проведение workshop\'ов и мастер-классы по оценке кардиоваскулярного риска с примерами клинических случаев.',
+            url: "/news/academia-v-ust-kamenogorske-mart-2024/"},
+            {date1: '16', 
+            date2: '17',
+            month: 'мая',
+            title: 'Научно-практическая конференция «Многогранная гипертония»', 
+            address: 'Отель "Kazzhol Park Almaty", ул. Наурызбай батыра, 108, Алматы', 
+            details: 'Научно-практической конференция «Многогранная гипертония» организовано при поддержке Европейского Общества Гипертонии (ESH) и Всемирной Федерации Сердца (WHF) и посвященно Всемирному дню борьбы с артериальной гипертонией',
+            url: "/news/mnogogrannaya-hypertoniya-may-2024/"}
     ]
     }
 }

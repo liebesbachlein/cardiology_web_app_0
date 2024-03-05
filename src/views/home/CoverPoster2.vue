@@ -4,9 +4,12 @@
     <div class="box">
     
     <div class="header1">
-        <div>Отчет с Конференции «Академия Кардио-Терапевта»</div>
-        <div>В течение двух дней участники принимали участие в докладах с интерактивными элементами, включая разбор клинических случаев из реальной практики с комментариями экспертов. Это позволило участникам расширить свои знания и поделиться опытом с коллегами.</div>
-        <router-link class="cover-button" tag="div" to="/news/cod4j7hB6vOq1Ms5O565/">
+        <div>Научно-практическая конференция</div>
+        <div>Многогранная гипертония</div>
+        <div class="poster-city"><img src="@/assets/address-white.svg">              
+            Отель "Kazzhol Park Almaty", ул. Наурызбай батыра, 108, Алматы</div>
+        <div class="poster-date"><img src="@/assets/time.svg">16 — 17 мая</div>
+        <router-link class="cover-button" tag="div" to="/news/mnogogrannaya-hypertoniya-may-2024/">
             Читать →</router-link>
     </div>
 
@@ -24,7 +27,7 @@
 
 
 .poster2 {
-    background-image: url('/covers/cover14-mobile.png');
+    background-image: url('/covers/cover25-mobile.jpg');
     padding: 0 1rem;
 }
 
@@ -42,32 +45,32 @@
     text-align: left;
     flex-direction: column;
 }
+.poster2 .header1 div:nth-child(1) {
+    font-family: var(--plain-text-font);
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: #FFFF;
+}
 
-.poster2 .header1 div:nth-child(1){
-    font-family: var(--news-title-font);
+.poster2 .header1 div:nth-child(2){
+    font-family: var(--tenor-font);
     font-size: 2.5rem;
     font-weight: 400;
-    color: var(--bright-red);
-
+    color: #FFFF;
     margin-bottom: 1rem;
     
 }
 
-.poster2 .header1 div:nth-child(2) {
-    font-family: var(--plain-text-font);
-    font-size: 1.075rem;
-    font-weight: 400;
-    color: #454545;
-}
+
 
 .poster2 .cover-button {
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 @media only screen and (min-width: 1024px) {
 
 .poster2 {
-    background-image: url('/covers/cover14.png');
+    background-image: url('/covers/cover25.jpg');
 }
 .poster2 .box {
     display: inline-flex;
@@ -81,13 +84,13 @@
 }
 
 .poster2 .header1 div:nth-child(1){
-    font-size: 2.5rem;
     margin-bottom: 1rem;
+    font-size: 1.5rem;
 }
 
 .poster2 .header1 div:nth-child(2){
-    font-size: 1.25rem;
     margin: 0;
+    font-size: 4rem;
 }
 
 }
