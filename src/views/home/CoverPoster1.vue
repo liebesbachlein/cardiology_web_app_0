@@ -1,25 +1,18 @@
 <template>
 <div class="poster poster1">
-        <div class="box">
-           
-            <div class="header1">
-                <div>Региональный тур</div>
-                <div>Академия</div>
-                <div>Kардио-терапевта</div>
-            </div> 
-            <div class="header2">
-                <div class="poster-details-box"><div class="poster-details-name">Широкий спектр актуальных тем</div></div>
-                <div class="poster-details-box"><div class="poster-details-name">Проведение workshop'ов</div></div>
-                <div class="poster-details-box"><div class="poster-details-name">Практические мастер-классы</div></div>
-                <div class="poster-city"><img src="@/assets/address-white.svg">              
-                    Отель «Dedeman Oskemen Tavros Hotel», Пермитина 11/1, Усть-Каменогорск</div>
-                <div class="poster-date"><img src="@/assets/time.svg">14 — 15 марта</div>
-                
-                <a class="cover-button" tag="div" href="/news/academia-v-ust-kamenogorske-mart-2024/">
-                    Подробнее →</a>
-                
-            </div>    
-        </div>
+    <div class="box">
+    
+    <div class="header1">
+        <div>Научно-практическая конференция</div>
+        <div>Многогранная гипертония</div>
+        <div class="poster-city"><img src="@/assets/address-white.svg">              
+            Отель "Kazzhol Park Almaty", ул. Наурызбай батыра, 108, Алматы</div>
+        <div class="poster-date"><img src="@/assets/time.svg">17 мая</div>
+        <router-link class="cover-button" tag="div" to="/news/mnogogrannaya-hypertoniya-may-2024/">
+            Читать →</router-link>
+    </div>
+
+    </div>
     
 </div>
 
@@ -54,9 +47,7 @@ export default {
     margin-top: 0.5rem;
 }
 
-.poster1 .cover-button {
-    width: 13rem;
-}
+
 
 .poster {
     width: 100%;
@@ -70,56 +61,6 @@ export default {
     padding: 0 1rem;
 }
 
-.poster1 {
-    background-image: url('/covers/cover19-mobile.jpg');
-}
-
-.poster1 .box {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-}
-
-.poster1 .header1 {
-    text-align: left;
-    width: 100%;
-    margin-bottom: 1rem;
-}
-
-.poster1 .header2 {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    text-align: left;
-    justify-content: center;
-    height: 100%;
-}
-
-
-.poster1 .header1 div:nth-child(1) {
-    font-family: var(--plain-text-font);
-    font-size: 1.125rem;
-    font-weight: 400;
-    color: #322957d2;
-}
-
-.poster1 .header1 div:nth-child(2) {
-    font-family: var(--tenor-font);
-    font-size: 3.75rem;
-    font-weight: 500;
-    color: var(--bright-red);
-}
-
-.poster1 .header1 div:nth-child(3) {
-    font-family: var(--tenor-font);
-    font-size: 2.5rem;
-    font-weight: 400;
-    color: #FFF;
-}
-
 .header2 .poster-details-box {
     margin-bottom: 0.5rem;
     display: inline-flex;
@@ -128,10 +69,6 @@ export default {
     background-color: #AD78D8bc;
     padding: 0.25rem 0.5rem;
     max-width: auto;
-}
-
-.poster1 .poster-details-box {
-    display: none;
 }
 
 .poster-details-name {
@@ -166,6 +103,49 @@ export default {
     margin-right: 0.25rem;
 }
 
+
+.poster1 {
+    background-image: url('/covers/cover25-mobile.jpg');
+    padding: 0 1rem;
+}
+
+.poster1 .box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.poster1 .header1 {
+    width: 90%;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+}
+.poster1 .header1 div:nth-child(1) {
+    font-family: var(--plain-text-font);
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: #FFFF;
+}
+
+.poster1 .header1 div:nth-child(2){
+    font-family: var(--tenor-font);
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #FFFF;
+    margin-bottom: 1rem;
+    
+}
+
+
+
+.poster1 .cover-button {
+    margin-top: 1rem;
+}
+
+
 @media only screen and (min-width: 1024px) {
 
 .cover-button:hover {
@@ -179,51 +159,6 @@ export default {
     
 }
 
-.poster1 {
-    background-image: url('/covers/cover19.jpg');
-}
-
-.poster1 .box {
-    display: inline-flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: row;
-}
-
-.poster1 .header1 {
-    width: 50%;
-    padding-left: 5%;
-    margin: 0;
-}
-
-.poster1 .header1>div {
-    display: block;
-}
-
-.poster1 .header2 {
-    width: 50%;
-    text-align: left;
-    justify-content: center;
-    height: 100%;
-    margin-top: 0.5rem;
-}
-
-.poster1 .header1 div:nth-child(1) {
-    font-weight: 500;
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-}
-
-.poster1 .header1 div:nth-child(2) {
-    font-weight: 400;
-    font-size: 4rem;
-    margin-bottom: 0.5rem;
-}
-
-.poster1 .header1 div:nth-child(3) {
-    font-size: 3rem;
-    font-weight: 400;
-}
 
 .poster-details-name {
     font-size: 1rem;
@@ -237,10 +172,34 @@ export default {
     margin-bottom: 0.5rem;
 }
 
-.poster1 .poster-details-box {
-    display: block;
+
+.poster1 {
+    background-image: url('/covers/cover25.jpg');
 }
+.poster1 .box {
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.poster1 .header1 {
+    width: 50%;
+}
+
+.poster1 .header1 div:nth-child(1){
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.poster1 .header1 div:nth-child(2){
+    margin: 0;
+    font-size: 4rem;
+}
+
+
 
 }
 
 </style>
+

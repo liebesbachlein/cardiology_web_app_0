@@ -23,7 +23,7 @@
                                     {{ newsItem.phrase }}
                                 </div>
                                 <div class="newsabout-date">
-                                    {{ newsItem.date_published }}
+                                    {{ newsItem.date }}
                                 </div>
                             </div>
                             <div class="newsabout-title">

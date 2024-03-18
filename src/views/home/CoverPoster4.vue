@@ -1,6 +1,6 @@
-<!--<template>
+<template>
 
-    <div class="poster poster3">
+    <div class="poster poster4">
         <div class="box">
         
         <div class="header1">
@@ -25,13 +25,13 @@
     <style>
     
     
-    .poster3 {
+    .poster4 {
         background-image: url('/covers/cover18-mobile.png');
         padding: 0 1rem;
     }
     
     
-    .poster3 .box {
+    .poster4 .box {
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -39,7 +39,7 @@
         align-items: center;
     }
     
-    .poster3 .header1 {
+    .poster4 .header1 {
         width: 90%;
         display: flex;
         text-align: left;
@@ -47,7 +47,7 @@
     }
     
 
-    .poster3 .header1 div:nth-child(1){
+    .poster4 .header1 div:nth-child(1){
         font-family: var(--plain-text-font);
         font-size: 2rem;
         font-weight: 400;
@@ -56,23 +56,23 @@
     }
 
     
-    .poster3 .cover-button {
+    .poster4 .cover-button {
         margin-top: 2rem;
     }
     
     @media only screen and (min-width: 1024px) {
     
-    .poster3 {
+    .poster4 {
         background-image: url('/covers/cover18.png');
     }
-    .poster3 .header1 {
+    .poster4 .header1 {
         width: 80%;
     }
 
-    .poster3 .header1 div:nth-child(1){
+    .poster4 .header1 div:nth-child(1){
         font-size: 3rem;
 
     }
 }
     
-    </style>-->
+    </style>
